@@ -1026,9 +1026,9 @@ go
 create table DimAirport (
    AirportId            int                  not null,
    AirlineSeqId         int                  not null,
-   StateCode            varchar(2)           null,
+   StateCodeFips            varchar(2)           null,
    UsDotAirportCode     int                  not null,
-   StateCode2           varchar(2)           null,
+   StateCodeFips2           varchar(2)           null,
    DstId                int                  not null,
    ArilineCityMarketId  int                  not null,
    WordAreaCode         int                  not null,
@@ -1135,7 +1135,7 @@ go
 /* Index: Relationship_22_FK                                    */
 /*==============================================================*/
 create index Relationship_22_FK on DimAirport (
-StateCode ASC
+StateCodeFips ASC
 )
 go
 
@@ -1143,7 +1143,7 @@ go
 /* Index: Relationship_23_FK                                    */
 /*==============================================================*/
 create index Relationship_23_FK on DimAirport (
-StateCode2 ASC
+StateCodeFips2 ASC
 )
 go
 
@@ -1466,9 +1466,9 @@ go
 /* Table: DimState                                              */
 /*==============================================================*/
 create table DimState (
-   StateCode            varchar(2)           not null,
+   StateCodeFips            varchar(2)           not null,
    StateName            varchar(20)          not null,
-   constraint PK_DIMSTATE primary key nonclustered (StateCode)
+   constraint PK_DIMSTATE primary key nonclustered (StateCodeFips)
 )
 go
 
@@ -1476,9 +1476,9 @@ go
 /* Table: DimStateFips                                          */
 /*==============================================================*/
 create table DimStateFips (
-   StateCode2           varchar(2)           not null,
+   StateCodeFips2           varchar(2)           not null,
    StateName            varchar(20)          not null,
-   constraint PK_DIMSTATEFIPS primary key nonclustered (StateCode2)
+   constraint PK_DIMSTATEFIPS primary key nonclustered (StateCodeFips2)
 )
 go
 
@@ -2059,8 +2059,8 @@ go
 
 
 alter table DimAirport
-   add constraint FK_DIMAIRPO_RELATIONS_DIMSTATE foreign key (StateCode)
-      references DimState (StateCode)
+   add constraint FK_DIMAIRPO_RELATIONS_DIMSTATE foreign key (StateCodeFips)
+      references DimState (StateCodeFips)
 go
 
 
@@ -2177,5 +2177,20 @@ go
 alter table FactFlightActivity
    add constraint "FK_FACTFLIG_WHEELS ON_DIMDATET" foreign key (WheelsOff)
       references DimDateTime (DateTimeKey)
+go
+
+
+/*dodane*/
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('DimAirport') and o.name = 'FK_DIMAIRPO_RELATIONS_DIMSTATEFIPS')
+alter table DimAirport
+   drop constraint FK_DIMAIRPO_RELATIONS_DIMSTATEFIPS
+go
+
+alter table DimAirport
+   add constraint FK_DIMAIRPO_RELATIONS_DIMSTATEFIPS foreign key (StateCodeFips)
+      references DimStateFips (StateCodeFips)
 go
 
