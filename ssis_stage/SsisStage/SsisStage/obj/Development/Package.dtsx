@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="77"
-  DTS:VersionGUID="{25960E21-6197-4B68-B61C-26C2FA22DABB}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{277897A6-BCD0-4F9F-8513-DE93AE2F3879}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=hd_stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -9086,7 +9086,6 @@
       DTS:refId="Package\StateFips"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{1966e267-4934-4eaf-97c6-76d449ddaaf0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -9269,7 +9268,7 @@
                       length="50"
                       lineageId="Package\StateFips\StateFips_csv.Outputs[Flat File Source Output].Columns[Code]"
                       name="Code"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -9291,7 +9290,7 @@
                       length="50"
                       lineageId="Package\StateFips\StateFips_csv.Outputs[Flat File Source Output].Columns[Description]"
                       name="Description"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           dataType="System.Boolean"
@@ -10648,15 +10647,15 @@
           Id="Package\AirlineId"
           TopLeft="141.5,227.5" />
         <NodeLayout
-          Size="113.333333333334,42"
+          Size="113,42"
           Id="Package\Airlines"
           TopLeft="155,48" />
         <NodeLayout
-          Size="110.666666666667,42"
+          Size="111,42"
           Id="Package\Airport"
           TopLeft="143.5,299.5" />
         <NodeLayout
-          Size="121.333333333334,42"
+          Size="121,42"
           Id="Package\AirportId"
           TopLeft="142,386" />
         <NodeLayout
@@ -10676,7 +10675,7 @@
           Id="Package\CarrierHistory"
           TopLeft="118.5,632.5" />
         <NodeLayout
-          Size="138.666666666667,42"
+          Size="139,42"
           Id="Package\CityMarketId"
           TopLeft="118,708" />
         <NodeLayout
@@ -10684,27 +10683,31 @@
           Id="Package\DepArrBlk"
           TopLeft="124.5,784.5" />
         <NodeLayout
-          Size="165.333333333334,42.6666666666667"
+          Size="165,43"
           Id="Package\DistanceGroup250"
           TopLeft="118,1773.86665309111" />
         <NodeLayout
-          Size="113.333333333334,42.6666666666667"
+          Size="105,43"
+          Id="Package\Facts"
+          TopLeft="113.194442757716,1875.33332542976" />
+        <NodeLayout
+          Size="113,43"
           Id="Package\Months"
           TopLeft="146.666664481163,1050.8666531686" />
         <NodeLayout
-          Size="173.333333333334,42.6666666666667"
+          Size="173,43"
           Id="Package\OntimeDelayGroups"
           TopLeft="118,1671.19998642445" />
         <NodeLayout
-          Size="120,42.6666666666667"
+          Size="120,43"
           Id="Package\Quarters"
           TopLeft="143.833332948387,1135.33332016071" />
         <NodeLayout
-          Size="157.333333333334,42.6666666666667"
+          Size="157,43"
           Id="Package\StateAbrAviation"
           TopLeft="118,1568.53331975778" />
         <NodeLayout
-          Size="122.666666666667,42.6666666666667"
+          Size="123,43"
           Id="Package\StateFips"
           TopLeft="118,1465.86665309111" />
         <NodeLayout
@@ -10712,7 +10715,7 @@
           Id="Package\UniqueCarriers"
           TopLeft="127,863.5" />
         <NodeLayout
-          Size="128,42.6666666666667"
+          Size="128,43"
           Id="Package\Weekdays"
           TopLeft="118,1237.99998682737" />
         <NodeLayout
@@ -10720,7 +10723,7 @@
           Id="Package\WorldAreaCode"
           TopLeft="134,947" />
         <NodeLayout
-          Size="132,42.6666666666667"
+          Size="132,43"
           Id="Package\YesNoResp"
           TopLeft="224.666665077209,1363.19998642445" />
         <EdgeLayout
@@ -10915,30 +10918,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 15]"
-          TopLeft="290.666665077209,1405.86665309111">
+          TopLeft="290.666665077209,1405.86665309112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111.333331743876,60"
+              EndConnector="-111.333331743876,59.9999999999934"
               Start="0,0"
-              End="-111.333331743876,52.5">
+              End="-111.333331743876,52.4999999999934">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,25.9999999999967" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
+                    Point1="0,25.9999999999967"
+                    Point2="0,29.9999999999967"
+                    Point3="-4,29.9999999999967" />
                   <mssgle:LineSegment
-                    End="-107.333331743876,30" />
+                    End="-107.333331743876,29.9999999999967" />
                   <mssgle:CubicBezierSegment
-                    Point1="-107.333331743876,30"
-                    Point2="-111.333331743876,30"
-                    Point3="-111.333331743876,34" />
+                    Point1="-107.333331743876,29.9999999999967"
+                    Point2="-111.333331743876,29.9999999999967"
+                    Point3="-111.333331743876,33.9999999999967" />
                   <mssgle:LineSegment
-                    End="-111.333331743876,52.5" />
+                    End="-111.333331743876,52.4999999999934" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10953,26 +10956,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.3333333333333,60"
+              EndConnector="17.3333333333333,60.0000000000032"
               Start="0,0"
-              End="17.3333333333333,52.5">
+              End="17.3333333333333,52.5000000000032">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,26.0000000000016" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
+                    Point1="0,26.0000000000016"
+                    Point2="0,30.0000000000016"
+                    Point3="4,30.0000000000016" />
                   <mssgle:LineSegment
-                    End="13.3333333333333,30" />
+                    End="13.3333333333333,30.0000000000016" />
                   <mssgle:CubicBezierSegment
-                    Point1="13.3333333333333,30"
-                    Point2="17.3333333333333,30"
-                    Point3="17.3333333333333,34" />
+                    Point1="13.3333333333333,30.0000000000016"
+                    Point2="17.3333333333333,30.0000000000016"
+                    Point3="17.3333333333333,34.0000000000016" />
                   <mssgle:LineSegment
-                    End="17.3333333333333,52.5" />
+                    End="17.3333333333333,52.5000000000032" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11029,6 +11032,40 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.4999999999934" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 19]"
+          TopLeft="200.666666666667,1816.53331975778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.1388905756175,58.8000056719804"
+              Start="0,0"
+              End="-35.1388905756175,51.3000056719804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4000028359902" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.4000028359902"
+                    Point2="0,29.4000028359902"
+                    Point3="-4,29.4000028359902" />
+                  <mssgle:LineSegment
+                    End="-31.1388905756175,29.4000028359902" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.1388905756175,29.4000028359902"
+                    Point2="-35.1388905756175,29.4000028359902"
+                    Point3="-35.1388905756175,33.4000028359902" />
+                  <mssgle:LineSegment
+                    End="-35.1388905756175,51.3000056719804" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11229,44 +11266,6 @@
                     Point3="13.5,22.5" />
                   <mssgle:LineSegment
                     End="13.5,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="104.666666666667,42.6666666666667"
-          Id="Package\Facts"
-          TopLeft="113.194442757716,1875.33332542976" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 19]"
-          TopLeft="200.666666666667,1816.53331975778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.1388905756175,58.8000056719804"
-              Start="0,0"
-              End="-35.1388905756175,51.3000056719804">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.4000028359902" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.4000028359902"
-                    Point2="0,29.4000028359902"
-                    Point3="-4,29.4000028359902" />
-                  <mssgle:LineSegment
-                    End="-31.1388905756175,29.4000028359902" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31.1388905756175,29.4000028359902"
-                    Point2="-35.1388905756175,29.4000028359902"
-                    Point3="-35.1388905756175,33.4000028359902" />
-                  <mssgle:LineSegment
-                    End="-35.1388905756175,51.3000056719804" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11542,7 +11541,7 @@
     design-time-name="Package\Airports">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="184,42"
           Id="Package\Airports\AirStatsStage_Airports"
@@ -11582,7 +11581,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11968,6 +11969,69 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Facts">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="125,43"
+          Id="Package\Facts\Facts_csv"
+          TopLeft="252,85" />
+        <NodeLayout
+          Size="228,43"
+          Id="Package\Facts\AirStatsStage_FactFlightActivity"
+          TopLeft="239,296" />
+        <EdgeLayout
+          Id="Package\Facts.Paths[Flat File Source Output]"
+          TopLeft="314.666666666667,127.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.3333333333333,168.333333333333"
+              Start="0,0"
+              End="38.3333333333333,160.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.1666666666667"
+                    Point2="0,84.1666666666667"
+                    Point3="4,84.1666666666667" />
+                  <mssgle:LineSegment
+                    End="34.3333333333333,84.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.3333333333333,84.1666666666667"
+                    Point2="38.3333333333333,84.1666666666667"
+                    Point3="38.3333333333333,88.1666666666667" />
+                  <mssgle:LineSegment
+                    End="38.3333333333333,160.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Facts\AirStatsStage_FactFlightActivity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Months">
     <LayoutInfo>
       <GraphLayout
@@ -12036,7 +12100,7 @@
     design-time-name="Package\OntimeDelayGroups">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="194.666666666667,42.6666666666667"
           Id="Package\OntimeDelayGroups\OntimeDelayGroups_csv"
@@ -12076,7 +12140,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12231,11 +12297,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,42.6666666666667"
+          Size="144,43"
           Id="Package\StateFips\StateFips_csv"
           TopLeft="252,85" />
         <NodeLayout
-          Size="190.666666666667,42.6666666666667"
+          Size="191,43"
           Id="Package\StateFips\AirStatsStage_StateFips"
           TopLeft="239,296" />
         <EdgeLayout
@@ -12513,69 +12579,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\YesNoResp\AirStatsStage_YesNoResp">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Facts">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="228,42.6666666666667"
-          Id="Package\Facts\AirStatsStage_FactFlightActivity"
-          TopLeft="239,296" />
-        <NodeLayout
-          Size="125.333333333334,42.6666666666667"
-          Id="Package\Facts\Facts_csv"
-          TopLeft="252,85" />
-        <EdgeLayout
-          Id="Package\Facts.Paths[Flat File Source Output]"
-          TopLeft="314.666666666667,127.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.3333333333333,168.333333333333"
-              Start="0,0"
-              End="38.3333333333333,160.833333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,80.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,80.1666666666667"
-                    Point2="0,84.1666666666667"
-                    Point3="4,84.1666666666667" />
-                  <mssgle:LineSegment
-                    End="34.3333333333333,84.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.3333333333333,84.1666666666667"
-                    Point2="38.3333333333333,84.1666666666667"
-                    Point3="38.3333333333333,88.1666666666667" />
-                  <mssgle:LineSegment
-                    End="38.3333333333333,160.833333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Facts\AirStatsStage_FactFlightActivity">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
