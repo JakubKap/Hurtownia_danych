@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-BO7AJ5R"
   DTS:CreatorName="DESKTOP-BO7AJ5R\Kuba"
-  DTS:DTSID="{CE522C3C-C84E-48D6-A087-6CE5AC97487B}"
+  DTS:DTSID="{69BC96DF-B1D3-4B27-B095-0001FEA3D690}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1100.123"
   DTS:LocaleID="1045"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{B8517E3F-A535-4622-8F59-2C2E288E000A}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{3FB312C7-6301-45E4-8EDE-429CB7430843}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -151,6 +151,34 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2252D525-E427-4F0D-9074-EC41D5F15AE0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FactIata">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91DEC5D5-5221-443F-ACCC-912C5DD90C19}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FactIataList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -803,6 +831,102 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 6"
           DTS:To="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Matching appropriate AirlineId to Fact Table"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{960D585B-15EB-4DB1-9F93-395868CDB177}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Matching appropriate AirlineId to Fact Table">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{09997B3A-6BDC-41DA-ADFA-5F3F3FD6F084}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Iata from Stage_FactFlightActivity">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{48E4CF78-043B-4388-BBCA-0E3B3E6DFE2C}"
+            DTS:ObjectName="{48E4CF78-043B-4388-BBCA-0E3B3E6DFE2C}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::FactIataList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity\Match appropriate AirlineId in Dwh"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{3ED746A5-BAEA-4595-9500-A54C5CADAD83}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match appropriate AirlineId in Dwh"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CAEAB74E-3B0B-4E4B-880E-46ADA712D330}"
+                  SQLTask:SqlStatementSource="EXEC dbo.matchAppropriateAirlineId ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::FactIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{6A59E5AE-0AAD-49AD-949D-A1C8E5ACB084}"
+              DTS:ObjectName="{6A59E5AE-0AAD-49AD-949D-A1C8E5ACB084}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::FactIata" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Matching appropriate AirlineId to Fact Table\Select OpCarrier From Stage_Facts"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8D3E07E8-1A78-411C-B73E-84945D7D781B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select OpCarrier From Stage_Facts"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="SELECT OpCarrier FROM [AirStatsStage].[dbo].[FactFlightActivity]"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::FactIataList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Matching appropriate AirlineId to Fact Table.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{014BCBF4-9619-4C8E-8DB5-2439B3959B33}"
+          DTS:From="Package\Matching appropriate AirlineId to Fact Table\Select OpCarrier From Stage_Facts"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -2036,6 +2160,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{A290FF3A-8FDA-4350-A738-6A4A4932D16B}"
+      DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Matching appropriate AirlineId to Fact Table" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2049,6 +2181,145 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="269,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
+          TopLeft="35,42" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="309,139"
+          Size="309,182"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
+          TopLeft="76,100" />
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name\Insert or update row in Dwh_DimAirline"
+          TopLeft="30,60" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="316,153"
+          Size="316,196"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name"
+          TopLeft="124,426" />
+        <NodeLayout
+          Size="319,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
+          TopLeft="46,18" />
+        <NodeLayout
+          Size="479,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
+          TopLeft="21,339" />
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint]"
+          TopLeft="205.5,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25,40"
+              Start="0,0"
+              End="25,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="21,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,20"
+                    Point2="25,20"
+                    Point3="25,24" />
+                  <mssgle:LineSegment
+                    End="25,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 1]"
+          TopLeft="230.5,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,57"
+              Start="0,0"
+              End="30,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="26,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,28.5"
+                    Point2="30,28.5"
+                    Point3="30,32.5" />
+                  <mssgle:LineSegment
+                    End="30,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 2]"
+          TopLeft="260.5,381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,45"
+              Start="0,0"
+              End="21.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="17.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,22.5"
+                    Point2="21.5,22.5"
+                    Point3="21.5,26.5" />
+                  <mssgle:LineSegment
+                    End="21.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="630,680"
+          Size="630,723"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
+          TopLeft="104,2073" />
         <NodeLayout
           Size="288,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
@@ -2265,6 +2536,62 @@
           Id="Package\Match appropriate WorldAreaCode to Airline"
           TopLeft="36,916" />
         <NodeLayout
+          Size="243,42"
+          Id="Package\Matching appropriate AirlineId to Fact Table\Select OpCarrier From Stage_Facts"
+          TopLeft="68,18" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity\Match appropriate AirlineId in Dwh"
+          TopLeft="63,42" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="385,136"
+          Size="385,179"
+          Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity"
+          TopLeft="16,143" />
+        <EdgeLayout
+          Id="Package\Matching appropriate AirlineId to Fact Table.PrecedenceConstraints[Constraint]"
+          TopLeft="189.5,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,83"
+              Start="0,0"
+              End="19,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="15,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,41.5"
+                    Point2="19,41.5"
+                    Point3="19,45.5" />
+                  <mssgle:LineSegment
+                    End="19,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="426,373"
+          Size="426,416"
+          Id="Package\Matching appropriate AirlineId to Fact Table"
+          TopLeft="272,2860" />
+        <NodeLayout
           Size="328,42"
           Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
           TopLeft="91,544" />
@@ -2450,145 +2777,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="319,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
-          TopLeft="46,18" />
-        <NodeLayout
-          Size="269,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
-          TopLeft="35,42" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="309,139"
-          Size="309,182"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
-          TopLeft="76,100" />
-        <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint]"
-          TopLeft="205.5,60">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25,40"
-              Start="0,0"
-              End="25,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="21,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21,20"
-                    Point2="25,20"
-                    Point3="25,24" />
-                  <mssgle:LineSegment
-                    End="25,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="479,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
-          TopLeft="21,339" />
-        <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 1]"
-          TopLeft="230.5,282">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30,57"
-              Start="0,0"
-              End="30,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5"
-                    Point2="0,28.5"
-                    Point3="4,28.5" />
-                  <mssgle:LineSegment
-                    End="26,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26,28.5"
-                    Point2="30,28.5"
-                    Point3="30,32.5" />
-                  <mssgle:LineSegment
-                    End="30,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="266,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name\Insert or update row in Dwh_DimAirline"
-          TopLeft="30,60" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="316,153"
-          Size="316,196"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name"
-          TopLeft="124,426" />
-        <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 2]"
-          TopLeft="260.5,381">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.5,45"
-              Start="0,0"
-              End="21.5,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="17.5,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.5,22.5"
-                    Point2="21.5,22.5"
-                    Point3="21.5,26.5" />
-                  <mssgle:LineSegment
-                    End="21.5,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="630,680"
-          Size="630,723"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
-          TopLeft="104,2073" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
           TopLeft="292.555555555556,2026.05555555556">
@@ -2615,6 +2803,40 @@
                     Point3="126.444444444444,27.47222222222" />
                   <mssgle:LineSegment
                     End="126.444444444444,39.44444444444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="419,2796">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66,64"
+              Start="0,0"
+              End="66,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="62,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,32"
+                    Point2="66,32"
+                    Point3="66,36" />
+                  <mssgle:LineSegment
+                    End="66,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

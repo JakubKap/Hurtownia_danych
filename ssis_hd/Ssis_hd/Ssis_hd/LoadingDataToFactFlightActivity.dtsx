@@ -1,0 +1,1712 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/11/2019 5:10:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BO7AJ5R"
+  DTS:CreatorName="DESKTOP-BO7AJ5R\Kuba"
+  DTS:DTSID="{AD994A1A-1E7A-4613-9F36-F5A7F63BADA1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="LoadingDataToFactFlightActivity"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C81E72B5-6495-4296-A34B-C2F03E2E54A7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{623D0002-4051-48C4-A630-91B5AE70A043}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Deleting quoting marks from Stage_FacktFlightActivity 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{975c5b59-ab98-4ea8-8fc3-926616ec31de}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Deleting quoting marks from Stage_FacktFlightActivity 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
+          SQLTask:SqlStatementSource=" UPDATE FactFlightActivity&#xA; SET OpUniqueCarrier = REPLACE(OpUniqueCarrier, '&quot;', ''),&#xA; OpCarrier = REPLACE(OpCarrier, '&quot;', ''),&#xA; TailNum = REPLACE(TailNum, '&quot;', ''),&#xA; OpCarrierFlNum = REPLACE(OpCarrierFlNum, '&quot;', ''),&#xA; Origin = REPLACE(Origin, '&quot;', ''),&#xA; OriginCityName = REPLACE(OriginCityName, '&quot;', ''),&#xA; OriginStateAbr = REPLACE(OriginStateAbr, '&quot;', ''),&#xA; OriginStateFips = REPLACE(OriginStateFips, '&quot;', ''),&#xA; OriginStateNm = REPLACE(OriginStateNm, '&quot;', ''),&#xA; OriginWac = REPLACE(OriginWac, '&quot;', ''),&#xA; DestCityName = REPLACE(DestCityName, '&quot;', ''),&#xA; DestStateAbr = REPLACE(DestStateAbr, '&quot;', ''),&#xA; DestStateFips = REPLACE(DestStateFips, '&quot;', ''),&#xA; DestStateNm = REPLACE(DestStateNm, '&quot;', ''),&#xA; DestWac = REPLACE(DestWac, '&quot;', ''),&#xA; CrsDepTime = REPLACE(CrsDepTime, '&quot;', ''),&#xA; DepDelay = REPLACE(DepDelay, '&quot;', ''),&#xA; DepDelayNew = REPLACE(DepDelayNew, '&quot;', ''),&#xA; WheelsOff = REPLACE(WheelsOff, '&quot;', ''),&#xA; TaxiIn = REPLACE(TaxiIn, '&quot;', ''),&#xA; CrsArrTime = REPLACE(CrsArrTime, '&quot;', ''),&#xA; ArrDelay = REPLACE(ArrDelay, '&quot;', ''),&#xA; ArrDelayNew = REPLACE(ArrDelayNew, '&quot;', ''),&#xA; CancellationCode = REPLACE(CancellationCode, '&quot;', ''),&#xA; CrsElapsedTime = REPLACE(CrsElapsedTime, '&quot;', ''),&#xA; LateAircraftDelay = REPLACE(LateAircraftDelay, '&quot;', '');"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Facts from Stage to DWH 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5f0e1b42-fc2b-4283-86db-a6196d8c7633}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Facts from Stage to DWH 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[TailNum]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="TailNum"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TailNum]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[DepDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="DepDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[DepDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[TaxiIn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="TaxiIn"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiIn]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[TaxiOut]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="TaxiOut"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiOut]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[ArrDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="ArrDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ArrDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[ActualElapsedTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="ActualElapsedTime"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ActualElapsedTime]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[AirTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="AirTime"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[AirTime]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[Flights]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Flights"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Flights]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[Distance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Distance"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Distance]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[CarrierDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="CarrierDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[CarrierDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[WeatherDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="WeatherDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[WeatherDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[NasDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="NasDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[NasDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[SecurityDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="SecurityDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[SecurityDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input].Columns[LateAircraftDelay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="LateAircraftDelay"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[LateAircraftDelay]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TailNum]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TailNum]"
+                      name="Copy of TailNum"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TailNum]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepDelay]"
+                      name="Copy of DepDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[DepDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiIn]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiIn]"
+                      name="Copy of TaxiIn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiIn]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiOut]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiOut]"
+                      name="Copy of TaxiOut"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiOut]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ArrDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ArrDelay]"
+                      name="Copy of ArrDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ArrDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ActualElapsedTime]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ActualElapsedTime]"
+                      name="Copy of ActualElapsedTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ActualElapsedTime]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirTime]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirTime]"
+                      name="Copy of AirTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[AirTime]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Flights]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Flights]"
+                      name="Copy of Flights"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Flights]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distance]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distance]"
+                      name="Copy of Distance"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Distance]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CarrierDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CarrierDelay]"
+                      name="Copy of CarrierDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[CarrierDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WeatherDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WeatherDelay]"
+                      name="Copy of WeatherDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[WeatherDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NasDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NasDelay]"
+                      name="Copy of NasDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[NasDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SecurityDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SecurityDelay]"
+                      name="Copy of SecurityDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[SecurityDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LateAircraftDelay]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LateAircraftDelay]"
+                      name="Copy of LateAircraftDelay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[LateAircraftDelay]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dwh_FactFlightActivity"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactFlightActivity]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of WeatherDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of WeatherDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[WeatherDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WeatherDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of TaxiOut]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of TaxiOut"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[TaxiOut]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiOut]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of TaxiIn]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of TaxiIn"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[TaxiIn]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TaxiIn]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of SecurityDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of SecurityDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[SecurityDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SecurityDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of NasDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of NasDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[NASDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NasDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of LateAircraftDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of LateAircraftDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LateAircraftDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LateAircraftDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of Flights]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of Flights"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[Flights]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Flights]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of Distance]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of Distance"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Distance]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of DepDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of DepDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DepDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of CarrierDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of CarrierDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[CarrierDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CarrierDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of ArrDelay]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of ArrDelay"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ArrDelay]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ArrDelay]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of AirTime]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of AirTime"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[AirTime]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirTime]" />
+                    <inputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].Columns[Copy of ActualElapsedTime]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of ActualElapsedTime"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ActualElapsedTime]"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ActualElapsedTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[FlightId]"
+                      dataType="i4"
+                      name="FlightId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalScheduledDepartureTime]"
+                      dataType="i4"
+                      name="LocalScheduledDepartureTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DelayGroup]"
+                      dataType="i4"
+                      name="DelayGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DifficultiesKey]"
+                      dataType="i4"
+                      name="DifficultiesKey" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalScheduledArrivalTime]"
+                      dataType="i4"
+                      name="UniversalScheduledArrivalTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[OperatingAirline]"
+                      dataType="i4"
+                      name="OperatingAirline" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalActualArrivalTime]"
+                      dataType="i4"
+                      name="UniversalActualArrivalTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalActualArrivalDate]"
+                      dataType="i4"
+                      name="UniversalActualArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalActualDepartureTime]"
+                      dataType="i4"
+                      name="LocalActualDepartureTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalScheduledDepartureDate]"
+                      dataType="i4"
+                      name="LocalScheduledDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalScheduledDepartureTime]"
+                      dataType="i4"
+                      name="UniversalScheduledDepartureTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalScheduledArrivalTime]"
+                      dataType="i4"
+                      name="LocalScheduledArrivalTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[CancellationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CancellationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalScheduledArrivalDate]"
+                      dataType="i4"
+                      name="UniversalScheduledArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ArrAirport]"
+                      dataType="i4"
+                      name="ArrAirport" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalActualDepartureDate]"
+                      dataType="i4"
+                      name="UniversalActualDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[FlightDate]"
+                      dataType="i4"
+                      name="FlightDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalActualDepartureTime]"
+                      dataType="i4"
+                      name="UniversalActualDepartureTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DepAirport]"
+                      dataType="i4"
+                      name="DepAirport" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalActualDepartureDate]"
+                      dataType="i4"
+                      name="LocalActualDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalScheduledArrivalDate]"
+                      dataType="i4"
+                      name="LocalScheduledArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[UniversalScheduledDepartureDate]"
+                      dataType="i4"
+                      name="UniversalScheduledDepartureDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ArrTimeBLK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ArrTimeBLK" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DepTimeBLK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DepTimeBLK" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalActualArrivalTime]"
+                      dataType="i4"
+                      name="LocalActualArrivalTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LocalActualArrivalDate]"
+                      dataType="i4"
+                      name="LocalActualArrivalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[TailNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TailNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[FlightNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FlightNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DepDelay]"
+                      dataType="i4"
+                      name="DepDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[DepDelayMinutes]"
+                      dataType="i4"
+                      name="DepDelayMinutes" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[TaxiOut]"
+                      dataType="i4"
+                      name="TaxiOut" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[TaxiIn]"
+                      dataType="i4"
+                      name="TaxiIn" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ArrDelay]"
+                      dataType="i4"
+                      name="ArrDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ArrDelayMinutes]"
+                      dataType="i4"
+                      name="ArrDelayMinutes" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[SchedElapsedTime]"
+                      dataType="i4"
+                      name="SchedElapsedTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[ActualElapsedTime]"
+                      dataType="i4"
+                      name="ActualElapsedTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[AirTime]"
+                      dataType="i4"
+                      name="AirTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[Flights]"
+                      dataType="i4"
+                      name="Flights" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      dataType="i4"
+                      name="Distance" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[CarrierDelay]"
+                      dataType="i4"
+                      name="CarrierDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[WeatherDelay]"
+                      dataType="i4"
+                      name="WeatherDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[NASDelay]"
+                      dataType="i4"
+                      name="NASDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[SecurityDelay]"
+                      dataType="i4"
+                      name="SecurityDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input].ExternalColumns[LateAircraftDelay]"
+                      dataType="i4"
+                      name="LateAircraftDelay" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stage_FactFlightActivity"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactFlightActivity]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TailNum]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TailNum]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TailNum]"
+                      name="TailNum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[DepDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[DepDelay]"
+                      name="DepDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiIn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TaxiIn]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiIn]"
+                      name="TaxiIn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiOut]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TaxiOut]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[TaxiOut]"
+                      name="TaxiOut"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ArrDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ArrDelay]"
+                      name="ArrDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ActualElapsedTime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ActualElapsedTime]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[ActualElapsedTime]"
+                      name="ActualElapsedTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[AirTime]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[AirTime]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[AirTime]"
+                      name="AirTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Flights]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Flights]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Flights]"
+                      name="Flights"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Distance]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[Distance]"
+                      name="Distance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[CarrierDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CarrierDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[CarrierDelay]"
+                      name="CarrierDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[WeatherDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[WeatherDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[WeatherDelay]"
+                      name="WeatherDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[NasDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[NasDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[NasDelay]"
+                      name="NasDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[SecurityDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[SecurityDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[SecurityDelay]"
+                      name="SecurityDelay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[LateAircraftDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[LateAircraftDelay]"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].Columns[LateAircraftDelay]"
+                      name="LateAircraftDelay"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DayOfMonth]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeek]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DayOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[FlDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="FlDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OpUniqueCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OpUniqueCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OpCarrierAirlineId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OpCarrierAirlineId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OpCarrier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OpCarrier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TailNum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="TailNum" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OpCarrierFlNum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OpCarrierFlNum" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginAirportId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginAirportId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginAirportSeqId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginAirportSeqId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Origin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Origin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginCityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginStateAbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginStateAbr" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginStateFips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginStateFips" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginStateNm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginStateNm" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[OriginWac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="OriginWac" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestAirportId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestAirportId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestAirportSeqId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestAirportSeqId" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Dest" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestCityName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestStateAbr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestStateAbr" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestStateFips]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestStateFips" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestStateNm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestStateNm" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DestWac]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DestWac" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CrsDepTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="CrsDepTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepDelayNew]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepDelayNew" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepDel15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepDel15" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepDelayGroup]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepDelayGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DepTimeBlk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DepTimeBlk" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TaxiOut]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="TaxiOut" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[WheelsOff]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="WheelsOff" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[WheelsOn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="WheelsOn" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[TaxiIn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="TaxiIn" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CrsArrTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="CrsArrTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrDelayNew]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrDelayNew" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrDel15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrDel15" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrDelayGroup]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrDelayGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ArrTimeBlk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ArrTimeBlk" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Cancelled]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Cancelled" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CancellationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="CancellationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Diverted]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Diverted" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CrsElapsedTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="CrsElapsedTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[ActualElapsedTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="ActualElapsedTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[AirTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="AirTime" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Flights]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Flights" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Distance" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[DistanceGroup]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="DistanceGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[CarrierDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="CarrierDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[WeatherDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="WeatherDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[NasDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="NasDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[SecurityDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="SecurityDelay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output].ExternalColumns[LateAircraftDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="LateAircraftDelay" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TailNum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TailNum]"
+                      name="TailNum" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[DepDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[DepDelay]"
+                      name="DepDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TaxiIn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TaxiIn]"
+                      name="TaxiIn" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TaxiOut]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[TaxiOut]"
+                      name="TaxiOut" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ArrDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ArrDelay]"
+                      name="ArrDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ActualElapsedTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[ActualElapsedTime]"
+                      name="ActualElapsedTime" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[AirTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[AirTime]"
+                      name="AirTime" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[Flights]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[Flights]"
+                      name="Flights" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      name="Distance" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[CarrierDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[CarrierDelay]"
+                      name="CarrierDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[WeatherDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[WeatherDelay]"
+                      name="WeatherDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[NasDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[NasDelay]"
+                      name="NasDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[SecurityDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[SecurityDelay]"
+                      name="SecurityDelay" />
+                    <outputColumn
+                      refId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[LateAircraftDelay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Error Output].Columns[LateAircraftDelay]"
+                      name="LateAircraftDelay" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer Facts from Stage to DWH 1.Paths[Data Conversion Output]"
+              endId="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Transfer Facts from Stage to DWH 1.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Facts from Stage to DWH 1\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{32bb63dc-7aeb-4fec-9e33-2cb8a88d1b3b}"
+      DTS:From="Package\Deleting quoting marks from Stage_FacktFlightActivity 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transfer Facts from Stage to DWH 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="343,42"
+          Id="Package\Deleting quoting marks from Stage_FacktFlightActivity 1"
+          TopLeft="168,51" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Transfer Facts from Stage to DWH 1"
+          TopLeft="213,147" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="339,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transfer Facts from Stage to DWH 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity"
+          TopLeft="198,23" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfer Facts from Stage to DWH 1\Data Conversion"
+          TopLeft="214,94" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Transfer Facts from Stage to DWH 1\Dwh_FactFlightActivity"
+          TopLeft="194,202" />
+        <EdgeLayout
+          Id="Package\Transfer Facts from Stage to DWH 1.Paths[OLE DB Source Output]"
+          TopLeft="292.75,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Facts from Stage to DWH 1.Paths[Data Conversion Output]"
+          TopLeft="289.25,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
