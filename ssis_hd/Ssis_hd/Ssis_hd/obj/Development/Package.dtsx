@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{96E16C12-7553-46F2-81F3-D7991203E786}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{4CAB04BD-A282-4EBE-997A-8DF92AFAC94E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -215,17 +215,34 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Sequence Container"
+      DTS:refId="Package\Match appropriate WorldAreaCode to Airline"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
       DTS:DTSID="{D858B247-6D14-4120-B1C6-E90DC05471C6}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Sequence Container">
+      DTS:ObjectName="Match appropriate WorldAreaCode to Airline">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Sequence Container\Foreach Country Name and AirlineId"
+          DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{25DE2990-AF28-432F-82B5-1024E3D9E730}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{CAEAB74E-3B0B-4E4B-880E-46ADA712D330}"
+              SQLTask:SqlStatementSource=" WITH TempDimAirlineWorldAreaCode (Region,duplicateRecCount)&#xA;AS&#xA;(&#xA;SELECT Region,ROW_NUMBER() OVER(PARTITION by Region ORDER BY Region) &#xA;AS duplicateRecCount&#xA;FROM DimAirlineWorldAreaCode&#xA;)&#xA;DELETE FROM TempDimAirlineWorldAreaCode&#xA;WHERE duplicateRecCount &gt; 1 ;"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
           DTS:DTSID="{b952b9eb-33b5-44b0-9b68-7eee05eebfe3}"
@@ -245,7 +262,7 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Sequence Container\Foreach Country Name and AirlineId\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
+              DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{8a941a7b-ba27-4c7a-9868-67138cf355ff}"
@@ -267,7 +284,7 @@
                     SQLTask:ParameterSize="1024" />
                   <SQLTask:ParameterBinding
                     SQLTask:ParameterName="1"
-                    SQLTask:DtsVariableName="User::CountryName"
+                    SQLTask:DtsVariableName="User::AirlineCoutryName"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="129"
                     SQLTask:ParameterSize="1024" />
@@ -278,20 +295,20 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{04AD49AC-DA84-49F5-B7DA-AFFB604E5012}"
-              DTS:ObjectName="{04AD49AC-DA84-49F5-B7DA-AFFB604E5012}"
+              DTS:DTSID="{2E4D9C0D-FE54-4B80-93E1-3A0DFDF07383}"
+              DTS:ObjectName="{2E4D9C0D-FE54-4B80-93E1-3A0DFDF07383}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::AirlineId" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{82FCFAA9-E120-4D97-992C-9C1933A601CE}"
-              DTS:ObjectName="{82FCFAA9-E120-4D97-992C-9C1933A601CE}"
+              DTS:DTSID="{73141E80-E237-405B-AA87-9BA0E021B229}"
+              DTS:ObjectName="{73141E80-E237-405B-AA87-9BA0E021B229}"
               DTS:ValueIndex="1"
               DTS:VariableName="User::AirlineCoutryName" />
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Sequence Container\Select AirlineId, Country FROM Stage_Airlines"
+          DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Select AirlineId, Country FROM Stage_Airlines"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{F26B4C77-76EA-484A-A663-BDB2BB99FD69}"
@@ -304,6 +321,7 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
               SQLTask:SqlStatementSource="Select AirlineId, Country FROM Airlines"
+              SQLTask:CodePage="1252"
               SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
@@ -314,13 +332,21 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 6]"
+          DTS:refId="Package\Match appropriate WorldAreaCode to Airline.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A832908B-9B8E-4DFD-BA0C-F6232EF812AB}"
+          DTS:From="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match appropriate WorldAreaCode to Airline\Select AirlineId, Country FROM Stage_Airlines" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate WorldAreaCode to Airline.PrecedenceConstraints[Constraint 6]"
           DTS:CreationName=""
           DTS:DTSID="{2C1B819D-67BE-4908-99FA-8C70EE895C08}"
-          DTS:From="Package\Sequence Container\Select AirlineId, Country FROM Stage_Airlines"
+          DTS:From="Package\Match appropriate WorldAreaCode to Airline\Select AirlineId, Country FROM Stage_Airlines"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 6"
-          DTS:To="Package\Sequence Container\Foreach Country Name and AirlineId" />
+          DTS:To="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -1537,7 +1563,7 @@
       DTS:From="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Sequence Container" />
+      DTS:To="Package\Match appropriate WorldAreaCode to Airline" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1556,6 +1582,10 @@
           Id="Package\Deleting quation marks from Stage_Airlines"
           TopLeft="112,461" />
         <NodeLayout
+          Size="322,42"
+          Id="Package\Deleting quoting marks from Stage_WorldAreaCode"
+          TopLeft="97,654" />
+        <NodeLayout
           Size="338,42"
           Id="Package\Foreach Country Name\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
           TopLeft="5.5,54" />
@@ -1571,9 +1601,83 @@
           Id="Package\Get all Country names from Airlines_dat"
           TopLeft="113,9" />
         <NodeLayout
+          Size="338,42"
+          Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
+          TopLeft="5.5,54" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,219"
+          Size="348,262"
+          Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId"
+          TopLeft="35.5,187" />
+        <NodeLayout
+          Size="294,42"
+          Id="Package\Match appropriate WorldAreaCode to Airline\Select AirlineId, Country FROM Stage_Airlines"
+          TopLeft="55.5,80" />
+        <EdgeLayout
+          Id="Package\Match appropriate WorldAreaCode to Airline.PrecedenceConstraints[Constraint 6]"
+          TopLeft="206,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="349,42"
+          Id="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
+          TopLeft="32,10" />
+        <EdgeLayout
+          Id="Package\Match appropriate WorldAreaCode to Airline.PrecedenceConstraints[Constraint]"
+          TopLeft="204.5,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="438,502"
+          Size="438,545"
+          Id="Package\Match appropriate WorldAreaCode to Airline"
+          TopLeft="78,912" />
+        <NodeLayout
           Size="328,42"
           Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
           TopLeft="91,544" />
+        <NodeLayout
+          Size="440,42"
+          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
+          TopLeft="30,770" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="247.75,51">
@@ -1640,10 +1744,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="322,42"
-          Id="Package\Deleting quoting marks from Stage_WorldAreaCode"
-          TopLeft="97,654" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="256.5,586">
@@ -1666,10 +1766,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="440,42"
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
-          TopLeft="30,770" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="258,696">
@@ -1704,76 +1800,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="294,42"
-          Id="Package\Sequence Container\Select AirlineId, Country FROM Stage_Airlines"
-          TopLeft="30.5,6" />
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 6]"
-          TopLeft="178.5,48">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="338,42"
-          Id="Package\Sequence Container\Foreach Country Name and AirlineId\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
-          TopLeft="5.5,54" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="348,219"
-          Size="348,262"
-          Id="Package\Sequence Container\Foreach Country Name and AirlineId"
-          TopLeft="5.5,106" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="358,423"
-          Size="358,466"
-          Id="Package\Sequence Container"
-          TopLeft="87,888" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="250,812">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16,76"
+              EndConnector="47,100"
               Start="0,0"
-              End="16,68.5">
+              End="47,92.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34" />
+                    End="0,46" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="4,38" />
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="4,50" />
                   <mssgle:LineSegment
-                    End="12,38" />
+                    End="43,50" />
                   <mssgle:CubicBezierSegment
-                    Point1="12,38"
-                    Point2="16,38"
-                    Point3="16,42" />
+                    Point1="43,50"
+                    Point2="47,50"
+                    Point3="47,54" />
                   <mssgle:LineSegment
-                    End="16,68.5" />
+                    End="47,92.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1789,7 +1841,7 @@
     design-time-name="Package\Transfer data from Stage_Airlines to Dwh_DimAirline">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="145,42"
           Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
@@ -1821,7 +1873,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1843,7 +1897,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1879,15 +1935,15 @@
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode"
-          TopLeft="267,63" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="226,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode"
           TopLeft="252,239" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode"
+          TopLeft="267,63" />
         <NodeLayout
           Size="156,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Data Conversion"
@@ -1911,7 +1967,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1933,14 +1991,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode">
+    design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1953,7 +2013,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode">
+    design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
