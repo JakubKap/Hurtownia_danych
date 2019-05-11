@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="76"
-  DTS:VersionGUID="{053C8D31-BFDC-4B29-9655-80B2909F85DB}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{B8517E3F-A535-4622-8F59-2C2E288E000A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -116,6 +116,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{783D89EB-6E7B-4E1D-8AFC-BB93A86C00AA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CarrierHistoryUsDotCode">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{6D20FDE2-AD7C-46FA-AA6A-C83F7AF9E5E7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -145,17 +155,243 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Adding to DimAirline rest of Airlines"
+      DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EA90E7AB-5B78-4379-B868-7F5F5AA43A1C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adding to DimAirline rest of Airlines from Stage_AirlineId">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{A5074B57-4E79-4230-A8EF-DFC3F8CC3389}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach CarrierHistory And Name">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{EE878D7D-633A-4A16-A764-DA744BF6D459}"
+            DTS:ObjectName="{EE878D7D-633A-4A16-A764-DA744BF6D459}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CarrierHistoryList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{5184332A-6CB9-4F71-B9D8-A8A5DFFE0CD0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Map UsDotCode And Iata to a new table"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertNotPresentCarriers ?,?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::CarrierHistoryIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::CarrierHistoryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{1BCB9A94-738E-49DD-82DD-E77DEF832EDD}"
+              DTS:ObjectName="{1BCB9A94-738E-49DD-82DD-E77DEF832EDD}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CarrierHistoryIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3C2F0E98-AFE4-4093-89AD-C97F38432EA5}"
+              DTS:ObjectName="{3C2F0E98-AFE4-4093-89AD-C97F38432EA5}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::CarrierHistoryName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{90DD5A7D-2EFD-4429-8A72-14CA5E62AE1C}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Iata, UsDotCode And Name">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{84ED02E7-B7A1-43D3-85A8-98262E9CDA7E}"
+            DTS:ObjectName="{84ED02E7-B7A1-43D3-85A8-98262E9CDA7E}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CarrierHistoryList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name\Insert or update row in Dwh_DimAirline"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{2568B2C1-2259-46D5-B677-C7CA2F978BC0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert or update row in Dwh_DimAirline"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{CAEAB74E-3B0B-4E4B-880E-46ADA712D330}"
+                  SQLTask:SqlStatementSource="dbo.mapUsDotCodeToAirline ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::CarrierHistoryUsDotCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::CarrierHistoryIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::CarrierHistoryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{363A3EB4-7D39-4A89-A814-E91727C1E528}"
+              DTS:ObjectName="{363A3EB4-7D39-4A89-A814-E91727C1E528}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CarrierHistoryUsDotCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3E2FE971-E7C7-4C3C-AB8D-7E398D095FA8}"
+              DTS:ObjectName="{3E2FE971-E7C7-4C3C-AB8D-7E398D095FA8}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::CarrierHistoryIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{F1815886-657A-4280-A00E-A4D859659DF3}"
+              DTS:ObjectName="{F1815886-657A-4280-A00E-A4D859659DF3}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::CarrierHistoryName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8FDF1043-8854-4DCB-8F9D-9D676019407E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select CarrierIata, CarrierName from CarrierHistory"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="SELECT Code, Description FROM CarrierHistory;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CarrierHistoryList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{672E97ED-AB8B-4149-9DBD-0D99BEB2A5FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource=" SELECT UsdotCode, Iata, Name FROM UsdotAndIataMap;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CarrierHistoryList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA9409CE-4D9C-4FB9-A36B-DB86081B9A85}"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4CB0D4C0-A219-47E7-A09D-9119ABAAA328}"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{CE4D5D19-39CF-48D6-AE1C-7FAE98894286}"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
       DTS:DTSID="{84F99A69-5710-479C-88B8-E81C5D2B92FE}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Adding to DimAirline rest of Airlines">
+      DTS:ObjectName="Adding to DimAirline rest of Airlines from Stage_CarrierHistory">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_AirlineId"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{09373F95-A094-4CEE-82F9-612F4F994DA0}"
@@ -171,7 +407,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_CarrierHistory"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{32655DCC-1068-4F56-BF26-D0DEA7798550}"
@@ -187,7 +423,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_UniqueCarriers"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{174D8A80-DA2B-4946-BB66-73DE0E3C787D}"
@@ -203,7 +439,7 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines\Foreach CarrierHistory Iata and Name"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
           DTS:DTSID="{36B8CBA3-4AD1-4438-9E5F-D3BAE992703A}"
@@ -223,7 +459,7 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Adding to DimAirline rest of Airlines\Foreach CarrierHistory Iata and Name\Insert unpresent airline from Stage_CarrierHistory"
+              DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name\Insert unpresent airline from Stage_CarrierHistory"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{83A8D76C-0052-4149-B56B-F131B8FA8903}"
@@ -269,7 +505,7 @@
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{69644ACB-10EB-4DAA-8D04-B5234A3E553D}"
@@ -293,37 +529,37 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint]"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{EBF70940-CD2C-4A54-A133-FDFFE953382D}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_UniqueCarriers"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_AirlineId" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 1]"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{41D38209-EC80-4595-AB68-64967188C250}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_AirlineId"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_CarrierHistory" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 2]"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{5BFB254B-5737-4D46-B474-B41704A3B1C9}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_CarrierHistory"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Adding to DimAirline rest of Airlines\Select AirlineIata, AirlineName FROM Stage_CarrierHistory" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 3]"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
           DTS:DTSID="{005A6222-9999-4133-B2E2-5621AEF79287}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Adding to DimAirline rest of Airlines\Foreach CarrierHistory Iata and Name" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -1791,7 +2027,15 @@
       DTS:From="Package\Match appropriate WorldAreaCode to Airline"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Adding to DimAirline rest of Airlines" />
+      DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{1166738A-1586-40BE-A87A-C55A5DB88E77}"
+      DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1804,36 +2048,36 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="288,42"
-          Id="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_AirlineId"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
           TopLeft="48.7777777777778,103.5" />
         <NodeLayout
           Size="314,42"
-          Id="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_CarrierHistory"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
           TopLeft="39.6111111111111,178.777777777778" />
         <NodeLayout
           Size="319,42"
-          Id="Package\Adding to DimAirline rest of Airlines\Deleting quoting marks from Stage_UniqueCarriers"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
           TopLeft="27.6666666666667,22.1111111111113" />
         <NodeLayout
           Size="314,42"
-          Id="Package\Adding to DimAirline rest of Airlines\Foreach CarrierHistory Iata and Name\Insert unpresent airline from Stage_CarrierHistory"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name\Insert unpresent airline from Stage_CarrierHistory"
           TopLeft="26.6666666666667,27.3333333333335" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="346,135"
           Size="346,178"
-          Id="Package\Adding to DimAirline rest of Airlines\Foreach CarrierHistory Iata and Name"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name"
           TopLeft="35.1666666666667,359.333333333333" />
         <NodeLayout
           Size="353,42"
-          Id="Package\Adding to DimAirline rest of Airlines\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
           TopLeft="25.1666666666667,262.666666666666" />
         <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint]"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint]"
           TopLeft="189.972222222222,64.1111111111113">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1855,7 +2099,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 1]"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 1]"
           TopLeft="194.694444444444,145.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1877,7 +2121,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 2]"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 2]"
           TopLeft="199.138888888889,220.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1899,7 +2143,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Adding to DimAirline rest of Airlines.PrecedenceConstraints[Constraint 3]"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 3]"
           TopLeft="204.916666666667,304.666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1925,7 +2169,7 @@
           IsExpanded="True"
           PanelSize="414,590"
           Size="414,633"
-          Id="Package\Adding to DimAirline rest of Airlines"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
           TopLeft="85.5555555555556,1393.05555555556" />
         <NodeLayout
           Size="283,42"
@@ -2198,6 +2442,179 @@
                     Point3="37.5555555555556,39.52777777778" />
                   <mssgle:LineSegment
                     End="37.5555555555556,63.55555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="319,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
+          TopLeft="46,18" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
+          TopLeft="35,42" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="309,139"
+          Size="309,182"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
+          TopLeft="76,100" />
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint]"
+          TopLeft="205.5,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25,40"
+              Start="0,0"
+              End="25,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="21,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,20"
+                    Point2="25,20"
+                    Point3="25,24" />
+                  <mssgle:LineSegment
+                    End="25,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="479,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
+          TopLeft="21,339" />
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 1]"
+          TopLeft="230.5,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,57"
+              Start="0,0"
+              End="30,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="26,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,28.5"
+                    Point2="30,28.5"
+                    Point3="30,32.5" />
+                  <mssgle:LineSegment
+                    End="30,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name\Insert or update row in Dwh_DimAirline"
+          TopLeft="30,60" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="316,153"
+          Size="316,196"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name"
+          TopLeft="124,426" />
+        <EdgeLayout
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId.PrecedenceConstraints[Constraint 2]"
+          TopLeft="260.5,381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,45"
+              Start="0,0"
+              End="21.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="17.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,22.5"
+                    Point2="21.5,22.5"
+                    Point3="21.5,26.5" />
+                  <mssgle:LineSegment
+                    End="21.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="630,680"
+          Size="630,723"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
+          TopLeft="104,2073" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="292.555555555556,2026.05555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.444444444444,46.94444444444"
+              Start="0,0"
+              End="126.444444444444,39.44444444444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.47222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.47222222222"
+                    Point2="0,23.47222222222"
+                    Point3="4,23.47222222222" />
+                  <mssgle:LineSegment
+                    End="122.444444444444,23.47222222222" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.444444444444,23.47222222222"
+                    Point2="126.444444444444,23.47222222222"
+                    Point3="126.444444444444,27.47222222222" />
+                  <mssgle:LineSegment
+                    End="126.444444444444,39.44444444444" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
