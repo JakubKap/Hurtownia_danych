@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{5DF31CAF-D762-4230-8D65-8A08076F6418}">
+  DTS:VersionBuild="91"
+  DTS:VersionGUID="{2517490F-5534-4F1D-A258-FD86E291C721}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1943,171 +1943,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dwh_DimAirlportWorldAreaCode"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimAirportWorldAreaCode]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1250</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
-                      cachedDataType="i4"
-                      cachedName="Copy of Code"
-                      externalMetadataColumnId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
-                      lineageId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Copy of Description"
-                      externalMetadataColumnId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                      lineageId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
-                      dataType="i4"
-                      name="WordAreaCode" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="Region" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast"
-              componentClassID="Microsoft.Multicast"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast">
-              <inputs>
-                <input
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Outputs[Multicast Output 1]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Outputs[Multicast Output 3]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 3"
-                  synchronousInputId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Outputs[Multicast Output 2]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
-                  synchronousInputId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2247,19 +2082,9 @@
           <paths>
             <path
               refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Data Conversion Output]"
-              endId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Inputs[Multicast Input 1]"
+              endId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Multicast Output 1]"
-              endId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode.Inputs[OLE DB Destination Input]"
-              name="Multicast Output 1"
-              startId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Outputs[Multicast Output 1]" />
-            <path
-              refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Multicast Output 3]"
-              endId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode.Inputs[OLE DB Destination Input]"
-              name="Multicast Output 3"
-              startId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast.Outputs[Multicast Output 3]" />
             <path
               refId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[OLE DB Source Output]"
               endId="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]"
@@ -2494,7 +2319,7 @@
           PanelSize="630,680"
           Size="630,723"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
-          TopLeft="104,2073" />
+          TopLeft="104,2090" />
         <NodeLayout
           Size="288,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
@@ -2616,15 +2441,15 @@
           PanelSize="414,590"
           Size="414,633"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
-          TopLeft="85.5555555555556,1393.05555555556" />
+          TopLeft="85.5555555555556,1410.05555555556" />
         <NodeLayout
           Size="283,42"
           Id="Package\Deleting quation marks from Stage_Airlines"
-          TopLeft="112,461" />
+          TopLeft="112,478" />
         <NodeLayout
           Size="322,42"
           Id="Package\Deleting quoting marks from Stage_WorldAreaCode"
-          TopLeft="97,654" />
+          TopLeft="97,671" />
         <NodeLayout
           Size="338,42"
           Id="Package\Foreach Country Name\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
@@ -2635,11 +2460,11 @@
           PanelSize="348,219"
           Size="348,262"
           Id="Package\Foreach Country Name"
-          TopLeft="75,113" />
+          TopLeft="75,130" />
         <NodeLayout
           Size="267,42"
           Id="Package\Get all Country names from Airlines_dat"
-          TopLeft="113,9" />
+          TopLeft="110,58" />
         <NodeLayout
           Size="349,42"
           Id="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
@@ -2709,7 +2534,7 @@
           PanelSize="438,363"
           Size="438,406"
           Id="Package\Match appropriate WorldAreaCode to Airline"
-          TopLeft="36,916" />
+          TopLeft="36,933" />
         <NodeLayout
           Size="243,42"
           Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity\Match appropriate AirlineId in Dwh"
@@ -2765,29 +2590,29 @@
           PanelSize="426,373"
           Size="426,416"
           Id="Package\Matching appropriate AirlineId to Fact Table"
-          TopLeft="272,2860" />
+          TopLeft="272,2877" />
         <NodeLayout
           Size="328,42"
           Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
-          TopLeft="91,544" />
+          TopLeft="91,561" />
         <NodeLayout
           Size="440,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
-          TopLeft="30,770" />
+          TopLeft="30,787" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="247.75,51">
+          TopLeft="246.25,100">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              EndConnector="0,30"
               Start="0,0"
-              End="0,54.5">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
+                    End="0,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2798,7 +2623,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="251.25,375">
+          TopLeft="251.25,392">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2820,7 +2645,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="254.25,503">
+          TopLeft="254.25,520">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2842,7 +2667,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="256.5,586">
+          TopLeft="256.5,603">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2864,7 +2689,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="258,696">
+          TopLeft="258,713">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2898,7 +2723,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="252.5,812">
+          TopLeft="252.5,829">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2920,7 +2745,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="255,1322">
+          TopLeft="255,1339">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2954,7 +2779,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="292.555555555556,2026.05555555556">
+          TopLeft="292.555555555556,2043.05555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2988,7 +2813,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="419,2796">
+          TopLeft="419,2813">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3121,11 +2946,11 @@
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="226,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode"
-          TopLeft="84,326" />
+          TopLeft="256,289" />
         <NodeLayout
           Size="184,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode"
@@ -3153,105 +2978,33 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="232,42"
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode"
-          TopLeft="418,327" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Multicast"
-          TopLeft="303,246" />
         <EdgeLayout
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Data Conversion Output]"
-          TopLeft="363,183">
+          TopLeft="366,183">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="0,106"
               Start="0,0"
-              End="0,55.5">
+              End="0,98.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="0,98.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Multicast Output 1]"
-          TopLeft="344.333333333333,288">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-147.333333333333,38"
-              Start="0,0"
-              End="-147.333333333333,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
-                  <mssgle:LineSegment
-                    End="-143.333333333333,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-143.333333333333,15.5"
-                    Point2="-147.333333333333,15.5"
-                    Point3="-147.333333333333,19.5" />
-                  <mssgle:LineSegment
-                    End="-147.333333333333,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode.Paths[Multicast Output 3]"
-          TopLeft="363,288">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="171,39"
-              Start="0,0"
-              End="171,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="167,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="167,19.5"
-                    Point2="171,19.5"
-                    Point3="171,23.5" />
-                  <mssgle:LineSegment
-                    End="171,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3272,19 +3025,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlportWorldAreaCode">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

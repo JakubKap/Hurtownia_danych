@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{F36CA01A-ED80-496A-86B7-F65EFA7936E6}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{1D0A7169-2762-424B-A186-BDB06EF1E320}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,6 +38,152 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82A6F1F2-92CC-48AA-8170-6486493EF6EF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportAltitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60A41942-A62E-4C06-BD0C-6AC3D49A7C7A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportCity">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{006C79D0-FC61-4B67-9FE2-36B81B441ABD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportIata">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D14A5617-0522-4678-A33C-5102D735807F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportIcao">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E601EAB-8D4C-4D46-AFAF-70B6DD6C30E4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FABF006A-E988-49B3-AF1F-5736317BC1D8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportLatitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D376000-43F7-4E68-9D4C-1199747A58AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportLongitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8246C6ED-6B7A-43DE-84C7-F3437799E2F5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DD310AFB-3F1C-4655-B967-71A9EAFD2C18}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportsList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{474DD4CA-35BD-4F56-984B-63DBC344159C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportTimezone">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E240092F-35E4-4298-AB95-D5E07F6833AC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportTz">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DF9723F2-1A1F-4061-BC3D-7D6271CA4B9A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountryList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0AD655AA-966B-4F0E-AC0C-79A7B4055C25}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountryName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{88A43EAD-0579-4AB6-B90B-447F067A4E2B}"
@@ -133,13 +279,13 @@
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airlines"
+          DTS:refId="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{CBD939AA-1689-4C86-94C7-5FC45B7E2927}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Select Dst FROM Stage_Airlines"
+          DTS:ObjectName="Select Dst FROM Stage_Airports"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -160,7 +306,7 @@
           DTS:refId="Package\Creating Dst Dictionary.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{1B2DA5A9-99BB-4F5D-A8AF-358E777D0D0E}"
-          DTS:From="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airlines"
+          DTS:From="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Creating Dst Dictionary\Foreach Unique Dst" />
@@ -184,8 +330,50 @@
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
           DTS:ObjectName="Foreach Country Name">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{53FD00AA-596B-437A-A02A-D78F66F398E2}"
+            DTS:ObjectName="{53FD00AA-596B-437A-A02A-D78F66F398E2}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CountryList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
           <DTS:Variables />
-          <DTS:Executables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name\If Country not exists in WorldAreaCode, then insert"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{CAF4E752-E53C-4DD4-8F9E-A157655FE3CD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="If Country not exists in WorldAreaCode, then insert"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+                  SQLTask:SqlStatementSource="EXEC insertNotPresentArea ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::CountryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5E79EC17-5B4F-45F3-AF2D-D665FB8968EB}"
+              DTS:ObjectName="{5E79EC17-5B4F-45F3-AF2D-D665FB8968EB}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CountryName" />
+          </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
@@ -198,19 +386,444 @@
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Country FROM Airports"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CountryList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{69D09B23-022C-4CA2-9695-9ED615E4C897}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Code"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]" />
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Description"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                          dataType="ui4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                          name="Copy of Code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                          name="Copy of Description"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Dwh_AirportWorldAreaCode"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimAirportWorldAreaCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                          cachedDataType="ui4"
+                          cachedName="Copy of Code"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of Description"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
+                          dataType="i4"
+                          name="WordAreaCode" />
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Region" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage_WorldAreaCode"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[WorldAreaCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]"
+                          name="Code"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Description" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          name="Code" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[Data Conversion Output]"
+                  endId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[OLE DB Source Output]"
+                  endId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8CCF5845-EEDC-4B38-AD2B-2AED62E56B7D}"
+          DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7B8B8723-50E7-4475-8293-3C954993A28B}"
+          DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Deleting quoting marks from Stage_Airlines"
+      DTS:refId="Package\Deleting quoting marks from Stage_Airports"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{0C67150C-9ADE-405E-B8C4-51AEBA1D6F22}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Deleting quoting marks from Stage_Airlines"
+      DTS:ObjectName="Deleting quoting marks from Stage_Airports"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -220,13 +833,219 @@
           SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D549D69E-6785-4711-BC7C-2F598F744507}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfering Rows From Stage_Airports to Dwh_DimAirport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{2FAE60B0-4605-4A07-A31B-9EC2E063334A}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Airports rows">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{EAB84C61-6780-4DC3-83CD-4B27C1B27127}"
+            DTS:ObjectName="{EAB84C61-6780-4DC3-83CD-4B27C1B27127}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportsList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{C3C4D1AD-F1DC-4357-88F7-6C1F108C7382}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new Airport row to Dwh_DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertAirportsRows ?,?,?,?,?,?,?,?,?,?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::AirportName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::AirportCity"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="4"
+                    SQLTask:DtsVariableName="User::AirportIcao"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="5"
+                    SQLTask:DtsVariableName="User::AirportLatitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="6"
+                    SQLTask:DtsVariableName="User::AirportLongitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="7"
+                    SQLTask:DtsVariableName="User::AirportAltitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="8"
+                    SQLTask:DtsVariableName="User::AirportTimezone"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="9"
+                    SQLTask:DtsVariableName="User::AirportTz"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3DF9ED0C-17A2-4A18-A249-C97568EDBEB3}"
+              DTS:ObjectName="{3DF9ED0C-17A2-4A18-A249-C97568EDBEB3}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8818974C-491F-40B1-8F4A-8E0B7C55F517}"
+              DTS:ObjectName="{8818974C-491F-40B1-8F4A-8E0B7C55F517}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::AirportName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{2C58585B-10C5-438F-9B89-E611E80DB6EA}"
+              DTS:ObjectName="{2C58585B-10C5-438F-9B89-E611E80DB6EA}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::AirportCity" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8595E5E9-ABC0-4ED2-92F7-737F3BB1CD48}"
+              DTS:ObjectName="{8595E5E9-ABC0-4ED2-92F7-737F3BB1CD48}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{0D1E9EC6-8841-4371-9215-39183C60489D}"
+              DTS:ObjectName="{0D1E9EC6-8841-4371-9215-39183C60489D}"
+              DTS:ValueIndex="4"
+              DTS:VariableName="User::AirportIcao" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5D05616E-46C2-48AD-8253-7F66B615CF92}"
+              DTS:ObjectName="{5D05616E-46C2-48AD-8253-7F66B615CF92}"
+              DTS:ValueIndex="5"
+              DTS:VariableName="User::AirportLatitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{57F0207B-A7F6-4863-A205-C2F22BE6A5B1}"
+              DTS:ObjectName="{57F0207B-A7F6-4863-A205-C2F22BE6A5B1}"
+              DTS:ValueIndex="6"
+              DTS:VariableName="User::AirportLongitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{C94A987B-C816-4E4C-B7BA-6E819B6F948E}"
+              DTS:ObjectName="{C94A987B-C816-4E4C-B7BA-6E819B6F948E}"
+              DTS:ValueIndex="7"
+              DTS:VariableName="User::AirportAltitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{9EC0080D-D39A-4D9B-B810-E06359EC3CCC}"
+              DTS:ObjectName="{9EC0080D-D39A-4D9B-B810-E06359EC3CCC}"
+              DTS:ValueIndex="8"
+              DTS:VariableName="User::AirportTimezone" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{E4DCFDEB-7CA3-4B0C-9497-26D376DBFC9A}"
+              DTS:ObjectName="{E4DCFDEB-7CA3-4B0C-9497-26D376DBFC9A}"
+              DTS:ValueIndex="9"
+              DTS:VariableName="User::AirportTz" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CA58AA1B-A03E-461C-BCCE-62D82E63D3F9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT values FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT AirportId , Name , City , Iata , Icao ,Latitude , Longitude , Altitude ,  &#xA;TimeZone , Tz FROM Airports;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportsList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{76647FF6-CE7C-40BA-9743-DD1DCDCACEF2}"
+          DTS:From="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{EF7AF8E2-8E34-4A41-B0F8-9B5C60B3DB4C}"
-      DTS:From="Package\Deleting quoting marks from Stage_Airlines"
+      DTS:From="Package\Deleting quoting marks from Stage_Airports"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Creating Dst Dictionary" />
@@ -238,6 +1057,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0CD482EB-7222-4703-8A99-D20246D60940}"
+      DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -250,15 +1077,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="283,42"
-          Id="Package\Deleting quoting marks from Stage_Airlines"
-          TopLeft="295,27" />
-        <NodeLayout
-          Size="227,42"
-          Id="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airlines"
-          TopLeft="77,39" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="238,42"
           Id="Package\Creating Dst Dictionary\Foreach Unique Dst\Create a new row in Dwh_DimDst"
@@ -270,9 +1089,13 @@
           Size="248,175"
           Id="Package\Creating Dst Dictionary\Foreach Unique Dst"
           TopLeft="63,149" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
+          TopLeft="77,39" />
         <EdgeLayout
           Id="Package\Creating Dst Dictionary.PrecedenceConstraints[Constraint]"
-          TopLeft="188.75,81">
+          TopLeft="189.5,81">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -295,24 +1118,43 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="465,332"
-          Size="465,375"
+          PanelSize="465,379"
+          Size="465,422"
           Id="Package\Creating Dst Dictionary"
-          TopLeft="208,121" />
+          TopLeft="275.142857142857,143.857142857143" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name\If Country not exists in WorldAreaCode, then insert"
+          TopLeft="44,46" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="369,143"
+          Size="369,186"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
+          TopLeft="62,129" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
+          TopLeft="121,52" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          TopLeft="63,354" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="438.5,69">
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint]"
+          TopLeft="246.5,94">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52"
+              EndConnector="0,35"
               Start="0,0"
-              End="0,44.5">
+              End="0,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.5" />
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -321,38 +1163,177 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="251,42"
-          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
-          TopLeft="46,90" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="210,55"
-          Size="210,98"
-          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
-          TopLeft="57,161" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="336,314"
-          Size="336,357"
-          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
-          TopLeft="266,588" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="437.25,496">
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint 1]"
+          TopLeft="248.25,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,92"
+              EndConnector="0,39"
               Start="0,0"
-              End="0,84.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,84.5" />
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="494,482"
+          Size="494,525"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
+          TopLeft="266,588" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Deleting quoting marks from Stage_Airports"
+          TopLeft="356.428571428572,34.1428571428571" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
+          TopLeft="43,40" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="339,138"
+          Size="339,181"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
+          TopLeft="131,150" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          TopLeft="90,38" />
+        <EdgeLayout
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          TopLeft="215.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85,70"
+              Start="0,0"
+              End="85,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="81,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,35"
+                    Point2="85,35"
+                    Point3="85,39" />
+                  <mssgle:LineSegment
+                    End="85,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="535,386"
+          Size="535,429"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+          TopLeft="331,1174" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="499.428571428572,76.1428571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.21428571428555,67.7142857142857"
+              Start="0,0"
+              End="8.21428571428555,60.2142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8571428571428"
+                    Point2="0,33.8571428571428"
+                    Point3="4,33.8571428571428" />
+                  <mssgle:LineSegment
+                    End="4.21428571428555,33.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.21428571428555,33.8571428571428"
+                    Point2="8.21428571428555,33.8571428571428"
+                    Point3="8.21428571428555,37.8571428571428" />
+                  <mssgle:LineSegment
+                    End="8.21428571428555,60.2142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="510.321428571429,518.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.1428571428571"
+              Start="0,0"
+              End="0,61.6428571428571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.6428571428571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="513,1113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.5,61"
+              Start="0,0"
+              End="85.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="81.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,30.5"
+                    Point2="85.5,30.5"
+                    Point3="85.5,34.5" />
+                  <mssgle:LineSegment
+                    End="85.5,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -364,5 +1345,99 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[OLE DB Source Output]"
+          TopLeft="399.25,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.5"
+              Start="0,0"
+              End="0,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[Data Conversion Output]"
+          TopLeft="399.75,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
