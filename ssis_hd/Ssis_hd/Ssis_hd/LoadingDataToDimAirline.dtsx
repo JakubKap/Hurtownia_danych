@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{DA21D252-FF89-41E6-865B-AA7109AA6900}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{36B1860A-E8ED-47E1-91C2-B41CBBE24AA3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2531,8 +2531,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="438,363"
-          Size="438,406"
+          PanelSize="438,381"
+          Size="438,424"
           Id="Package\Match appropriate WorldAreaCode to Airline"
           TopLeft="36,933" />
         <NodeLayout
