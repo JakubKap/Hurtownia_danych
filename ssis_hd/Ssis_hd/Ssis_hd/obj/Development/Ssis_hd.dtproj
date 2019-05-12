@@ -26,13 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BO7AJ5R</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABUrVdfFrOUG5rTe9EFaAxAAAAAACAAAAAAAQZgAAAAEAACAAAAAntu30rFE9On3xqwIMXwPW19CQEf6d/Our++cS8IgxPQAAAAAOgAAAAAIAACAAAADXqwg19qpHr8f751SvKqipe8W7lm5SJQL86l/JE9FB+ZAAAADcZT/2ffvTwT9pnWeyCKfpj/+shocueAl+Hl4l4jsVQ9KclBgy3MUrU2rNE2+QerQmuAnMiFgUjnbeZ/xWaOIXy18Bbs4vy+ZUBhl5UmOAVC2PgWP8D4BH2mnMPi76CSS8LIlDzjKUQsraR+Hxoa+8CkoR/SsE/O/F1/hiGn7RAMpJSnMeCksiDLsUk1YVXMFAAAAAtm9QvImC3W8BqlW6Rz9AfyfX5XQZGR/lMgfOFbLGVWK9vQgCgSUkhgBl0cIleBO+Jcxwj5bf/3ZhlGdRz33+7Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABUrVdfFrOUG5rTe9EFaAxAAAAAACAAAAAAAQZgAAAAEAACAAAAC+p+SSFN/ckqSyPid4aw8HnBt27gFGe8nUq9UpkkGtSgAAAAAOgAAAAAIAACAAAAAoD9snSSF4UohU/LHJCVzZvc16AoCCDAXQhzu3MSJpSpAAAAAMUQ42sm7/99u54jD+QKIpEbyBclt5uk+twTK5IxYP0vrHe6LL3BO3c2F2cl9fP5MiVpe/6VPbfZYlbJ2pMy5Rj0baneaGkIzjS5Kyunnfqhm4th1B1tf9cVDiFm11fXjyyxDqHN0xqz7KFa3WChCdXVbuJ3BLohEwfiZTTlMcncchrDvvwWTjemyn0djAb0lAAAAAEozAv4+s0Ymr8tEjvX+lTCUszL3nDf7veuviWBAB1hXb76Z8nSPhr37eZ2khULJXQEYs3NVn82eLcCl17wcsfg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="LoadingDataToDimAirline.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="LoadingDataToFactFlightActivity.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="FactFlightActivity.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadingDataToDimAirport.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -44,10 +44,10 @@
                 <SSIS:Property SSIS:Name="Name">LoadingDataToDimAirline</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">86</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">87</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3FB312C7-6301-45E4-8EDE-429CB7430843}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5DF31CAF-D762-4230-8D65-8A08076F6418}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -426,16 +426,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="FactFlightActivity.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="LoadingDataToDimAirport.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{561CB988-6F0D-45A6-ABAC-F6231CB555B4}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">FactFlightActivity</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{5EA825A0-AC01-4E56-BEF7-E1A08E900E93}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadingDataToDimAirport</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">10</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E26DB59D-59D9-4148-846E-675F5C0E78BB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F36CA01A-ED80-496A-86B7-F65EFA7936E6}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
