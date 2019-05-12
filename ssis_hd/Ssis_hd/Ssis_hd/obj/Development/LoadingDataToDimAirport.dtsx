@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{1D0A7169-2762-424B-A186-BDB06EF1E320}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{282E83C6-CBE9-41BD-946A-6D2A86636D7B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -834,6 +834,142 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Match appropriate Dst to Airport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{40fe373c-1fac-4415-b329-f7ccf0fc5bfc}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match appropriate Dst to Airport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{063A5AF0-06E8-4905-9538-5D27A43CD452}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete duplicate From DimDst"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+              SQLTask:SqlStatementSource=" WITH TempDimAirlineWorldAreaCode (DstType,duplicateRecCount)&#xA;AS&#xA;(&#xA;SELECT DstType,ROW_NUMBER() OVER(PARTITION by DstType ORDER BY DstType) &#xA;AS duplicateRecCount&#xA;FROM DimDst&#xA;)&#xA;DELETE FROM TempDimAirlineWorldAreaCode&#xA;WHERE duplicateRecCount &gt; 1 ;"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{fd4f1559-d9bb-42bd-acc4-4ef212546963}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Country Name and AirlportId">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{4da2149e-b894-4471-9029-0402c0c8231d}"
+            DTS:ObjectName="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::DstList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId\Match appropriate Dst to DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{AF49E8C5-EC5A-4278-BA44-1DE1F7B0FFFA}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match appropriate Dst to DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC [dbo].[getAirportDstType] ?, ?"
+                  SQLTask:CodePage="1252"
+                  SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::DstType"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{32540F00-AF37-45F9-B4A5-670BADAA50DC}"
+              DTS:ObjectName="{32540F00-AF37-45F9-B4A5-670BADAA50DC}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{22F296F0-DEB0-47E1-837A-7B5F21C815E3}"
+              DTS:ObjectName="{22F296F0-DEB0-47E1-837A-7B5F21C815E3}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::DstType" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e3dc2d5c-19ed-4301-af94-75b027aaa984}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select AirlportId, Dst FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT AirportId, Dst FROM Airports"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DstList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2A49706-BDDE-4DF7-87F3-ED2AB715684B}"
+          DTS:From="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{bc28eb81-8da5-4dff-9ed4-ca394c23fd27}"
+          DTS:From="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -1065,6 +1201,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2752A5D-D33C-4F5F-B88A-813B1AB13404}"
+      DTS:From="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Match appropriate Dst to Airport" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1334,6 +1478,110 @@
                     Point3="85.5,34.5" />
                   <mssgle:LineSegment
                     End="85.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId\Match appropriate Dst to DimAirport"
+          TopLeft="38,54" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,146"
+          Size="348,189"
+          Id="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId"
+          TopLeft="18.5,167" />
+        <NodeLayout
+          Size="280,42"
+          Id="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          TopLeft="43.5,81" />
+        <EdgeLayout
+          Id="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint 6]"
+          TopLeft="183.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,44"
+              Start="0,0"
+              End="9,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,22"
+                    Point2="9,22"
+                    Point3="9,26" />
+                  <mssgle:LineSegment
+                    End="9,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          TopLeft="78,9" />
+        <EdgeLayout
+          Id="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint]"
+          TopLeft="185.75,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="438,411"
+          Size="438,454"
+          Id="Package\Match appropriate Dst to Airport"
+          TopLeft="375,1660" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="596.25,1603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
