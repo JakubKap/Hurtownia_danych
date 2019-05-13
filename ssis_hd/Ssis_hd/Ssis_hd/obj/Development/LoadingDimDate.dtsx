@@ -1,0 +1,2352 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2019 11:33:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ES0NV97"
+  DTS:CreatorName="DESKTOP-ES0NV97\AKochanski"
+  DTS:DTSID="{B38614FA-8641-42E0-B310-9ED3E8A18D02}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="LoadingDimDate"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{80BEED77-E822-49A1-A6CD-B31239C40B97}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DDBD3334-C583-44A6-A131-66802F90701C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Code">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8175362A-47C9-4B40-ACAC-C0CADA6504AC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Description">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clear Dwh_DayOfWeek"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3A8E2C3F-1A6B-4865-B53E-7843F68E7784}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Dwh_DayOfWeek"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource="delete from dbo.DimDayOfWeek"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear Dwh_DimMonth"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{57fb9986-5ff6-4d41-affc-3c407abb7542}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Dwh_DimMonth"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource="delete from dbo.DimMonth"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear Dwh_DimQuarter"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36833e40-7340-4f30-a805-d7d83af4b246}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Dwh_DimQuarter"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource="delete from dbo.DimQuarter"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Deleting quotation marks from Stage_Months"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9ccb5320-0306-42d0-bbaf-f512553e90ec}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Deleting quotation marks from Stage_Months"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+          SQLTask:SqlStatementSource="UPDATE Months&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '');"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Deleting quotation marks from Stage_Quarters"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{76a29fbb-ba45-423a-bdfa-f05ae3d98990}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Deleting quotation marks from Stage_Quarters"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+          SQLTask:SqlStatementSource="UPDATE Quarters&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '');"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Deleting quotation marks from Stage_Weekdays"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3e141ce8-ab50-4297-a49f-99c68725f4bc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Deleting quotation marks from Stage_Weekdays"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+          SQLTask:SqlStatementSource="UPDATE Weekdays&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '')&#xA;"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate DimDate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{24EA4A87-D6E8-4A89-B785-7E6972D4AC7B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate DimDate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource="EXEC dbo.insertDates"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_Months to Dwh_DimMonth"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{15c590fc-fbe4-400c-8bf9-a17261cbd8ef}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_Months to Dwh_DimMonth"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Code"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Description"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      name="Copy of Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dwh_DimMonth"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimMonth]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumber]"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Description"
+                      externalMetadataColumnId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumber]"
+                      dataType="i4"
+                      name="MonthNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MonthName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stage_Months"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Months]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer Stage_Months to Dwh_DimMonth.Paths[Data Conversion Output]"
+              endId="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Transfer Stage_Months to Dwh_DimMonth.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b16114c9-f8b5-49e4-80e9-05fb73061e19}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_Quarters to Dwh_DimQuarter"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Code"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Description"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[month1]"
+                      cachedDataType="i4"
+                      cachedName="month1"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month1]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[day1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="day1"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day1]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[month2]"
+                      cachedDataType="i4"
+                      cachedName="month2"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month2]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input].Columns[day2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="day2"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      name="Copy of Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month1]"
+                      name="Copy of month1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day1]"
+                      name="Copy of day1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month2]"
+                      name="Copy of month2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day2]"
+                      name="Copy of day2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dwh_DimQuarter"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimQuarter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[QuarterNumber]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Description"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of month1]"
+                      cachedDataType="i4"
+                      cachedName="Copy of month1"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[StartMonth]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month1]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of day1]"
+                      cachedDataType="i4"
+                      cachedName="Copy of day1"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[StartDay]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day1]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of month2]"
+                      cachedDataType="i4"
+                      cachedName="Copy of month2"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[EndMonth]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month2]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].Columns[Copy of day2]"
+                      cachedDataType="i4"
+                      cachedName="Copy of day2"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[EndDay]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day2]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[QuarterNumber]"
+                      dataType="i4"
+                      name="QuarterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[StartDay]"
+                      dataType="i4"
+                      name="StartDay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[StartMonth]"
+                      dataType="i4"
+                      name="StartMonth" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[EndDay]"
+                      dataType="i4"
+                      name="EndDay" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input].ExternalColumns[EndMonth]"
+                      dataType="i4"
+                      name="EndMonth" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stage_Quarters"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Weekdays]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXEC dbo.selectSplitQuarters</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[month1]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month1]"
+                      name="month1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[day1]"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day1]"
+                      name="day1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[month2]"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[month2]"
+                      name="month2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[day2]"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].Columns[day2]"
+                      name="day2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[month1]"
+                      dataType="i4"
+                      name="month1" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[day1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="day1" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[month2]"
+                      dataType="i4"
+                      name="month2" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output].ExternalColumns[day2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="day2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[month1]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[month1]"
+                      name="month1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[day1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[day1]"
+                      name="day1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[month2]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[month2]"
+                      name="month2" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[day2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[day2]"
+                      name="day2" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter.Paths[Data Conversion Output]"
+              endId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Transfer Stage_Quarters to Dwh_DimQuarter.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9a05d5e6-97ab-4541-b5c4-03b1cf10dab2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_Weekdays to Dwh_DayOfWeek"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Code"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Description"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      name="Copy of Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dwh_DayOfWeek"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimDayOfWeek]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekNumber]"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Description"
+                      externalMetadataColumnId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekName]"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekNumber]"
+                      dataType="i4"
+                      name="DayOfWeekNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeekName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="DayOfWeekName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stage_Weekdays"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Weekdays]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek.Paths[Data Conversion Output]"
+              endId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F455AAD-DF89-4566-9710-35BD074AEFFD}"
+      DTS:From="Package\Deleting quotation marks from Stage_Weekdays"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA40B10C-C537-402F-BBCA-C43970791CE0}"
+      DTS:From="Package\Deleting quotation marks from Stage_Months"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Transfer Stage_Months to Dwh_DimMonth" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3A07CD43-DE37-4F0F-A921-59FCDCE01D56}"
+      DTS:From="Package\Deleting quotation marks from Stage_Quarters"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Transfer Stage_Quarters to Dwh_DimQuarter" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E08A920-4553-4445-8338-841D72570455}"
+      DTS:From="Package\Transfer Stage_Quarters to Dwh_DimQuarter"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Populate DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{30F77D4D-3C0A-4157-9A6D-CCC795ED04D7}"
+      DTS:From="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Populate DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{BCB666D6-4A2C-4F77-AE64-2967F8CA808D}"
+      DTS:From="Package\Transfer Stage_Months to Dwh_DimMonth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Populate DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{D0B0FF42-85C3-4A35-9E93-98936A3892C7}"
+      DTS:From="Package\Clear Dwh_DayOfWeek"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{BAEC9878-0B10-4403-B540-C7112BFA2A39}"
+      DTS:From="Package\Clear Dwh_DimQuarter"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Transfer Stage_Quarters to Dwh_DimQuarter" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF012A93-35C9-4271-9478-F62549D05F86}"
+      DTS:From="Package\Clear Dwh_DimMonth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Transfer Stage_Months to Dwh_DimMonth" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="306.666666666667,42.6666666666667"
+          Id="Package\Deleting quotation marks from Stage_Weekdays"
+          TopLeft="220.238091956292,114.678569377959" />
+        <NodeLayout
+          Size="300,42.6666666666667"
+          Id="Package\Deleting quotation marks from Stage_Quarters"
+          TopLeft="560.813484700131,41.5873026794858" />
+        <NodeLayout
+          Size="293.333333333334,42.6666666666667"
+          Id="Package\Deleting quotation marks from Stage_Months"
+          TopLeft="998.551573738279,97.3095257411401" />
+        <NodeLayout
+          Size="300,42.6666666666667"
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
+          TopLeft="211.210314313038,255.86509743962" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="373.571425289625,157.345236044626">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.3611109765868,98.5198613949941"
+              Start="0,0"
+              End="-12.3611109765868,91.0198613949941">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2599306974971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.2599306974971"
+                    Point2="0,49.2599306974971"
+                    Point3="-4,49.2599306974971" />
+                  <mssgle:LineSegment
+                    End="-8.36111097658676,49.2599306974971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.36111097658676,49.2599306974971"
+                    Point2="-12.3611109765868,49.2599306974971"
+                    Point3="-12.3611109765868,53.2599306974971" />
+                  <mssgle:LineSegment
+                    End="-12.3611109765868,91.0198613949941" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="280,42.6666666666667"
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth"
+          TopLeft="988.888874650002,254.222217676375" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1145.21824040495,139.976192407807">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.3293657549436,114.246025268568"
+              Start="0,0"
+              End="-16.3293657549436,106.746025268568">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.123012634284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.123012634284"
+                    Point2="0,57.123012634284"
+                    Point3="-4,57.123012634284" />
+                  <mssgle:LineSegment
+                    End="-12.3293657549436,57.123012634284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.3293657549436,57.123012634284"
+                    Point2="-16.3293657549436,57.123012634284"
+                    Point3="-16.3293657549436,61.123012634284" />
+                  <mssgle:LineSegment
+                    End="-16.3293657549436,106.746025268568" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="293.333333333334,42.6666666666667"
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter"
+          TopLeft="559.821420229439,184.111119918691" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="708.650785798118,84.2539693461524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99.8571505725382"
+              Start="0,0"
+              End="0,92.3571505725382">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.3571505725382" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Populate DimDate"
+          TopLeft="604.722213674751,518.55554628306" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="706.488086896106,226.777786585357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.765873221355,291.777759697703"
+              Start="0,0"
+              End="-19.765873221355,284.277759697703">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.888879848851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,141.888879848851"
+                    Point2="0,145.888879848851"
+                    Point3="-4,145.888879848851" />
+                  <mssgle:LineSegment
+                    End="-15.765873221355,145.888879848851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.765873221355,145.888879848851"
+                    Point2="-19.765873221355,145.888879848851"
+                    Point3="-19.765873221355,149.888879848851" />
+                  <mssgle:LineSegment
+                    End="-19.765873221355,284.277759697703" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="361.210314313038,298.531764106286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="286.511899361712,220.023782176774"
+              Start="0,0"
+              End="286.511899361712,212.523782176774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,140.335601107963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,140.335601107963"
+                    Point2="0,144.335601107963"
+                    Point3="4,144.335601107963" />
+                  <mssgle:LineSegment
+                    End="282.511899361712,144.335601107963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="282.511899361712,144.335601107963"
+                    Point2="286.511899361712,144.335601107963"
+                    Point3="286.511899361712,148.335601107963" />
+                  <mssgle:LineSegment
+                    End="286.511899361712,212.523782176774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1128.88887465,296.888884343041">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-403.166660975251,221.666661940019"
+              Start="0,0"
+              End="-403.166660975251,214.166661940019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.413330232652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,141.413330232652"
+                    Point2="0,145.413330232652"
+                    Point3="-4,145.413330232652" />
+                  <mssgle:LineSegment
+                    End="-399.166660975251,145.413330232652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-399.166660975251,145.413330232652"
+                    Point2="-403.166660975251,145.413330232652"
+                    Point3="-403.166660975251,149.413330232652" />
+                  <mssgle:LineSegment
+                    End="-403.166660975251,214.166661940019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Clear Dwh_DayOfWeek"
+          TopLeft="56.9444435959062,179.111107908355" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="138.944443595906,221.777774575022">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.599204050466,34.087322864598"
+              Start="0,0"
+              End="173.599204050466,26.587322864598">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3438929563251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.3438929563251"
+                    Point2="0,20.3438929563251"
+                    Point3="4,20.3438929563251" />
+                  <mssgle:LineSegment
+                    End="169.599204050466,20.3438929563251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="169.599204050466,20.3438929563251"
+                    Point2="173.599204050466,20.3438929563251"
+                    Point3="173.599204050466,24.3438929563251" />
+                  <mssgle:LineSegment
+                    End="173.599204050466,26.587322864598" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\Clear Dwh_DimQuarter"
+          TopLeft="790.277766001721,105.555555503898" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="884.277766001721,148.222222170565">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.23412355006,35.8888977481257"
+              Start="0,0"
+              End="-130.23412355006,28.3888977481257">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4165212601835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4165212601835"
+                    Point2="0,21.4165212601835"
+                    Point3="-4,21.4165212601835" />
+                  <mssgle:LineSegment
+                    End="-126.23412355006,21.4165212601835" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.23412355006,21.4165212601835"
+                    Point2="-130.23412355006,21.4165212601835"
+                    Point3="-130.23412355006,25.4165212601835" />
+                  <mssgle:LineSegment
+                    End="-130.23412355006,28.3888977481257" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Clear Dwh_DimMonth"
+          TopLeft="931.94443055739,158.999998992682" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="1022.61109722406,201.666665659348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.9444440926113,52.5555520170265"
+              Start="0,0"
+              End="60.9444440926113,45.0555520170265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3541645556124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.3541645556124"
+                    Point2="0,31.3541645556124"
+                    Point3="4,31.3541645556124" />
+                  <mssgle:LineSegment
+                    End="56.9444440926113,31.3541645556124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.9444440926113,31.3541645556124"
+                    Point2="60.9444440926113,31.3541645556124"
+                    Point3="60.9444440926113,35.3541645556124" />
+                  <mssgle:LineSegment
+                    End="60.9444440926113,45.0555520170265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="160,42.6666666666667"
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek.Paths[OLE DB Source Output]"
+          TopLeft="387,98.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,48.8333333333333"
+              Start="0,0"
+              End="12.5,41.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4166666666667"
+                    Point2="0,24.4166666666667"
+                    Point3="4,24.4166666666667" />
+                  <mssgle:LineSegment
+                    End="8.5,24.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,24.4166666666667"
+                    Point2="12.5,24.4166666666667"
+                    Point3="12.5,28.4166666666667" />
+                  <mssgle:LineSegment
+                    End="12.5,41.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek.Paths[Data Conversion Output]"
+          TopLeft="399.5,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.8333333333333,43.5"
+              Start="0,0"
+              End="-23.8333333333333,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.75"
+                    Point2="0,21.75"
+                    Point3="-4,21.75" />
+                  <mssgle:LineSegment
+                    End="-19.8333333333333,21.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.8333333333333,21.75"
+                    Point2="-23.8333333333333,21.75"
+                    Point3="-23.8333333333333,25.75" />
+                  <mssgle:LineSegment
+                    End="-23.8333333333333,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Dwh_DayOfWeek">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek\Stage_Weekdays">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transfer Stage_Months to Dwh_DimMonth">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth.Paths[OLE DB Source Output]"
+          TopLeft="380.333333333333,98.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.1666666666667,48.8333333333333"
+              Start="0,0"
+              End="19.1666666666667,41.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4166666666667"
+                    Point2="0,24.4166666666667"
+                    Point3="4,24.4166666666667" />
+                  <mssgle:LineSegment
+                    End="15.1666666666667,24.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1666666666667,24.4166666666667"
+                    Point2="19.1666666666667,24.4166666666667"
+                    Point3="19.1666666666667,28.4166666666667" />
+                  <mssgle:LineSegment
+                    End="19.1666666666667,41.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_Months to Dwh_DimMonth.Paths[Data Conversion Output]"
+          TopLeft="399.5,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.1666666666667,43.5"
+              Start="0,0"
+              End="-27.1666666666667,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.75"
+                    Point2="0,21.75"
+                    Point3="-4,21.75" />
+                  <mssgle:LineSegment
+                    End="-23.1666666666667,21.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.1666666666667,21.75"
+                    Point2="-27.1666666666667,21.75"
+                    Point3="-27.1666666666667,25.75" />
+                  <mssgle:LineSegment
+                    End="-27.1666666666667,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Months to Dwh_DimMonth\Dwh_DimMonth">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Months to Dwh_DimMonth\Stage_Months">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transfer Stage_Quarters to Dwh_DimQuarter">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter.Paths[OLE DB Source Output]"
+          TopLeft="383.666666666667,98.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.8333333333333,48.8333333333333"
+              Start="0,0"
+              End="15.8333333333333,41.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4166666666667"
+                    Point2="0,24.4166666666667"
+                    Point3="4,24.4166666666667" />
+                  <mssgle:LineSegment
+                    End="11.8333333333333,24.4166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.8333333333333,24.4166666666667"
+                    Point2="15.8333333333333,24.4166666666667"
+                    Point3="15.8333333333333,28.4166666666667" />
+                  <mssgle:LineSegment
+                    End="15.8333333333333,41.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter.Paths[Data Conversion Output]"
+          TopLeft="399.5,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.8333333333333,43.5"
+              Start="0,0"
+              End="-23.8333333333333,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.75"
+                    Point2="0,21.75"
+                    Point3="-4,21.75" />
+                  <mssgle:LineSegment
+                    End="-19.8333333333333,21.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.8333333333333,21.75"
+                    Point2="-23.8333333333333,21.75"
+                    Point3="-23.8333333333333,25.75" />
+                  <mssgle:LineSegment
+                    End="-23.8333333333333,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

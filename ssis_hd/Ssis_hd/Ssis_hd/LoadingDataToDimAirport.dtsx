@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{1D0A7169-2762-424B-A186-BDB06EF1E320}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{8A21A793-32F5-4296-92B1-14384EAAD92C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1086,7 +1086,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="248,132"
-          Size="248,175"
+          Size="248,174.666666666667"
           Id="Package\Creating Dst Dictionary\Foreach Unique Dst"
           TopLeft="63,149" />
         <NodeLayout
@@ -1118,8 +1118,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="465,379"
-          Size="465,422"
+          PanelSize="465.333333333334,378.666666666667"
+          Size="465.333333333334,422"
           Id="Package\Creating Dst Dictionary"
           TopLeft="275.142857142857,143.857142857143" />
         <NodeLayout
@@ -1129,12 +1129,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="369,143"
-          Size="369,186"
+          PanelSize="369.333333333334,142.666666666667"
+          Size="369.333333333334,186"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
           TopLeft="62,129" />
         <NodeLayout
-          Size="251,42"
+          Size="250.666666666667,42"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
           TopLeft="121,52" />
         <NodeLayout
@@ -1189,7 +1189,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="494,482"
-          Size="494,525"
+          Size="494,525.333333333334"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
           TopLeft="266,588" />
         <NodeLayout
@@ -1197,18 +1197,18 @@
           Id="Package\Deleting quoting marks from Stage_Airports"
           TopLeft="356.428571428572,34.1428571428571" />
         <NodeLayout
-          Size="279,42"
+          Size="278.666666666667,42"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
           TopLeft="43,40" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="339,138"
-          Size="339,181"
+          PanelSize="338.666666666667,138"
+          Size="338.666666666667,181.333333333334"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
           TopLeft="131,150" />
         <NodeLayout
-          Size="251,42"
+          Size="250.666666666667,42"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
           TopLeft="90,38" />
         <EdgeLayout
@@ -1248,8 +1248,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="535,386"
-          Size="535,429"
+          PanelSize="534.666666666667,386"
+          Size="534.666666666667,429.333333333334"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
           TopLeft="331,1174" />
         <EdgeLayout
@@ -1349,7 +1349,7 @@
     design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="210,42"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode"
@@ -1381,9 +1381,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1405,9 +1403,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
