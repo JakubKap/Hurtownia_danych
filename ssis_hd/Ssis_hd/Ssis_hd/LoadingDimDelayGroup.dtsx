@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimDelayGroup"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{A228CD6A-71FF-4CF6-9383-EBE0E32EEE1D}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{44C240A5-1837-4E14-AA80-2E8B01B76428}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

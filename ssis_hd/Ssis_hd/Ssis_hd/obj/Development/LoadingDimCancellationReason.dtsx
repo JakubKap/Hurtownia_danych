@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/13/2019 8:38:30 PM"
+  DTS:CreationDate="5/13/2019 9:19:45 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-ES0NV97"
   DTS:CreatorName="DESKTOP-ES0NV97\AKochanski"
-  DTS:DTSID="{A1CE4707-D47A-4CDF-94AE-61F438DCCCB3}"
+  DTS:DTSID="{7C385F99-9B1E-4E97-A19A-B6CE4F9BE4DC}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1100.123"
   DTS:LocaleID="1045"
-  DTS:ObjectName="LoadingDimDelayGroup"
+  DTS:ObjectName="LoadingDimCancellationReason"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{44C240A5-1837-4E14-AA80-2E8B01B76428}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{446C8E4E-011B-4DC2-967E-4EF61D4BD9A7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,30 +40,30 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Delete quotation marks from Stage_OnTimeDelayGroups"
+      DTS:refId="Package\Delete quotation marks from Stage_Cancellation"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{99cb358e-b633-4e5a-bd45-0f3329602a40}"
+      DTS:DTSID="{a85d3d0b-c388-4644-b557-32dd4dfe69f6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Delete quotation marks from Stage_OnTimeDelayGroups"
+      DTS:ObjectName="Delete quotation marks from Stage_Cancellation"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
-          SQLTask:SqlStatementSource="UPDATE OnTimeDelayGroups&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '')&#xA;"
+          SQLTask:SqlStatementSource="UPDATE Cancellation&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '')&#xA;"
           SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup"
+      DTS:refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{6b4fa74c-61b8-44b5-aecc-1cb439a21076}"
+      DTS:DTSID="{c65d01f2-e790-4f71-9ebf-7f42d22c209a}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup"
+      DTS:ObjectName="Transfer Stage_Cancellation to Dwh_DimCancellationReason"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -71,7 +71,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion"
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -79,40 +79,42 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1024"
                       cachedName="Code"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Code]" />
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]" />
                     <inputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1024"
                       cachedName="Description"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Description]" />
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
-                      dataType="i4"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      length="4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
                       name="Copy of Code"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -120,7 +122,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -128,13 +130,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
                       name="Copy of Description"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -142,7 +144,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -153,22 +155,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -177,11 +179,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup"
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Dwh_DimDelayGroup"
+              name="Dwh_DimCancellationReason"
               usesDispositions="true"
               version="4">
               <properties>
@@ -192,7 +194,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimDelayGroup]</property>
+                  name="OpenRowset">[dbo].[DimCancellationReason]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -226,7 +228,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -234,7 +236,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Connections[OleDbConnection]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
                   connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
                   description="The OLE DB runtime connection used to access the database."
@@ -242,60 +244,64 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
-                      cachedDataType="i4"
-                      cachedName="Copy of Code"
-                      externalMetadataColumnId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].ExternalColumns[DelayGroupKey]"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
-                    <inputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="Copy of Description"
-                      externalMetadataColumnId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[CancellationReasonKey]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].ExternalColumns[DelayGroupKey]"
-                      dataType="i4"
-                      name="DelayGroupKey" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[CancellationReasonKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CancellationReasonKey" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -304,11 +310,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups"
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Stage_OnTimeDelayGroups"
+              name="Stage_Cancellation"
               usesDispositions="true"
               version="7">
               <properties>
@@ -319,7 +325,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[OnTimeDelayGroups]</property>
+                  name="OpenRowset">[dbo].[Cancellation]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -353,7 +359,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Connections[OleDbConnection]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
                   connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
                   description="The OLE DB runtime connection used to access the database."
@@ -361,42 +367,42 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Code]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
                       length="1024"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Code]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]"
                       name="Code"
                       truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
                       length="1024"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].Columns[Description]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="IgnoreFailure" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
                       codePage="1252"
                       dataType="str"
                       length="1024"
                       name="Code" />
                     <externalMetadataColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
                       codePage="1252"
                       dataType="str"
                       length="1024"
@@ -404,34 +410,34 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Code]"
                       codePage="1252"
                       dataType="str"
                       length="1024"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Code]"
                       name="Code" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Description]"
                       codePage="1252"
                       dataType="str"
                       length="1024"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Description]"
                       name="Description" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -442,15 +448,15 @@
           </components>
           <paths>
             <path
-              refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup.Paths[Data Conversion Output]"
-              endId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup.Inputs[OLE DB Destination Input]"
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[Data Conversion Output]"
+              endId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup.Paths[OLE DB Source Output]"
-              endId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -460,11 +466,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{E361002D-880A-44C7-BAC4-9CE03364B6D7}"
-      DTS:From="Package\Delete quotation marks from Stage_OnTimeDelayGroups"
+      DTS:DTSID="{dda795c8-091d-4046-b20f-2d9b6b582554}"
+      DTS:From="Package\Delete quotation marks from Stage_Cancellation"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup" />
+      DTS:To="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -479,39 +485,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="346.666666666667,42.6666666666667"
-          Id="Package\Delete quotation marks from Stage_OnTimeDelayGroups"
-          TopLeft="60,162.666666666667" />
+          Size="306.666666666667,42.6666666666667"
+          Id="Package\Delete quotation marks from Stage_Cancellation"
+          TopLeft="60,60" />
         <NodeLayout
-          Size="368,42.6666666666667"
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup"
-          TopLeft="60,265.333333333333" />
+          Size="364,42.6666666666667"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
+          TopLeft="60.0000000000001,162.666666666667" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="233.333333333333,205.333333333333">
+          TopLeft="213.333333333333,102.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.6666666666667,60"
+              EndConnector="28.6666666666667,60.0000000000003"
               Start="0,0"
-              End="10.6666666666667,52.5">
+              End="28.6666666666667,52.5000000000003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,26.0000000000002" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
+                    Point1="0,26.0000000000002"
+                    Point2="0,30.0000000000002"
+                    Point3="4,30.0000000000002" />
                   <mssgle:LineSegment
-                    End="6.66666666666666,30" />
+                    End="24.6666666666667,30.0000000000002" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.66666666666666,30"
-                    Point2="10.6666666666667,30"
-                    Point3="10.6666666666667,34" />
+                    Point1="24.6666666666667,30.0000000000002"
+                    Point2="28.6666666666667,30.0000000000002"
+                    Point3="28.6666666666667,34.0000000000002" />
                   <mssgle:LineSegment
-                    End="10.6666666666667,52.5" />
+                    End="28.6666666666667,52.5000000000003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -524,48 +530,36 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup">
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup"
+          Size="216,42.6666666666667"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
           TopLeft="295,233" />
         <NodeLayout
-          Size="208,42.6666666666667"
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups"
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
           TopLeft="307,56" />
         <NodeLayout
           Size="156,42"
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Data Conversion"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion"
           TopLeft="321.5,147.5" />
         <EdgeLayout
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup.Paths[OLE DB Source Output]"
-          TopLeft="411,98.6666666666667">
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[OLE DB Source Output]"
+          TopLeft="395.583333333333,98.6666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11.5,48.8333333333333"
+              EndConnector="0,48.8333333333333"
               Start="0,0"
-              End="-11.5,41.3333333333333">
+              End="0,41.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.4166666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4166666666667"
-                    Point2="0,24.4166666666667"
-                    Point3="-4,24.4166666666667" />
-                  <mssgle:LineSegment
-                    End="-7.5,24.4166666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.5,24.4166666666667"
-                    Point2="-11.5,24.4166666666667"
-                    Point3="-11.5,28.4166666666667" />
-                  <mssgle:LineSegment
-                    End="-11.5,41.3333333333333" />
+                    End="0,41.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -575,31 +569,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup.Paths[Data Conversion Output]"
-          TopLeft="399.5,189.5">
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[Data Conversion Output]"
+          TopLeft="401.25,189.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.5,43.5"
+              EndConnector="0,43.5"
               Start="0,0"
-              End="-14.5,36">
+              End="0,36">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.75"
-                    Point2="0,21.75"
-                    Point3="-4,21.75" />
-                  <mssgle:LineSegment
-                    End="-10.5,21.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.5,21.75"
-                    Point2="-14.5,21.75"
-                    Point3="-14.5,25.75" />
-                  <mssgle:LineSegment
-                    End="-14.5,36" />
+                    End="0,36" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -612,7 +594,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup">
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -625,7 +607,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Stage_OnTimeDelayGroups">
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

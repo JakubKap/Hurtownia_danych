@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Ssis_hd</Name>
-    <LastWriteTime>2019-05-13T19:18:32.2229974Z</LastWriteTime>
+    <LastWriteTime>2019-05-13T19:24:14.13441Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -33,12 +33,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDelayGroup.dtsx</Name>
-      <LastWriteTime>2019-05-13T18:59:54.7050124Z</LastWriteTime>
+      <LastWriteTime>2019-05-13T19:24:14.1005008Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimBLKTime.dtsx</Name>
       <LastWriteTime>2019-05-13T19:18:32.1649945Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>LoadingDimCancellationReason.dtsx</Name>
+      <LastWriteTime>2019-05-13T19:24:14.0815508Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
