@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{C81E72B5-6495-4296-A34B-C2F03E2E54A7}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{D15A7FC8-C7FE-45D7-9598-D56292F76F2C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -52,7 +52,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource=" UPDATE FactFlightActivity&#xA; SET OpUniqueCarrier = REPLACE(OpUniqueCarrier, '&quot;', ''),&#xA; OpCarrier = REPLACE(OpCarrier, '&quot;', ''),&#xA; TailNum = REPLACE(TailNum, '&quot;', ''),&#xA; OpCarrierFlNum = REPLACE(OpCarrierFlNum, '&quot;', ''),&#xA; Origin = REPLACE(Origin, '&quot;', ''),&#xA; OriginCityName = REPLACE(OriginCityName, '&quot;', ''),&#xA; OriginStateAbr = REPLACE(OriginStateAbr, '&quot;', ''),&#xA; OriginStateFips = REPLACE(OriginStateFips, '&quot;', ''),&#xA; OriginStateNm = REPLACE(OriginStateNm, '&quot;', ''),&#xA; OriginWac = REPLACE(OriginWac, '&quot;', ''),&#xA; DestCityName = REPLACE(DestCityName, '&quot;', ''),&#xA; DestStateAbr = REPLACE(DestStateAbr, '&quot;', ''),&#xA; DestStateFips = REPLACE(DestStateFips, '&quot;', ''),&#xA; DestStateNm = REPLACE(DestStateNm, '&quot;', ''),&#xA; DestWac = REPLACE(DestWac, '&quot;', ''),&#xA; CrsDepTime = REPLACE(CrsDepTime, '&quot;', ''),&#xA; DepDelay = REPLACE(DepDelay, '&quot;', ''),&#xA; DepDelayNew = REPLACE(DepDelayNew, '&quot;', ''),&#xA; WheelsOff = REPLACE(WheelsOff, '&quot;', ''),&#xA; TaxiIn = REPLACE(TaxiIn, '&quot;', ''),&#xA; CrsArrTime = REPLACE(CrsArrTime, '&quot;', ''),&#xA; ArrDelay = REPLACE(ArrDelay, '&quot;', ''),&#xA; ArrDelayNew = REPLACE(ArrDelayNew, '&quot;', ''),&#xA; CancellationCode = REPLACE(CancellationCode, '&quot;', ''),&#xA; CrsElapsedTime = REPLACE(CrsElapsedTime, '&quot;', ''),&#xA; LateAircraftDelay = REPLACE(LateAircraftDelay, '&quot;', '');"
+          SQLTask:SqlStatementSource=" UPDATE FactFlightActivity&#xA; SET OpUniqueCarrier = REPLACE(OpUniqueCarrier, '&quot;', ''),&#xA; OpCarrier = REPLACE(OpCarrier, '&quot;', ''),&#xA; TailNum = REPLACE(TailNum, '&quot;', ''),&#xA; OpCarrierFlNum = REPLACE(OpCarrierFlNum, '&quot;', ''),&#xA; Origin = REPLACE(Origin, '&quot;', ''),&#xA; OriginCityName = REPLACE(OriginCityName, '&quot;', ''),&#xA; OriginStateAbr = REPLACE(OriginStateAbr, '&quot;', ''),&#xA; OriginStateFips = REPLACE(OriginStateFips, '&quot;', ''),&#xA; OriginStateNm = REPLACE(OriginStateNm, '&quot;', ''),&#xA; OriginWac = REPLACE(OriginWac, '&quot;', ''),&#xA; Dest = REPLACE(Dest, '&quot;', ''),&#xA; DestCityName = REPLACE(DestCityName, '&quot;', ''),&#xA; DestStateAbr = REPLACE(DestStateAbr, '&quot;', ''),&#xA; DestStateFips = REPLACE(DestStateFips, '&quot;', ''),&#xA; DestStateNm = REPLACE(DestStateNm, '&quot;', ''),&#xA; DestWac = REPLACE(DestWac, '&quot;', ''),&#xA; CrsDepTime = REPLACE(CrsDepTime, '&quot;', ''),&#xA; DepTime = REPLACE(DepTime, '&quot;', ''),&#xA; DepDelay = REPLACE(DepDelay, '&quot;', ''),&#xA; DepDelayNew = REPLACE(DepDelayNew, '&quot;', ''),&#xA; DepTimeBlk = REPLACE(DepTimeBlk, '&quot;', ''),&#xA; WheelsOn = REPLACE(WheelsOn, '&quot;', ''),&#xA; WheelsOff = REPLACE(WheelsOff, '&quot;', ''),&#xA; TaxiIn = REPLACE(TaxiIn, '&quot;', ''),&#xA; CrsArrTime = REPLACE(CrsArrTime, '&quot;', ''),&#xA; ArrTime = REPLACE(ArrTime, '&quot;', ''),&#xA; ArrDelay = REPLACE(ArrDelay, '&quot;', ''),&#xA; ArrDelayNew = REPLACE(ArrDelayNew, '&quot;', ''),&#xA; ArrTimeBlk = REPLACE(ArrTimeBlk, '&quot;', ''),&#xA; CancellationCode = REPLACE(CancellationCode, '&quot;', ''),&#xA; CrsElapsedTime = REPLACE(CrsElapsedTime, '&quot;', ''),&#xA; LateAircraftDelay = REPLACE(LateAircraftDelay, '&quot;', '');"
           SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1635,7 +1635,7 @@
     design-time-name="Package\Transfer Facts from Stage to DWH 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="191,42"
           Id="Package\Transfer Facts from Stage to DWH 1\Stage_FactFlightActivity"
@@ -1667,7 +1667,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1689,7 +1691,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

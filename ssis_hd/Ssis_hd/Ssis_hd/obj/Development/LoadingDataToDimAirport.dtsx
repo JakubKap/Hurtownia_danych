@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{2093081E-A744-4177-8C42-7CDC3A16569A}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{66FC6FFE-36BE-4CAF-8FE2-79BF0261BAA4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -218,6 +218,16 @@
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="AirportUsdotSeqId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7F2591B-D12C-4525-BBB2-E5551B2BB013}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportWac">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -1091,6 +1101,103 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Match Airports Wac From Stage_Facts"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2DA7A51C-93EA-4F36-9F5C-8E23601E0C13}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match Airports Wac From Stage_Facts">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{BBC3B93B-840D-4EA2-B843-CB048D660CE5}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach set of codes">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{85CB7875-E6E7-4251-A4C6-4FD095E8DF87}"
+            DTS:ObjectName="{85CB7875-E6E7-4251-A4C6-4FD095E8DF87}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportsCodesList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{E9808E6C-D07D-4F78-AEB6-A09C0893A949}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Dwh_DimAirport_Wac"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.matchFactWacToAirport ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D81A398A-AC5F-454D-BFA6-F032C9071FF0}"
+              DTS:ObjectName="{D81A398A-AC5F-454D-BFA6-F032C9071FF0}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportIata" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3144BDB4-5AE3-4193-8946-1A9F46AFA8C8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select ArrAirport and DestAirport WAC"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Origin FROM FactFlightActivity&#xA;UNION&#xA;SELECT DISTINCT Dest FROM FactFlightActivity"
+              SQLTask:ResultType="ResultSetType_Rowset"
+              SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportsCodesList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6E3506A-23A8-452D-B3C7-3B79860F07D6}"
+          DTS:From="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match Airports Wac From Stage_Facts\Foreach set of codes" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Match appropriate AirportId to the FactTable"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -1572,7 +1679,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
-              SQLTask:SqlStatementSource="SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateNm &#xA;FROM FactFlightActivity"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateFips&#xA;&#xA;FROM FactFlightActivity&#xA;&#xA;&#xA;UNION&#xA;&#xA;&#xA;SELECT DISTINCT Dest, LTRIM(DestStateAbr),DestStateFips&#xA;FROM FactFlightActivity"
               SQLTask:CodePage="1252"
               SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -1594,17 +1701,17 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Match UsDotCode, UsSeqIdCode to Airports"
+      DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
       DTS:DTSID="{F084F602-46EE-4678-B661-7A9EAC0AB20B}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Match UsDotCode, UsSeqIdCode to Airports">
+      DTS:ObjectName="Match UsDotCode, UsSeqIdCode and City Name to Airports">
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Match UsDotCode, UsSeqIdCode to Airports\Foreach Code"
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
           DTS:DTSID="{7A41C8FC-2F8B-4DC1-BC89-E264A5B29A8D}"
@@ -1624,7 +1731,7 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Match UsDotCode, UsSeqIdCode to Airports\Foreach Code\Update Dwh_DimAirport"
+              DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code\Update Dwh_DimAirport"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{A9AB0E26-29AB-4526-B5C2-18B9F386E6D6}"
@@ -1636,7 +1743,7 @@
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
-                  SQLTask:SqlStatementSource="EXEC dbo.updateAirportCodes ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  SQLTask:SqlStatementSource="EXEC dbo.updateAirportCodesAndCities ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ParameterBinding
                     SQLTask:ParameterName="0"
                     SQLTask:DtsVariableName="User::AirportUsDotCode"
@@ -1655,6 +1762,12 @@
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="129"
                     SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="User::AirportCity"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
                 </SQLTask:SqlTaskData>
               </DTS:ObjectData>
             </DTS:Executable>
@@ -1662,38 +1775,44 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{76189636-6340-42E5-A941-7C4BE2173788}"
-              DTS:ObjectName="{76189636-6340-42E5-A941-7C4BE2173788}"
+              DTS:DTSID="{304DF936-BBC2-4A43-BB21-E6DB9D3CFB7E}"
+              DTS:ObjectName="{304DF936-BBC2-4A43-BB21-E6DB9D3CFB7E}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::AirportUsDotCode" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{C72AF29A-F266-48D6-8F68-38E31A1228D4}"
-              DTS:ObjectName="{C72AF29A-F266-48D6-8F68-38E31A1228D4}"
+              DTS:DTSID="{53178FE8-1249-4781-BB6B-CC591D1C9C1D}"
+              DTS:ObjectName="{53178FE8-1249-4781-BB6B-CC591D1C9C1D}"
               DTS:ValueIndex="1"
               DTS:VariableName="User::AirportUsdotSeqId" />
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{ABD4E743-397D-46F5-91BF-16882DF82AA4}"
-              DTS:ObjectName="{ABD4E743-397D-46F5-91BF-16882DF82AA4}"
+              DTS:DTSID="{A62A068E-D717-4709-A2D2-51B5FD0AEE83}"
+              DTS:ObjectName="{A62A068E-D717-4709-A2D2-51B5FD0AEE83}"
               DTS:ValueIndex="2"
               DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{EAB67BC3-D204-4949-8E6B-C11048A3BE9F}"
+              DTS:ObjectName="{EAB67BC3-D204-4949-8E6B-C11048A3BE9F}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::AirportCity" />
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Match UsDotCode, UsSeqIdCode to Airports\SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin FROM Stage_FactFlightActivity"
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{5E2B00D2-C218-463B-B672-D0B770469769}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin FROM Stage_FactFlightActivity"
+          DTS:ObjectName="Select map of Codes and City Names"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
-              SQLTask:SqlStatementSource="SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin &#xA;FROM [dbo].[FactFlightActivity]"
+              SQLTask:SqlStatementSource="SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin, OriginCityName&#xA;FROM [dbo].[FactFlightActivity]&#xA;&#xA;UNION&#xA;&#xA;SELECT DISTINCT DestAirportId, DestAirportSeqId, Dest, DestCityName&#xA;FROM [dbo].[FactFlightActivity]"
               SQLTask:CodePage="1252"
               SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -1705,13 +1824,13 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Match UsDotCode, UsSeqIdCode to Airports.PrecedenceConstraints[Constraint]"
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{DAF840B2-A820-48AD-99C1-590707D358E7}"
-          DTS:From="Package\Match UsDotCode, UsSeqIdCode to Airports\SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin FROM Stage_FactFlightActivity"
+          DTS:From="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Match UsDotCode, UsSeqIdCode to Airports\Foreach Code" />
+          DTS:To="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -2609,13 +2728,21 @@
       DTS:ObjectName="Constraint 10"
       DTS:To="Package\Match appropriate AirportId to the FactTable" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{2BA78090-503A-4A73-8E59-28B63EC9ED8B}"
+      DTS:From="Package\Match Airports Wac From Stage_Facts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{0CD482EB-7222-4703-8A99-D20246D60940}"
+      DTS:DTSID="{CCFEC86F-4FA8-4E62-9C95-F3806014904D}"
       DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport" />
+      DTS:To="Package\Match Airports Wac From Stage_Facts" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -2647,12 +2774,12 @@
       DTS:From="Package\Add absent Airports to Dwh_DimAirport"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Match UsDotCode, UsSeqIdCode to Airports" />
+      DTS:To="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
       DTS:DTSID="{9CAD2162-2642-47AB-AF2E-6A9F9CC72F4E}"
-      DTS:From="Package\Match UsDotCode, UsSeqIdCode to Airports"
+      DTS:From="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState" />
@@ -2778,7 +2905,7 @@
           PanelSize="374,476"
           Size="374,519"
           Id="Package\Add absent Airports to Dwh_DimAirport"
-          TopLeft="440,2721" />
+          TopLeft="470,3291" />
         <NodeLayout
           Size="238,42"
           Id="Package\Creating Dst Dictionary\Foreach Unique Dst\Create a new row in Dwh_DimDst"
@@ -2892,11 +3019,67 @@
           PanelSize="494,482"
           Size="494,525"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
-          TopLeft="266,588" />
+          TopLeft="258,601" />
         <NodeLayout
           Size="286,42"
           Id="Package\Deleting quoting marks from Stage_Airports"
           TopLeft="356.428571428572,34.1428571428571" />
+        <NodeLayout
+          Size="306,42"
+          Id="Package\Match appropriate AirportId to the FactTable\For each route\Match appropriate Airports Id to Dwh_FactTable"
+          TopLeft="36,47" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="347,144"
+          Size="347,187"
+          Id="Package\Match appropriate AirportId to the FactTable\For each route"
+          TopLeft="62,133" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
+          TopLeft="53,26" />
+        <EdgeLayout
+          Id="Package\Match appropriate AirportId to the FactTable.PrecedenceConstraints[Constraint]"
+          TopLeft="221.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,65"
+              Start="0,0"
+              End="14,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="10,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,32.5"
+                    Point2="14,32.5"
+                    Point3="14,36.5" />
+                  <mssgle:LineSegment
+                    End="14,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="415,375"
+          Size="415,418"
+          Id="Package\Match appropriate AirportId to the FactTable"
+          TopLeft="627,5948" />
         <NodeLayout
           Size="220,42"
           Id="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
@@ -2975,10 +3158,10 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="438,411"
-          Size="438,454"
+          PanelSize="438,362"
+          Size="438,405"
           Id="Package\Match appropriate Dst to Airport"
-          TopLeft="375,1660" />
+          TopLeft="375,2294.5" />
         <NodeLayout
           Size="311,42"
           Id="Package\Match appropriate WorldAreaCode to the Airport\Delete duplicates from DimAirportWorldAreaCode"
@@ -3060,7 +3243,7 @@
           PanelSize="398,397"
           Size="398,440"
           Id="Package\Match appropriate WorldAreaCode to the Airport"
-          TopLeft="395,2202" />
+          TopLeft="410,2757" />
         <NodeLayout
           Size="213,42"
           Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values\Match State codes to Airport"
@@ -3116,48 +3299,48 @@
           PanelSize="535,310"
           Size="535,353"
           Id="Package\Match DimState, DimStateFips to DimAirport"
-          TopLeft="546,4530" />
+          TopLeft="532,5368" />
         <NodeLayout
           Size="193,42"
-          Id="Package\Match UsDotCode, UsSeqIdCode to Airports\Foreach Code\Update Dwh_DimAirport"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code\Update Dwh_DimAirport"
           TopLeft="57,35" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="274,132"
           Size="274,175"
-          Id="Package\Match UsDotCode, UsSeqIdCode to Airports\Foreach Code"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code"
           TopLeft="163,101" />
         <NodeLayout
-          Size="513,42"
-          Id="Package\Match UsDotCode, UsSeqIdCode to Airports\SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin FROM Stage_FactFlightActivity"
-          TopLeft="12.5,3.5" />
+          Size="252,42"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
+          TopLeft="106.136363636364,10.772727272727" />
         <EdgeLayout
-          Id="Package\Match UsDotCode, UsSeqIdCode to Airports.PrecedenceConstraints[Constraint]"
-          TopLeft="269,45.5">
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports.PrecedenceConstraints[Constraint]"
+          TopLeft="232.136363636364,52.772727272727">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31,55.5"
+              EndConnector="67.8636363636364,48.227272727273"
               Start="0,0"
-              End="31,48">
+              End="67.8636363636364,40.727272727273">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.75" />
+                    End="0,20.1136363636365" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.75"
-                    Point2="0,27.75"
-                    Point3="4,27.75" />
+                    Point1="0,20.1136363636365"
+                    Point2="0,24.1136363636365"
+                    Point3="4,24.1136363636365" />
                   <mssgle:LineSegment
-                    End="27,27.75" />
+                    End="63.8636363636364,24.1136363636365" />
                   <mssgle:CubicBezierSegment
-                    Point1="27,27.75"
-                    Point2="31,27.75"
-                    Point3="31,31.75" />
+                    Point1="63.8636363636364,24.1136363636365"
+                    Point2="67.8636363636364,24.1136363636365"
+                    Point3="67.8636363636364,28.1136363636365" />
                   <mssgle:LineSegment
-                    End="31,48" />
+                    End="67.8636363636364,40.727272727273" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3171,8 +3354,8 @@
           IsExpanded="True"
           PanelSize="530,331"
           Size="530,374"
-          Id="Package\Match UsDotCode, UsSeqIdCode to Airports"
-          TopLeft="311,3332" />
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
+          TopLeft="421,4012" />
         <NodeLayout
           Size="327,42"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
@@ -3221,7 +3404,7 @@
           PanelSize="507,212"
           Size="507,255"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState"
-          TopLeft="440,3798" />
+          TopLeft="460,4508" />
         <NodeLayout
           Size="292,42"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
@@ -3270,7 +3453,7 @@
           PanelSize="485,216"
           Size="485,259"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
-          TopLeft="491,4189" />
+          TopLeft="526,4914" />
         <NodeLayout
           Size="279,42"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
@@ -3326,7 +3509,7 @@
           PanelSize="535,386"
           Size="535,429"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
-          TopLeft="331,1174" />
+          TopLeft="325,1770" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="499.428571428572,76.1428571428571">
@@ -3363,18 +3546,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="510.321428571429,518.857142857143">
+          TopLeft="506.321428571429,565.857142857143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.1428571428571"
+              EndConnector="0,35.142857142857"
               Start="0,0"
-              End="0,61.6428571428571">
+              End="0,27.642857142857">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.6428571428571" />
+                    End="0,27.642857142857" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3384,31 +3567,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="513,1113">
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="799.5,5721">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.5,61"
+              EndConnector="35,227"
               Start="0,0"
-              End="85.5,53.5">
+              End="35,219.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5" />
+                    End="0,109.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="4,30.5" />
+                    Point1="0,109.5"
+                    Point2="0,113.5"
+                    Point3="4,113.5" />
                   <mssgle:LineSegment
-                    End="81.5,30.5" />
+                    End="31,113.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="81.5,30.5"
-                    Point2="85.5,30.5"
-                    Point3="85.5,34.5" />
+                    Point1="31,113.5"
+                    Point2="35,113.5"
+                    Point3="35,117.5" />
                   <mssgle:LineSegment
-                    End="85.5,53.5" />
+                    End="35,219.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3419,18 +3602,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="596.25,1603">
+          TopLeft="593.25,2199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57"
+              EndConnector="0,95.5"
               Start="0,0"
-              End="0,49.5">
+              End="0,88">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.5" />
+                    End="0,88" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3441,18 +3624,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="594,2114">
+          TopLeft="594,2699.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,88"
+              EndConnector="15,57.5"
               Start="0,0"
-              End="0,80.5">
+              End="15,50">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.5" />
+                    End="0,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.75"
+                    Point2="0,28.75"
+                    Point3="4,28.75" />
+                  <mssgle:LineSegment
+                    End="11,28.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,28.75"
+                    Point2="15,28.75"
+                    Point3="15,32.75" />
+                  <mssgle:LineSegment
+                    End="15,50" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3463,30 +3658,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="594,2642">
+          TopLeft="609,3197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33,79"
+              EndConnector="48,94"
               Start="0,0"
-              End="33,71.5">
+              End="48,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,43" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.5"
-                    Point2="0,39.5"
-                    Point3="4,39.5" />
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
                   <mssgle:LineSegment
-                    End="29,39.5" />
+                    End="44,47" />
                   <mssgle:CubicBezierSegment
-                    Point1="29,39.5"
-                    Point2="33,39.5"
-                    Point3="33,43.5" />
+                    Point1="44,47"
+                    Point2="48,47"
+                    Point3="48,51" />
                   <mssgle:LineSegment
-                    End="33,71.5" />
+                    End="48,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3497,30 +3692,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="627,3240">
+          TopLeft="657,3810">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-51,92"
+              EndConnector="29,202"
               Start="0,0"
-              End="-51,84.5">
+              End="29,194.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42" />
+                    End="0,97" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42"
-                    Point2="0,46"
-                    Point3="-4,46" />
+                    Point1="0,97"
+                    Point2="0,101"
+                    Point3="4,101" />
                   <mssgle:LineSegment
-                    End="-47,46" />
+                    End="25,101" />
                   <mssgle:CubicBezierSegment
-                    Point1="-47,46"
-                    Point2="-51,46"
-                    Point3="-51,50" />
+                    Point1="25,101"
+                    Point2="29,101"
+                    Point3="29,105" />
                   <mssgle:LineSegment
-                    End="-51,84.5" />
+                    End="29,194.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3531,30 +3726,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="576,3706">
+          TopLeft="686,4386">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="117.5,92"
+              EndConnector="27.5,122"
               Start="0,0"
-              End="117.5,84.5">
+              End="27.5,114.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42" />
+                    End="0,57" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42"
-                    Point2="0,46"
-                    Point3="4,46" />
+                    Point1="0,57"
+                    Point2="0,61"
+                    Point3="4,61" />
                   <mssgle:LineSegment
-                    End="113.5,46" />
+                    End="23.5,61" />
                   <mssgle:CubicBezierSegment
-                    Point1="113.5,46"
-                    Point2="117.5,46"
-                    Point3="117.5,50" />
+                    Point1="23.5,61"
+                    Point2="27.5,61"
+                    Point3="27.5,65" />
                   <mssgle:LineSegment
-                    End="117.5,84.5" />
+                    End="27.5,114.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3565,30 +3760,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="693.5,4053">
+          TopLeft="713.5,4763">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40,136"
+              EndConnector="55,151"
               Start="0,0"
-              End="40,128.5">
+              End="55,143.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,64" />
+                    End="0,71.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,64"
-                    Point2="0,68"
-                    Point3="4,68" />
+                    Point1="0,71.5"
+                    Point2="0,75.5"
+                    Point3="4,75.5" />
                   <mssgle:LineSegment
-                    End="36,68" />
+                    End="51,75.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="36,68"
-                    Point2="40,68"
-                    Point3="40,72" />
+                    Point1="51,75.5"
+                    Point2="55,75.5"
+                    Point3="55,79.5" />
                   <mssgle:LineSegment
-                    End="40,128.5" />
+                    End="55,143.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3599,30 +3794,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="733.5,4448">
+          TopLeft="768.5,5173">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80,82"
+              EndConnector="31,195"
               Start="0,0"
-              End="80,74.5">
+              End="31,187.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37" />
+                    End="0,93.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="4,41" />
+                    Point1="0,93.5"
+                    Point2="0,97.5"
+                    Point3="4,97.5" />
                   <mssgle:LineSegment
-                    End="76,41" />
+                    End="27,97.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="76,41"
-                    Point2="80,41"
-                    Point3="80,45" />
+                    Point1="27,97.5"
+                    Point2="31,97.5"
+                    Point3="31,101.5" />
                   <mssgle:LineSegment
-                    End="80,74.5" />
+                    End="31,187.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3632,46 +3827,46 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="337,42"
-          Id="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
-          TopLeft="53,26" />
+          Size="259,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          TopLeft="51.2954545454545,24.4545454545455" />
         <NodeLayout
-          Size="306,42"
-          Id="Package\Match appropriate AirportId to the FactTable\For each route\Match appropriate Airports Id to Dwh_FactTable"
-          TopLeft="36,47" />
+          Size="219,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
+          TopLeft="58.3636363636363,40.2727272727273" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="347,144"
-          Size="347,187"
-          Id="Package\Match appropriate AirportId to the FactTable\For each route"
-          TopLeft="62,133" />
+          PanelSize="297,135"
+          Size="297,178"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
+          TopLeft="56.1818181818181,132.636363636364" />
         <EdgeLayout
-          Id="Package\Match appropriate AirportId to the FactTable.PrecedenceConstraints[Constraint]"
-          TopLeft="221.5,68">
+          Id="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
+          TopLeft="180.795454545455,66.4545454545455">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14,65"
+              EndConnector="23.8863636363636,66.1818181818182"
               Start="0,0"
-              End="14,57.5">
+              End="23.8863636363636,58.6818181818182">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,29.0909090909091" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.5"
-                    Point2="0,32.5"
-                    Point3="4,32.5" />
+                    Point1="0,29.0909090909091"
+                    Point2="0,33.0909090909091"
+                    Point3="4,33.0909090909091" />
                   <mssgle:LineSegment
-                    End="10,32.5" />
+                    End="19.8863636363636,33.0909090909091" />
                   <mssgle:CubicBezierSegment
-                    Point1="10,32.5"
-                    Point2="14,32.5"
-                    Point3="14,36.5" />
+                    Point1="19.8863636363636,33.0909090909091"
+                    Point2="23.8863636363636,33.0909090909091"
+                    Point3="23.8863636363636,37.0909090909091" />
                   <mssgle:LineSegment
-                    End="14,57.5" />
+                    End="23.8863636363636,58.6818181818182" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3683,36 +3878,70 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="415,375"
-          Size="415,418"
-          Id="Package\Match appropriate AirportId to the FactTable"
-          TopLeft="663,4968" />
+          PanelSize="358,366"
+          Size="358,409"
+          Id="Package\Match Airports Wac From Stage_Facts"
+          TopLeft="431.5,1258.25" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="813.5,4883">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="505,1126">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57,85"
+              EndConnector="105.5,132.25"
               Start="0,0"
-              End="57,77.5">
+              End="105.5,124.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.5" />
+                    End="0,62.125" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.5"
-                    Point2="0,42.5"
-                    Point3="4,42.5" />
+                    Point1="0,62.125"
+                    Point2="0,66.125"
+                    Point3="4,66.125" />
                   <mssgle:LineSegment
-                    End="53,42.5" />
+                    End="101.5,66.125" />
                   <mssgle:CubicBezierSegment
-                    Point1="53,42.5"
-                    Point2="57,42.5"
-                    Point3="57,46.5" />
+                    Point1="101.5,66.125"
+                    Point2="105.5,66.125"
+                    Point3="105.5,70.125" />
                   <mssgle:LineSegment
-                    End="57,77.5" />
+                    End="105.5,124.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="610.5,1667.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,102.75"
+              Start="0,0"
+              End="-18,95.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.375"
+                    Point2="0,51.375"
+                    Point3="-4,51.375" />
+                  <mssgle:LineSegment
+                    End="-14,51.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,51.375"
+                    Point2="-18,51.375"
+                    Point3="-18,55.375" />
+                  <mssgle:LineSegment
+                    End="-18,95.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3822,7 +4051,7 @@
     design-time-name="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="189,42"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation"
@@ -3850,9 +4079,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
