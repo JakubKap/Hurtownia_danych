@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="93"
-  DTS:VersionGUID="{36B1860A-E8ED-47E1-91C2-B41CBBE24AA3}">
+  DTS:VersionBuild="94"
+  DTS:VersionGUID="{BF4B44B6-1B4E-4016-B851-A6E1C1103D55}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

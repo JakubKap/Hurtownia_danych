@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{B14F2BDC-3D28-4869-9561-810DC8565972}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{2093081E-A744-4177-8C42-7CDC3A16569A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -75,6 +75,16 @@
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
       </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83F86F3F-72C2-468B-905D-C67DA8A186C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportDestIata">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1081,6 +1091,114 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Match appropriate AirportId to the FactTable"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3242E892-77FB-4C05-BCA1-FA31810433C8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match appropriate AirportId to the FactTable">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate AirportId to the FactTable\For each route"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{F973C571-7CC0-4CE5-AADD-B4836CCAD089}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="For each route">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{D7F59E7A-83BC-4D63-9D61-C710AD028589}"
+            DTS:ObjectName="{D7F59E7A-83BC-4D63-9D61-C710AD028589}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match appropriate AirportId to the FactTable\For each route\Match appropriate Airports Id to Dwh_FactTable"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A580E8FD-231F-48DB-BE9D-7D20ABBB9E9A}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match appropriate Airports Id to Dwh_FactTable"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.matchAppropriateAirportsIdToFact ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::AirportDestIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{FB3EE13D-CCD4-4B6F-868C-3BD3CBEF5CCD}"
+              DTS:ObjectName="{FB3EE13D-CCD4-4B6F-868C-3BD3CBEF5CCD}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B71D5C02-1287-4469-9396-03DB34FC9F66}"
+              DTS:ObjectName="{B71D5C02-1287-4469-9396-03DB34FC9F66}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::AirportDestIata" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{42580CDF-1983-4E15-BA47-8A27AAFC361C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Origin, DestCityName FROM FactFlightActivity;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Origin, DestCityName FROM FactFlightActivity"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportCodeList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate AirportId to the FactTable.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{39038276-9CAF-4201-A7B0-230100CF322C}"
+          DTS:From="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match appropriate AirportId to the FactTable\For each route" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Match appropriate Dst to Airport"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -1442,13 +1560,13 @@
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, OriginStateAbr, OriginStateNm FROM FactFlightActivity"
+          DTS:refId="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateNm FROM FactFlightActivity"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{59EBF18A-3F42-43C5-A487-877D7D4F4D46}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="SELECT DISTINCT Origin, OriginStateAbr, OriginStateNm FROM FactFlightActivity"
+          DTS:ObjectName="SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateNm FROM FactFlightActivity"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -1469,7 +1587,7 @@
           DTS:refId="Package\Match DimState, DimStateFips to DimAirport.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{55FB0984-950A-4539-8015-9246C53F574E}"
-          DTS:From="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, OriginStateAbr, OriginStateNm FROM FactFlightActivity"
+          DTS:From="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateNm FROM FactFlightActivity"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values" />
@@ -2483,6 +2601,14 @@
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{EAC6C374-7246-4114-9EE2-FF2E5E1A3307}"
+      DTS:From="Package\Match DimState, DimStateFips to DimAirport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Match appropriate AirportId to the FactTable" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{0CD482EB-7222-4703-8A99-D20246D60940}"
@@ -2947,23 +3073,35 @@
           Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values"
           TopLeft="123,88" />
         <NodeLayout
-          Size="461,42"
-          Id="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, OriginStateAbr, OriginStateNm FROM FactFlightActivity"
+          Size="499,42"
+          Id="Package\Match DimState, DimStateFips to DimAirport\SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateNm FROM FactFlightActivity"
           TopLeft="5.5,7" />
         <EdgeLayout
           Id="Package\Match DimState, DimStateFips to DimAirport.PrecedenceConstraints[Constraint]"
-          TopLeft="236.75,49">
+          TopLeft="255,49">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="-17.5,39"
               Start="0,0"
-              End="0,31.5">
+              End="-17.5,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,19.5"
+                    Point2="-17.5,19.5"
+                    Point3="-17.5,23.5" />
+                  <mssgle:LineSegment
+                    End="-17.5,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3485,6 +3623,96 @@
                     Point3="80,45" />
                   <mssgle:LineSegment
                     End="80,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="337,42"
+          Id="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
+          TopLeft="53,26" />
+        <NodeLayout
+          Size="306,42"
+          Id="Package\Match appropriate AirportId to the FactTable\For each route\Match appropriate Airports Id to Dwh_FactTable"
+          TopLeft="36,47" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="347,144"
+          Size="347,187"
+          Id="Package\Match appropriate AirportId to the FactTable\For each route"
+          TopLeft="62,133" />
+        <EdgeLayout
+          Id="Package\Match appropriate AirportId to the FactTable.PrecedenceConstraints[Constraint]"
+          TopLeft="221.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,65"
+              Start="0,0"
+              End="14,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="10,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,32.5"
+                    Point2="14,32.5"
+                    Point3="14,36.5" />
+                  <mssgle:LineSegment
+                    End="14,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="415,375"
+          Size="415,418"
+          Id="Package\Match appropriate AirportId to the FactTable"
+          TopLeft="663,4968" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="813.5,4883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57,85"
+              Start="0,0"
+              End="57,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="4,42.5" />
+                  <mssgle:LineSegment
+                    End="53,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53,42.5"
+                    Point2="57,42.5"
+                    Point3="57,46.5" />
+                  <mssgle:LineSegment
+                    End="57,77.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
