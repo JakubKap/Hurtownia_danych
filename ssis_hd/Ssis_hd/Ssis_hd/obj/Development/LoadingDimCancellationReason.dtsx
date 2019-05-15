@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/13/2019 9:19:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ES0NV97"
+  DTS:CreatorName="DESKTOP-ES0NV97\AKochanski"
+  DTS:DTSID="{1E5E3BC6-3092-4555-8D95-BE1493C95AD4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="LoadingDimCancellationReason"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{1D1815B6-D072-4459-A207-2404CB3FAC60}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AFEA34BF-56E3-4A08-8B2A-36FFA1FA5AA0}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A23E17F9-E453-4F19-828B-5A9243EBAB98}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete quotation marks from Stage_Cancellation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{879E73D9-87C6-4A6F-B40B-381E44EE6191}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete quotation marks from Stage_Cancellation"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A23E17F9-E453-4F19-828B-5A9243EBAB98}"
+          SQLTask:SqlStatementSource="UPDATE Cancellation&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '')&#xA;"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{64C4431F-9553-4E7A-80C8-A4219F05990E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_Cancellation to Dwh_DimCancellationReason"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Code"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1024"
+                      cachedName="Description"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                      name="Copy of Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                      name="Copy of Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dwh_DimCancellationReason"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCancellationReason]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Description"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                    <inputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Copy of Code"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[CancellationReasonKey]"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[CancellationReasonKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CancellationReasonKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Stage_Cancellation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Cancellation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1024"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[Data Conversion Output]"
+              endId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[OLE DB Source Output]"
+              endId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{68DDE5CA-DAE8-41DF-B114-ACB677777155}"
+      DTS:From="Package\Delete quotation marks from Stage_Cancellation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="307,43"
+          Id="Package\Delete quotation marks from Stage_Cancellation"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="364,43"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
+          TopLeft="60.0000000000001,162.666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="213.333333333333,102.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.6666666666667,60.0000000000003"
+              Start="0,0"
+              End="28.6666666666667,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0000000000002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0000000000002"
+                    Point2="0,30.0000000000002"
+                    Point3="4,30.0000000000002" />
+                  <mssgle:LineSegment
+                    End="24.6666666666667,30.0000000000002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.6666666666667,30.0000000000002"
+                    Point2="28.6666666666667,30.0000000000002"
+                    Point3="28.6666666666667,34.0000000000002" />
+                  <mssgle:LineSegment
+                    End="28.6666666666667,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,43"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="169,43"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[OLE DB Source Output]"
+          TopLeft="395.583333333333,98.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.8333333333333"
+              Start="0,0"
+              End="0,41.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason.Paths[Data Conversion Output]"
+          TopLeft="401.25,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

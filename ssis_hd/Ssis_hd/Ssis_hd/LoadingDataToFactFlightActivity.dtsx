@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{D15A7FC8-C7FE-45D7-9598-D56292F76F2C}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{21F98D34-4C74-47AC-9976-247C025DB074}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
