@@ -24,13 +24,13 @@ CREATE PROCEDURE dbo.insertFacts
 
 		SET @localOriginDate = dbo.getLocalScheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int));
 		DECLARE @LocalScheduledDepartureDate int = dbo.getLocalScheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int))
-		DECLARE @UniversalSCheduledDepartureDate int =dbo.getUniversalSCheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int), @TimezoneShiftOriginH)
+		DECLARE @UniversalSCheduledDepartureDate int =dbo.getUniversalScheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int), Cast(@CrsDepTime as int), @TimezoneShiftOriginH)
 		DECLARE @LocalActualDepartureDate int =dbo.getLocalActualDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),Cast(@CrsDepTime as int),Cast(@DepDelay as int))
 		DECLARE @UniversalActualDepartureDate int =dbo.getUniversalActualDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),Cast(@CrsDepTime as int),Cast(@DepDelay as int),@TimezoneShiftOriginH)
-		DECLARE @LocalScheduledArrivalDate int = dbo.getLocalScheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH, @TimezoneShiftDestH)
-		DECLARE @UniversalSCheduledArrivalDate int =dbo.getUniversalSCheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
+		DECLARE @LocalScheduledArrivalDate int = dbo.getLocalScheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	Cast(@CrsDepTime as int), CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH, @TimezoneShiftDestH)
+		DECLARE @UniversalSCheduledArrivalDate int =dbo.getUniversalSCheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	Cast(@CrsDepTime as int), CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
 		DECLARE @LocalActualArrivalDate int =dbo.getLocalActualArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),CAST(@DepTime AS int), CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH, @TimezoneShiftDestH)
-		DECLARE @UniversalActualArrivalDate int =dbo.getUniversalActualArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
+		DECLARE @UniversalActualArrivalDate int =dbo.getUniversalActualArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	Cast(@CrsDepTime as int),CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
 
 		DECLARE @LocalScheduledDepartureTime int = Cast(@CrsDepTime as int)
 		DECLARE @UniversalSCheduledDepartureTime int =dbo.getUniversalTime(CAST(@CrsDepTime as int),CAST(@TimezoneShiftOriginH as int))
@@ -105,7 +105,7 @@ INSERT INTO [dbo].[FactFlightActivity]
 		   dbo.getDifficultiesKey(CAST(@Diverted AS int), CAST(@DepDel15 AS int), 
 				CAST(@ArrDel15 AS int), CAST(@Cancelled AS int)),
 			@UniversalScheduledArrivalTime,
-			1,--getAirlineKey(@OpCarrier),
+			dbo.getAirlineKey(@OpCarrier),
 			@UniversalActualArrivalTime,
 			@UniversalActualArrivalDate,
 			@LocalActualDepartureTime,
@@ -114,11 +114,11 @@ INSERT INTO [dbo].[FactFlightActivity]
 			@LocalScheduledArrivalTime,
 			CAST(@CancellationCode AS int),
 			@UniversalScheduledArrivalDate,
-			1,--getAirportKey(@Origin),
+			dbo.getAirportKey(@Origin),
 			@UniversalActualDepartureDate,
 			@localOriginDate,
 			@UniversalActualDepartureTime,
-			1,--getAirportKey(@Dest),
+			dbo.getAirportKey(@Dest),
 			@LocalActualDepartureDate,
 			@LocalScheduledArrivalDate,
 			@UniversalScheduledDepartureDate,
