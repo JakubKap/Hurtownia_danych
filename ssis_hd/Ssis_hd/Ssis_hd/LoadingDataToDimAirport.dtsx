@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{A5B63BA5-5A59-4649-896D-F7FAA6912C71}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{C61B3DD9-4C37-4752-837B-9662C91B1333}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3025,6 +3025,62 @@
           Id="Package\Deleting quoting marks from Stage_Airports"
           TopLeft="356.428571428572,34.1428571428571" />
         <NodeLayout
+          Size="219,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
+          TopLeft="58.3636363636363,40.2727272727273" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="297,135"
+          Size="297,178"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
+          TopLeft="56.1818181818181,132.636363636364" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          TopLeft="51.2954545454545,24.4545454545455" />
+        <EdgeLayout
+          Id="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
+          TopLeft="180.795454545455,66.4545454545455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.8863636363636,66.1818181818182"
+              Start="0,0"
+              End="23.8863636363636,58.6818181818182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0909090909091"
+                    Point2="0,33.0909090909091"
+                    Point3="4,33.0909090909091" />
+                  <mssgle:LineSegment
+                    End="19.8863636363636,33.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.8863636363636,33.0909090909091"
+                    Point2="23.8863636363636,33.0909090909091"
+                    Point3="23.8863636363636,37.0909090909091" />
+                  <mssgle:LineSegment
+                    End="23.8863636363636,58.6818181818182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="358,366"
+          Size="358,409"
+          Id="Package\Match Airports Wac From Stage_Facts"
+          TopLeft="431.5,1258.25" />
+        <NodeLayout
           Size="306,42"
           Id="Package\Match appropriate AirportId to the FactTable\For each route\Match appropriate Airports Id to Dwh_FactTable"
           TopLeft="36,47" />
@@ -3601,6 +3657,74 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="610.5,1667.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,102.75"
+              Start="0,0"
+              End="-18,95.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.375"
+                    Point2="0,51.375"
+                    Point3="-4,51.375" />
+                  <mssgle:LineSegment
+                    End="-14,51.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,51.375"
+                    Point2="-18,51.375"
+                    Point3="-18,55.375" />
+                  <mssgle:LineSegment
+                    End="-18,95.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="505,1126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.5,132.25"
+              Start="0,0"
+              End="105.5,124.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.125"
+                    Point2="0,66.125"
+                    Point3="4,66.125" />
+                  <mssgle:LineSegment
+                    End="101.5,66.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.5,66.125"
+                    Point2="105.5,66.125"
+                    Point3="105.5,70.125" />
+                  <mssgle:LineSegment
+                    End="105.5,124.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="593.25,2199">
           <EdgeLayout.Curve>
@@ -3818,130 +3942,6 @@
                     Point3="31,101.5" />
                   <mssgle:LineSegment
                     End="31,187.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="259,42"
-          Id="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
-          TopLeft="51.2954545454545,24.4545454545455" />
-        <NodeLayout
-          Size="219,42"
-          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
-          TopLeft="58.3636363636363,40.2727272727273" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="297,135"
-          Size="297,178"
-          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
-          TopLeft="56.1818181818181,132.636363636364" />
-        <EdgeLayout
-          Id="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
-          TopLeft="180.795454545455,66.4545454545455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23.8863636363636,66.1818181818182"
-              Start="0,0"
-              End="23.8863636363636,58.6818181818182">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.0909090909091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.0909090909091"
-                    Point2="0,33.0909090909091"
-                    Point3="4,33.0909090909091" />
-                  <mssgle:LineSegment
-                    End="19.8863636363636,33.0909090909091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.8863636363636,33.0909090909091"
-                    Point2="23.8863636363636,33.0909090909091"
-                    Point3="23.8863636363636,37.0909090909091" />
-                  <mssgle:LineSegment
-                    End="23.8863636363636,58.6818181818182" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="358,366"
-          Size="358,409"
-          Id="Package\Match Airports Wac From Stage_Facts"
-          TopLeft="431.5,1258.25" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="505,1126">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105.5,132.25"
-              Start="0,0"
-              End="105.5,124.75">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,62.125"
-                    Point2="0,66.125"
-                    Point3="4,66.125" />
-                  <mssgle:LineSegment
-                    End="101.5,66.125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="101.5,66.125"
-                    Point2="105.5,66.125"
-                    Point3="105.5,70.125" />
-                  <mssgle:LineSegment
-                    End="105.5,124.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="610.5,1667.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18,102.75"
-              Start="0,0"
-              End="-18,95.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.375" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.375"
-                    Point2="0,51.375"
-                    Point3="-4,51.375" />
-                  <mssgle:LineSegment
-                    End="-14,51.375" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14,51.375"
-                    Point2="-18,51.375"
-                    Point3="-18,55.375" />
-                  <mssgle:LineSegment
-                    End="-18,95.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
