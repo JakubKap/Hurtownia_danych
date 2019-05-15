@@ -18,12 +18,29 @@ CREATE PROCEDURE dbo.insertFacts
 
 		DECLARE @FlightId int, @TimezoneShiftOriginH float, @TimezoneShiftDestH float,
 		@localOriginDate int, @localDestDate int;
-		
-		SET @localOriginDate = getLocalOriginDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int));
-		
-		SET @localDestDate = getLocalDestDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int), CAST(@CrsElapsedTime AS int))
-		
-		
+
+		SET @TimezoneShiftOriginH = (SELECT Timezone FROM DimAirport WHERE AirportIata = @Origin);
+		SET @TimezoneShiftDestH = (SELECT Timezone FROM DimAirport WHERE AirportIata = @Dest);
+
+		SET @localOriginDate = dbo.getLocalScheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int));
+		DECLARE @LocalScheduledDepartureDate int = dbo.getLocalScheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int))
+		DECLARE @UniversalSCheduledDepartureDate int =dbo.getUniversalSCheduledDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int), @TimezoneShiftOriginH)
+		DECLARE @LocalActualDepartureDate int =dbo.getLocalActualDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),Cast(@CrsDepTime as int),Cast(@DepDelay as int))
+		DECLARE @UniversalActualDepartureDate int =dbo.getUniversalActualDepartureDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),Cast(@CrsDepTime as int),Cast(@DepDelay as int),@TimezoneShiftOriginH)
+		DECLARE @LocalScheduledArrivalDate int = dbo.getLocalScheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH, @TimezoneShiftDestH)
+		DECLARE @UniversalSCheduledArrivalDate int =dbo.getUniversalSCheduledArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
+		DECLARE @LocalActualArrivalDate int =dbo.getLocalActualArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),CAST(@DepTime AS int), CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH, @TimezoneShiftDestH)
+		DECLARE @UniversalActualArrivalDate int =dbo.getUniversalActualArrivalDate(CAST(@Year AS int), CAST(@Month AS int), CAST(@DayOfMonth AS int),	CAST(@CrsElapsedTime AS int), @TimezoneShiftOriginH)
+
+		DECLARE @LocalScheduledDepartureTime int = Cast(@CrsDepTime as int)
+		DECLARE @UniversalSCheduledDepartureTime int =dbo.getUniversalTime(CAST(@CrsDepTime as int),CAST(@TimezoneShiftOriginH as int))
+		DECLARE @LocalActualDepartureTime int = cast(@depTime as int)
+		DECLARE @UniversalActualDepartureTime int =dbo.getUniversalTime(cast(@depTime as int),@TimezoneShiftOriginH)
+		DECLARE @LocalScheduledArrivalTime int =cast(@CRSArrTime as int)
+		DECLARE @UniversalSCheduledArrivalTime int =dbo.getUniversalTime(cast(@CRSArrTime as int),@TimezoneShiftOriginH)
+		DECLARE @LocalActualArrivalTime int =cast(@ArrTime as int)
+		DECLARE @UniversalActualArrivalTime int =dbo.getUniversalTime(cast(@ARRTime as int),@TimezoneShiftOriginH)
+
 
 		IF NOT EXISTS(SELECT * FROM FactFlightActivity)
 		BEGIN
@@ -35,9 +52,6 @@ CREATE PROCEDURE dbo.insertFacts
 			SET @FlightId = (SELECT (MAX(FlightId) + 1) FROM FactFlightActivity);
 		END
 
-
-SET @TimezoneShiftOriginH = (SELECT Timezone FROM DimAirport WHERE AirportIata = @Origin);
-SET @TimezoneShiftDestH = (SELECT Timezone FROM DimAirport WHERE AirportIata = @Dest);
 
 INSERT INTO [dbo].[FactFlightActivity]
            ([FlightId]
@@ -87,31 +101,31 @@ INSERT INTO [dbo].[FactFlightActivity]
      VALUES
            (@FlightId, 
 		   CAST(@CrsArrTime AS int), 
-		   CAST(@DelayGroup AS int),
-		   getDifficultiesKey(CAST(@Diverted AS int), CAST(@DepDel15 AS int), 
+		   CAST(@ArrDelayGroup AS int),
+		   dbo.getDifficultiesKey(CAST(@Diverted AS int), CAST(@DepDel15 AS int), 
 				CAST(@ArrDel15 AS int), CAST(@Cancelled AS int)),
-			getUniversalScheduledArrivalTime(CAST(@CrsArrTime AS INT), @TimezoneShiftDestH),
-			getAirlineKey(@OpCarrier),
-			getUniversalActualArrivalTime((CAST(@ArrTime AS INT), @TimezoneShiftDestH),
-			getUniversalActualArrivalDate(),
-			getLocalActualDepartureTime(),
-			getLocalScheduledDepartureDate(),
-			getUniversalScheduledDepartureTime(),
-			getLocalScheduledArrivalTime(),
+			@UniversalScheduledArrivalTime,
+			1,--getAirlineKey(@OpCarrier),
+			@UniversalActualArrivalTime,
+			@UniversalActualArrivalDate,
+			@LocalActualDepartureTime,
+			@LocalScheduledDepartureDate,
+			@UniversalScheduledDepartureTime,
+			@LocalScheduledArrivalTime,
 			CAST(@CancellationCode AS int),
-			getUniversalScheduledArrivalDate(),
-			getAirportKey(@Origin),
-			getUniversalActualDepartureDate(),
-			getFlightDate(),
-			getUniversalActualDepartureTime(),
-			getAirportKey(@Dest),
-			getLocalActualDepartureDate(),
-			getLocalScheduledArrivalDate(),
-			getUniversalScheduledDepartureDate(),
+			@UniversalScheduledArrivalDate,
+			1,--getAirportKey(@Origin),
+			@UniversalActualDepartureDate,
+			@localOriginDate,
+			@UniversalActualDepartureTime,
+			1,--getAirportKey(@Dest),
+			@LocalActualDepartureDate,
+			@LocalScheduledArrivalDate,
+			@UniversalScheduledDepartureDate,
 			@ArrTimeBlk,
 			@DepTimeBlk,
-			getLocalActualArrivalTime(),
-			getLocalActualArrivalDate(),
+			@LocalActualArrivalTime,
+			@LocalActualArrivalDate,
 			@TailNum,
 			@OpCarrierFlNum,
 			CAST(@DepDelay AS int),
