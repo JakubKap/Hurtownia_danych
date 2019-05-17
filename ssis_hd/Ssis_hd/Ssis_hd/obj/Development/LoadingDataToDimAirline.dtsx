@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{AA623178-11D9-486F-A65A-6268221210D9}">
+  DTS:VersionBuild="108"
+  DTS:VersionGUID="{03E0B54E-3712-4830-A061-E347FA4BE5ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -182,6 +182,176 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{09F1DBB5-B054-402D-ADDB-C00AA8E6E751}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adding rest of WorldAreaCode to Stage_WorldAreaCodes">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8062FF15-7E02-4235-A05A-2D4D2C952603}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting duplicates FROM WorldAreaCode"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="WITH TempDimAirlineWorldAreaCode (Description,duplicateRecCount)&#xA;AS&#xA;(&#xA;SELECT Description,ROW_NUMBER() OVER(PARTITION by Description ORDER BY Description) &#xA;AS duplicateRecCount&#xA;FROM WorldAreaCode&#xA;)&#xA;DELETE FROM TempDimAirlineWorldAreaCode&#xA;WHERE duplicateRecCount &gt; 1 ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{93bace2d-5f7c-472d-9890-c90f9546fd9a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="  UPDATE WorldAreaCode&#xA;  SET Code= REPLACE(Code, '&quot;', ''), &#xA;  Description= REPLACE(Description, '&quot;', '');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8B9F89B5-DFCE-494E-9274-3B59AF435557}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="  UPDATE WorldAreaCode&#xA;  SET Code= REPLACE(Code, '&quot;', ''), &#xA;  Description= REPLACE(Description, '&quot;', '');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{579FA8C1-A3AF-420C-855C-6FB6900F8063}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Country Name">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}"
+            DTS:ObjectName="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CountriesList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{ACE841B1-430D-4E4A-97B8-53316C3F0CE2}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+                  SQLTask:SqlStatementSource="EXEC insertNotPresentArea ?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::CountryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{90949908-017C-4A0B-AEC1-E59477DE3596}"
+              DTS:ObjectName="{90949908-017C-4A0B-AEC1-E59477DE3596}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CountryName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F669D356-95D8-4A0B-8FC6-7AE65999D560}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get all Country names from Airlines_dat"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="SELECT [Country]  FROM [Airlines]"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CountriesList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6DC5F2BB-951B-44FA-A26F-AA39E84461E3}"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E49F041C-76DA-438C-94EB-E3DEC1465895}"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F842ED16-9931-4447-9ED3-0CEB38E55D5B}"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{459C3946-8D88-4AB3-B4F6-A7F31EAD54B1}"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -591,114 +761,6 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Deleting quation marks from Stage_Airlines"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{E1C93B06-A35E-4B58-A33E-7D19EC1FF5A2}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Deleting quation marks from Stage_Airlines"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
-          SQLTask:SqlStatementSource="UPDATE Airlines&#xA;SET AirlineId= REPLACE(AirlineId, '&quot;', ''),&#xA;Name= REPLACE(Name, '&quot;', ''),&#xA;Alias= REPLACE(Alias, '&quot;', ''),&#xA;Iata= REPLACE(Iata, '&quot;', ''),&#xA;Icao= REPLACE(Icao, '&quot;', ''),&#xA;Callsign= REPLACE(Callsign, '&quot;', ''),&#xA;Country= REPLACE(Country, '&quot;', ''),&#xA;Active= REPLACE(Active, '&quot;', '');&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Deleting quoting marks from Stage_WorldAreaCode"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8B9F89B5-DFCE-494E-9274-3B59AF435557}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Deleting quoting marks from Stage_WorldAreaCode"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
-          SQLTask:SqlStatementSource="  UPDATE WorldAreaCode&#xA;  SET Description= REPLACE(Description, '&quot;', '');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Foreach Country Name"
-      DTS:CreationName="STOCK:FOREACHLOOP"
-      DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{579FA8C1-A3AF-420C-855C-6FB6900F8063}"
-      DTS:ExecutableType="STOCK:FOREACHLOOP"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Country Name">
-      <DTS:ForEachEnumerator
-        DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}"
-        DTS:ObjectName="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}">
-        <DTS:ObjectData>
-          <FEEADO
-            EnumType="EnumerateRowsInFirstTable"
-            VarName="User::CountriesList" />
-        </DTS:ObjectData>
-      </DTS:ForEachEnumerator>
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Foreach Country Name\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{ACE841B1-430D-4E4A-97B8-53316C3F0CE2}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Check if exists in WrldAreaCode (if not exists -&gt; insert)"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
-              SQLTask:SqlStatementSource="EXEC insertNotPresentArea ?"
-              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::CountryName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:ForEachVariableMappings>
-        <DTS:ForEachVariableMapping
-          DTS:CreationName=""
-          DTS:DTSID="{90949908-017C-4A0B-AEC1-E59477DE3596}"
-          DTS:ObjectName="{90949908-017C-4A0B-AEC1-E59477DE3596}"
-          DTS:ValueIndex="0"
-          DTS:VariableName="User::CountryName" />
-      </DTS:ForEachVariableMappings>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Get all Country names from Airlines_dat"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{F669D356-95D8-4A0B-8FC6-7AE65999D560}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Get all Country names from Airlines_dat"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
-          SQLTask:SqlStatementSource="SELECT [Country]  FROM [Airlines]"
-          SQLTask:CodePage="1252"
-          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::CountriesList" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Match appropriate WorldAreaCode to Airline"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -943,772 +1005,6 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{CAEAB74E-3B0B-4E4B-880E-46ADA712D330}"
           SQLTask:SqlStatementSource="UPDATE DimAirline&#xA;  SET AirlineIata = NULL&#xA;  WHERE AirlineIata IN('', ' ', '\N');&#xA;&#xA;   UPDATE DimAirline&#xA;  SET AirlineIcao = NULL&#xA;  WHERE AirlineIcao IN('', ' ', '\N');&#xA;&#xA;    UPDATE DimAirline&#xA;  SET AirlineName = NULL&#xA;  WHERE AirlineName IN('', ' ', '\N');&#xA;&#xA;      UPDATE DimAirline&#xA;  SET AirlineAlias = NULL&#xA;  WHERE AirlineAlias IN('', ' ', '\N');&#xA;&#xA;        UPDATE DimAirline&#xA;  SET Callsign = NULL&#xA;  WHERE Callsign IN('', ' ', '\N');&#xA;&#xA;&#xA;          UPDATE DimAirline&#xA;  SET Active = NULL&#xA;  WHERE Active IN('', ' ', '\N');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{2F32ED4A-E388-4617-BD5F-91C0ABB22E80}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Transfer data from Stage_Airlines to Dwh_DimAirline"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[AirlineId]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="AirlineId"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Name"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Alias]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Alias"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Iata]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Iata"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Icao]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Icao"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Callsign]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Callsign"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Active]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Active"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]"
-                      name="Copy of AirlineId"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
-                      name="Copy of Name"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="200"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]"
-                      name="Copy of Alias"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]"
-                      name="Copy of Iata"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]"
-                      name="Copy of Icao"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="200"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]"
-                      name="Copy of Callsign"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="1"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]"
-                      name="Copy of Active"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Dwh_DimAirline"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimAirline]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1250</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of AirlineId]"
-                      cachedDataType="i4"
-                      cachedName="Copy of AirlineId"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineId]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Iata]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Copy of Iata"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIata]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Icao]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="Copy of Icao"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirportIcao]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1024"
-                      cachedName="Copy of Name"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineName]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Alias]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="Copy of Alias"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineAlias]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Callsign]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="Copy of Callsign"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Callsign]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]" />
-                    <inputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Active]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="Copy of Active"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineId]"
-                      dataType="i4"
-                      name="AirlineId" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineWorldAreaCode]"
-                      dataType="i4"
-                      name="AirlineWorldAreaCode" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIata]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="AirlineIata" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirportIcao]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="AirportIcao" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineUsDotCode]"
-                      dataType="i4"
-                      name="AirlineUsDotCode" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="AirlineName" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineAlias]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="AirlineAlias" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Callsign]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="Callsign" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="Active" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Stage_Airlines"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Airlines]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1250</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                  connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[AirlineId]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]"
-                      name="AirlineId"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]"
-                      name="Name"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Alias]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]"
-                      name="Alias"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Iata]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]"
-                      name="Iata"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Icao]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]"
-                      name="Icao"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Callsign]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]"
-                      name="Callsign"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Country]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Country]"
-                      name="Country"
-                      truncationRowDisposition="IgnoreFailure" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Active]"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]"
-                      name="Active"
-                      truncationRowDisposition="IgnoreFailure" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[AirlineId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="AirlineId" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Alias]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Alias" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Iata]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Iata" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Icao]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Icao" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Callsign]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Callsign" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Country" />
-                    <externalMetadataColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Active]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      name="Active" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[AirlineId]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[AirlineId]"
-                      name="AirlineId" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      name="Name" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Alias]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Alias]"
-                      name="Alias" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Iata]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Iata]"
-                      name="Iata" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Icao]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Icao]"
-                      name="Icao" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Callsign]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Callsign]"
-                      name="Callsign" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Country]"
-                      name="Country" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Active]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1024"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Active]"
-                      name="Active" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[Data Conversion Output]"
-              endId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[OLE DB Source Output]"
-              endId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]"
-              name="OLE DB Source Output"
-              startId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2110,47 +1406,819 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{36783B4B-A6B1-4E2C-B667-E27DE698936E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfering data from Stage_Airlines to Dwh_DimAirline">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E1C93B06-A35E-4B58-A33E-7D19EC1FF5A2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting quation marks from Stage_Airlines"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F05C6412-C97F-42FE-919B-479DE4E70663}"
+              SQLTask:SqlStatementSource="UPDATE Airlines&#xA;SET AirlineId= REPLACE(AirlineId, '&quot;', ''),&#xA;Name= REPLACE(Name, '&quot;', ''),&#xA;Alias= REPLACE(Alias, '&quot;', ''),&#xA;Iata= REPLACE(Iata, '&quot;', ''),&#xA;Icao= REPLACE(Icao, '&quot;', ''),&#xA;Callsign= REPLACE(Callsign, '&quot;', ''),&#xA;Country= REPLACE(Country, '&quot;', ''),&#xA;Active= REPLACE(Active, '&quot;', '');&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2F32ED4A-E388-4617-BD5F-91C0ABB22E80}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transfer data from Stage_Airlines to Dwh_DimAirline"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[AirlineId]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="AirlineId"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Name"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Alias]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Alias"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Iata]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Iata"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Icao]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Icao"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Callsign]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Callsign"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input].Columns[Active]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Active"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]"
+                          name="Copy of AirlineId"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]"
+                          name="Copy of Name"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="200"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]"
+                          name="Copy of Alias"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]"
+                          name="Copy of Iata"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]"
+                          name="Copy of Icao"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="200"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]"
+                          name="Copy of Callsign"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]"
+                          name="Copy of Active"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Dwh_DimAirline"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimAirline]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of AirlineId]"
+                          cachedDataType="i4"
+                          cachedName="Copy of AirlineId"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineId]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AirlineId]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Iata]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of Iata"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIata]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Iata]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Copy of Name"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineName]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Name]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Alias]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Copy of Alias"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineAlias]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Alias]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Callsign]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Copy of Callsign"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Callsign]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Callsign]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Active]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Copy of Active"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineId]"
+                          dataType="i4"
+                          name="AirlineId" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineWorldAreaCode]"
+                          dataType="i4"
+                          name="AirlineWorldAreaCode" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIata]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="AirlineIata" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineUsDotCode]"
+                          dataType="i4"
+                          name="AirlineUsDotCode" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="AirlineName" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineAlias]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="AirlineAlias" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Callsign]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Callsign" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Active" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIcao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="AirlineIcao" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage_Airlines"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Airlines]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[AirlineId]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[AirlineId]"
+                          name="AirlineId"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Alias]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Alias]"
+                          name="Alias"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Iata]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Iata]"
+                          name="Iata"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Icao]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Icao]"
+                          name="Icao"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Callsign]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Callsign]"
+                          name="Callsign"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Active]"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].Columns[Active]"
+                          name="Active"
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[AirlineId]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="AirlineId" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Alias]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Alias" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Iata]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Iata" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Icao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Icao" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Callsign]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Callsign" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output].ExternalColumns[Active]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Active" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[AirlineId]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[AirlineId]"
+                          name="AirlineId" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Alias]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Alias]"
+                          name="Alias" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Iata]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Iata]"
+                          name="Iata" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Icao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Icao]"
+                          name="Icao" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Callsign]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Callsign]"
+                          name="Callsign" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Active]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[Active]"
+                          name="Active" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[Data Conversion Output]"
+                  endId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[OLE DB Source Output]"
+                  endId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{365D8664-45DB-4909-828B-CA0F9710B82B}"
+          DTS:From="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6DC5F2BB-951B-44FA-A26F-AA39E84461E3}"
-      DTS:From="Package\Get all Country names from Airlines_dat"
+      DTS:DTSID="{BCDA059D-2436-412F-8FBF-5F758CE913F1}"
+      DTS:From="Package\Transfering data from Stage_Airlines to Dwh_DimAirline"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Foreach Country Name" />
+      DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{6EBCC128-A73D-4B37-A0AD-F682166C3965}"
-      DTS:From="Package\Foreach Country Name"
+      DTS:DTSID="{E5C508E9-67E7-4D9C-8447-159627011608}"
+      DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Deleting quation marks from Stage_Airlines" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{365D8664-45DB-4909-828B-CA0F9710B82B}"
-      DTS:From="Package\Deleting quation marks from Stage_Airlines"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Transfer data from Stage_Airlines to Dwh_DimAirline" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{8EF15B63-C010-47C0-ADAB-061A2BA8F3C2}"
-      DTS:From="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Deleting quoting marks from Stage_WorldAreaCode" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{6CC74706-BC01-4155-B82E-0325FBCDAE9B}"
-      DTS:From="Package\Deleting quoting marks from Stage_WorldAreaCode"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 4"
       DTS:To="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
@@ -2205,6 +2273,152 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode"
+          TopLeft="37,419" />
+        <NodeLayout
+          Size="372,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          TopLeft="18,44" />
+        <NodeLayout
+          Size="370,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          TopLeft="12,497.5" />
+        <NodeLayout
+          Size="344,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+          TopLeft="5.5,54" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="354,137"
+          Size="354,180"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name"
+          TopLeft="3,214.5" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          TopLeft="67,135.5" />
+        <EdgeLayout
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint]"
+          TopLeft="200.5,177.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.5,37"
+              Start="0,0"
+              End="-20.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-16.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.5,18.5"
+                    Point2="-20.5,18.5"
+                    Point3="-20.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-20.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 1]"
+          TopLeft="177.5,394.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.5"
+              Start="0,0"
+              End="0,17">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 2]"
+          TopLeft="202.25,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.5"
+              Start="0,0"
+              End="0,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 3]"
+          TopLeft="175,461">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,36.5"
+              Start="0,0"
+              End="22,29">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.25"
+                    Point2="0,18.25"
+                    Point3="4,18.25" />
+                  <mssgle:LineSegment
+                    End="18,18.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,18.25"
+                    Point2="22,18.25"
+                    Point3="22,22.25" />
+                  <mssgle:LineSegment
+                    End="22,29" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="395,545"
+          Size="395,588"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes"
+          TopLeft="74,289" />
         <NodeLayout
           Size="269,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
@@ -2343,7 +2557,7 @@
           PanelSize="630,680"
           Size="630,723"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
-          TopLeft="104,2090" />
+          TopLeft="104,2205.5" />
         <NodeLayout
           Size="288,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
@@ -2465,30 +2679,7 @@
           PanelSize="414,590"
           Size="414,633"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
-          TopLeft="85.5555555555556,1410.05555555556" />
-        <NodeLayout
-          Size="283,42"
-          Id="Package\Deleting quation marks from Stage_Airlines"
-          TopLeft="112,478" />
-        <NodeLayout
-          Size="322,42"
-          Id="Package\Deleting quoting marks from Stage_WorldAreaCode"
-          TopLeft="97,671" />
-        <NodeLayout
-          Size="338,42"
-          Id="Package\Foreach Country Name\Check if exists in WrldAreaCode (if not exists -&gt; insert)"
-          TopLeft="5.5,54" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="348,219"
-          Size="348,262"
-          Id="Package\Foreach Country Name"
-          TopLeft="75,130" />
-        <NodeLayout
-          Size="267,42"
-          Id="Package\Get all Country names from Airlines_dat"
-          TopLeft="110,58" />
+          TopLeft="85.5555555555556,1525.55555555556" />
         <NodeLayout
           Size="349,42"
           Id="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
@@ -2558,7 +2749,7 @@
           PanelSize="438,381"
           Size="438,424"
           Id="Package\Match appropriate WorldAreaCode to Airline"
-          TopLeft="36,933" />
+          TopLeft="36,1048.5" />
         <NodeLayout
           Size="243,42"
           Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity\Match appropriate AirlineId in Dwh"
@@ -2614,62 +2805,26 @@
           PanelSize="426,373"
           Size="426,416"
           Id="Package\Matching appropriate AirlineId to Fact Table"
-          TopLeft="272,2877" />
+          TopLeft="272,2992.5" />
         <NodeLayout
-          Size="328,42"
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
-          TopLeft="91,561" />
+          Size="434,42"
+          Id="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
+          TopLeft="354,3473.5" />
         <NodeLayout
           Size="440,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
-          TopLeft="30,787" />
+          TopLeft="30,902.5" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          TopLeft="26.5,5.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline"
+          TopLeft="5.5,88.5" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="246.25,100">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30"
-              Start="0,0"
-              End="0,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="251.25,392">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,86"
-              Start="0,0"
-              End="0,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="254.25,520">
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline.PrecedenceConstraints[Constraint 2]"
+          TopLeft="168.75,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2689,20 +2844,27 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="338,185"
+          Size="338,228"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline"
+          TopLeft="103,10" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="256.5,603">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="271.75,238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68"
+              EndConnector="0,51"
               Start="0,0"
-              End="0,60.5">
+              End="0,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2712,31 +2874,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="258,713">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="271.5,877">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8,74"
+              EndConnector="-21.5,25.5"
               Start="0,0"
-              End="-8,66.5">
+              End="-21.5,18">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33" />
+                    End="0,8.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33"
-                    Point2="0,37"
-                    Point3="-4,37" />
+                    Point1="0,8.75"
+                    Point2="0,12.75"
+                    Point3="-4,12.75" />
                   <mssgle:LineSegment
-                    End="-4,37" />
+                    End="-17.5,12.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4,37"
-                    Point2="-8,37"
-                    Point3="-8,41" />
+                    Point1="-17.5,12.75"
+                    Point2="-21.5,12.75"
+                    Point3="-21.5,16.75" />
                   <mssgle:LineSegment
-                    End="-8,66.5" />
+                    End="-21.5,18" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2747,7 +2909,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="252.5,829">
+          TopLeft="252.5,944.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2769,7 +2931,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="255,1339">
+          TopLeft="255,1454.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2803,7 +2965,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="292.555555555556,2043.05555555556">
+          TopLeft="292.555555555556,2158.55555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2837,7 +2999,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="419,2813">
+          TopLeft="419,2928.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2869,13 +3031,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="434,42"
-          Id="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
-          TopLeft="354,3358" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="485,3293">
+          TopLeft="485,3408.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2910,100 +3068,6 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Transfer data from Stage_Airlines to Dwh_DimAirline">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
-          TopLeft="217,75" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion"
-          TopLeft="210,165" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline"
-          TopLeft="209,258" />
-        <EdgeLayout
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[OLE DB Source Output]"
-          TopLeft="288.75,117">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48"
-              Start="0,0"
-              End="0,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[Data Conversion Output]"
-          TopLeft="287,207">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode">
     <LayoutInfo>
@@ -3087,6 +3151,100 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Stage_WorldAreaCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
+          TopLeft="217,75" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion"
+          TopLeft="210,165" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline"
+          TopLeft="209,258" />
+        <EdgeLayout
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[OLE DB Source Output]"
+          TopLeft="288.75,117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline.Paths[Data Conversion Output]"
+          TopLeft="287,207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
