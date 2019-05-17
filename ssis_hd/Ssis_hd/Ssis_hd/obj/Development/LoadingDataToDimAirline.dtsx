@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="94"
-  DTS:VersionGUID="{BF4B44B6-1B4E-4016-B851-A6E1C1103D55}">
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{AA623178-11D9-486F-A65A-6268221210D9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -928,6 +928,22 @@
           DTS:ObjectName="Constraint"
           DTS:To="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity" />
       </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{54D3AE4D-0DEE-48C5-B17F-5BDA43648363}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CAEAB74E-3B0B-4E4B-880E-46ADA712D330}"
+          SQLTask:SqlStatementSource="UPDATE DimAirline&#xA;  SET AirlineIata = NULL&#xA;  WHERE AirlineIata IN('', ' ', '\N');&#xA;&#xA;   UPDATE DimAirline&#xA;  SET AirlineIcao = NULL&#xA;  WHERE AirlineIcao IN('', ' ', '\N');&#xA;&#xA;    UPDATE DimAirline&#xA;  SET AirlineName = NULL&#xA;  WHERE AirlineName IN('', ' ', '\N');&#xA;&#xA;      UPDATE DimAirline&#xA;  SET AirlineAlias = NULL&#xA;  WHERE AirlineAlias IN('', ' ', '\N');&#xA;&#xA;        UPDATE DimAirline&#xA;  SET Callsign = NULL&#xA;  WHERE Callsign IN('', ' ', '\N');&#xA;&#xA;&#xA;          UPDATE DimAirline&#xA;  SET Active = NULL&#xA;  WHERE Active IN('', ' ', '\N');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Transfer data from Stage_Airlines to Dwh_DimAirline"
@@ -2168,6 +2184,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Matching appropriate AirlineId to Fact Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{63F034EE-68E2-44FF-A924-8642E855E4A4}"
+      DTS:From="Package\Matching appropriate AirlineId to Fact Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2837,6 +2861,44 @@
                     Point3="66,36" />
                   <mssgle:LineSegment
                     End="66,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="434,42"
+          Id="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
+          TopLeft="354,3358" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="485,3293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86,65"
+              Start="0,0"
+              End="86,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="82,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82,32.5"
+                    Point2="86,32.5"
+                    Point3="86,36.5" />
+                  <mssgle:LineSegment
+                    End="86,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

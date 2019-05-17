@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{EB080736-6520-490C-8F32-4A70249597B5}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{2D613A0F-1D17-462E-B121-02CFA0EE074C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -648,13 +648,13 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Deleting quoting marks from Stage_FacktFlightActivity"
+      DTS:refId="Package\Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{975c5b59-ab98-4ea8-8fc3-926616ec31de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Deleting quoting marks from Stage_FacktFlightActivity"
+      DTS:ObjectName="Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -1440,7 +1440,7 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{D2CB27C9-986E-4EAC-B64A-44166CCBE187}"
-      DTS:From="Package\Deleting quoting marks from Stage_FacktFlightActivity"
+      DTS:From="Package\Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Select row from Stage_FactFlightActivity" />
@@ -1466,8 +1466,8 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="334,42"
-          Id="Package\Deleting quoting marks from Stage_FacktFlightActivity"
+          Size="343,42"
+          Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="168,51" />
         <NodeLayout
           Size="258,42"
@@ -1486,7 +1486,7 @@
           TopLeft="203,138" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="336.25,93">
+          TopLeft="338.5,93">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
