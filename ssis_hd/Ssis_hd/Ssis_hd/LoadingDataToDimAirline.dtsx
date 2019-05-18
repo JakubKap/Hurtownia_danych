@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="108"
-  DTS:VersionGUID="{03E0B54E-3712-4830-A061-E347FA4BE5ED}">
+  DTS:VersionBuild="109"
+  DTS:VersionGUID="{0A567951-1FAE-45E5-8D40-C48AE1E75F21}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -899,6 +899,7 @@
       DTS:refId="Package\Matching appropriate AirlineId to Fact Table"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{960D585B-15EB-4DB1-9F93-395868CDB177}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"

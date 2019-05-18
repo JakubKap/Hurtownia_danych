@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="101"
-  DTS:VersionGUID="{B0CBBB42-7CD3-43CC-A199-9ED77BD7246F}">
+  DTS:VersionBuild="102"
+  DTS:VersionGUID="{F1E1DDE4-06FA-437A-A6FB-17D163CF2C87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1858,7 +1858,6 @@
       DTS:refId="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{02193FE6-ED3E-45D4-81A9-3D33D5D37285}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -3071,10 +3070,6 @@
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
           TopLeft="50,19" />
         <NodeLayout
-          Size="317,42"
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
-          TopLeft="71,92" />
-        <NodeLayout
           Size="208,42"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State\Insert new row in DimState"
           TopLeft="12,29" />
@@ -3085,6 +3080,10 @@
           Size="230,169"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
           TopLeft="118,157" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          TopLeft="71,92" />
         <EdgeLayout
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint]"
           TopLeft="213.5,61">
@@ -3153,10 +3152,6 @@
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
           TopLeft="54,16" />
         <NodeLayout
-          Size="282,42"
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
-          TopLeft="63,84" />
-        <NodeLayout
           Size="227,42"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
           TopLeft="22,25" />
@@ -3167,6 +3162,10 @@
           Size="254,165"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
           TopLeft="102,160" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          TopLeft="63,84" />
         <EdgeLayout
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
           TopLeft="204,126">
