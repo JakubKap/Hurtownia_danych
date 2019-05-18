@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="94"
-  DTS:VersionGUID="{DDF1B3D4-443D-4DBD-96BE-DCD51DD1B129}">
+  DTS:VersionBuild="101"
+  DTS:VersionGUID="{B0CBBB42-7CD3-43CC-A199-9ED77BD7246F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -300,6 +300,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{86CB8111-912D-4564-8B53-E196575225E3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateCode">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{52FCE5D0-B64F-492E-B996-C5857111D099}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -315,6 +325,16 @@
           </SOAP-ENV:Body>
         </SOAP-ENV:Envelope>
       </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{659CDE1D-6A36-459F-89D7-87BAC24DE848}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateDescription">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1201,6 +1221,7 @@
       DTS:refId="Package\Match appropriate AirportId to the FactTable"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{3242E892-77FB-4C05-BCA1-FA31810433C8}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -1837,6 +1858,7 @@
       DTS:refId="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{02193FE6-ED3E-45D4-81A9-3D33D5D37285}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1877,295 +1899,89 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{598ED72E-D072-4EBD-B593-1F3270B5FB5B}"
-          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{C1C0E851-B803-46ED-A63D-ADB44CA23345}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Transfer data from Stage_StageFips To Dwh_DimStateFips"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:ObjectName="Foreach StateFips">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{D968ADE9-0C74-4FB1-BA87-014A3052E7E4}"
+            DTS:ObjectName="{D968ADE9-0C74-4FB1-BA87-014A3052E7E4}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::StateCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A0E9941B-5789-457C-869D-13182647C774}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new row in DimStateFips"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC insertNewStateFips ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::StateCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::StateDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{055A9317-3CC9-4315-A680-511FD0365574}"
+              DTS:ObjectName="{055A9317-3CC9-4315-A680-511FD0365574}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::StateCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{133CD0EA-D323-4703-96B5-A071020B6FAD}"
+              DTS:ObjectName="{133CD0EA-D323-4703-96B5-A071020B6FAD}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::StateDescription" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1D17170C-D17C-4E4A-B492-8034E9249762}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Code, Description FROM StateFips;"
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="Dwh_DimStateFips"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DimStateFips]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1250</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].Columns[Code]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1024"
-                          cachedName="Code"
-                          externalMetadataColumnId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].ExternalColumns[StateFipsCode]"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Code]" />
-                        <inputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].Columns[Description]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1024"
-                          cachedName="Description"
-                          externalMetadataColumnId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Description]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].ExternalColumns[StateFipsCode]"
-                          codePage="1252"
-                          dataType="str"
-                          length="2"
-                          name="StateFipsCode" />
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="StateName" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="Stage_StageFips"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[StateFips]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1250</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].ExternalColumns[Code]"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Code]"
-                          name="Code"
-                          truncationRowDisposition="IgnoreFailure" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].ExternalColumns[Description]"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].Columns[Description]"
-                          name="Description"
-                          truncationRowDisposition="IgnoreFailure" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].ExternalColumns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          name="Code" />
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output].ExternalColumns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          name="Description" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[Code]"
-                          name="Code" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[Description]"
-                          name="Description" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips.Paths[OLE DB Source Output]"
-                  endId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips.Outputs[OLE DB Source Output]" />
-              </paths>
-            </pipeline>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Code, Description FROM StateFips;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::StateCodeList" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -2173,11 +1989,19 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{6EA72888-F65B-4A7F-9DBA-0DF6FED618AD}"
-          DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          DTS:DTSID="{BE80C7DA-BC6E-4080-AFDC-9752A7C35CB0}"
+          DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips" />
+          DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C5135A23-0251-4968-9F97-A9C528609EC6}"
+          DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -2208,295 +2032,89 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{62D6B64B-F71C-4FBE-B1B5-BC11E4F6A6B1}"
-          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{7DF35CBE-A6FD-4B6B-8034-3A45DD779816}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Transfer data from Stage_StageAbrAviation To Dwh_DimState"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:ObjectName="Foreach State">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{F5823F0A-3ED0-475E-A31F-3119889D8897}"
+            DTS:ObjectName="{F5823F0A-3ED0-475E-A31F-3119889D8897}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::StateCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State\Insert new row in DimState"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{456FBB89-515D-421B-B9EF-CA8571F9DFD0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new row in DimState"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertNewState ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::StateCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::StateDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{CED66D04-4934-4995-8254-AD1A12B96033}"
+              DTS:ObjectName="{CED66D04-4934-4995-8254-AD1A12B96033}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::StateCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{798C810D-E701-4C45-8BFD-66A0FBC23F33}"
+              DTS:ObjectName="{798C810D-E701-4C45-8BFD-66A0FBC23F33}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::StateDescription" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DD234762-CAC0-44C7-94C7-8B5C64D7A5DC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Code, Description FROM StateAbrAviation;"
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="Dwh_DimState"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DimState]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1250</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="IgnoreFailure"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].Columns[Code]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1024"
-                          cachedName="Code"
-                          externalMetadataColumnId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Code]" />
-                        <inputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].Columns[Description]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="1024"
-                          cachedName="Description"
-                          externalMetadataColumnId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Description]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
-                          codePage="1252"
-                          dataType="str"
-                          length="2"
-                          name="StateCode" />
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input].ExternalColumns[StateName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="StateName" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="Stage_StateAbrAviation"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[StateAbrAviation]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1250</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="IgnoreFailure"
-                          externalMetadataColumnId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Code]"
-                          name="Code"
-                          truncationRowDisposition="IgnoreFailure" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="IgnoreFailure"
-                          externalMetadataColumnId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].Columns[Description]"
-                          name="Description"
-                          truncationRowDisposition="IgnoreFailure" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].ExternalColumns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          name="Code" />
-                        <externalMetadataColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output].ExternalColumns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          name="Description" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[Code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[Code]"
-                          name="Code" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[Description]"
-                          codePage="1252"
-                          dataType="str"
-                          length="1024"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[Description]"
-                          name="Description" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState.Paths[OLE DB Source Output]"
-                  endId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState.Inputs[OLE DB Destination Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation.Outputs[OLE DB Source Output]" />
-              </paths>
-            </pipeline>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Code, Description FROM StateAbrAviation;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::StateCodeList" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -2504,11 +2122,19 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{3BBF09CA-4FC6-49F9-ACC4-21F25A29A4F6}"
+          DTS:DTSID="{683BCB7F-B94A-4CC9-9069-602DF485A002}"
           DTS:From="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState" />
+          DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD3F98C7-758D-481F-A732-B535F0AEF2BA}"
+          DTS:From="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -3445,35 +3071,46 @@
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
           TopLeft="50,19" />
         <NodeLayout
-          Size="372,42"
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState"
-          TopLeft="46,93" />
+          Size="317,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          TopLeft="71,92" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State\Insert new row in DimState"
+          TopLeft="12,29" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="230,126"
+          Size="230,169"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
+          TopLeft="118,157" />
         <EdgeLayout
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint]"
           TopLeft="213.5,61">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.5,32"
+              EndConnector="16,31"
               Start="0,0"
-              End="18.5,24.5">
+              End="16,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12" />
+                    End="0,11.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12"
-                    Point2="0,16"
-                    Point3="4,16" />
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
                   <mssgle:LineSegment
-                    End="14.5,16" />
+                    End="12,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.5,16"
-                    Point2="18.5,16"
-                    Point3="18.5,20" />
+                    Point1="12,15.5"
+                    Point2="16,15.5"
+                    Point3="16,19.5" />
                   <mssgle:LineSegment
-                    End="18.5,24.5" />
+                    End="16,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3482,47 +3119,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="507,212"
-          Size="507,255"
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState"
-          TopLeft="460,4508" />
-        <NodeLayout
-          Size="292,42"
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
-          TopLeft="24,33" />
-        <NodeLayout
-          Size="356,42"
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips"
-          TopLeft="24,115" />
         <EdgeLayout
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
-          TopLeft="170,75">
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint 1]"
+          TopLeft="231.25,134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32,40"
+              EndConnector="0,23"
               Start="0,0"
-              End="32,32.5">
+              End="0,15.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="28,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28,20"
-                    Point2="32,20"
-                    Point3="32,24" />
-                  <mssgle:LineSegment
-                    End="32,32.5" />
+                    End="0,15.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3534,8 +3144,90 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="485,216"
-          Size="485,259"
+          PanelSize="542,381"
+          Size="542,424"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState"
+          TopLeft="445,4436" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          TopLeft="54,16" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          TopLeft="63,84" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
+          TopLeft="22,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254,122"
+          Size="254,165"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
+          TopLeft="102,160" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
+          TopLeft="204,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,34"
+              Start="0,0"
+              End="8,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="4,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,17"
+                    Point2="8,17"
+                    Point3="8,21" />
+                  <mssgle:LineSegment
+                    End="8,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint 1]"
+          TopLeft="202,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="485,380"
+          Size="485,423"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
           TopLeft="526,4914" />
         <NodeLayout
@@ -3916,26 +3608,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.5,122"
+              EndConnector="30,50"
               Start="0,0"
-              End="27.5,114.5">
+              End="30,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57" />
+                    End="0,21" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,57"
-                    Point2="0,61"
-                    Point3="4,61" />
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
                   <mssgle:LineSegment
-                    End="23.5,61" />
+                    End="26,25" />
                   <mssgle:CubicBezierSegment
-                    Point1="23.5,61"
-                    Point2="27.5,61"
-                    Point3="27.5,65" />
+                    Point1="26,25"
+                    Point2="30,25"
+                    Point3="30,29" />
                   <mssgle:LineSegment
-                    End="27.5,114.5" />
+                    End="30,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3946,30 +3638,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="713.5,4763">
+          TopLeft="716,4860">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55,151"
+              EndConnector="52.5,54"
               Start="0,0"
-              End="55,143.5">
+              End="52.5,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.5" />
+                    End="0,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,71.5"
-                    Point2="0,75.5"
-                    Point3="4,75.5" />
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
                   <mssgle:LineSegment
-                    End="51,75.5" />
+                    End="48.5,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="51,75.5"
-                    Point2="55,75.5"
-                    Point3="55,79.5" />
+                    Point1="48.5,27"
+                    Point2="52.5,27"
+                    Point3="52.5,31" />
                   <mssgle:LineSegment
-                    End="55,143.5" />
+                    End="52.5,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3980,30 +3672,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="768.5,5173">
+          TopLeft="768.5,5337">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31,195"
+              EndConnector="31,31"
               Start="0,0"
-              End="31,187.5">
+              End="31,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,93.5" />
+                    End="0,11.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,93.5"
-                    Point2="0,97.5"
-                    Point3="4,97.5" />
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
                   <mssgle:LineSegment
-                    End="27,97.5" />
+                    End="27,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="27,97.5"
-                    Point2="31,97.5"
-                    Point3="31,101.5" />
+                    Point1="27,15.5"
+                    Point2="31,15.5"
+                    Point3="31,19.5" />
                   <mssgle:LineSegment
-                    End="31,187.5" />
+                    End="31,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4098,138 +3790,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation"
-          TopLeft="297,86" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState"
-          TopLeft="318,262" />
-        <EdgeLayout
-          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState.Paths[OLE DB Source Output]"
-          TopLeft="392,128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,134"
-              Start="0,0"
-              End="0,126.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,126.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Dwh_DimState">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_State_Abrv to Dwh_DimState\Transfer data from Stage_StageAbrAviation To Dwh_DimState\Stage_StateAbrAviation">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips"
-          TopLeft="270,63" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips"
-          TopLeft="260,216" />
-        <EdgeLayout
-          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips.Paths[OLE DB Source Output]"
-          TopLeft="346,105">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,111"
-              Start="0,0"
-              End="0,103.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,103.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Dwh_DimStateFips">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Transfer data from Stage_StageFips To Dwh_DimStateFips\Stage_StageFips">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
