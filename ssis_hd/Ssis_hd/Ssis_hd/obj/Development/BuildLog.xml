@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Ssis_hd</Name>
-    <LastWriteTime>2019-05-15T12:09:31.7795177Z</LastWriteTime>
+    <LastWriteTime>2019-05-25T10:19:14.6852572Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -54,6 +54,11 @@
     <ProjectBuildItemInfo>
       <Name>LoadingDimTime.dtsx</Name>
       <LastWriteTime>2019-05-15T12:01:06.892342Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>TempLoadingDataToTempFacts.dtsx</Name>
+      <LastWriteTime>2019-05-25T10:19:11.797655Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
