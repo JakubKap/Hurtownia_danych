@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2012                    */
-/* Created on:     06.05.2019 14:21:04                          */
+/* Created on:     27.05.2019 18:59:41                          */
 /*==============================================================*/
 
 
@@ -667,14 +667,14 @@ go
 /*==============================================================*/
 create table DimAirline (
    AirlineId            int                  not null,
-   AirlineWorldAreaCode int                  not null,
+   AirlineWorldAreaCode int                  null,
    AirlineIata          varchar(100)         null,
    AirportIcao          varchar(4)           null,
    AirlineUsDotCode     int                  null,
    AirlineName          varchar(100)         null,
-   AirlineAlias         varchar(200)         not null,
-   Callsign             varchar(200)         not null,
-   Active               varchar(1)           not null,
+   AirlineAlias         varchar(200)         null,
+   Callsign             varchar(200)         null,
+   Active               varchar(1)           null,
    constraint PK_DIMAIRLINE primary key nonclustered (AirlineId)
 )
 go
@@ -779,22 +779,21 @@ go
 /*==============================================================*/
 create table DimAirport (
    AirportId            int                  not null,
-   StateCode            varchar(2)           null,
-   StateFips            varchar(2)           null,
-   Dst                  int                  not null,
-   AirportWorldAreaCode int                  not null,
+   StateCode            int                  null,
+   StateFips            int                  null,
+   Dst                  int                  null,
+   AirportWorldAreaCode int                  null,
    AirportUsDotCode     int                  null,
    AirportSeqId         int                  null,
-   AirportCityMarketId  int                  null,
    AirportIata          varchar(10)          null,
    AirportIcao          varchar(4)           null,
    AirportName          varchar(100)         null,
-   CityName             varchar(100)         not null,
-   Latitude             decimal(22,20)       not null,
-   Longitude            decimal(23,20)       not null,
-   Altitude             int                  not null,
-   Timezone             float                not null,
-   TzDatabase           varchar(30)          not null,
+   CityName             varchar(100)         null,
+   Latitude             decimal(22,20)       null,
+   Longitude            decimal(23,20)       null,
+   Altitude             int                  null,
+   Timezone             float                null,
+   TzDatabase           varchar(30)          null,
    constraint PK_DIMAIRPORT primary key nonclustered (AirportId)
 )
 go
@@ -883,9 +882,10 @@ go
 /* Table: DimBLKTime                                            */
 /*==============================================================*/
 create table DimBLKTime (
+   BLKTimeID            int                  not null,
    BLKTimeKey           varchar(30)          not null,
    Description          varchar(100)         not null,
-   constraint PK_DIMBLKTIME primary key nonclustered (BLKTimeKey)
+   constraint PK_DIMBLKTIME primary key nonclustered (BLKTimeID)
 )
 go
 
@@ -893,9 +893,10 @@ go
 /* Table: DimCancellationReason                                 */
 /*==============================================================*/
 create table DimCancellationReason (
+   CancellationID       int                  not null,
    CancellationReasonKey varchar(5)           not null,
    Description          varchar(100)         not null,
-   constraint PK_DIMCANCELLATIONREASON primary key nonclustered (CancellationReasonKey)
+   constraint PK_DIMCANCELLATIONREASON primary key nonclustered (CancellationID)
 )
 go
 
@@ -1166,9 +1167,9 @@ create table DimQuarter (
    QuarterNumber        int                  not null,
    Description          varchar(100)         not null,
    StartDay             int                  not null,
-   StartYear            int                  not null,
+   StartMonth           int                  not null,
    EndDay               int                  not null,
-   EndYear              int                  not null,
+   EndMonth             int                  not null,
    constraint PK_DIMQUARTER primary key nonclustered (QuarterNumber)
 )
 go
@@ -1177,9 +1178,10 @@ go
 /* Table: DimState                                              */
 /*==============================================================*/
 create table DimState (
+   StateCodeId          int                  not null,
    StateCode            varchar(2)           not null,
-   StateName            varchar(20)          not null,
-   constraint PK_DIMSTATE primary key nonclustered (StateCode)
+   StateName            varchar(100)         not null,
+   constraint PK_DIMSTATE primary key nonclustered (StateCodeId)
 )
 go
 
@@ -1187,9 +1189,10 @@ go
 /* Table: DimStateFips                                          */
 /*==============================================================*/
 create table DimStateFips (
+   StateFipsCodeId      int                  not null,
    StateFipsCode        varchar(2)           not null,
-   StateName            varchar(20)          not null,
-   constraint PK_DIMSTATEFIPS primary key nonclustered (StateFipsCode)
+   StateName            varchar(100)         not null,
+   constraint PK_DIMSTATEFIPS primary key nonclustered (StateFipsCodeId)
 )
 go
 
@@ -1220,7 +1223,7 @@ create table FactFlightActivity (
    LocalScheduledDepartureDate int                  null,
    UniversalScheduledDepartureTime int                  not null,
    LocalScheduledArrivalTime int                  not null,
-   CancellationCode     varchar(5)           null,
+   CancellationCode     int                  null,
    UniversalScheduledArrivalDate int                  null,
    ArrAirport           int                  not null,
    UniversalActualDepartureDate int                  null,
@@ -1230,8 +1233,8 @@ create table FactFlightActivity (
    LocalActualDepartureDate int                  null,
    LocalScheduledArrivalDate int                  null,
    UniversalScheduledDepartureDate int                  null,
-   ArrTimeBLK           varchar(30)          null,
-   DepTimeBLK           varchar(30)          null,
+   ArrTimeBLK           int                  null,
+   DepTimeBLK           int                  null,
    LocalActualArrivalTime int                  not null,
    LocalActualArrivalDate int                  null,
    TailNumber           varchar(20)          null,
@@ -1816,12 +1819,12 @@ go
 
 alter table DimAirport
    add constraint FK_DIMAIRPO_STATECODE_DIMSTATE foreign key (StateCode)
-      references DimState (StateCode)
+      references DimState (StateCodeId)
 go
 
 alter table DimAirport
    add constraint FK_DIMAIRPO_STATEFIPS_DIMSTATE foreign key (StateFips)
-      references DimStateFips (StateFipsCode)
+      references DimStateFips (StateFipsCodeId)
 go
 
 alter table DimDate
@@ -1846,12 +1849,12 @@ go
 
 alter table FactFlightActivity
    add constraint FK_FACTFLIG_ARRTIMEBL_DIMBLKTI foreign key (ArrTimeBLK)
-      references DimBLKTime (BLKTimeKey)
+      references DimBLKTime (BLKTimeID)
 go
 
 alter table FactFlightActivity
    add constraint FK_FACTFLIG_CANCELLAT_DIMCANCE foreign key (CancellationCode)
-      references DimCancellationReason (CancellationReasonKey)
+      references DimCancellationReason (CancellationID)
 go
 
 alter table FactFlightActivity
@@ -1866,7 +1869,7 @@ go
 
 alter table FactFlightActivity
    add constraint FK_FACTFLIG_DEPTIMEBL_DIMBLKTI foreign key (DepTimeBLK)
-      references DimBLKTime (BLKTimeKey)
+      references DimBLKTime (BLKTimeID)
 go
 
 alter table FactFlightActivity
