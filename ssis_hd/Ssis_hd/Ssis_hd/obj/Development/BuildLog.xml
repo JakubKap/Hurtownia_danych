@@ -2,63 +2,63 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Ssis_hd</Name>
-    <LastWriteTime>2019-05-25T10:19:14.6852572Z</LastWriteTime>
+    <LastWriteTime>2019-05-27T18:38:57.065564Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>LoadingDataToDimAirline.dtsx</Name>
-      <LastWriteTime>2019-05-18T15:53:57.0619273Z</LastWriteTime>
+      <LastWriteTime>2019-05-19T12:29:50.9215787Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDataToFactFlightActivity.dtsx</Name>
-      <LastWriteTime>2019-05-16T09:58:54.9285629Z</LastWriteTime>
+      <LastWriteTime>2019-05-19T12:29:50.9315728Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDataToDimAirport.dtsx</Name>
-      <LastWriteTime>2019-05-18T15:54:21.2836972Z</LastWriteTime>
+      <LastWriteTime>2019-05-19T12:29:50.9215787Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimBLKTime.dtsx</Name>
-      <LastWriteTime>2019-05-15T12:26:22.6712097Z</LastWriteTime>
+      <LastWriteTime>2019-05-27T18:38:57.0166931Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimCancellationReason.dtsx</Name>
-      <LastWriteTime>2019-05-15T12:20:39.4472736Z</LastWriteTime>
+      <LastWriteTime>2019-05-27T18:19:42.3986492Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDate.dtsx</Name>
-      <LastWriteTime>2019-05-15T12:46:29.3695957Z</LastWriteTime>
+      <LastWriteTime>2019-05-15T14:32:50.6237453Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDelayGroup.dtsx</Name>
-      <LastWriteTime>2019-05-15T11:58:38.5937982Z</LastWriteTime>
+      <LastWriteTime>2019-05-27T10:57:16.9903972Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDifficulties.dtsx</Name>
-      <LastWriteTime>2019-05-15T12:09:31.6075728Z</LastWriteTime>
+      <LastWriteTime>2019-05-15T14:32:50.6237453Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDST.dtsx</Name>
-      <LastWriteTime>2019-05-15T13:08:55.1578819Z</LastWriteTime>
+      <LastWriteTime>2019-05-15T14:32:50.6237453Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimTime.dtsx</Name>
-      <LastWriteTime>2019-05-15T12:01:06.892342Z</LastWriteTime>
+      <LastWriteTime>2019-05-15T14:32:50.6337409Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>TempLoadingDataToTempFacts.dtsx</Name>
-      <LastWriteTime>2019-05-25T10:19:11.797655Z</LastWriteTime>
+      <LastWriteTime>2019-05-27T10:57:39.7231758Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimBLKTime"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{2D6D69C4-2292-4804-9C64-9E47229D7C16}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C21E6C7B-CFC6-4BAA-BF61-C4FDD8DE07E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -281,6 +281,10 @@
                       dataType="str"
                       length="30"
                       name="BLKTimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Dwh_DimBLKTime.Inputs[OLE DB Destination Input].ExternalColumns[BLKTimeID]"
+                      dataType="i4"
+                      name="BLKTimeID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -485,11 +489,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="301,43"
+          Size="301.333333333334,42.6666666666667"
           Id="Package\Delete quotation marks from Stage_DepArrBLK"
           TopLeft="61.0416666511446,59.4583333430191" />
         <NodeLayout
-          Size="308,43"
+          Size="308,42.6666666666667"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime"
           TopLeft="60,162.666666666667" />
         <EdgeLayout
@@ -523,11 +527,11 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="167,43"
+          Size="166.666666666667,42.6666666666667"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Dwh_DimBLKTime"
           TopLeft="295,233" />
         <NodeLayout
-          Size="163,43"
+          Size="162.666666666667,42.6666666666667"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Stage_DepArrBLK"
           TopLeft="307,56" />
         <NodeLayout
@@ -605,31 +609,5 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Dwh_DimBLKTime">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Stage_DepArrBLK">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

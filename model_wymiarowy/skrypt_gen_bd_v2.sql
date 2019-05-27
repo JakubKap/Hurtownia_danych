@@ -882,7 +882,7 @@ go
 /* Table: DimBLKTime                                            */
 /*==============================================================*/
 create table DimBLKTime (
-   BLKTimeID            int                  not null,
+   BLKTimeID            int IDENTITY(1,1)    not null,
    BLKTimeKey           varchar(30)          not null,
    Description          varchar(100)         not null,
    constraint PK_DIMBLKTIME primary key nonclustered (BLKTimeID)
@@ -893,7 +893,7 @@ go
 /* Table: DimCancellationReason                                 */
 /*==============================================================*/
 create table DimCancellationReason (
-   CancellationID       int                  not null,
+   CancellationID       int IDENTITY(1,1)     not null,
    CancellationReasonKey varchar(5)           not null,
    Description          varchar(100)         not null,
    constraint PK_DIMCANCELLATIONREASON primary key nonclustered (CancellationID)
