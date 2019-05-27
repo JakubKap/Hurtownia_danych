@@ -1211,7 +1211,7 @@ go
 /* Table: FactFlightActivity                                    */
 /*==============================================================*/
 create table FactFlightActivity (
-   FlightId             int                  not null,
+   FlightId             int  IDENTITY(1,1)          not null,
    LocalScheduledDepartureTime int                  not null,
    DelayGroup           int                  null,
    DifficultiesKey      int                  null,
