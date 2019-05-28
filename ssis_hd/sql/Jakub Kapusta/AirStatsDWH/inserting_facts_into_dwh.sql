@@ -42,20 +42,8 @@ CREATE PROCEDURE dbo.insertFacts
 		DECLARE @UniversalActualArrivalTime int =dbo.getUniversalTime(cast(@ARRTime as int),@TimezoneShiftOriginH)
 
 
-		IF NOT EXISTS(SELECT * FROM FactFlightActivity)
-		BEGIN
-			SET @FlightId = 1;
-		END
-
-		ELSE
-		BEGIN
-			SET @FlightId = (SELECT (MAX(FlightId) + 1) FROM FactFlightActivity);
-		END
-
-
 INSERT INTO [dbo].[FactFlightActivity]
-           ([FlightId]
-           ,[LocalScheduledDepartureTime]
+           ([LocalScheduledDepartureTime]
            ,[DelayGroup]
            ,[DifficultiesKey]
            ,[UniversalScheduledArrivalTime]
@@ -99,11 +87,13 @@ INSERT INTO [dbo].[FactFlightActivity]
            ,[SecurityDelay]
            ,[LateAircraftDelay])
      VALUES
-           (@FlightId, 
-		   CAST(@CrsArrTime AS int), 
-		   CAST(@ArrDelayGroup AS int),
-		   dbo.getDifficultiesKey(CAST(@Diverted AS int), CAST(@DepDel15 AS int), 
-				CAST(@ArrDel15 AS int), CAST(@Cancelled AS int)),
+           (CAST(@CrsArrTime AS int), 
+		    CAST(@ArrDelayGroup AS int),
+		    dbo.getDifficultiesKey(
+				CAST(@Diverted AS int), 
+				CAST(@DepDel15 AS int), 
+				CAST(@ArrDel15 AS int), 
+				CAST(@Cancelled AS int)),
 			@UniversalScheduledArrivalTime,
 			dbo.getAirlineKey(@OpCarrier),
 			@UniversalActualArrivalTime,
@@ -112,7 +102,7 @@ INSERT INTO [dbo].[FactFlightActivity]
 			@LocalScheduledDepartureDate,
 			@UniversalScheduledDepartureTime,
 			@LocalScheduledArrivalTime,
-			CAST(@CancellationCode AS int),
+			dbo.getCancellationId(@CancellationCode),
 			@UniversalScheduledArrivalDate,
 			dbo.getAirportKey(@Origin),
 			@UniversalActualDepartureDate,
@@ -122,8 +112,8 @@ INSERT INTO [dbo].[FactFlightActivity]
 			@LocalActualDepartureDate,
 			@LocalScheduledArrivalDate,
 			@UniversalScheduledDepartureDate,
-			@ArrTimeBlk,
-			@DepTimeBlk,
+			dbo.getTimeBLK(@ArrTimeBlk),
+			dbo.getTimeBLK(@DepTimeBlk),
 			@LocalActualArrivalTime,
 			@LocalActualArrivalDate,
 			@TailNum,
@@ -131,6 +121,7 @@ INSERT INTO [dbo].[FactFlightActivity]
 			CAST(@DepDelay AS int),
 			CAST(@DepDelayNew AS int),
 			CAST(@TaxiOut AS int),
+			CAST(@TaxiIn AS int),
 			CAST(@ArrDelay AS int),
 			CAST(@ArrDelayNew AS int),
 			CAST(@CrsElapsedTime AS int),
@@ -143,7 +134,6 @@ INSERT INTO [dbo].[FactFlightActivity]
 			CAST(@NasDelay AS int),
 			CAST(@SecurityDelay AS int),
 			CAST(@LateAircraftDelay AS int)
-	
 		   )
 GO
 

@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{2D613A0F-1D17-462E-B121-02CFA0EE074C}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{6DB9D2E0-3CE8-48C5-9110-5569555D57AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1426,7 +1426,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="SELECT  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;      ,[DepDelay]&#xA;      ,[DepDelayNew]&#xA;      ,[DepDel15]&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,[TaxiOut]&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;      ,[TaxiIn]&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,[ArrDelay]&#xA;      ,[ArrDelayNew]&#xA;      ,[ArrDel15]&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,[Cancelled]&#xA;      ,[CancellationCode]&#xA;      ,[Diverted]&#xA;      ,[CrsElapsedTime]&#xA;      ,[ActualElapsedTime]&#xA;      ,[AirTime]&#xA;      ,[Flights]&#xA;      ,[Distance]&#xA;      ,[DistanceGroup]&#xA;      ,[CarrierDelay]&#xA;      ,[WeatherDelay]&#xA;      ,[NasDelay]&#xA;      ,[SecurityDelay]&#xA;      ,[LateAircraftDelay]&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity]"
+          SQLTask:SqlStatementSource="SELECT TOP 10  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;      ,[DepDelay]&#xA;      ,[DepDelayNew]&#xA;      ,[DepDel15]&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,[TaxiOut]&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;      ,[TaxiIn]&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,[ArrDelay]&#xA;      ,[ArrDelayNew]&#xA;      ,[ArrDel15]&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,[Cancelled]&#xA;      ,[CancellationCode]&#xA;      ,[Diverted]&#xA;      ,[CrsElapsedTime]&#xA;      ,[ActualElapsedTime]&#xA;      ,[AirTime]&#xA;      ,[Flights]&#xA;      ,[Distance]&#xA;      ,[DistanceGroup]&#xA;      ,[CarrierDelay]&#xA;      ,[WeatherDelay]&#xA;      ,[NasDelay]&#xA;      ,[SecurityDelay]&#xA;      ,[LateAircraftDelay]&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity]"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -1466,22 +1466,22 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="343,42"
+          Size="342.666666666667,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="168,51" />
         <NodeLayout
-          Size="258,42"
+          Size="258.666666666667,42.6666666666667"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
           TopLeft="19,32" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="298,127"
+          PanelSize="298,126.666666666667"
           Size="298,170"
           Id="Package\Foreach row"
           TopLeft="216,228" />
         <NodeLayout
-          Size="269,42"
+          Size="269.333333333334,42"
           Id="Package\Select row from Stage_FactFlightActivity"
           TopLeft="203,138" />
         <EdgeLayout
