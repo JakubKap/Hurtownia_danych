@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimCancellationReason"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{E1C045FA-7F49-4CE0-9AB0-DCADC04669F9}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{9F4083C7-B1EE-47A9-AFDA-3A527AF07869}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,6 +43,7 @@
       DTS:refId="Package\Add 'Unknown' row"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{7637a1b5-03ab-47fd-bace-9544db8c1a26}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -52,7 +53,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AFEA34BF-56E3-4A08-8B2A-36FFA1FA5AA0}"
-          SQLTask:SqlStatementSource="INSERT INTO DimCancellationReason (CancellationReasonKey, Description)&#xA;VALUES ('Bad','Unknown/Bad')"
+          SQLTask:SqlStatementSource="INSERT INTO DimCancellationReason (Description, CancellationReasonKey)&#xA;VALUES ('Unknown or Bad', 'U')"
           SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -495,7 +496,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{A010D6A0-379E-4D82-A563-25F282F1A9B9}"
+      DTS:DTSID="{DC9B6A42-2ED0-48A5-80A0-419EB52CA612}"
       DTS:From="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -558,33 +559,21 @@
         <NodeLayout
           Size="170.666666666667,42.6666666666667"
           Id="Package\Add 'Unknown' row"
-          TopLeft="85.4166662879287,233.700000565648" />
+          TopLeft="155.833331905305,237.933334526619" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="242,205.333333333334">
+          TopLeft="241.583332619319,205.333333333334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-71.250000378738,28.3666672323147"
+              EndConnector="0,32.6000011932849"
               Start="0,0"
-              End="-71.250000378738,20.8666672323147">
+              End="0,25.1000011932849">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.1833336161574" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.1833336161574"
-                    Point2="0,14.1833336161574"
-                    Point3="-4,14.1833336161574" />
-                  <mssgle:LineSegment
-                    End="-67.250000378738,14.1833336161574" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-67.250000378738,14.1833336161574"
-                    Point2="-71.250000378738,14.1833336161574"
-                    Point3="-71.250000378738,18.1833336161574" />
-                  <mssgle:LineSegment
-                    End="-71.250000378738,20.8666672323147" />
+                    End="0,25.1000011932849" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
