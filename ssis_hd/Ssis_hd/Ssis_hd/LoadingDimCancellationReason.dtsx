@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimCancellationReason"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{76DEE4F9-1689-40D5-93BA-012C69295895}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{E1C045FA-7F49-4CE0-9AB0-DCADC04669F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,6 +39,23 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add 'Unknown' row"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7637a1b5-03ab-47fd-bace-9544db8c1a26}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add 'Unknown' row"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AFEA34BF-56E3-4A08-8B2A-36FFA1FA5AA0}"
+          SQLTask:SqlStatementSource="INSERT INTO DimCancellationReason (CancellationReasonKey, Description)&#xA;VALUES ('Bad','Unknown/Bad')"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Delete quotation marks from Stage_Cancellation"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -113,7 +130,7 @@
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="4"
+                      length="5"
                       lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
                       name="Copy of Code"
                       truncationRowDisposition="FailComponent">
@@ -220,7 +237,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -228,7 +245,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK</property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -246,7 +263,7 @@
                 <input
                   refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -262,7 +279,7 @@
                       refId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="4"
+                      cachedLength="5"
                       cachedName="Copy of Code"
                       externalMetadataColumnId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason.Inputs[OLE DB Destination Input].ExternalColumns[CancellationReasonKey]"
                       lineageId="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
@@ -475,6 +492,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A010D6A0-379E-4D82-A563-25F282F1A9B9}"
+      DTS:From="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Add 'Unknown' row" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -487,7 +512,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="306.666666666667,42.6666666666667"
           Id="Package\Delete quotation marks from Stage_Cancellation"
@@ -530,6 +555,44 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Add 'Unknown' row"
+          TopLeft="85.4166662879287,233.700000565648" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="242,205.333333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71.250000378738,28.3666672323147"
+              Start="0,0"
+              End="-71.250000378738,20.8666672323147">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.1833336161574" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.1833336161574"
+                    Point2="0,14.1833336161574"
+                    Point3="-4,14.1833336161574" />
+                  <mssgle:LineSegment
+                    End="-67.250000378738,14.1833336161574" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67.250000378738,14.1833336161574"
+                    Point2="-71.250000378738,14.1833336161574"
+                    Point3="-71.250000378738,18.1833336161574" />
+                  <mssgle:LineSegment
+                    End="-71.250000378738,20.8666672323147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -539,13 +602,13 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="216,42.6666666666667"
-          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
-          TopLeft="295,233" />
-        <NodeLayout
           Size="169.333333333334,42.6666666666667"
           Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
           TopLeft="307,56" />
+        <NodeLayout
+          Size="216,42.6666666666667"
+          Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
+          TopLeft="295,233" />
         <NodeLayout
           Size="156,42"
           Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Data Conversion"
@@ -598,7 +661,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason">
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -611,7 +674,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation">
+    design-time-name="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimDST"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{5D122137-885D-440D-ACB1-C0091AAD4543}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{C5707E13-1806-4AF1-BFB8-0731ADC507F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -87,11 +87,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,43"
+          Size="168,42.6666666666667"
           Id="Package\Clear Dwh_DimDst"
           TopLeft="68.333333209157,60" />
         <NodeLayout
-          Size="131,43"
+          Size="130.666666666667,42.6666666666667"
           Id="Package\Fill DimDst"
           TopLeft="60,179.166664535801" />
         <EdgeLayout

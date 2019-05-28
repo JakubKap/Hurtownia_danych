@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimDelayGroup"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{372852A0-C42A-401E-8404-F847CE170FE3}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{F2B0F22A-143C-492E-8BD4-B7BCEE232381}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,12 +33,29 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add 'Unknown row'"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6bad00ce-e93b-4c65-934d-5db866ef0e63}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add 'Unknown row'"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{081C7D27-81CF-4E37-A48B-F0D788DBD457}"
+          SQLTask:SqlStatementSource="EXEC insertUnknownDelGr"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Delete quotation marks from Stage_OnTimeDelayGroups"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -465,6 +482,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{79EBD2A1-51A8-4CAA-80B2-0D4D32FA3804}"
+      DTS:From="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Add 'Unknown row'" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -477,41 +502,79 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="347,43"
+          Size="346.666666666667,42.6666666666667"
           Id="Package\Delete quotation marks from Stage_OnTimeDelayGroups"
           TopLeft="60,162.666666666667" />
         <NodeLayout
-          Size="368,43"
+          Size="368,42.6666666666667"
           Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup"
-          TopLeft="60,265.333333333333" />
+          TopLeft="60,245.83333368202" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="233.333333333333,205.333333333333">
+          TopLeft="233.333333333333,205.333333333334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.6666666666667,60"
+              EndConnector="10.6666666666667,40.5000003486865"
               Start="0,0"
-              End="10.6666666666667,52.5">
+              End="10.6666666666667,33.0000003486865">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
+                    End="0,16.2500001743432" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
+                    Point1="0,16.2500001743432"
+                    Point2="0,20.2500001743432"
+                    Point3="4,20.2500001743432" />
                   <mssgle:LineSegment
-                    End="6.66666666666666,30" />
+                    End="6.66666666666666,20.2500001743432" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.66666666666666,30"
-                    Point2="10.6666666666667,30"
-                    Point3="10.6666666666667,34" />
+                    Point1="6.66666666666666,20.2500001743432"
+                    Point2="10.6666666666667,20.2500001743432"
+                    Point3="10.6666666666667,24.2500001743432" />
                   <mssgle:LineSegment
-                    End="10.6666666666667,52.5" />
+                    End="10.6666666666667,33.0000003486865" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="346.666666666667,42.6666666666667"
+          Id="Package\Add 'Unknown row'"
+          TopLeft="60,317.300000906586" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="244,288.500000348687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.6666666666667,28.8000005578995"
+              Start="0,0"
+              End="-10.6666666666667,21.3000005578995">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4000002789497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4000002789497"
+                    Point2="0,14.4000002789497"
+                    Point3="-4,14.4000002789497" />
+                  <mssgle:LineSegment
+                    End="-6.66666666666666,14.4000002789497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.66666666666666,14.4000002789497"
+                    Point2="-10.6666666666667,14.4000002789497"
+                    Point3="-10.6666666666667,18.4000002789497" />
+                  <mssgle:LineSegment
+                    End="-10.6666666666667,21.3000005578995" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -527,7 +590,7 @@
     design-time-name="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="180,42.6666666666667"
           Id="Package\Transfer Stage_OnTimeDelayGroups to Dwh_DimDelayGroup\Dwh_DimDelayGroup"
@@ -571,7 +634,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -605,7 +670,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

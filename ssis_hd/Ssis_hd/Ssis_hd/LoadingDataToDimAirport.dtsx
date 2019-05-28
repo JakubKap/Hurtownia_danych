@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirport"
   DTS:PackageType="5"
-  DTS:VersionBuild="102"
-  DTS:VersionGUID="{F1E1DDE4-06FA-437A-A6FB-17D163CF2C87}">
+  DTS:VersionBuild="103"
+  DTS:VersionGUID="{FF9D3F23-3B8D-4DC7-877A-D1536C2AB2C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -2472,7 +2472,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="240,145"
+          PanelSize="240,145.333333333334"
           Size="240,188"
           Id="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description"
           TopLeft="68,233" />
@@ -2552,7 +2552,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="374,476"
-          Size="374,519"
+          Size="374,518.666666666667"
           Id="Package\Add absent Airports to Dwh_DimAirport"
           TopLeft="470,3291" />
         <NodeLayout
@@ -2563,7 +2563,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="248,132"
-          Size="248,175"
+          Size="248,174.666666666667"
           Id="Package\Creating Dst Dictionary\Foreach Unique Dst"
           TopLeft="63,149" />
         <NodeLayout
@@ -2595,8 +2595,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="465,379"
-          Size="465,422"
+          PanelSize="465.333333333334,378.666666666667"
+          Size="465.333333333334,422"
           Id="Package\Creating Dst Dictionary"
           TopLeft="275.142857142857,143.857142857143" />
         <NodeLayout
@@ -2606,12 +2606,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="369,143"
-          Size="369,186"
+          PanelSize="369.333333333334,142.666666666667"
+          Size="369.333333333334,186"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
           TopLeft="62,129" />
         <NodeLayout
-          Size="251,42"
+          Size="250.666666666667,42"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
           TopLeft="121,52" />
         <NodeLayout
@@ -2666,7 +2666,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="494,482"
-          Size="494,525"
+          Size="494,525.333333333334"
           Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
           TopLeft="258,601" />
         <NodeLayout
@@ -2674,18 +2674,18 @@
           Id="Package\Deleting quoting marks from Stage_Airports"
           TopLeft="356.428571428572,34.1428571428571" />
         <NodeLayout
-          Size="219,42"
+          Size="218.666666666667,42"
           Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
           TopLeft="58.3636363636363,40.2727272727273" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="297,135"
-          Size="297,178"
+          PanelSize="297.333333333334,134.666666666667"
+          Size="297.333333333334,178"
           Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
           TopLeft="56.1818181818181,132.636363636364" />
         <NodeLayout
-          Size="259,42"
+          Size="258.666666666667,42"
           Id="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
           TopLeft="51.2954545454545,24.4545454545455" />
         <EdgeLayout
@@ -2726,7 +2726,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="358,366"
-          Size="358,409"
+          Size="358,409.333333333334"
           Id="Package\Match Airports Wac From Stage_Facts"
           TopLeft="431.5,1258.25" />
         <NodeLayout
@@ -2736,12 +2736,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="347,144"
-          Size="347,187"
+          PanelSize="346.666666666667,144"
+          Size="346.666666666667,186.666666666667"
           Id="Package\Match appropriate AirportId to the FactTable\For each route"
           TopLeft="62,133" />
         <NodeLayout
-          Size="337,42"
+          Size="337.333333333334,42"
           Id="Package\Match appropriate AirportId to the FactTable\SELECT Origin, DestCityName FROM FactFlightActivity;"
           TopLeft="53,26" />
         <EdgeLayout
@@ -2781,8 +2781,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="415,375"
-          Size="415,418"
+          PanelSize="414.666666666667,374.666666666667"
+          Size="414.666666666667,418"
           Id="Package\Match appropriate AirportId to the FactTable"
           TopLeft="627,5948" />
         <NodeLayout
@@ -2797,7 +2797,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="348,146"
-          Size="348,189"
+          Size="348,189.333333333334"
           Id="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId"
           TopLeft="18.5,167" />
         <NodeLayout
@@ -2864,11 +2864,11 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="438,362"
-          Size="438,405"
+          Size="438,405.333333333334"
           Id="Package\Match appropriate Dst to Airport"
           TopLeft="375,2294.5" />
         <NodeLayout
-          Size="311,42"
+          Size="310.666666666667,42"
           Id="Package\Match appropriate WorldAreaCode to the Airport\Delete duplicates from DimAirportWorldAreaCode"
           TopLeft="20,14" />
         <NodeLayout
@@ -2878,12 +2878,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="324,127"
+          PanelSize="324,126.666666666667"
           Size="324,170"
           Id="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country"
           TopLeft="69,172" />
         <NodeLayout
-          Size="307,42"
+          Size="306.666666666667,42"
           Id="Package\Match appropriate WorldAreaCode to the Airport\SELECT AirportId, Country FROM Stage_Airports"
           TopLeft="24,91" />
         <EdgeLayout
@@ -2945,19 +2945,19 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="398,397"
+          PanelSize="398,397.333333333334"
           Size="398,440"
           Id="Package\Match appropriate WorldAreaCode to the Airport"
           TopLeft="410,2757" />
         <NodeLayout
-          Size="213,42"
+          Size="213.333333333334,42"
           Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values\Match State codes to Airport"
           TopLeft="16,27" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="229,124"
-          Size="229,167"
+          PanelSize="229.333333333334,124"
+          Size="229.333333333334,166.666666666667"
           Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values"
           TopLeft="123,88" />
         <NodeLayout
@@ -3001,19 +3001,19 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="535,310"
-          Size="535,353"
+          PanelSize="534.666666666667,310"
+          Size="534.666666666667,353.333333333334"
           Id="Package\Match DimState, DimStateFips to DimAirport"
           TopLeft="532,5368" />
         <NodeLayout
-          Size="193,42"
+          Size="193.333333333334,42"
           Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code\Update Dwh_DimAirport"
           TopLeft="57,35" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="274,132"
-          Size="274,175"
+          Size="274,174.666666666667"
           Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code"
           TopLeft="163,101" />
         <NodeLayout
@@ -3057,7 +3057,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="530,331"
+          PanelSize="530,330.666666666667"
           Size="530,374"
           Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
           TopLeft="421,4012" />
@@ -3066,7 +3066,7 @@
           Id="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
           TopLeft="740,6402" />
         <NodeLayout
-          Size="327,42"
+          Size="326.666666666667,42"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
           TopLeft="50,19" />
         <NodeLayout
@@ -3077,11 +3077,11 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="230,126"
-          Size="230,169"
+          Size="230,169.333333333334"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
           TopLeft="118,157" />
         <NodeLayout
-          Size="317,42"
+          Size="317.333333333334,42"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
           TopLeft="71,92" />
         <EdgeLayout
@@ -3143,7 +3143,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="542,381"
+          PanelSize="542,381.333333333334"
           Size="542,424"
           Id="Package\Transfer Stage_State_Abrv to Dwh_DimState"
           TopLeft="445,4436" />
@@ -3152,14 +3152,14 @@
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
           TopLeft="54,16" />
         <NodeLayout
-          Size="227,42"
+          Size="226.666666666667,42"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
           TopLeft="22,25" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="254,122"
-          Size="254,165"
+          Size="254,165.333333333334"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
           TopLeft="102,160" />
         <NodeLayout
@@ -3225,23 +3225,23 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="485,380"
-          Size="485,423"
+          PanelSize="485.333333333334,380"
+          Size="485.333333333334,422.666666666667"
           Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
           TopLeft="526,4914" />
         <NodeLayout
-          Size="279,42"
+          Size="278.666666666667,42"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
           TopLeft="43,40" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="339,138"
-          Size="339,181"
+          PanelSize="338.666666666667,138"
+          Size="338.666666666667,181.333333333334"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
           TopLeft="131,150" />
         <NodeLayout
-          Size="251,42"
+          Size="250.666666666667,42"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
           TopLeft="90,38" />
         <EdgeLayout
@@ -3281,8 +3281,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="535,386"
-          Size="535,429"
+          PanelSize="534.666666666667,386"
+          Size="534.666666666667,429.333333333334"
           Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
           TopLeft="325,1770" />
         <EdgeLayout
