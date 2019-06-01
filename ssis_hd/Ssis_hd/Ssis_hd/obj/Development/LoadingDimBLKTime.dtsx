@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimBLKTime"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{38FFBEB8-A26A-4598-8454-E9B8DF217FBA}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{0E7F2A2C-55D4-47EE-BF03-556796E0D270}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -514,11 +514,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="301.333333333334,42.6666666666667"
+          Size="195,43"
+          Id="Package\Add 'Unknown Bad' Row"
+          TopLeft="112.499999217689,276.166666472952" />
+        <NodeLayout
+          Size="301,43"
           Id="Package\Delete quotation marks from Stage_DepArrBLK"
           TopLeft="61.0416666511446,59.4583333430191" />
         <NodeLayout
-          Size="308,42.6666666666667"
+          Size="308,43"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime"
           TopLeft="60,162.666666666667" />
         <EdgeLayout
@@ -543,10 +547,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="194.666666666667,42.6666666666667"
-          Id="Package\Add 'Unknown Bad' Row"
-          TopLeft="112.499999217689,276.166666472952" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="211.916666275511,205.333333333334">
@@ -576,13 +576,13 @@
     design-time-name="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
+          Size="163,43"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Stage_DepArrBLK"
           TopLeft="307,56" />
         <NodeLayout
-          Size="166.666666666667,42.6666666666667"
+          Size="167,43"
           Id="Package\Transfer Stage_DepArrBLK to Dwh_DimBLKTime\Dwh_DimBLKTime"
           TopLeft="295,233" />
         <NodeLayout
@@ -620,9 +620,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -656,9 +654,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

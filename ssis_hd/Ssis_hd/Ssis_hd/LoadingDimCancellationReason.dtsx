@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimCancellationReason"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{9F4083C7-B1EE-47A9-AFDA-3A527AF07869}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E0D8A995-C16A-4A18-9B01-9FF6D69E0C42}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AS_DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -43,7 +43,6 @@
       DTS:refId="Package\Add 'Unknown' row"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{7637a1b5-03ab-47fd-bace-9544db8c1a26}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -515,11 +514,15 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="306.666666666667,42.6666666666667"
+          Size="171,43"
+          Id="Package\Add 'Unknown' row"
+          TopLeft="155.833331905305,237.933334526619" />
+        <NodeLayout
+          Size="307,43"
           Id="Package\Delete quotation marks from Stage_Cancellation"
           TopLeft="60,60" />
         <NodeLayout
-          Size="364,42.6666666666667"
+          Size="364,43"
           Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason"
           TopLeft="60.0000000000001,162.666666666667" />
         <EdgeLayout
@@ -556,10 +559,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Add 'Unknown' row"
-          TopLeft="155.833331905305,237.933334526619" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="241.583332619319,205.333333333334">
@@ -591,11 +590,11 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169.333333333334,42.6666666666667"
+          Size="169,43"
           Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Stage_Cancellation"
           TopLeft="307,56" />
         <NodeLayout
-          Size="216,42.6666666666667"
+          Size="216,43"
           Id="Package\Transfer Stage_Cancellation to Dwh_DimCancellationReason\Dwh_DimCancellationReason"
           TopLeft="295,233" />
         <NodeLayout

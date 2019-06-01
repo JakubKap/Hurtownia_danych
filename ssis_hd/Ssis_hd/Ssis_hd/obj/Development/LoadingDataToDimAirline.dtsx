@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{5FA5BA27-C69B-4652-A26B-DBA7BC52AE52}">
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{1CEBB2AB-4DDA-43EA-BBF4-91643E97193F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -2293,12 +2293,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="354,137.333333333334"
+          PanelSize="354,137"
           Size="354,180"
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name"
           TopLeft="3,214.5" />
         <NodeLayout
-          Size="266.666666666667,42"
+          Size="267,42"
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
           TopLeft="67,135.5" />
         <EdgeLayout
@@ -2416,19 +2416,19 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="394.666666666667,545.333333333334"
-          Size="394.666666666667,588"
+          PanelSize="395,545"
+          Size="395,588"
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes"
           TopLeft="74,289" />
         <NodeLayout
-          Size="269.333333333334,42"
+          Size="269,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name\Map UsDotCode And Iata to a new table"
           TopLeft="35,42" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="309.333333333334,138.666666666667"
-          Size="309.333333333334,182"
+          PanelSize="309,139"
+          Size="309,182"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach CarrierHistory And Name"
           TopLeft="76,100" />
         <NodeLayout
@@ -2438,16 +2438,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="316,153.333333333334"
+          PanelSize="316,153"
           Size="316,196"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Foreach Iata, UsDotCode And Name"
           TopLeft="124,426" />
         <NodeLayout
-          Size="318.666666666667,42"
+          Size="319,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierIata, CarrierName from CarrierHistory"
           TopLeft="46,18" />
         <NodeLayout
-          Size="478.666666666667,42"
+          Size="479,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId\Select CarrierUsDotCode, CarrierIata and CarrierName from Stage_UsdotAndIataMap"
           TopLeft="21,339" />
         <EdgeLayout
@@ -2556,7 +2556,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="630,680"
-          Size="630,722.666666666667"
+          Size="630,723"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
           TopLeft="104,2205.5" />
         <NodeLayout
@@ -2568,7 +2568,7 @@
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
           TopLeft="39.6111111111111,178.777777777778" />
         <NodeLayout
-          Size="318.666666666667,42"
+          Size="319,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
           TopLeft="27.6666666666667,22.1111111111113" />
         <NodeLayout
@@ -2578,12 +2578,12 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="346,134.666666666667"
+          PanelSize="346,135"
           Size="346,178"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Foreach CarrierHistory Iata and Name"
           TopLeft="35.1666666666667,359.333333333333" />
         <NodeLayout
-          Size="353.333333333334,42"
+          Size="353,42"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory"
           TopLeft="25.1666666666667,262.666666666666" />
         <EdgeLayout
@@ -2677,23 +2677,23 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="414,590.666666666667"
-          Size="414,633.333333333334"
+          PanelSize="414,591"
+          Size="414,633"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
           TopLeft="85.5555555555556,1525.55555555556" />
         <NodeLayout
-          Size="349.333333333334,42"
+          Size="349,42"
           Id="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
           TopLeft="32,10" />
         <NodeLayout
-          Size="189.333333333334,42"
+          Size="189,42"
           Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Insert unpresent airline"
           TopLeft="76.3333333333334,29.0000000000002" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="348,96"
-          Size="348,138.666666666667"
+          Size="348,139"
           Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId"
           TopLeft="35.5,187" />
         <NodeLayout
@@ -2747,23 +2747,23 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="438,381.333333333334"
+          PanelSize="438,381"
           Size="438,424"
           Id="Package\Match appropriate WorldAreaCode to Airline"
           TopLeft="36,1048.5" />
         <NodeLayout
-          Size="242.666666666667,42"
+          Size="243,42"
           Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity\Match appropriate AirlineId in Dwh"
           TopLeft="63,42" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="385.333333333334,136"
-          Size="385.333333333334,178.666666666667"
+          PanelSize="385,136"
+          Size="385,179"
           Id="Package\Matching appropriate AirlineId to Fact Table\Foreach Iata from Stage_FactFlightActivity"
           TopLeft="16,143" />
         <NodeLayout
-          Size="242.666666666667,42"
+          Size="243,42"
           Id="Package\Matching appropriate AirlineId to Fact Table\Select OpCarrier From Stage_Facts"
           TopLeft="68,18" />
         <EdgeLayout
@@ -2803,7 +2803,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="426,373.333333333334"
+          PanelSize="426,373"
           Size="426,416"
           Id="Package\Matching appropriate AirlineId to Fact Table"
           TopLeft="272,2992.5" />
@@ -2816,7 +2816,7 @@
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
           TopLeft="30,902.5" />
         <NodeLayout
-          Size="282.666666666667,42"
+          Size="283,42"
           Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
           TopLeft="26.5,5.5" />
         <NodeLayout
@@ -2848,7 +2848,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="338,185.333333333334"
+          PanelSize="338,185"
           Size="338,228"
           Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline"
           TopLeft="103,10" />

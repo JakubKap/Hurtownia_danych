@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[matchStateCodeToAirport]
+CREATE PROCEDURE [dbo].[matchStateCodeToAirport]
 @Iata varchar(1024), @StateAbr varchar(1024), @StateFips varchar(1024)
 AS
 DECLARE 

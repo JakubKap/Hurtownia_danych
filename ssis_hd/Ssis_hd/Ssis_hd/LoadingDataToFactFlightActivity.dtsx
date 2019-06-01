@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{6DB9D2E0-3CE8-48C5-9110-5569555D57AB}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{F931CE75-D86C-49E1-8548-DBB456469673}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -367,6 +367,393 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{473BF305-EA71-4B1B-832A-B003B38D803D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhActualElapsedTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29C67CA1-ACDA-4EC2-9034-29F695FD4792}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhAirTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A771831-D31C-4A0A-AE96-7FB13F79C3A4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhArrAirport">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10AA0103-AD75-4588-B05A-EA5150FA11D8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhArrDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7118BCD1-AAF1-4375-992D-642A4293C0D8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhArrDelayMinutes">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C41D8BB-1F69-4822-8CE5-20AE46564CF7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhArrTimeBLK">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{49C018CF-94E3-4EF6-897E-4B4A5EDDD510}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhCancellationCode">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA8CC8F9-9937-41F5-85A7-1000DB7B0E6B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhCarrierDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B2307FB-32EF-497C-B400-D11CF28FB696}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDelayGroup">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C095524D-78F4-41E4-854B-1C73829924AD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDepAirport">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{89A9EE7D-6B6E-4D8E-A964-428F2D5251DF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDepDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D3666F13-CDA7-487D-973A-D01B6BD19B01}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDepDelayMinutes">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{811F3B71-5432-41B4-B338-A60052AD8D2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDepTimeBLK">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A906CAD8-5058-4576-B38D-679A052D0D5B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDifficultiesKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{494CD476-E2F0-4705-8172-48EA62B34616}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhDistance">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B7FF5408-A77A-4CBA-BD43-C862DC06A980}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhFlightDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8A08B42-0FD2-44F1-B07E-82E625A7990A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhFlightNumber">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2F190855-23C9-478D-B96F-EA05841E2526}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhFlights">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{433A6E17-DB4B-4F7B-BC80-1D8D946C3A66}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLateAircraftDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75752325-2EBC-4BDA-8480-E69EB516B0BC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalActualArrivalDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1572E06E-391C-4852-AF81-A611EBFBEE69}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalActualArrivalTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{059B4709-683D-47B9-AE81-59E1010142AE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalActualDepartureDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66C6AD66-550A-4C4D-9A39-1794805855AF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalActualDepartureTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CCADA46D-4716-40A5-A18F-5ED4D0808920}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalScheduledArrivalDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E010A0D4-819C-4C05-8630-CDB64E7927FE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalScheduledArrivalTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4AABDE21-E2C0-4908-9F9A-6850D03AAC2D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalScheduledDepartureDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{21D7CF19-8196-4FE0-BAB5-A59C8AEB42B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhLocalScheduledDepartureTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82A9FA85-F7AD-4D22-877F-4055C8504E45}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhNASDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DDF1D869-F29B-4DD0-9E4A-220A08DD6A1B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhOperatingAirline">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{47992C68-2060-4581-8AA3-7759E3B880F1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhSchedElapsedTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FEC10D7C-6464-4826-A3F2-6A9000B773E3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhSecurityDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EBF98E3F-FCC4-47FC-B8B2-9A55EF2A6F8C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhTailNumber">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7F65A4FB-1A10-4B59-9F54-5C234D3662A7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhTaxiIn">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2A0C4624-F6D3-49AA-A72D-020E845B1EFB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhTaxiOut">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3019A1C2-38E3-4941-B3B7-A453F04D4621}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalActualArrivalDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C62C95E7-9995-42B1-BBDE-58FEC688021B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalActualArrivalTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10FAD050-7558-4B64-B61F-0231EEE2A4E9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalActualDepartureDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C92CADA7-FCEF-49A1-A4AD-ECBA500DA8CA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalActualDepartureTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9915793D-66A5-4D16-8328-BAB8E519E3DD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalScheduledArrivalDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6AB71BF2-E19C-4212-A90B-99D32C6F60F0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalScheduledArrivalTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5318A00-DCB6-4A27-88A5-2EBDC3A66A54}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalScheduledDepartureDate">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{866FD2C1-9BAE-4DD6-B5F6-DAD44DD94B04}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhUniversalScheduledDepartureTime">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B123972-AD88-48F0-862E-5509BD8354A8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DwhWeatherDelay">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1426,7 +1813,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="SELECT TOP 10  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;      ,[DepDelay]&#xA;      ,[DepDelayNew]&#xA;      ,[DepDel15]&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,[TaxiOut]&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;      ,[TaxiIn]&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,[ArrDelay]&#xA;      ,[ArrDelayNew]&#xA;      ,[ArrDel15]&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,[Cancelled]&#xA;      ,[CancellationCode]&#xA;      ,[Diverted]&#xA;      ,[CrsElapsedTime]&#xA;      ,[ActualElapsedTime]&#xA;      ,[AirTime]&#xA;      ,[Flights]&#xA;      ,[Distance]&#xA;      ,[DistanceGroup]&#xA;      ,[CarrierDelay]&#xA;      ,[WeatherDelay]&#xA;      ,[NasDelay]&#xA;      ,[SecurityDelay]&#xA;      ,[LateAircraftDelay]&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity]"
+          SQLTask:SqlStatementSource="SELECT [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;      ,[DepDelay]&#xA;      ,[DepDelayNew]&#xA;      ,[DepDel15]&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,[TaxiOut]&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;      ,[TaxiIn]&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,[ArrDelay]&#xA;      ,[ArrDelayNew]&#xA;      ,[ArrDel15]&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,[Cancelled]&#xA;      ,[CancellationCode]&#xA;      ,[Diverted]&#xA;      ,[CrsElapsedTime]&#xA;      ,[ActualElapsedTime]&#xA;      ,[AirTime]&#xA;      ,[Flights]&#xA;      ,[Distance]&#xA;      ,[DistanceGroup]&#xA;      ,[CarrierDelay]&#xA;      ,[WeatherDelay]&#xA;      ,[NasDelay]&#xA;      ,[SecurityDelay]&#xA;      ,[LateAircraftDelay]&#xA;  FROM [dbo].[FactFlightActivity]"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -1466,22 +1853,22 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="342.666666666667,42"
+          Size="343,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="168,51" />
         <NodeLayout
-          Size="258.666666666667,42.6666666666667"
+          Size="259,43"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
           TopLeft="19,32" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="298,126.666666666667"
+          PanelSize="298,127"
           Size="298,170"
           Id="Package\Foreach row"
           TopLeft="216,228" />
         <NodeLayout
-          Size="269.333333333334,42"
+          Size="269,42"
           Id="Package\Select row from Stage_FactFlightActivity"
           TopLeft="203,138" />
         <EdgeLayout

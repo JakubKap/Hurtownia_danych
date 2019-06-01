@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimDate"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{130DE819-7B54-4D7F-9756-488D0D5940A1}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{F1FEA494-DEEF-40E0-9263-55CB5507FF75}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Dwh_DayOfWeek"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -85,7 +85,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Dwh_DimMonth"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -119,7 +119,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Months"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -136,7 +136,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Quarters"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -153,7 +153,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Weekdays"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1692,43 +1692,43 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,43"
           Id="Package\Clear Dwh_DayOfWeek"
           TopLeft="56.9444435959062,179.111107908355" />
         <NodeLayout
-          Size="181.333333333334,42.6666666666667"
+          Size="181,43"
           Id="Package\Clear Dwh_DimMonth"
           TopLeft="931.94443055739,158.999998992682" />
         <NodeLayout
-          Size="188,42.6666666666667"
+          Size="188,43"
           Id="Package\Clear Dwh_DimQuarter"
           TopLeft="790.277766001721,105.555555503898" />
         <NodeLayout
-          Size="293.333333333334,42.6666666666667"
+          Size="293,43"
           Id="Package\Deleting quotation marks from Stage_Months"
           TopLeft="998.551573738279,97.3095257411401" />
         <NodeLayout
-          Size="300,42.6666666666667"
+          Size="300,43"
           Id="Package\Deleting quotation marks from Stage_Quarters"
           TopLeft="560.813484700131,41.5873026794858" />
         <NodeLayout
-          Size="306.666666666667,42.6666666666667"
+          Size="307,43"
           Id="Package\Deleting quotation marks from Stage_Weekdays"
           TopLeft="257.738091397498,93.0119030987225" />
         <NodeLayout
-          Size="164,42.6666666666667"
+          Size="164,43"
           Id="Package\Populate DimDate"
           TopLeft="604.722213674751,518.55554628306" />
         <NodeLayout
-          Size="280,42.6666666666667"
+          Size="280,43"
           Id="Package\Transfer Stage_Months to Dwh_DimMonth"
           TopLeft="988.888874650002,254.222217676375" />
         <NodeLayout
-          Size="293.333333333334,42.6666666666667"
+          Size="293,43"
           Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter"
           TopLeft="559.821420229439,184.111119918691" />
         <NodeLayout
-          Size="300,42.6666666666667"
+          Size="300,43"
           Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
           TopLeft="211.210314313038,255.86509743962" />
         <EdgeLayout
@@ -2138,15 +2138,15 @@
     design-time-name="Package\Transfer Stage_Quarters to Dwh_DimQuarter">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="161,43"
-          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter"
-          TopLeft="295,233" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="153,43"
           Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Stage_Quarters"
           TopLeft="307,56" />
+        <NodeLayout
+          Size="161,43"
+          Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Dwh_DimQuarter"
+          TopLeft="295,233" />
         <NodeLayout
           Size="156,42"
           Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter\Data Conversion"
@@ -2182,7 +2182,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2216,7 +2218,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
