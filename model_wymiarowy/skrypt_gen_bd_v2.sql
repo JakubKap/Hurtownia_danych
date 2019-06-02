@@ -669,7 +669,7 @@ create table DimAirline (
    AirlineId            int                  not null,
    AirlineWorldAreaCode int                  null,
    AirlineIata          varchar(100)         null,
-   AirportIcao          varchar(4)           null,
+   AirlineIcao          varchar(4)           null,
    AirlineUsDotCode     int                  null,
    AirlineName          varchar(100)         null,
    AirlineAlias         varchar(200)         null,

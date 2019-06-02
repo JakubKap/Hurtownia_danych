@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{F931CE75-D86C-49E1-8548-DBB456469673}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{8CE0C982-924A-461E-AAC4-FAC6E9B72B69}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -976,11 +976,12 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{2425F5FE-CD07-4546-86C4-C35C2348464F}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TaxiIn">
       <DTS:VariableValue
-        DTS:DataType="4">0.</DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1072,6 +1073,87 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Foreach row\getAirlineId"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F3B978A0-56BC-459B-9F6C-B7CAD4DF99D2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getAirlineId"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getAirlineKey(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="AirlineId"
+                SQLTask:DtsVariableName="User::DwhOperatingAirline" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::OpCarrier"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getArrAirportId"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0AD0F5EC-6AB2-4B1C-8201-14E4ACD30F35}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getArrAirportId"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getAirportKey(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="ArrAirportId"
+                SQLTask:DtsVariableName="User::DwhArrAirport" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Dest"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getDepAirportId"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7d161adf-1e5b-4352-9c70-2b2cc2213c7a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getDepAirportId"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource=" SELECT dbo.getAirportKey(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="DepAirportId"
+                SQLTask:DtsVariableName="User::DwhDepAirport" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Origin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -1086,716 +1168,514 @@
               SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
               SQLTask:SqlStatementSource="EXEC dbo.insertFacts ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::Year"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::Quarter"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::Month"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="User::DayOfMonth"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="User::DayOfWeek"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="5"
-                SQLTask:DtsVariableName="User::FlDate"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="6"
-                SQLTask:DtsVariableName="User::OpUniqueCarrier"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="7"
-                SQLTask:DtsVariableName="User::OpCarrierAirlineId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="8"
-                SQLTask:DtsVariableName="User::OpCarrier"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="9"
+                SQLTask:ParameterName="25"
                 SQLTask:DtsVariableName="User::TailNum"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="10"
+                SQLTask:ParameterName="26"
                 SQLTask:DtsVariableName="User::OpCarrierFlNum"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="11"
-                SQLTask:DtsVariableName="User::OriginAirportId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="12"
-                SQLTask:DtsVariableName="User::OriginAirportSeqId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="13"
-                SQLTask:DtsVariableName="User::Origin"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="14"
-                SQLTask:DtsVariableName="User::OriginCityName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="15"
-                SQLTask:DtsVariableName="User::OriginStateAbr"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="16"
-                SQLTask:DtsVariableName="User::OriginStateFips"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="17"
-                SQLTask:DtsVariableName="User::OriginStateNm"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="18"
-                SQLTask:DtsVariableName="User::OriginWac"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="19"
-                SQLTask:DtsVariableName="User::DestAirportId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="20"
-                SQLTask:DtsVariableName="User::DestAirportSeqId"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="21"
-                SQLTask:DtsVariableName="User::Dest"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="22"
-                SQLTask:DtsVariableName="User::DestCityName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="23"
-                SQLTask:DtsVariableName="User::DestStateAbr"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="24"
-                SQLTask:DtsVariableName="User::DestStateFips"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="25"
-                SQLTask:DtsVariableName="User::DestStateNm"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="26"
-                SQLTask:DtsVariableName="User::DestWac"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
                 SQLTask:ParameterName="27"
-                SQLTask:DtsVariableName="User::CrsDepTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="28"
-                SQLTask:DtsVariableName="User::DepTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="29"
                 SQLTask:DtsVariableName="User::DepDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="30"
+                SQLTask:ParameterName="28"
                 SQLTask:DtsVariableName="User::DepDelayNew"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="31"
-                SQLTask:DtsVariableName="User::DepDel15"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="32"
-                SQLTask:DtsVariableName="User::DepDelayGroup"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="33"
-                SQLTask:DtsVariableName="User::DepTimeBlk"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="34"
+                SQLTask:ParameterName="29"
                 SQLTask:DtsVariableName="User::TaxiOut"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="35"
-                SQLTask:DtsVariableName="User::WheelsOff"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="36"
-                SQLTask:DtsVariableName="User::WheelsOn"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="37"
+                SQLTask:ParameterName="30"
                 SQLTask:DtsVariableName="User::TaxiIn"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="38"
-                SQLTask:DtsVariableName="User::CrsArrTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="39"
+                SQLTask:ParameterName="35"
                 SQLTask:DtsVariableName="User::ArrTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="40"
+                SQLTask:ParameterName="31"
                 SQLTask:DtsVariableName="User::ArrDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="41"
+                SQLTask:ParameterName="32"
                 SQLTask:DtsVariableName="User::ArrDelayNew"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="42"
-                SQLTask:DtsVariableName="User::ArrDel15"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="43"
-                SQLTask:DtsVariableName="User::ArrDelayGroup"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="44"
-                SQLTask:DtsVariableName="User::ArrTimeBlk"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="45"
-                SQLTask:DtsVariableName="User::Cancelled"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="46"
-                SQLTask:DtsVariableName="User::CancellationCode"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="47"
-                SQLTask:DtsVariableName="User::Diverted"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="48"
+                SQLTask:ParameterName="33"
                 SQLTask:DtsVariableName="User::CrsElapsedTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="49"
+                SQLTask:ParameterName="34"
                 SQLTask:DtsVariableName="User::ActualElapsedTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="50"
-                SQLTask:DtsVariableName="User::AirTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="51"
+                SQLTask:ParameterName="36"
                 SQLTask:DtsVariableName="User::Flights"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="52"
+                SQLTask:ParameterName="37"
                 SQLTask:DtsVariableName="User::Distance"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="53"
-                SQLTask:DtsVariableName="User::DistanceGroup"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="100" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="54"
+                SQLTask:ParameterName="38"
                 SQLTask:DtsVariableName="User::CarrierDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="55"
+                SQLTask:ParameterName="39"
                 SQLTask:DtsVariableName="User::WeatherDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="56"
+                SQLTask:ParameterName="40"
                 SQLTask:DtsVariableName="User::NasDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="57"
+                SQLTask:ParameterName="41"
                 SQLTask:DtsVariableName="User::SecurityDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="58"
+                SQLTask:ParameterName="42"
                 SQLTask:DtsVariableName="User::LateAircraftDelay"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="17"
+                SQLTask:DtsVariableName="User::DwhDepAirport"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="13"
+                SQLTask:DtsVariableName="User::DwhArrAirport"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::DwhOperatingAirline"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{632271C7-DACD-418F-A7FB-5FD562950234}"
+          DTS:From="Package\Foreach row\getDepAirportId"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D29C761C-015F-4CE7-87D7-BDBDD855749F}"
+          DTS:From="Package\Foreach row\getArrAirportId"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{32F64847-143D-4042-AE37-42B2CB89288C}"
+          DTS:From="Package\Foreach row\getAirlineId"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+      </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{4962FD38-236B-4C9E-9DAA-1EB2EC87E4A1}"
-          DTS:ObjectName="{4962FD38-236B-4C9E-9DAA-1EB2EC87E4A1}"
+          DTS:DTSID="{21E2F975-1711-4C94-84D7-75FB0B1CC5BD}"
+          DTS:ObjectName="{21E2F975-1711-4C94-84D7-75FB0B1CC5BD}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::Year" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{08370EE6-7C89-475A-9343-8F81887291C4}"
-          DTS:ObjectName="{08370EE6-7C89-475A-9343-8F81887291C4}"
+          DTS:DTSID="{1E730F23-C2A2-43CF-B0EE-CEDC96BAAFE7}"
+          DTS:ObjectName="{1E730F23-C2A2-43CF-B0EE-CEDC96BAAFE7}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::Quarter" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{F4CA7201-D43E-4279-83BE-B2E99628498C}"
-          DTS:ObjectName="{F4CA7201-D43E-4279-83BE-B2E99628498C}"
+          DTS:DTSID="{326AE95E-B717-4D83-B1F5-48682F6A48B8}"
+          DTS:ObjectName="{326AE95E-B717-4D83-B1F5-48682F6A48B8}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::Month" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C6B329DA-1DF3-41EF-83BD-445A8B28C12F}"
-          DTS:ObjectName="{C6B329DA-1DF3-41EF-83BD-445A8B28C12F}"
+          DTS:DTSID="{8EFA16BE-BBD8-4CF8-A4F9-386C4AEDD360}"
+          DTS:ObjectName="{8EFA16BE-BBD8-4CF8-A4F9-386C4AEDD360}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::DayOfMonth" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6509A1B2-669D-4633-AB9D-06A7FD9FE035}"
-          DTS:ObjectName="{6509A1B2-669D-4633-AB9D-06A7FD9FE035}"
+          DTS:DTSID="{F2AA8412-7C25-4D44-9BA6-B1C9B57BA10C}"
+          DTS:ObjectName="{F2AA8412-7C25-4D44-9BA6-B1C9B57BA10C}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::DayOfWeek" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{999ABB1D-DDBB-48DC-B62A-540B0B7E7E7D}"
-          DTS:ObjectName="{999ABB1D-DDBB-48DC-B62A-540B0B7E7E7D}"
+          DTS:DTSID="{893C2D9B-DBEA-466E-B590-D5D5C036EF90}"
+          DTS:ObjectName="{893C2D9B-DBEA-466E-B590-D5D5C036EF90}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::FlDate" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{AB0FC4D7-E097-4324-8773-996645C2DF48}"
-          DTS:ObjectName="{AB0FC4D7-E097-4324-8773-996645C2DF48}"
+          DTS:DTSID="{E9CE41B8-F043-4F49-AED1-E6F8A8F5D049}"
+          DTS:ObjectName="{E9CE41B8-F043-4F49-AED1-E6F8A8F5D049}"
           DTS:ValueIndex="6"
           DTS:VariableName="User::OpUniqueCarrier" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E50C0182-A32F-4CBF-89A5-4C1950955E0F}"
-          DTS:ObjectName="{E50C0182-A32F-4CBF-89A5-4C1950955E0F}"
+          DTS:DTSID="{D25BB281-B598-475D-AE77-D06AD5F0DAA2}"
+          DTS:ObjectName="{D25BB281-B598-475D-AE77-D06AD5F0DAA2}"
           DTS:ValueIndex="7"
           DTS:VariableName="User::OpCarrierAirlineId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{19F4741C-4308-4EC6-9254-DB5E12AB1FDD}"
-          DTS:ObjectName="{19F4741C-4308-4EC6-9254-DB5E12AB1FDD}"
+          DTS:DTSID="{FFC55623-36D7-4AC4-AE2B-1A3E18A99933}"
+          DTS:ObjectName="{FFC55623-36D7-4AC4-AE2B-1A3E18A99933}"
           DTS:ValueIndex="8"
           DTS:VariableName="User::OpCarrier" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{09D102A1-F116-495B-9E71-F21D3AAE10E9}"
-          DTS:ObjectName="{09D102A1-F116-495B-9E71-F21D3AAE10E9}"
+          DTS:DTSID="{CA6A265A-63D4-4B3E-A485-C4F13598DF6F}"
+          DTS:ObjectName="{CA6A265A-63D4-4B3E-A485-C4F13598DF6F}"
           DTS:ValueIndex="9"
           DTS:VariableName="User::TailNum" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{82972907-CC33-4738-AC93-4B2EDF2134AD}"
-          DTS:ObjectName="{82972907-CC33-4738-AC93-4B2EDF2134AD}"
+          DTS:DTSID="{5AE5D7CE-2695-41B4-BC86-5F21F6DA4C8C}"
+          DTS:ObjectName="{5AE5D7CE-2695-41B4-BC86-5F21F6DA4C8C}"
           DTS:ValueIndex="10"
           DTS:VariableName="User::OpCarrierFlNum" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{87434281-7D6C-4AE0-B587-E2C45E2D4861}"
-          DTS:ObjectName="{87434281-7D6C-4AE0-B587-E2C45E2D4861}"
+          DTS:DTSID="{B5CE2326-6103-4951-94D8-BC18CECE9F8A}"
+          DTS:ObjectName="{B5CE2326-6103-4951-94D8-BC18CECE9F8A}"
           DTS:ValueIndex="11"
           DTS:VariableName="User::OriginAirportId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{78710AD2-0843-4141-99F7-7D181EFB23BF}"
-          DTS:ObjectName="{78710AD2-0843-4141-99F7-7D181EFB23BF}"
+          DTS:DTSID="{413AC803-5B7E-4E12-9C3B-A30C2BFF80CE}"
+          DTS:ObjectName="{413AC803-5B7E-4E12-9C3B-A30C2BFF80CE}"
           DTS:ValueIndex="12"
           DTS:VariableName="User::OriginAirportSeqId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{739EA392-F741-4095-9A4A-61DB017EC147}"
-          DTS:ObjectName="{739EA392-F741-4095-9A4A-61DB017EC147}"
+          DTS:DTSID="{D08FD123-107A-4BD6-AA7D-8EF4C7883E19}"
+          DTS:ObjectName="{D08FD123-107A-4BD6-AA7D-8EF4C7883E19}"
           DTS:ValueIndex="13"
           DTS:VariableName="User::Origin" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{9D3C217E-A544-4021-AF1D-28D92205D38F}"
-          DTS:ObjectName="{9D3C217E-A544-4021-AF1D-28D92205D38F}"
+          DTS:DTSID="{096B0711-276A-410A-8913-33CF1B0F9B17}"
+          DTS:ObjectName="{096B0711-276A-410A-8913-33CF1B0F9B17}"
           DTS:ValueIndex="14"
           DTS:VariableName="User::OriginCityName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{13EA6A99-E8BC-4CA3-8BFB-4321B669DE1D}"
-          DTS:ObjectName="{13EA6A99-E8BC-4CA3-8BFB-4321B669DE1D}"
+          DTS:DTSID="{7458FAF6-F7C8-4830-8B40-AE9C9E86FD78}"
+          DTS:ObjectName="{7458FAF6-F7C8-4830-8B40-AE9C9E86FD78}"
           DTS:ValueIndex="15"
           DTS:VariableName="User::OriginStateAbr" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B40FDD8E-C1E8-49E8-AC0C-8F40FB8F319A}"
-          DTS:ObjectName="{B40FDD8E-C1E8-49E8-AC0C-8F40FB8F319A}"
+          DTS:DTSID="{BAC1D4A6-68AE-4D38-9A12-30E87F3BC843}"
+          DTS:ObjectName="{BAC1D4A6-68AE-4D38-9A12-30E87F3BC843}"
           DTS:ValueIndex="16"
           DTS:VariableName="User::OriginStateFips" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{157F3050-69C6-4C1B-9C92-C9B14F7C2E22}"
-          DTS:ObjectName="{157F3050-69C6-4C1B-9C92-C9B14F7C2E22}"
+          DTS:DTSID="{C4BDFBC2-DC34-478F-A0D6-B0F6556AD188}"
+          DTS:ObjectName="{C4BDFBC2-DC34-478F-A0D6-B0F6556AD188}"
           DTS:ValueIndex="17"
           DTS:VariableName="User::OriginStateNm" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{93B27571-3DF0-4DD4-8ECD-5BBD6AA7EE9A}"
-          DTS:ObjectName="{93B27571-3DF0-4DD4-8ECD-5BBD6AA7EE9A}"
+          DTS:DTSID="{4EBADAA3-FCB6-420A-8CBA-491A884A207A}"
+          DTS:ObjectName="{4EBADAA3-FCB6-420A-8CBA-491A884A207A}"
           DTS:ValueIndex="18"
           DTS:VariableName="User::OriginWac" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8B86577F-401F-40F9-A35B-721912BEF843}"
-          DTS:ObjectName="{8B86577F-401F-40F9-A35B-721912BEF843}"
+          DTS:DTSID="{77A7412B-D761-4D39-9451-C0B0E947B8F0}"
+          DTS:ObjectName="{77A7412B-D761-4D39-9451-C0B0E947B8F0}"
           DTS:ValueIndex="19"
           DTS:VariableName="User::DestAirportId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{76DB30A9-F265-4E5A-8580-E97403364461}"
-          DTS:ObjectName="{76DB30A9-F265-4E5A-8580-E97403364461}"
+          DTS:DTSID="{3CA54FD6-5226-4502-8C15-25C6645827EC}"
+          DTS:ObjectName="{3CA54FD6-5226-4502-8C15-25C6645827EC}"
           DTS:ValueIndex="20"
           DTS:VariableName="User::DestAirportSeqId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{64C0DA67-CDCB-4877-ADCF-1DBEAAC62054}"
-          DTS:ObjectName="{64C0DA67-CDCB-4877-ADCF-1DBEAAC62054}"
+          DTS:DTSID="{C563063C-BE80-48F8-B8F7-52C1BBE8B680}"
+          DTS:ObjectName="{C563063C-BE80-48F8-B8F7-52C1BBE8B680}"
           DTS:ValueIndex="21"
           DTS:VariableName="User::Dest" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C8B8059F-34B7-44DF-90A3-973D9D6429BE}"
-          DTS:ObjectName="{C8B8059F-34B7-44DF-90A3-973D9D6429BE}"
+          DTS:DTSID="{F4808A80-306D-4D0E-8D62-0EB0E85F91BD}"
+          DTS:ObjectName="{F4808A80-306D-4D0E-8D62-0EB0E85F91BD}"
           DTS:ValueIndex="22"
           DTS:VariableName="User::DestCityName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{67EFADAB-D76B-403B-9F48-92E4EC8968FE}"
-          DTS:ObjectName="{67EFADAB-D76B-403B-9F48-92E4EC8968FE}"
+          DTS:DTSID="{4190D4D0-205C-47F8-A739-30C3E14C2F43}"
+          DTS:ObjectName="{4190D4D0-205C-47F8-A739-30C3E14C2F43}"
           DTS:ValueIndex="23"
           DTS:VariableName="User::DestStateAbr" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B7A36CF2-20DC-4488-BF4C-227D9F8ECA2C}"
-          DTS:ObjectName="{B7A36CF2-20DC-4488-BF4C-227D9F8ECA2C}"
+          DTS:DTSID="{2D6A8597-FDBF-4E02-9926-B65AF7928CA3}"
+          DTS:ObjectName="{2D6A8597-FDBF-4E02-9926-B65AF7928CA3}"
           DTS:ValueIndex="24"
           DTS:VariableName="User::DestStateFips" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{46A0A1CF-04F3-4A2F-B542-8EAD520E7DB4}"
-          DTS:ObjectName="{46A0A1CF-04F3-4A2F-B542-8EAD520E7DB4}"
+          DTS:DTSID="{D96A2228-65B7-409B-ACA8-BB4D1EE9C5AF}"
+          DTS:ObjectName="{D96A2228-65B7-409B-ACA8-BB4D1EE9C5AF}"
           DTS:ValueIndex="25"
           DTS:VariableName="User::DestStateNm" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A9C2D530-4697-4E40-80A1-D24A4AF9C6B1}"
-          DTS:ObjectName="{A9C2D530-4697-4E40-80A1-D24A4AF9C6B1}"
+          DTS:DTSID="{DDB7194C-64FB-48E9-A31A-CA1BFB476BD2}"
+          DTS:ObjectName="{DDB7194C-64FB-48E9-A31A-CA1BFB476BD2}"
           DTS:ValueIndex="26"
           DTS:VariableName="User::DestWac" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5BA41965-78E7-4B94-8A1C-E7974AEF2076}"
-          DTS:ObjectName="{5BA41965-78E7-4B94-8A1C-E7974AEF2076}"
+          DTS:DTSID="{834C8D73-4A0D-4705-9249-B0B6B7645E84}"
+          DTS:ObjectName="{834C8D73-4A0D-4705-9249-B0B6B7645E84}"
           DTS:ValueIndex="27"
           DTS:VariableName="User::CrsDepTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{7AFE0B88-CF01-453C-8C0C-36E8385B40D5}"
-          DTS:ObjectName="{7AFE0B88-CF01-453C-8C0C-36E8385B40D5}"
+          DTS:DTSID="{F82671C7-48EE-4E13-9964-27B7D9D24AB1}"
+          DTS:ObjectName="{F82671C7-48EE-4E13-9964-27B7D9D24AB1}"
           DTS:ValueIndex="28"
           DTS:VariableName="User::DepTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0D4BD006-B51A-4C7D-BE65-B87E8124FA56}"
-          DTS:ObjectName="{0D4BD006-B51A-4C7D-BE65-B87E8124FA56}"
+          DTS:DTSID="{0272B872-1F29-4683-984E-36292CEA73A9}"
+          DTS:ObjectName="{0272B872-1F29-4683-984E-36292CEA73A9}"
           DTS:ValueIndex="29"
           DTS:VariableName="User::DepDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{44FAD014-B38F-4E68-BB85-D8B1F7035DDF}"
-          DTS:ObjectName="{44FAD014-B38F-4E68-BB85-D8B1F7035DDF}"
+          DTS:DTSID="{479BD77F-BB7D-434B-92E2-ADBD95DB316C}"
+          DTS:ObjectName="{479BD77F-BB7D-434B-92E2-ADBD95DB316C}"
           DTS:ValueIndex="30"
           DTS:VariableName="User::DepDelayNew" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{147D8E40-5DAF-4E39-AE91-6E2C1877AFCB}"
-          DTS:ObjectName="{147D8E40-5DAF-4E39-AE91-6E2C1877AFCB}"
+          DTS:DTSID="{2C3169C1-987D-49FC-80B5-0F3D9D569485}"
+          DTS:ObjectName="{2C3169C1-987D-49FC-80B5-0F3D9D569485}"
           DTS:ValueIndex="31"
           DTS:VariableName="User::DepDel15" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{65F4BBCC-B464-4EE8-8D59-B2076A9382C9}"
-          DTS:ObjectName="{65F4BBCC-B464-4EE8-8D59-B2076A9382C9}"
+          DTS:DTSID="{DF2E3D6C-F0B5-4FA7-A443-5A686BCCE1C4}"
+          DTS:ObjectName="{DF2E3D6C-F0B5-4FA7-A443-5A686BCCE1C4}"
           DTS:ValueIndex="32"
           DTS:VariableName="User::DepDelayGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{F074CFC7-EAF4-454F-A2CF-4D855B8E2556}"
-          DTS:ObjectName="{F074CFC7-EAF4-454F-A2CF-4D855B8E2556}"
+          DTS:DTSID="{3A198F21-C81B-46EA-BBCA-1B8BE10D81E6}"
+          DTS:ObjectName="{3A198F21-C81B-46EA-BBCA-1B8BE10D81E6}"
           DTS:ValueIndex="33"
           DTS:VariableName="User::DepTimeBlk" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E7145093-EB26-41D9-9F94-63F1A2B687E5}"
-          DTS:ObjectName="{E7145093-EB26-41D9-9F94-63F1A2B687E5}"
+          DTS:DTSID="{3EE61883-A23E-4206-8CEF-B0249CC5393F}"
+          DTS:ObjectName="{3EE61883-A23E-4206-8CEF-B0249CC5393F}"
           DTS:ValueIndex="34"
           DTS:VariableName="User::TaxiOut" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6FB78A44-20E0-452E-871B-E42F2745C939}"
-          DTS:ObjectName="{6FB78A44-20E0-452E-871B-E42F2745C939}"
+          DTS:DTSID="{28A1D002-10BE-4CFB-8E7E-B1262D3E6106}"
+          DTS:ObjectName="{28A1D002-10BE-4CFB-8E7E-B1262D3E6106}"
           DTS:ValueIndex="35"
           DTS:VariableName="User::WheelsOff" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A2BD705F-7EFF-44B4-9B03-5CDE47587796}"
-          DTS:ObjectName="{A2BD705F-7EFF-44B4-9B03-5CDE47587796}"
+          DTS:DTSID="{F8313C7E-7206-4D80-BDDF-FF56C3C9C639}"
+          DTS:ObjectName="{F8313C7E-7206-4D80-BDDF-FF56C3C9C639}"
           DTS:ValueIndex="36"
           DTS:VariableName="User::WheelsOn" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8BDE7E27-C53F-40F1-8F1A-8D4582798717}"
-          DTS:ObjectName="{8BDE7E27-C53F-40F1-8F1A-8D4582798717}"
+          DTS:DTSID="{C4B1A51F-3B2A-490D-A89B-BC3BFBADE9DF}"
+          DTS:ObjectName="{C4B1A51F-3B2A-490D-A89B-BC3BFBADE9DF}"
           DTS:ValueIndex="37"
           DTS:VariableName="User::TaxiIn" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{64FC0BF1-B21C-4092-BE41-E1F02E0F6095}"
-          DTS:ObjectName="{64FC0BF1-B21C-4092-BE41-E1F02E0F6095}"
+          DTS:DTSID="{15B5F3B9-934A-41FC-8E50-A27FA69C6EE8}"
+          DTS:ObjectName="{15B5F3B9-934A-41FC-8E50-A27FA69C6EE8}"
           DTS:ValueIndex="38"
           DTS:VariableName="User::CrsArrTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2E3BB34D-3338-4A97-A6E4-A0C5F7B41676}"
-          DTS:ObjectName="{2E3BB34D-3338-4A97-A6E4-A0C5F7B41676}"
+          DTS:DTSID="{CBA7DC3A-0FF1-4440-93F2-B8FF54A5A7BE}"
+          DTS:ObjectName="{CBA7DC3A-0FF1-4440-93F2-B8FF54A5A7BE}"
           DTS:ValueIndex="39"
           DTS:VariableName="User::AirTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{594D88F5-5EF3-4E77-98FB-BBC2D39159C3}"
-          DTS:ObjectName="{594D88F5-5EF3-4E77-98FB-BBC2D39159C3}"
+          DTS:DTSID="{86901C71-A7A0-4B8C-A0E6-F4D2F7BEC7E6}"
+          DTS:ObjectName="{86901C71-A7A0-4B8C-A0E6-F4D2F7BEC7E6}"
           DTS:ValueIndex="40"
           DTS:VariableName="User::ArrDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D548FCFD-DF67-4F6D-B3BA-3F495D7E2139}"
-          DTS:ObjectName="{D548FCFD-DF67-4F6D-B3BA-3F495D7E2139}"
+          DTS:DTSID="{30FEB792-41FC-48C6-8DF9-2A1F63D64357}"
+          DTS:ObjectName="{30FEB792-41FC-48C6-8DF9-2A1F63D64357}"
           DTS:ValueIndex="41"
           DTS:VariableName="User::ArrDelayNew" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{50708BF9-8039-4F36-915A-BC9F2D16AF48}"
-          DTS:ObjectName="{50708BF9-8039-4F36-915A-BC9F2D16AF48}"
+          DTS:DTSID="{CB6F62AB-86AA-435F-A97B-725E4F13178C}"
+          DTS:ObjectName="{CB6F62AB-86AA-435F-A97B-725E4F13178C}"
           DTS:ValueIndex="42"
           DTS:VariableName="User::ArrDel15" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E724DA14-CC86-4052-AF32-EE9C6099D5CA}"
-          DTS:ObjectName="{E724DA14-CC86-4052-AF32-EE9C6099D5CA}"
+          DTS:DTSID="{129AD0BC-DC82-43BE-927D-73A117B29F9C}"
+          DTS:ObjectName="{129AD0BC-DC82-43BE-927D-73A117B29F9C}"
           DTS:ValueIndex="43"
           DTS:VariableName="User::ArrDelayGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{58C9ECDC-DB97-400E-8241-22237B457D25}"
-          DTS:ObjectName="{58C9ECDC-DB97-400E-8241-22237B457D25}"
+          DTS:DTSID="{A65F54F2-A55E-4C90-BAED-26F7C405F859}"
+          DTS:ObjectName="{A65F54F2-A55E-4C90-BAED-26F7C405F859}"
           DTS:ValueIndex="44"
           DTS:VariableName="User::ArrTimeBlk" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FBE08220-00EF-4278-8966-B5D9A5281BCF}"
-          DTS:ObjectName="{FBE08220-00EF-4278-8966-B5D9A5281BCF}"
+          DTS:DTSID="{CF1B04AD-4083-450E-A7E8-19F154B022D7}"
+          DTS:ObjectName="{CF1B04AD-4083-450E-A7E8-19F154B022D7}"
           DTS:ValueIndex="45"
           DTS:VariableName="User::Cancelled" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0D304463-6C64-4202-8E64-EEFF38198DA7}"
-          DTS:ObjectName="{0D304463-6C64-4202-8E64-EEFF38198DA7}"
+          DTS:DTSID="{B3885B64-8EBA-4913-B48E-091C82836FC9}"
+          DTS:ObjectName="{B3885B64-8EBA-4913-B48E-091C82836FC9}"
           DTS:ValueIndex="46"
           DTS:VariableName="User::CancellationCode" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6808AEFE-5249-4E0B-AA86-16A691E67CFE}"
-          DTS:ObjectName="{6808AEFE-5249-4E0B-AA86-16A691E67CFE}"
+          DTS:DTSID="{ECF3FB57-3C3D-4CB9-B734-2D5A3F7821BE}"
+          DTS:ObjectName="{ECF3FB57-3C3D-4CB9-B734-2D5A3F7821BE}"
           DTS:ValueIndex="47"
           DTS:VariableName="User::Diverted" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{4ECC15D1-4465-4FB6-A14E-D37337E73711}"
-          DTS:ObjectName="{4ECC15D1-4465-4FB6-A14E-D37337E73711}"
+          DTS:DTSID="{1F10FF33-48E2-45C9-87CA-BC67FFA964EC}"
+          DTS:ObjectName="{1F10FF33-48E2-45C9-87CA-BC67FFA964EC}"
           DTS:ValueIndex="48"
           DTS:VariableName="User::CrsElapsedTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2F3FD52E-3E0B-4995-BE3B-856E15B8EDB6}"
-          DTS:ObjectName="{2F3FD52E-3E0B-4995-BE3B-856E15B8EDB6}"
+          DTS:DTSID="{9FE9B5E1-7091-47C1-A339-89351F3F1E17}"
+          DTS:ObjectName="{9FE9B5E1-7091-47C1-A339-89351F3F1E17}"
           DTS:ValueIndex="49"
           DTS:VariableName="User::ActualElapsedTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{EFE86EA3-4080-4267-996B-4593102003C9}"
-          DTS:ObjectName="{EFE86EA3-4080-4267-996B-4593102003C9}"
+          DTS:DTSID="{9B40DEEA-DCA0-4C1F-B529-27C8DF45F5FE}"
+          DTS:ObjectName="{9B40DEEA-DCA0-4C1F-B529-27C8DF45F5FE}"
           DTS:ValueIndex="50"
           DTS:VariableName="User::AirTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FD0DECA3-23AA-4AF0-BAEF-D1DC7AD1B988}"
-          DTS:ObjectName="{FD0DECA3-23AA-4AF0-BAEF-D1DC7AD1B988}"
+          DTS:DTSID="{D8395BCB-0BA2-4777-BE24-923B17DD585D}"
+          DTS:ObjectName="{D8395BCB-0BA2-4777-BE24-923B17DD585D}"
           DTS:ValueIndex="51"
           DTS:VariableName="User::Flights" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0A2478F0-CEA5-4E17-B0CE-F9A7AE0DA71C}"
-          DTS:ObjectName="{0A2478F0-CEA5-4E17-B0CE-F9A7AE0DA71C}"
+          DTS:DTSID="{A8C64010-AC29-4431-A818-4A8BEE9DB64F}"
+          DTS:ObjectName="{A8C64010-AC29-4431-A818-4A8BEE9DB64F}"
           DTS:ValueIndex="52"
           DTS:VariableName="User::Distance" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{428CAEA3-8F46-44F2-AD40-97B0B6B17DC3}"
-          DTS:ObjectName="{428CAEA3-8F46-44F2-AD40-97B0B6B17DC3}"
+          DTS:DTSID="{92BF639D-617D-4B22-A93E-ADE5ABE652E0}"
+          DTS:ObjectName="{92BF639D-617D-4B22-A93E-ADE5ABE652E0}"
           DTS:ValueIndex="53"
           DTS:VariableName="User::DistanceGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FEC60AF4-742E-486D-B2B1-B184F0E95C4D}"
-          DTS:ObjectName="{FEC60AF4-742E-486D-B2B1-B184F0E95C4D}"
+          DTS:DTSID="{06C199B4-1056-4A01-AACC-3839A7EC7A00}"
+          DTS:ObjectName="{06C199B4-1056-4A01-AACC-3839A7EC7A00}"
           DTS:ValueIndex="54"
           DTS:VariableName="User::CarrierDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{50141320-CB61-416F-8FEE-62320B7E257E}"
-          DTS:ObjectName="{50141320-CB61-416F-8FEE-62320B7E257E}"
+          DTS:DTSID="{82A19710-4846-43D6-B98D-4B841903A58E}"
+          DTS:ObjectName="{82A19710-4846-43D6-B98D-4B841903A58E}"
           DTS:ValueIndex="55"
           DTS:VariableName="User::WeatherDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B42B9DEB-82F8-46A8-B5F0-8A44860B6DB9}"
-          DTS:ObjectName="{B42B9DEB-82F8-46A8-B5F0-8A44860B6DB9}"
+          DTS:DTSID="{898C899E-D75F-4A9B-B216-50BEBB466AA0}"
+          DTS:ObjectName="{898C899E-D75F-4A9B-B216-50BEBB466AA0}"
           DTS:ValueIndex="56"
           DTS:VariableName="User::NasDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{4B3A5472-8213-4686-ADBA-27ABDD81D563}"
-          DTS:ObjectName="{4B3A5472-8213-4686-ADBA-27ABDD81D563}"
+          DTS:DTSID="{CC7DA1B0-C95F-44CE-BA03-C7E092DA964B}"
+          DTS:ObjectName="{CC7DA1B0-C95F-44CE-BA03-C7E092DA964B}"
           DTS:ValueIndex="57"
           DTS:VariableName="User::SecurityDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5878A8E4-88A9-4B11-9D44-C3394995B6F3}"
-          DTS:ObjectName="{5878A8E4-88A9-4B11-9D44-C3394995B6F3}"
+          DTS:DTSID="{7EAC9800-CDE7-42A4-A289-8FE400EE32EF}"
+          DTS:ObjectName="{7EAC9800-CDE7-42A4-A289-8FE400EE32EF}"
           DTS:ValueIndex="58"
           DTS:VariableName="User::LateAircraftDelay" />
       </DTS:ForEachVariableMappings>
@@ -1851,22 +1731,136 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="343,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="168,51" />
         <NodeLayout
-          Size="259,43"
+          Size="154,42"
+          Id="Package\Foreach row\getDepAirportId"
+          TopLeft="5.5,110" />
+        <NodeLayout
+          Size="258,42"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
-          TopLeft="19,32" />
+          TopLeft="145,315" />
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint]"
+          TopLeft="82.5,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191.5,163"
+              Start="0,0"
+              End="191.5,155.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.5"
+                    Point2="0,81.5"
+                    Point3="4,81.5" />
+                  <mssgle:LineSegment
+                    End="187.5,81.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187.5,81.5"
+                    Point2="191.5,81.5"
+                    Point3="191.5,85.5" />
+                  <mssgle:LineSegment
+                    End="191.5,155.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Foreach row\getArrAirportId"
+          TopLeft="18,174" />
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 1]"
+          TopLeft="93,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="243.5,99"
+              Start="0,0"
+              End="243.5,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.3248081841432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.3248081841432"
+                    Point2="0,65.3248081841432"
+                    Point3="4,65.3248081841432" />
+                  <mssgle:LineSegment
+                    End="239.5,65.3248081841432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="239.5,65.3248081841432"
+                    Point2="243.5,65.3248081841432"
+                    Point3="243.5,69.3248081841432" />
+                  <mssgle:LineSegment
+                    End="243.5,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Foreach row\getAirlineId"
+          TopLeft="8,26" />
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
+          TopLeft="74.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137,247"
+              Start="0,0"
+              End="137,239.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,158.982097186701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,158.982097186701"
+                    Point2="0,162.982097186701"
+                    Point3="4,162.982097186701" />
+                  <mssgle:LineSegment
+                    End="133,162.982097186701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133,162.982097186701"
+                    Point2="137,162.982097186701"
+                    Point3="137,166.982097186701" />
+                  <mssgle:LineSegment
+                    End="137,239.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="298,127"
-          Size="298,170"
+          PanelSize="562,412"
+          Size="562,455"
           Id="Package\Foreach row"
-          TopLeft="216,228" />
+          TopLeft="36,267" />
         <NodeLayout
           Size="269,42"
           Id="Package\Select row from Stage_FactFlightActivity"
@@ -1899,26 +1893,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.5,48"
+              EndConnector="-112.833333333333,87"
               Start="0,0"
-              End="27.5,40.5">
+              End="-112.833333333333,79.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20" />
+                    End="0,48.0518097941803" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="4,24" />
+                    Point1="0,48.0518097941803"
+                    Point2="0,52.0518097941803"
+                    Point3="-4,52.0518097941803" />
                   <mssgle:LineSegment
-                    End="23.5,24" />
+                    End="-108.833333333333,52.0518097941803" />
                   <mssgle:CubicBezierSegment
-                    Point1="23.5,24"
-                    Point2="27.5,24"
-                    Point3="27.5,28" />
+                    Point1="-108.833333333333,52.0518097941803"
+                    Point2="-112.833333333333,52.0518097941803"
+                    Point3="-112.833333333333,56.0518097941803" />
                   <mssgle:LineSegment
-                    End="27.5,40.5" />
+                    End="-112.833333333333,79.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{1CEBB2AB-4DDA-43EA-BBF4-91643E97193F}">
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{41C37520-D2EE-4414-AC81-CDC0514CE2BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1816,6 +1816,14 @@
                           cachedName="Copy of Active"
                           externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
                           lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Active]" />
+                        <inputColumn
+                          refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].Columns[Copy of Icao]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Copy of Icao"
+                          externalMetadataColumnId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Dwh_DimAirline.Inputs[OLE DB Destination Input].ExternalColumns[AirlineIcao]"
+                          lineageId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Icao]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3073,7 +3081,7 @@
     design-time-name="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="226,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode\Dwh_DimAirlineWorldAreaCode"
@@ -3105,9 +3113,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3129,9 +3135,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3167,7 +3171,7 @@
     design-time-name="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="145,42"
           Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline\Stage_Airlines"
@@ -3199,9 +3203,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3223,9 +3225,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
