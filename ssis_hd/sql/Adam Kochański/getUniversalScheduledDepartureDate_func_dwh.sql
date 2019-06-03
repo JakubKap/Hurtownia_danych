@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.getUniversalScheduledDepartureDate(
+ALTER FUNCTION dbo.getUniversalScheduledDepartureDate(
 @Year int,
 @Month int,
 @DayOfMonth int, 
@@ -7,6 +7,8 @@ CREATE FUNCTION dbo.getUniversalScheduledDepartureDate(
 RETURNS int
 AS
 BEGIN
+
+if @TimezoneShiftOrigin is null return null
 
 DECLARE @currID int=NULL
 

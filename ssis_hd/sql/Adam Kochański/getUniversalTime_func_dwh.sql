@@ -1,9 +1,11 @@
-CREATE FUNCTION dbo.getUniversalTime(
+ALTER FUNCTION dbo.getUniversalTime(
 @DepTime int,
 @TimezoneShiftOrigin float)
 RETURNS int
 AS
 BEGIN
+
+if @TimezoneShiftOrigin is null return null
 
 DECLARE @currID int=NULL
 

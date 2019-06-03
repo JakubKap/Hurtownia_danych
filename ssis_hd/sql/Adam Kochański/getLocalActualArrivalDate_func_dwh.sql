@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.getLocalActualArrivalDate(
+ALTER FUNCTION dbo.getLocalActualArrivalDate(
 @Year int, 
 @Month int, 
 @DayOfMonth int, 
@@ -9,6 +9,8 @@ CREATE FUNCTION dbo.getLocalActualArrivalDate(
 RETURNS int
 AS
 BEGIN
+
+if @TimezoneShiftDest is null or @TimezoneShiftOrigin is null return null
 
 DECLARE @currID int=NULL
 

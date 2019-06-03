@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.getUniversalActualDepartureDate(
+ALTER FUNCTION dbo.getUniversalActualDepartureDate(
 @Year int,
 @Month int,
 @DayOfMonth int, 
@@ -8,6 +8,8 @@ CREATE FUNCTION dbo.getUniversalActualDepartureDate(
 RETURNS int
 AS
 BEGIN
+
+if @TimezoneShiftOriginH is null return null
 
 DECLARE @currID int=NULL
 

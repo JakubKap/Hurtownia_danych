@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.getUniversalActualArrivalDate(
+ALTER FUNCTION dbo.getUniversalActualArrivalDate(
 @Year int, 
 @Month int, 
 @DayOfMonth int, 
@@ -8,6 +8,8 @@ CREATE FUNCTION dbo.getUniversalActualArrivalDate(
 RETURNS int
 AS
 BEGIN
+
+if @TimezoneShiftOrigin is null return null
 
 DECLARE @currID int=NULL
 
