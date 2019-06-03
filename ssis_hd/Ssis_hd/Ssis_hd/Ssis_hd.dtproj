@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BO7AJ5R</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAn1GJMgqxW0aknVpu95lcNwAAAAACAAAAAAAQZgAAAAEAACAAAACu6EB35txrmA8ZnA2+PTQ+m5bqjtzsLuq4lbCH9xmsTAAAAAAOgAAAAAIAACAAAADYuusnYSlJA2sZGZrxB1S3HNutEXmAAe4E1HGH4H4uw5AAAACS6WEyMonT+xrGmqOL3l7lFoUFJsR+mxDWIDToAyf1Gu8avfAM2uTpdLAh4VkcaaTfT/IKDUqdjA91QDCmERXGZ0a7e28LgTrWl8Dom7h4y7MDpPdowqb6gVe0xnpyxydMr/lRXR0XKdQDR6pExaiHn8K6pqP/e+9V7k2AfJiPBos1g9fzSPvTlBWmxQfReltAAAAA+Q3GF1ChT8Ep31Yj2Qe8383/up5T0xXr7Wl5NKpP3LxLfJVGmU/Poo23RP3HD/jdQPhDsihWWFDbrL1WxLVEEA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr+JksyTqK0CO81pls3PijAAAAAACAAAAAAAQZgAAAAEAACAAAACGmoXnIIZDp2zAZ8VsgkaKTLqFHvsDatOKxyc3f9NjQAAAAAAOgAAAAAIAACAAAADC0hdzwxQ1QuEl5a1hcoMHA7PhQltbTvk9+miEjZ8iCJAAAACoHtdQRedHa3P5YWreodErYidUyQ0aXK/WLy9mXwusGZZLCgvO9JzLEJuYU1bfRwnRptNsOMXeutGjKgcM29ZMn5HOsDspD3wCHwuhDPJMqKqkDfqtF2cGbypyQk6vWK3j6eQcpzoOcWffYqxYj68TKpyNefOU835yo8mWZorCQD+sCk/OWwAMiHHZqIpBU6tAAAAAXqLYBj+xeqtAY3RmKS7/72LLEB5/hNmPJK9XU3RE+NNaXrA9vZD5T0qZWbzOl7Glb4k8rPP9e+tV6PdXHvhiBQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -247,10 +247,10 @@
                 <SSIS:Property SSIS:Name="Name">LoadingDataToFactFlightActivity</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">62</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F2EEFDDD-79FB-4E76-B8EE-B4A719513CD8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{05704B8B-5A1E-4CEB-8A00-7B196B1DE914}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -268,7 +268,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -327,7 +327,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">(LocalDb)\AirStatsDW</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DESKTOP-ES0NV97</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -356,7 +356,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -415,7 +415,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">(LocalDb)\AirStatsDW</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">DESKTOP-ES0NV97</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

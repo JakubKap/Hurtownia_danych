@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{64BE866B-6180-41E3-9551-1CB589773030}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{17F83230-0065-4587-B779-EA7716A3672E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -985,6 +985,24 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{51FE34CC-3633-4C2C-B059-347196156362}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TimezoneShiftDest">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D42C1F3-D7ED-4787-9195-D3B03F63D73E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TimezoneShiftOrigin">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{C0D95815-CA9A-437B-84A2-49AC8CA48422}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -1028,6 +1046,7 @@
       DTS:refId="Package\Clean Stage_Facts_LateAircraftDelay"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{375DEA13-07C3-41FB-AC2E-E82CD39DF2F8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1044,6 +1063,7 @@
       DTS:refId="Package\Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{975c5b59-ab98-4ea8-8fc3-926616ec31de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1085,7 +1105,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getAirlineId"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1112,7 +1132,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrAirportId"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="15">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1132,6 +1152,60 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Foreach row\getArrTimeBLK"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f123c9ff-7f23-4373-a003-2b1d8a57d98f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getArrTimeBLK"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getTimeBLK(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhArrTimeBLK" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ArrTimeBlk"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getCancellationId"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{36c007f0-fc8d-474f-9128-2c0a3658ea63}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getCancellationId"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getCancellationId(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhCancellationCode" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::CancellationCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach row\getDepAirportId"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -1139,7 +1213,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepAirportId"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="13">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1154,6 +1228,675 @@
                 SQLTask:DtsVariableName="User::Origin"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getDepTimeBlk"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7e07173d-0f3a-445e-b046-618945c3e542}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getDepTimeBlk"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getTimeBLK(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhDepTimeBLK" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::DepTimeBlk"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getDifficultiesKey"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{793791af-12a3-4fbf-a3ab-f84bc86bcd1f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getDifficultiesKey"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getDifficultiesKey(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhDifficultiesKey" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Diverted"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::DepDel15"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::ArrDel15"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::Cancelled"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getLocalActualArrivalDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{40fb4406-3e7d-4dab-af5f-11a7f6fc0e5e}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getLocalActualArrivalDate"
+          DTS:ThreadHint="17">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getLocalActualArrivalDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhLocalActualArrivalDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::DepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::CrsElapsedTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::TimezoneShiftDest"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getLocalActualDepartureDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{20cc95ef-5054-46cb-aa8b-2af5196a97bf}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getLocalActualDepartureDate"
+          DTS:ThreadHint="11">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getLocalActualDepartureDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhLocalActualDepartureDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::DepDelay"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getLocalScheduledArrivalDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a5649413-fbb7-4bd4-b992-dbf3f640184d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getLocalScheduledArrivalDate"
+          DTS:ThreadHint="16">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getLocalScheduledArrivalDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhLocalScheduledArrivalDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::CrsElapsedTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::TimezoneShiftDest"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getLocalScheduledDepartureDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ba15ce0a-49bf-4a56-b9ca-d0fae6851e88}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getLocalScheduledDepartureDate"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getLocalScheduledDepartureDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhLocalScheduledDepartureDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{08b43740-2230-4743-9cc3-73ecf61ba97d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getTimezoneShiftOrigin"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT CAST(Timezone as float) FROM DimAirport WHERE AirportIata=?"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Origin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalActualArrivalDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{38c1d17d-6d7f-4160-b0fc-07f455e606e0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalActualArrivalDate"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalActualArrivalDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalActualArrivalDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::CrsElapsedTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalActualArrivalTime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{174df5e0-4225-4af7-9f83-166bfe9b5614}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalActualArrivalTime"
+          DTS:ThreadHint="14">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalTime(CAST(? as int), CAST(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalActualArrivalTime" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ArrTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalActualDepartureDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c976a18e-12f1-45fb-bb1c-ba4c383e762c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalActualDepartureDate"
+          DTS:ThreadHint="12">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalActualDepartureDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalActualDepartureDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::DepDelay"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalActualDepartureTime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{af501cc0-2c85-46d1-8f33-5018e7c67127}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalActualDepartureTime"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalTime(CAST(? as int), CAST(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalActualDepartureTime" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::DepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalScheduledArrivalDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{94031231-4e15-4ea1-a6d8-6036deb9e02d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalScheduledArrivalDate"
+          DTS:ThreadHint="18">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalScheduledArrivalDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalScheduledArrivalDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::CrsElapsedTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalScheduledArrivalTime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4e561abf-2577-42e0-ab6f-fa92a8670b53}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalScheduledArrivalTime"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalTime(CAST(? as int), CAST(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalScheduledArrivalTime" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::CrsArrTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalScheduledDepartureDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0c5004a9-0027-447e-89f8-16c9f318ce3a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalScheduledDepartureDate"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalScheduledDepartureDate(&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as int),&#xA;cast(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalScheduledDepartureDate" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::Year"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Month"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::DayOfMonth"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach row\getUniversalScheduledDepartureTime"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{154e264c-095a-4d20-91e2-a245bca31df1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getUniversalScheduledDepartureTime"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getUniversalTime(CAST(? as int), CAST(? as float))"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhUniversalScheduledDepartureTime" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::CrsDepTime"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TimezoneShiftOrigin"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="4"
                 SQLTask:ParameterSize="100" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -1300,7 +2043,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::DwhLocalScheduledDepartureTime"
+                SQLTask:DtsVariableName="User::CrsDepTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -1336,7 +2079,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="7"
-                SQLTask:DtsVariableName="User::DwhLocalActualDepartureTime"
+                SQLTask:DtsVariableName="User::DepTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -1354,7 +2097,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="10"
-                SQLTask:DtsVariableName="User::DwhLocalScheduledArrivalTime"
+                SQLTask:DtsVariableName="User::CrsArrTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -1420,7 +2163,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="23"
-                SQLTask:DtsVariableName="User::DwhLocalActualArrivalTime"
+                SQLTask:DtsVariableName="User::ArrTime"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -1452,6 +2195,86 @@
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{5F475BC3-FC2B-49D6-AE4D-B03458CC9CC7}"
+          DTS:From="Package\Foreach row\getUniversalActualArrivalTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 10"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6B2425D-7F1E-410A-AB76-7D4D81CD2946}"
+          DTS:From="Package\Foreach row\getLocalScheduledDepartureDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 11"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{A20D9E67-C82A-405A-96B4-3F56985A7CC7}"
+          DTS:From="Package\Foreach row\getLocalScheduledArrivalDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{79863084-4C21-4E00-94A8-DECE1C3D55E1}"
+          DTS:From="Package\Foreach row\getLocalActualDepartureDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 13"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 14]"
+          DTS:CreationName=""
+          DTS:DTSID="{F80194DC-7F52-4EDD-AEA1-7E39E2159782}"
+          DTS:From="Package\Foreach row\getLocalActualArrivalDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 14"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 15]"
+          DTS:CreationName=""
+          DTS:DTSID="{1E8D15D1-BB34-4A5D-92D6-76A08687315C}"
+          DTS:From="Package\Foreach row\getUniversalScheduledDepartureDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 15"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 16]"
+          DTS:CreationName=""
+          DTS:DTSID="{76518F2F-40A2-4C03-B2A5-837487C9BCE4}"
+          DTS:From="Package\Foreach row\getUniversalScheduledArrivalDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 16"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 17]"
+          DTS:CreationName=""
+          DTS:DTSID="{2B3B6056-1C35-4BB9-9AD0-70F47281B512}"
+          DTS:From="Package\Foreach row\getUniversalActualDepartureDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 17"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 18]"
+          DTS:CreationName=""
+          DTS:DTSID="{DFFD186D-38F2-4853-823D-68EE057DC0F0}"
+          DTS:From="Package\Foreach row\getUniversalActualArrivalDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 18"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 19]"
+          DTS:CreationName=""
+          DTS:DTSID="{4122C551-19B4-4695-B997-CE8778DE5E26}"
+          DTS:From="Package\Foreach row\getDifficultiesKey"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 19"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{32F64847-143D-4042-AE37-42B2CB89288C}"
@@ -1459,6 +2282,86 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 20]"
+          DTS:CreationName=""
+          DTS:DTSID="{6783F9B8-E711-4FB0-8927-8ACC6846430D}"
+          DTS:From="Package\Foreach row\getArrTimeBLK"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 20"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 21]"
+          DTS:CreationName=""
+          DTS:DTSID="{B91A85E1-897F-432E-940C-CE6295E83070}"
+          DTS:From="Package\Foreach row\getDepTimeBlk"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 21"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 22]"
+          DTS:CreationName=""
+          DTS:DTSID="{F9E1FA8E-B293-477E-AB2C-426BF101952D}"
+          DTS:From="Package\Foreach row\getCancellationId"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 22"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{21269FF0-10B4-46B1-811A-B8CBD1D2B4F2}"
+          DTS:From="Package\Foreach row\getUniversalScheduledDepartureTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{331D699E-DF70-417E-94CD-3ECB4947841A}"
+          DTS:From="Package\Foreach row\getUniversalScheduledArrivalTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{B3B829CE-B544-43BC-9E54-1C8D3261D2D8}"
+          DTS:From="Package\Foreach row\getUniversalActualDepartureTime"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{53D83E1B-B372-4D0B-8F85-EDECB2A797C3}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Foreach row\getUniversalScheduledDepartureTime" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{74DF5477-CBF2-43AA-B9E6-7F8446AA6435}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\Foreach row\getUniversalScheduledArrivalTime" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2E7499D-F842-4DA6-B18E-9EEB0BDC7E3F}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\Foreach row\getUniversalActualDepartureTime" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{8DC12E6E-A36F-468C-A5F1-CEBDA05955D0}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\Foreach row\getUniversalActualArrivalTime" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
@@ -1830,7 +2733,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="SELECT  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;&#x9;  ,CAST(FLOOR(DepDelay) AS int) AS DepDelay&#xA;      ,CAST(FLOOR(DepDelayNew)AS int) AS DepDelayNew&#xA;      ,CAST(FLOOR(DepDel15) AS int)AS DepDel15&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,CAST(FLOOR(TaxiOut)AS int) AS TaxiOut&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;       ,CAST(FLOOR(TaxiIn) AS int)AS TaxiIn&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,CAST(FLOOR(ArrDelay)AS int) AS ArrDelay&#xA;      ,CAST(FLOOR(ArrDelayNew)AS int) AS ArrDelayNew&#xA;      ,CAST(FLOOR(ArrDel15) AS int)AS ArrDel15&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,CAST(FLOOR(Cancelled) AS int) AS Cancelled&#xA;      ,[CancellationCode]&#xA;      ,CAST(FLOOR(Diverted) AS int) AS Diverted&#xA;      ,CAST(FLOOR(CrsElapsedTime) AS int) AS CrsElapsedTime&#xA;      ,CAST(FLOOR(ActualElapsedTime) AS int) AS ActualElapsedTime&#xA;      ,CAST(FLOOR(AirTime) AS int) AS AirTime&#xA;      ,CAST(FLOOR(Flights) AS int) AS Flights&#xA;      ,CAST(FLOOR(Distance) AS int) AS Distance&#xA;      ,[DistanceGroup]&#xA;      ,CAST(FLOOR(CarrierDelay) AS int) AS CarrierDelay&#xA;      ,CAST(FLOOR(WeatherDelay) AS int) AS WeatherDelay&#xA;      ,CAST(FLOOR(NasDelay) AS int) AS NasDelay&#xA;      ,CAST(FLOOR(SecurityDelay) AS int) AS SecurityDelay&#xA;     ,CAST(FLOOR(LateAircraftDelay) AS int) AS LateAircraftDelay&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity];"
+          SQLTask:SqlStatementSource="SELECT top 1000  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;&#x9;  ,CAST(FLOOR(DepDelay) AS int) AS DepDelay&#xA;      ,CAST(FLOOR(DepDelayNew)AS int) AS DepDelayNew&#xA;      ,CAST(FLOOR(DepDel15) AS int)AS DepDel15&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,CAST(FLOOR(TaxiOut)AS int) AS TaxiOut&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;       ,CAST(FLOOR(TaxiIn) AS int)AS TaxiIn&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,CAST(FLOOR(ArrDelay)AS int) AS ArrDelay&#xA;      ,CAST(FLOOR(ArrDelayNew)AS int) AS ArrDelayNew&#xA;      ,CAST(FLOOR(ArrDel15) AS int)AS ArrDel15&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,CAST(FLOOR(Cancelled) AS int) AS Cancelled&#xA;      ,[CancellationCode]&#xA;      ,CAST(FLOOR(Diverted) AS int) AS Diverted&#xA;      ,CAST(FLOOR(CrsElapsedTime) AS int) AS CrsElapsedTime&#xA;      ,CAST(FLOOR(ActualElapsedTime) AS int) AS ActualElapsedTime&#xA;      ,CAST(FLOOR(AirTime) AS int) AS AirTime&#xA;      ,CAST(FLOOR(Flights) AS int) AS Flights&#xA;      ,CAST(FLOOR(Distance) AS int) AS Distance&#xA;      ,[DistanceGroup]&#xA;      ,CAST(FLOOR(CarrierDelay) AS int) AS CarrierDelay&#xA;      ,CAST(FLOOR(WeatherDelay) AS int) AS WeatherDelay&#xA;      ,CAST(FLOOR(NasDelay) AS int) AS NasDelay&#xA;      ,CAST(FLOOR(SecurityDelay) AS int) AS SecurityDelay&#xA;     ,CAST(FLOOR(LateAircraftDelay) AS int) AS LateAircraftDelay&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity];"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -1876,57 +2779,109 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="251,42"
+          Size="250.666666666667,42"
           Id="Package\Clean Stage_Facts_LateAircraftDelay"
-          TopLeft="206,73" />
+          TopLeft="308.499998472631,73" />
         <NodeLayout
-          Size="343,42"
+          Size="342.666666666667,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
-          TopLeft="173,0" />
+          TopLeft="275.499998472631,0" />
         <NodeLayout
-          Size="133,42"
+          Size="133.333333333334,42"
           Id="Package\Foreach row\getAirlineId"
-          TopLeft="8,26" />
+          TopLeft="14.2499999068677,120.249998314679" />
         <NodeLayout
           Size="150,42"
           Id="Package\Foreach row\getArrAirportId"
-          TopLeft="18,174" />
+          TopLeft="13.8333333954215,222.749999128282" />
         <NodeLayout
           Size="154,42"
           Id="Package\Foreach row\getDepAirportId"
-          TopLeft="5.5,110" />
+          TopLeft="10.7083332557231,172.833332209786" />
         <NodeLayout
-          Size="258,42"
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getLocalActualArrivalDate"
+          TopLeft="369.73610568357,250.527780754533" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getLocalActualDepartureDate"
+          TopLeft="365.569439078992,201.416670521597" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getLocalScheduledArrivalDate"
+          TopLeft="369.73610568357,155.194449125893" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getLocalScheduledDepartureDate"
+          TopLeft="370.291661230847,105.216672241787" />
+        <NodeLayout
+          Size="162.666666666667,42"
+          Id="Package\Foreach row\getTimezoneShiftOrigin"
+          TopLeft="198.208330461756,30.2500069156293" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalActualArrivalDate"
+          TopLeft="549.249991897494,249.083336335917" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalActualArrivalTime"
+          TopLeft="182.999997355044,253.85000291735" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalActualDepartureDate"
+          TopLeft="552.374991850928,202.500003835559" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalActualDepartureTime"
+          TopLeft="182.791664024815,204.016670475106" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalScheduledArrivalDate"
+          TopLeft="554.458325153217,153.750004707277" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalScheduledArrivalTime"
+          TopLeft="188.624997271225,155.483338009616" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalScheduledDepartureDate"
+          TopLeft="552.583325727532,107.166672206918" />
+        <NodeLayout
+          Size="179.333333333334,43.3333333333334"
+          Id="Package\Foreach row\getUniversalScheduledDepartureTime"
+          TopLeft="186.124997308478,106.950005544126" />
+        <NodeLayout
+          Size="258.666666666667,42.6666666666667"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
-          TopLeft="145,315" />
+          TopLeft="151.249999906868,409.249998314679" />
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint]"
-          TopLeft="82.5,152">
+          TopLeft="87.7083332557231,214.833332209786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="191.5,163"
+              EndConnector="139.160714270193,194.416666104893"
               Start="0,0"
-              End="191.5,155.5">
+              End="139.160714270193,186.916666104893">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="0,118.68486643608" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,77.5"
-                    Point2="0,81.5"
-                    Point3="4,81.5" />
+                    Point1="0,118.68486643608"
+                    Point2="0,122.68486643608"
+                    Point3="4,122.68486643608" />
                   <mssgle:LineSegment
-                    End="187.5,81.5" />
+                    End="135.160714270193,122.68486643608" />
                   <mssgle:CubicBezierSegment
-                    Point1="187.5,81.5"
-                    Point2="191.5,81.5"
-                    Point3="191.5,85.5" />
+                    Point1="135.160714270193,122.68486643608"
+                    Point2="139.160714270193,122.68486643608"
+                    Point3="139.160714270193,126.68486643608" />
                   <mssgle:LineSegment
-                    End="191.5,155.5" />
+                    End="139.160714270193,186.916666104893" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1937,30 +2892,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 1]"
-          TopLeft="93,216">
+          TopLeft="88.8333333954215,264.749999128282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="243.5,99"
+              EndConnector="173.845237940018,144.499999186397"
               Start="0,0"
-              End="243.5,91.5">
+              End="173.845237940018,136.999999186397">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.3248081841432" />
+                    End="0,73.6230217148446" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,61.3248081841432"
-                    Point2="0,65.3248081841432"
-                    Point3="4,65.3248081841432" />
+                    Point1="0,73.6230217148446"
+                    Point2="0,77.6230217148446"
+                    Point3="4,77.6230217148446" />
                   <mssgle:LineSegment
-                    End="239.5,65.3248081841432" />
+                    End="169.845237940018,77.6230217148446" />
                   <mssgle:CubicBezierSegment
-                    Point1="239.5,65.3248081841432"
-                    Point2="243.5,65.3248081841432"
-                    Point3="243.5,69.3248081841432" />
+                    Point1="169.845237940018,77.6230217148446"
+                    Point2="173.845237940018,77.6230217148446"
+                    Point3="173.845237940018,81.6230217148446" />
                   <mssgle:LineSegment
-                    End="243.5,91.5" />
+                    End="173.845237940018,136.999999186397" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1971,30 +2926,726 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
-          TopLeft="74.5,68">
+          TopLeft="80.9166665735344,162.249998314679">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="137,247"
+              EndConnector="110.142857142857,247"
               Start="0,0"
-              End="137,239.5">
+              End="110.142857142857,239.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,158.982097186701" />
+                    End="0,184.865990990991" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,158.982097186701"
-                    Point2="0,162.982097186701"
-                    Point3="4,162.982097186701" />
+                    Point1="0,184.865990990991"
+                    Point2="0,188.865990990991"
+                    Point3="4,188.865990990991" />
                   <mssgle:LineSegment
-                    End="133,162.982097186701" />
+                    End="106.142857142857,188.865990990991" />
                   <mssgle:CubicBezierSegment
-                    Point1="133,162.982097186701"
-                    Point2="137,162.982097186701"
-                    Point3="137,166.982097186701" />
+                    Point1="106.142857142857,188.865990990991"
+                    Point2="110.142857142857,188.865990990991"
+                    Point3="110.142857142857,192.865990990991" />
                   <mssgle:LineSegment
-                    End="137,239.5" />
+                    End="110.142857142857,239.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
+          TopLeft="275.791663975145,150.283338877459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.5059549793424,258.96665943722"
+              Start="0,0"
+              End="58.5059549793424,251.46665943722">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,159.418551819584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,159.418551819584"
+                    Point2="0,163.418551819584"
+                    Point3="4,163.418551819584" />
+                  <mssgle:LineSegment
+                    End="54.5059549793424,163.418551819584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5059549793424,163.418551819584"
+                    Point2="58.5059549793424,163.418551819584"
+                    Point3="58.5059549793424,167.418551819584" />
+                  <mssgle:LineSegment
+                    End="58.5059549793424,251.46665943722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
+          TopLeft="278.291663937892,198.816671342949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.8154788261192,210.43332697173"
+              Start="0,0"
+              End="91.8154788261192,202.93332697173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,156.905663303834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,156.905663303834"
+                    Point2="0,160.905663303834"
+                    Point3="4,160.905663303834" />
+                  <mssgle:LineSegment
+                    End="87.8154788261192,160.905663303834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.8154788261192,160.905663303834"
+                    Point2="91.8154788261192,160.905663303834"
+                    Point3="91.8154788261192,164.905663303834" />
+                  <mssgle:LineSegment
+                    End="91.8154788261192,202.93332697173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 5]"
+          TopLeft="272.458330691482,247.350003808439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.0297644534816,161.89999450624"
+              Start="0,0"
+              End="26.0297644534816,154.39999450624">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.9700128716271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.9700128716271"
+                    Point2="0,86.9700128716271"
+                    Point3="4,86.9700128716271" />
+                  <mssgle:LineSegment
+                    End="22.0297644534816,86.9700128716271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.0297644534816,86.9700128716271"
+                    Point2="26.0297644534816,86.9700128716271"
+                    Point3="26.0297644534816,90.9700128716271" />
+                  <mssgle:LineSegment
+                    End="26.0297644534816,154.39999450624" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 6]"
+          TopLeft="295.008330461756,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.216666486611,34.6999986284967"
+              Start="0,0"
+              End="-19.216666486611,27.1999986284967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5269921399251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5269921399251"
+                    Point2="0,15.5269921399251"
+                    Point3="-4,15.5269921399251" />
+                  <mssgle:LineSegment
+                    End="-15.216666486611,15.5269921399251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.216666486611,15.5269921399251"
+                    Point2="-19.216666486611,15.5269921399251"
+                    Point3="-19.216666486611,19.5269921399251" />
+                  <mssgle:LineSegment
+                    End="-19.216666486611,27.1999986284967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 7]"
+          TopLeft="325.941663795089,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.6499998571973,83.2333310939867"
+              Start="0,0"
+              End="-47.6499998571973,75.7333310939867">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0081797553033" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0081797553033"
+                    Point2="0,25.0081797553033"
+                    Point3="-4,25.0081797553033" />
+                  <mssgle:LineSegment
+                    End="-43.6499998571973,25.0081797553033" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.6499998571973,25.0081797553033"
+                    Point2="-47.6499998571973,25.0081797553033"
+                    Point3="-47.6499998571973,29.0081797553033" />
+                  <mssgle:LineSegment
+                    End="-47.6499998571973,75.7333310939867" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 8]"
+          TopLeft="233.141663795089,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.3166668963927,131.766663559477"
+              Start="0,0"
+              End="39.3166668963927,124.266663559477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5904424914941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5904424914941"
+                    Point2="0,39.5904424914941"
+                    Point3="4,39.5904424914941" />
+                  <mssgle:LineSegment
+                    End="35.3166668963927,39.5904424914941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.3166668963927,39.5904424914941"
+                    Point2="39.3166668963927,39.5904424914941"
+                    Point3="39.3166668963927,43.5904424914941" />
+                  <mssgle:LineSegment
+                    End="39.3166668963927,124.266663559477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 9]"
+          TopLeft="264.074997128422,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.59166689328839,181.59999600172"
+              Start="0,0"
+              End="8.59166689328839,174.09999600172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.2594185007698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.2594185007698"
+                    Point2="0,81.2594185007698"
+                    Point3="4,81.2594185007698" />
+                  <mssgle:LineSegment
+                    End="4.59166689328839,81.2594185007698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.59166689328839,81.2594185007698"
+                    Point2="8.59166689328839,81.2594185007698"
+                    Point3="8.59166689328839,85.2594185007698" />
+                  <mssgle:LineSegment
+                    End="8.59166689328839,174.09999600172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 10]"
+          TopLeft="272.666664021711,297.183336250683">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.250002551824,112.066662063996"
+              Start="0,0"
+              End="39.250002551824,104.566662063996">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.7564001185197" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.7564001185197"
+                    Point2="0,63.7564001185197"
+                    Point3="4,63.7564001185197" />
+                  <mssgle:LineSegment
+                    End="35.250002551824,63.7564001185197" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.250002551824,63.7564001185197"
+                    Point2="39.250002551824,63.7564001185197"
+                    Point3="39.250002551824,67.7564001185197" />
+                  <mssgle:LineSegment
+                    End="39.250002551824,104.566662063996" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 11]"
+          TopLeft="459.958327897514,148.55000557512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-81.8935131758309,260.699992739559"
+              Start="0,0"
+              End="-81.8935131758309,253.199992739559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,205.182990497826" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,205.182990497826"
+                    Point2="0,209.182990497826"
+                    Point3="-4,209.182990497826" />
+                  <mssgle:LineSegment
+                    End="-77.8935131758309,209.182990497826" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-77.8935131758309,209.182990497826"
+                    Point2="-81.8935131758309,209.182990497826"
+                    Point3="-81.8935131758309,213.182990497826" />
+                  <mssgle:LineSegment
+                    End="-81.8935131758309,253.199992739559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 12]"
+          TopLeft="459.402772350237,198.527782459226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.619439110035,210.722215855453"
+              Start="0,0"
+              End="-103.619439110035,203.222215855453">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,144.546910886475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,144.546910886475"
+                    Point2="0,148.546910886475"
+                    Point3="-4,148.546910886475" />
+                  <mssgle:LineSegment
+                    End="-99.6194391100353,148.546910886475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.6194391100353,148.546910886475"
+                    Point2="-103.619439110035,148.546910886475"
+                    Point3="-103.619439110035,152.546910886475" />
+                  <mssgle:LineSegment
+                    End="-103.619439110035,203.222215855453" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 13]"
+          TopLeft="455.236105745659,244.75000385493">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.68307553576,164.499994459749"
+              Start="0,0"
+              End="-117.68307553576,156.999994459749">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,101.481667120524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,101.481667120524"
+                    Point2="0,105.481667120524"
+                    Point3="-4,105.481667120524" />
+                  <mssgle:LineSegment
+                    End="-113.68307553576,105.481667120524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-113.68307553576,105.481667120524"
+                    Point2="-117.68307553576,105.481667120524"
+                    Point3="-117.68307553576,109.481667120524" />
+                  <mssgle:LineSegment
+                    End="-117.68307553576,156.999994459749" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 14]"
+          TopLeft="459.402772350237,293.861114087866">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-99.0618633524596,115.388884226813"
+              Start="0,0"
+              End="-99.0618633524596,107.888884226813">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.4145931368625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.4145931368625"
+                    Point2="0,83.4145931368625"
+                    Point3="-4,83.4145931368625" />
+                  <mssgle:LineSegment
+                    End="-95.0618633524596,83.4145931368625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-95.0618633524596,83.4145931368625"
+                    Point2="-99.0618633524596,83.4145931368625"
+                    Point3="-99.0618633524596,87.4145931368625" />
+                  <mssgle:LineSegment
+                    End="-99.0618633524596,107.888884226813" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 15]"
+          TopLeft="642.249992394199,150.500005540251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-257.222214709553,258.749992774428"
+              Start="0,0"
+              End="-257.222214709553,251.249992774428">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,212.992068868468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,212.992068868468"
+                    Point2="0,216.992068868468"
+                    Point3="-4,216.992068868468" />
+                  <mssgle:LineSegment
+                    End="-253.222214709553,216.992068868468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-253.222214709553,216.992068868468"
+                    Point2="-257.222214709553,216.992068868468"
+                    Point3="-257.222214709553,220.992068868468" />
+                  <mssgle:LineSegment
+                    End="-257.222214709553,251.249992774428" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 16]"
+          TopLeft="644.124991819884,197.08333804061">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-257.4903765284,212.166660274069"
+              Start="0,0"
+              End="-257.4903765284,204.666660274069">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,175.799837772581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,175.799837772581"
+                    Point2="0,179.799837772581"
+                    Point3="-4,179.799837772581" />
+                  <mssgle:LineSegment
+                    End="-253.4903765284,179.799837772581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-253.4903765284,179.799837772581"
+                    Point2="-257.4903765284,179.799837772581"
+                    Point3="-257.4903765284,183.799837772581" />
+                  <mssgle:LineSegment
+                    End="-257.4903765284,204.666660274069" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 17]"
+          TopLeft="642.041658517595,245.833337168892">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-289.839277658346,163.416661145787"
+              Start="0,0"
+              End="-289.839277658346,155.916661145787">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,108.993801342148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,108.993801342148"
+                    Point2="0,112.993801342148"
+                    Point3="-4,112.993801342148" />
+                  <mssgle:LineSegment
+                    End="-285.839277658346,112.993801342148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-285.839277658346,112.993801342148"
+                    Point2="-289.839277658346,112.993801342148"
+                    Point3="-289.839277658346,116.993801342148" />
+                  <mssgle:LineSegment
+                    End="-289.839277658346,155.916661145787" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 18]"
+          TopLeft="638.916658564161,292.41666966925">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-299.84443643507,116.833328645429"
+              Start="0,0"
+              End="-299.84443643507,109.333328645429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.4851213051059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.4851213051059"
+                    Point2="0,75.4851213051059"
+                    Point3="-4,75.4851213051059" />
+                  <mssgle:LineSegment
+                    End="-295.84443643507,75.4851213051059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-295.84443643507,75.4851213051059"
+                    Point2="-299.84443643507,75.4851213051059"
+                    Point3="-299.84443643507,79.4851213051059" />
+                  <mssgle:LineSegment
+                    End="-299.84443643507,109.333328645429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42.6666666666667"
+          Id="Package\Foreach row\getDifficultiesKey"
+          TopLeft="738.958321924632,108.833330737551" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\Foreach row\getArrTimeBLK"
+          TopLeft="740.916655708105,155.500004687906" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Foreach row\getDepTimeBlk"
+          TopLeft="738.833322405815,198.833337246379" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Foreach row\getCancellationId"
+          TopLeft="727.374989243224,248.666669688623" />
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 19]"
+          TopLeft="818.958321924632,151.499997404218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-428.708322017764,257.750000910461"
+              Start="0,0"
+              End="-428.708322017764,250.250000910461">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,219.729307277984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,219.729307277984"
+                    Point2="0,223.729307277984"
+                    Point3="-4,223.729307277984" />
+                  <mssgle:LineSegment
+                    End="-424.708322017764,223.729307277984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-424.708322017764,223.729307277984"
+                    Point2="-428.708322017764,223.729307277984"
+                    Point3="-428.708322017764,227.729307277984" />
+                  <mssgle:LineSegment
+                    End="-428.708322017764,250.250000910461" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 20]"
+          TopLeft="815.583322374771,198.166671354572">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-439.156851879668,211.083326960107"
+              Start="0,0"
+              End="-439.156851879668,203.583326960107">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,163.666862310798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,163.666862310798"
+                    Point2="0,167.666862310798"
+                    Point3="-4,167.666862310798" />
+                  <mssgle:LineSegment
+                    End="-435.156851879668,167.666862310798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-435.156851879668,167.666862310798"
+                    Point2="-439.156851879668,167.666862310798"
+                    Point3="-439.156851879668,171.666862310798" />
+                  <mssgle:LineSegment
+                    End="-439.156851879668,203.583326960107" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 21]"
+          TopLeft="814.166655739149,241.500003913045">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-450.027766943392,167.749994401634"
+              Start="0,0"
+              End="-450.027766943392,160.249994401634">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,119.896569469227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,119.896569469227"
+                    Point2="0,123.896569469227"
+                    Point3="-4,123.896569469227" />
+                  <mssgle:LineSegment
+                    End="-446.027766943392,123.896569469227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-446.027766943392,123.896569469227"
+                    Point2="-450.027766943392,123.896569469227"
+                    Point3="-450.027766943392,127.896569469227" />
+                  <mssgle:LineSegment
+                    End="-450.027766943392,160.249994401634" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 22]"
+          TopLeft="808.041655909891,291.333336355289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-454.896919160918,117.91666195939"
+              Start="0,0"
+              End="-454.896919160918,110.41666195939">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.9458552002847" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.9458552002847"
+                    Point2="0,81.9458552002847"
+                    Point3="-4,81.9458552002847" />
+                  <mssgle:LineSegment
+                    End="-450.896919160918,81.9458552002847" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-450.896919160918,81.9458552002847"
+                    Point2="-454.896919160918,81.9458552002847"
+                    Point3="-454.896919160918,85.9458552002847" />
+                  <mssgle:LineSegment
+                    End="-454.896919160918,110.41666195939" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2006,17 +3657,17 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="562,412"
-          Size="562,455"
+          PanelSize="962,612.666666666667"
+          Size="962,655.333333333334"
           Id="Package\Foreach row"
-          TopLeft="36,277" />
+          TopLeft="26.8333334699273,208.750001220405" />
         <NodeLayout
-          Size="269,42"
+          Size="269.333333333334,42"
           Id="Package\Select row from Stage_FactFlightActivity"
-          TopLeft="203,148" />
+          TopLeft="305.499998472631,148" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="344.5,42">
+          TopLeft="446.999998472631,42">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2050,30 +3701,24 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="337.5,190">
+          TopLeft="305.499998472631,169">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.5,87"
+              EndConnector="202.333334997296,39.7500012204051"
               Start="0,0"
-              End="-20.5,79.5">
+              End="202.333334997296,32.2500012204051">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="198.333334997296,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,39.5"
-                    Point2="0,43.5"
-                    Point3="-4,43.5" />
+                    Point1="198.333334997296,0"
+                    Point2="202.333334997296,0"
+                    Point3="202.333334997296,4" />
                   <mssgle:LineSegment
-                    End="-16.5,43.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.5,43.5"
-                    Point2="-20.5,43.5"
-                    Point3="-20.5,47.5" />
-                  <mssgle:LineSegment
-                    End="-20.5,79.5" />
+                    End="202.333334997296,32.2500012204051" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2084,7 +3729,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="334.5,115">
+          TopLeft="436.999998472631,115">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
