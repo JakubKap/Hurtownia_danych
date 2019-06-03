@@ -11,8 +11,7 @@ DECLARE @currID int=NULL
 
 DECLARE @DepHour int=@DepTime-@DepTime%100
 DECLARE @DepMin int =@DepTime%100
-SET @DepMin=@DepHour*60+@DepMin
-DECLARE @Shift float=-@TimezoneShiftOrigin*60
+DECLARE @Shift float=@TimezoneShiftOrigin*60
 DECLARE @MinuteShift int=CAST(@Shift as INT)
 DECLARE @HourSHift int=@MinuteShift/60
 SET @MinuteShift = @MinuteShift%60

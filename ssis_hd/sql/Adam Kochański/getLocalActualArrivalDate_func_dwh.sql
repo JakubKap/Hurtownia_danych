@@ -9,16 +9,14 @@ ALTER FUNCTION dbo.getLocalActualArrivalDate(
 RETURNS int
 AS
 BEGIN
-
 if @TimezoneShiftDest is null or @TimezoneShiftOrigin is null return null
 
 DECLARE @currID int=NULL
 
 DECLARE @currDate date=datefromparts(@Year,@Month,@DayOfMonth)
 
-DECLARE @CRSDepHour int=@DepTime-@DepTime%100
+DECLARE @CRSDepHour int=(@DepTime-@DepTime%100)/100
 DECLARE @CRSDepMin int =@DepTime%100
-SET @CRSDepMin=@CRSDepHour*60+@CRSDepMin
 DECLARE @Shift float=@TimezoneShiftDest-@TimezoneShiftOrigin*60
 DECLARE @MinuteShift int=CAST(@Shift as INT)
 
