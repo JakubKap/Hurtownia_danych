@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{CE250B14-8EFD-4B24-939A-E32A9D718986}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{12D4B723-445F-4012-A0ED-19C27637A684}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -33,7 +33,7 @@
       DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -81,8 +81,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrDelayGroup">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -215,8 +214,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepDelayGroup">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1132,7 +1130,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrAirportId"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1159,7 +1157,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrTimeBLK"
-          DTS:ThreadHint="16">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1186,7 +1184,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getCancellationId"
-          DTS:ThreadHint="18">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1240,7 +1238,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepTimeBlk"
-          DTS:ThreadHint="15">
+          DTS:ThreadHint="13">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1267,7 +1265,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDifficultiesKey"
-          DTS:ThreadHint="17">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1312,7 +1310,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualArrivalDate"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1426,7 +1424,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledArrivalDate"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="14">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1489,7 +1487,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledDepartureDate"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="15">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1528,7 +1526,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftDest"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1555,7 +1553,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftOrigin"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1582,7 +1580,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalDate"
-          DTS:ThreadHint="13">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1639,7 +1637,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalTime"
-          DTS:ThreadHint="14">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1672,7 +1670,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureDate"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1729,7 +1727,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureTime"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="11">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1762,7 +1760,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalDate"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1819,7 +1817,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalTime"
-          DTS:ThreadHint="10">
+          DTS:ThreadHint="18">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1852,7 +1850,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureDate"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="16">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1903,7 +1901,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureTime"
-          DTS:ThreadHint="11">
+          DTS:ThreadHint="17">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1941,7 +1939,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
-              SQLTask:SqlStatementSource="INSERT INTO [dbo].[TempFactFlightActivity] ([LocalScheduledDepartureTime] ,[DelayGroup] ,[DifficultiesKey] ,[UniversalScheduledArrivalTime] ,[OperatingAirline] ,[UniversalActualArrivalTime] ,[UniversalActualArrivalDate] ,[LocalActualDepartureTime] ,[LocalScheduledDepartureDate] ,[UniversalScheduledDepartureTime] ,[LocalScheduledArrivalTime] ,[CancellationCode] ,[UniversalScheduledArrivalDate] ,[ArrAirport] ,[UniversalActualDepartureDate] ,[FlightDate] ,[UniversalActualDepartureTime] ,[DepAirport] ,[LocalActualDepartureDate] ,[LocalScheduledArrivalDate] ,[UniversalScheduledDepartureDate] ,[ArrTimeBLK] ,[DepTimeBLK] ,[LocalActualArrivalTime] ,[LocalActualArrivalDate] ,[TailNumber] ,[FlightNumber] ,[DepDelay] ,[DepDelayMinutes] ,[TaxiOut] ,[TaxiIn] ,[ArrDelay] ,[ArrDelayMinutes] ,[SchedElapsedTime] ,[ActualElapsedTime] ,[AirTime] ,[Flights] ,[Distance] ,[CarrierDelay] ,[WeatherDelay] ,[NASDelay] ,[SecurityDelay] ,[LateAircraftDelay]) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[TempFactFlightActivity] ([LocalScheduledDepartureTime] ,[DepDelayGroup] ,[DifficultiesKey] ,[UniversalScheduledArrivalTime] ,[OperatingAirline] ,[UniversalActualArrivalTime] ,[UniversalActualArrivalDate] ,[LocalActualDepartureTime] ,[LocalScheduledDepartureDate] ,[UniversalScheduledDepartureTime] ,[LocalScheduledArrivalTime] ,[CancellationCode] ,[UniversalScheduledArrivalDate] ,[ArrAirport] ,[UniversalActualDepartureDate] ,[FlightDate] ,[UniversalActualDepartureTime] ,[DepAirport] ,[LocalActualDepartureDate] ,[LocalScheduledArrivalDate] ,[UniversalScheduledDepartureDate] ,[ArrTimeBLK] ,[DepTimeBLK] ,[LocalActualArrivalTime] ,[LocalActualArrivalDate] ,[TailNumber] ,[FlightNumber] ,[DepDelay] ,[DepDelayMinutes] ,[TaxiOut] ,[TaxiIn] ,[ArrDelay] ,[ArrDelayMinutes] ,[SchedElapsedTime] ,[ActualElapsedTime] ,[AirTime] ,[Flights] ,[Distance] ,[CarrierDelay] ,[WeatherDelay] ,[NASDelay] ,[SecurityDelay] ,[LateAircraftDelay], [ArrDelayGroup]) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="25"
                 SQLTask:DtsVariableName="User::TailNum"
@@ -2076,7 +2074,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::DwhDelayGroup"
+                SQLTask:DtsVariableName="User::DepDelayGroup"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2148,7 +2146,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="15"
-                SQLTask:DtsVariableName="User::DwhFlightDate"
+                SQLTask:DtsVariableName="User::DwhLocalScheduledDepartureDate"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2197,6 +2195,12 @@
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="24"
                 SQLTask:DtsVariableName="User::DwhLocalActualArrivalDate"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="100" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="43"
+                SQLTask:DtsVariableName="User::ArrDelayGroup"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2776,7 +2780,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="SELECT top 350  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;&#x9;  ,CAST(FLOOR(DepDelay) AS int) AS DepDelay&#xA;      ,CAST(FLOOR(DepDelayNew)AS int) AS DepDelayNew&#xA;      ,CAST(FLOOR(DepDel15) AS int)AS DepDel15&#xA;      ,[DepDelayGroup]&#xA;      ,[DepTimeBlk]&#xA;      ,CAST(FLOOR(TaxiOut)AS int) AS TaxiOut&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;       ,CAST(FLOOR(TaxiIn) AS int)AS TaxiIn&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,CAST(FLOOR(ArrDelay)AS int) AS ArrDelay&#xA;      ,CAST(FLOOR(ArrDelayNew)AS int) AS ArrDelayNew&#xA;      ,CAST(FLOOR(ArrDel15) AS int)AS ArrDel15&#xA;      ,[ArrDelayGroup]&#xA;      ,[ArrTimeBlk]&#xA;      ,CAST(FLOOR(Cancelled) AS int) AS Cancelled&#xA;      ,[CancellationCode]&#xA;      ,CAST(FLOOR(Diverted) AS int) AS Diverted&#xA;      ,CAST(FLOOR(CrsElapsedTime) AS int) AS CrsElapsedTime&#xA;      ,CAST(FLOOR(ActualElapsedTime) AS int) AS ActualElapsedTime&#xA;      ,CAST(FLOOR(AirTime) AS int) AS AirTime&#xA;      ,CAST(FLOOR(Flights) AS int) AS Flights&#xA;      ,CAST(FLOOR(Distance) AS int) AS Distance&#xA;      ,[DistanceGroup]&#xA;      ,CAST(FLOOR(CarrierDelay) AS int) AS CarrierDelay&#xA;      ,CAST(FLOOR(WeatherDelay) AS int) AS WeatherDelay&#xA;      ,CAST(FLOOR(NasDelay) AS int) AS NasDelay&#xA;      ,CAST(FLOOR(SecurityDelay) AS int) AS SecurityDelay&#xA;     ,CAST(FLOOR(LateAircraftDelay) AS int) AS LateAircraftDelay&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity];"
+          SQLTask:SqlStatementSource="SELECT top 1000  [Year]&#xA;      ,[Quarter]&#xA;      ,[Month]&#xA;      ,[DayOfMonth]&#xA;      ,[DayOfWeek]&#xA;      ,[FlDate]&#xA;      ,[OpUniqueCarrier]&#xA;      ,[OpCarrierAirlineId]&#xA;      ,[OpCarrier]&#xA;      ,[TailNum]&#xA;      ,[OpCarrierFlNum]&#xA;      ,[OriginAirportId]&#xA;      ,[OriginAirportSeqId]&#xA;      ,[Origin]&#xA;      ,[OriginCityName]&#xA;      ,[OriginStateAbr]&#xA;      ,[OriginStateFips]&#xA;      ,[OriginStateNm]&#xA;      ,[OriginWac]&#xA;      ,[DestAirportId]&#xA;      ,[DestAirportSeqId]&#xA;      ,[Dest]&#xA;      ,[DestCityName]&#xA;      ,[DestStateAbr]&#xA;      ,[DestStateFips]&#xA;      ,[DestStateNm]&#xA;      ,[DestWac]&#xA;      ,[CrsDepTime]&#xA;      ,[DepTime]&#xA;&#x9;  ,CAST(FLOOR(DepDelay) AS int) AS DepDelay&#xA;      ,CAST(FLOOR(DepDelayNew)AS int) AS DepDelayNew&#xA;      ,CAST(FLOOR(DepDel15) AS int) AS DepDel15&#xA;      ,CAST(FLOOR(DepDelayGroup) AS int) AS DepDelayGroup&#xA;      ,[DepTimeBlk]&#xA;      ,CAST(FLOOR(TaxiOut)AS int) AS TaxiOut&#xA;      ,[WheelsOff]&#xA;      ,[WheelsOn]&#xA;       ,CAST(FLOOR(TaxiIn) AS int) AS TaxiIn&#xA;      ,[CrsArrTime]&#xA;      ,[ArrTime]&#xA;      ,CAST(FLOOR(ArrDelay)AS int) AS ArrDelay&#xA;      ,CAST(FLOOR(ArrDelayNew)AS int) AS ArrDelayNew&#xA;      ,CAST(FLOOR(ArrDel15) AS int) AS ArrDel15&#xA;      ,CAST(FLOOR(ArrDelayGroup) AS int) AS ArrDelayGroup&#xA;      ,[ArrTimeBlk]&#xA;      ,CAST(FLOOR(Cancelled) AS int) AS Cancelled&#xA;      ,[CancellationCode]&#xA;      ,CAST(FLOOR(Diverted) AS int) AS Diverted&#xA;      ,CAST(FLOOR(CrsElapsedTime) AS int) AS CrsElapsedTime&#xA;      ,CAST(FLOOR(ActualElapsedTime) AS int) AS ActualElapsedTime&#xA;      ,CAST(FLOOR(AirTime) AS int) AS AirTime&#xA;      ,CAST(FLOOR(Flights) AS int) AS Flights&#xA;      ,CAST(FLOOR(Distance) AS int) AS Distance&#xA;      ,[DistanceGroup]&#xA;      ,CAST(FLOOR(CarrierDelay) AS int) AS CarrierDelay&#xA;      ,CAST(FLOOR(WeatherDelay) AS int) AS WeatherDelay&#xA;      ,CAST(FLOOR(NasDelay) AS int) AS NasDelay&#xA;      ,CAST(FLOOR(SecurityDelay) AS int) AS SecurityDelay&#xA;     ,CAST(FLOOR(LateAircraftDelay) AS int) AS LateAircraftDelay&#xA;  FROM [AirStatsStage].[dbo].[FactFlightActivity];"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -2805,7 +2809,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{B4250F98-72A9-436E-9556-20DA8F8E7F93}"
+      DTS:DTSID="{5C44902D-CD83-417E-BC5C-B88EDDAA86E0}"
       DTS:From="Package\Clean Stage_Facts_LateAircraftDelay"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -2824,15 +2828,15 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="250.666666666667,42"
+          Size="251,42"
           Id="Package\Clean Stage_Facts_LateAircraftDelay"
-          TopLeft="308.499998472631,73" />
+          TopLeft="310.499998472631,66" />
         <NodeLayout
-          Size="342.666666666667,42"
+          Size="343,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="275.499998472631,0" />
         <NodeLayout
-          Size="133.333333333334,42"
+          Size="133,42"
           Id="Package\Foreach row\getAirlineId"
           TopLeft="14.2499999068677,120.249998314679" />
         <NodeLayout
@@ -2840,63 +2844,83 @@
           Id="Package\Foreach row\getArrAirportId"
           TopLeft="13.8333333954215,222.749999128282" />
         <NodeLayout
+          Size="149,43"
+          Id="Package\Foreach row\getArrTimeBLK"
+          TopLeft="740.916655708105,155.500004687906" />
+        <NodeLayout
+          Size="161,43"
+          Id="Package\Foreach row\getCancellationId"
+          TopLeft="727.374989243224,248.666669688623" />
+        <NodeLayout
           Size="154,42"
           Id="Package\Foreach row\getDepAirportId"
           TopLeft="10.7083332557231,172.833332209786" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="151,43"
+          Id="Package\Foreach row\getDepTimeBlk"
+          TopLeft="738.833322405815,198.833337246379" />
+        <NodeLayout
+          Size="160,43"
+          Id="Package\Foreach row\getDifficultiesKey"
+          TopLeft="738.958321924632,108.833330737551" />
+        <NodeLayout
+          Size="179,43"
           Id="Package\Foreach row\getLocalActualArrivalDate"
           TopLeft="369.73610568357,250.527780754533" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getLocalActualDepartureDate"
           TopLeft="365.569439078992,201.416670521597" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getLocalScheduledArrivalDate"
           TopLeft="369.73610568357,155.194449125893" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getLocalScheduledDepartureDate"
           TopLeft="370.291661230847,105.216672241787" />
         <NodeLayout
-          Size="162.666666666667,42"
+          Size="163,42"
+          Id="Package\Foreach row\getTimezoneShiftDest"
+          TopLeft="400.291660783812,21.1666737566393" />
+        <NodeLayout
+          Size="163,42"
           Id="Package\Foreach row\getTimezoneShiftOrigin"
           TopLeft="198.208330461756,30.2500069156293" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualArrivalDate"
           TopLeft="549.249991897494,249.083336335917" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualArrivalTime"
           TopLeft="182.999997355044,253.85000291735" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualDepartureDate"
           TopLeft="552.374991850928,202.500003835559" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualDepartureTime"
           TopLeft="182.791664024815,204.016670475106" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledArrivalDate"
           TopLeft="554.458325153217,153.750004707277" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledArrivalTime"
           TopLeft="188.624997271225,155.483338009616" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledDepartureDate"
           TopLeft="552.583325727532,107.166672206918" />
         <NodeLayout
-          Size="179.333333333334,43.3333333333334"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledDepartureTime"
           TopLeft="186.124997308478,106.950005544126" />
         <NodeLayout
-          Size="258.666666666667,42.6666666666667"
+          Size="259,43"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
           TopLeft="151.249999906868,409.249998314679" />
         <EdgeLayout
@@ -2959,278 +2983,6 @@
                     Point3="173.845237940018,81.6230217148446" />
                   <mssgle:LineSegment
                     End="173.845237940018,136.999999186397" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
-          TopLeft="80.9166665735344,162.249998314679">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110.142857142857,247"
-              Start="0,0"
-              End="110.142857142857,239.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,184.865990990991" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,184.865990990991"
-                    Point2="0,188.865990990991"
-                    Point3="4,188.865990990991" />
-                  <mssgle:LineSegment
-                    End="106.142857142857,188.865990990991" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106.142857142857,188.865990990991"
-                    Point2="110.142857142857,188.865990990991"
-                    Point3="110.142857142857,192.865990990991" />
-                  <mssgle:LineSegment
-                    End="110.142857142857,239.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
-          TopLeft="275.791663975145,150.283338877459">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="58.5059549793424,258.96665943722"
-              Start="0,0"
-              End="58.5059549793424,251.46665943722">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,159.418551819584" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,159.418551819584"
-                    Point2="0,163.418551819584"
-                    Point3="4,163.418551819584" />
-                  <mssgle:LineSegment
-                    End="54.5059549793424,163.418551819584" />
-                  <mssgle:CubicBezierSegment
-                    Point1="54.5059549793424,163.418551819584"
-                    Point2="58.5059549793424,163.418551819584"
-                    Point3="58.5059549793424,167.418551819584" />
-                  <mssgle:LineSegment
-                    End="58.5059549793424,251.46665943722" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
-          TopLeft="278.291663937892,198.816671342949">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="91.8154788261192,210.43332697173"
-              Start="0,0"
-              End="91.8154788261192,202.93332697173">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,156.905663303834" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,156.905663303834"
-                    Point2="0,160.905663303834"
-                    Point3="4,160.905663303834" />
-                  <mssgle:LineSegment
-                    End="87.8154788261192,160.905663303834" />
-                  <mssgle:CubicBezierSegment
-                    Point1="87.8154788261192,160.905663303834"
-                    Point2="91.8154788261192,160.905663303834"
-                    Point3="91.8154788261192,164.905663303834" />
-                  <mssgle:LineSegment
-                    End="91.8154788261192,202.93332697173" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 5]"
-          TopLeft="272.458330691482,247.350003808439">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.0297644534816,161.89999450624"
-              Start="0,0"
-              End="26.0297644534816,154.39999450624">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,82.9700128716271" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,82.9700128716271"
-                    Point2="0,86.9700128716271"
-                    Point3="4,86.9700128716271" />
-                  <mssgle:LineSegment
-                    End="22.0297644534816,86.9700128716271" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.0297644534816,86.9700128716271"
-                    Point2="26.0297644534816,86.9700128716271"
-                    Point3="26.0297644534816,90.9700128716271" />
-                  <mssgle:LineSegment
-                    End="26.0297644534816,154.39999450624" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 6]"
-          TopLeft="295.008330461756,72.2500069156293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-19.216666486611,34.6999986284967"
-              Start="0,0"
-              End="-19.216666486611,27.1999986284967">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5269921399251" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5269921399251"
-                    Point2="0,15.5269921399251"
-                    Point3="-4,15.5269921399251" />
-                  <mssgle:LineSegment
-                    End="-15.216666486611,15.5269921399251" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-15.216666486611,15.5269921399251"
-                    Point2="-19.216666486611,15.5269921399251"
-                    Point3="-19.216666486611,19.5269921399251" />
-                  <mssgle:LineSegment
-                    End="-19.216666486611,27.1999986284967" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 7]"
-          TopLeft="325.941663795089,72.2500069156293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-47.6499998571973,83.2333310939867"
-              Start="0,0"
-              End="-47.6499998571973,75.7333310939867">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0081797553033" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0081797553033"
-                    Point2="0,25.0081797553033"
-                    Point3="-4,25.0081797553033" />
-                  <mssgle:LineSegment
-                    End="-43.6499998571973,25.0081797553033" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-43.6499998571973,25.0081797553033"
-                    Point2="-47.6499998571973,25.0081797553033"
-                    Point3="-47.6499998571973,29.0081797553033" />
-                  <mssgle:LineSegment
-                    End="-47.6499998571973,75.7333310939867" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 8]"
-          TopLeft="233.141663795089,72.2500069156293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.3166668963927,131.766663559477"
-              Start="0,0"
-              End="39.3166668963927,124.266663559477">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5904424914941" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.5904424914941"
-                    Point2="0,39.5904424914941"
-                    Point3="4,39.5904424914941" />
-                  <mssgle:LineSegment
-                    End="35.3166668963927,39.5904424914941" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.3166668963927,39.5904424914941"
-                    Point2="39.3166668963927,39.5904424914941"
-                    Point3="39.3166668963927,43.5904424914941" />
-                  <mssgle:LineSegment
-                    End="39.3166668963927,124.266663559477" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 9]"
-          TopLeft="264.074997128422,72.2500069156293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.59166689328839,181.59999600172"
-              Start="0,0"
-              End="8.59166689328839,174.09999600172">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.2594185007698" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,77.2594185007698"
-                    Point2="0,81.2594185007698"
-                    Point3="4,81.2594185007698" />
-                  <mssgle:LineSegment
-                    End="4.59166689328839,81.2594185007698" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.59166689328839,81.2594185007698"
-                    Point2="8.59166689328839,81.2594185007698"
-                    Point3="8.59166689328839,85.2594185007698" />
-                  <mssgle:LineSegment
-                    End="8.59166689328839,174.09999600172" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3545,22 +3297,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160,42.6666666666667"
-          Id="Package\Foreach row\getDifficultiesKey"
-          TopLeft="738.958321924632,108.833330737551" />
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Foreach row\getArrTimeBLK"
-          TopLeft="740.916655708105,155.500004687906" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Foreach row\getDepTimeBlk"
-          TopLeft="738.833322405815,198.833337246379" />
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\Foreach row\getCancellationId"
-          TopLeft="727.374989243224,248.666669688623" />
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 19]"
           TopLeft="818.958321924632,151.499997404218">
@@ -3587,6 +3323,40 @@
                     Point3="-428.708322017764,227.729307277984" />
                   <mssgle:LineSegment
                     End="-428.708322017764,250.250000910461" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
+          TopLeft="80.9166665735344,162.249998314679">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.142857142857,247"
+              Start="0,0"
+              End="110.142857142857,239.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,184.865990990991" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,184.865990990991"
+                    Point2="0,188.865990990991"
+                    Point3="4,188.865990990991" />
+                  <mssgle:LineSegment
+                    End="106.142857142857,188.865990990991" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.142857142857,188.865990990991"
+                    Point2="110.142857142857,188.865990990991"
+                    Point3="110.142857142857,192.865990990991" />
+                  <mssgle:LineSegment
+                    End="110.142857142857,239.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3697,10 +3467,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.666666666667,42"
-          Id="Package\Foreach row\getTimezoneShiftDest"
-          TopLeft="400.291660783812,21.1666737566393" />
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 23]"
           TopLeft="481.624994117146,63.1666737566393">
@@ -3769,43 +3535,281 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
+          TopLeft="275.791663975145,150.283338877459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.5059549793424,258.96665943722"
+              Start="0,0"
+              End="58.5059549793424,251.46665943722">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,159.418551819584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,159.418551819584"
+                    Point2="0,163.418551819584"
+                    Point3="4,163.418551819584" />
+                  <mssgle:LineSegment
+                    End="54.5059549793424,163.418551819584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5059549793424,163.418551819584"
+                    Point2="58.5059549793424,163.418551819584"
+                    Point3="58.5059549793424,167.418551819584" />
+                  <mssgle:LineSegment
+                    End="58.5059549793424,251.46665943722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
+          TopLeft="278.291663937892,198.816671342949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.8154788261192,210.43332697173"
+              Start="0,0"
+              End="91.8154788261192,202.93332697173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,156.905663303834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,156.905663303834"
+                    Point2="0,160.905663303834"
+                    Point3="4,160.905663303834" />
+                  <mssgle:LineSegment
+                    End="87.8154788261192,160.905663303834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.8154788261192,160.905663303834"
+                    Point2="91.8154788261192,160.905663303834"
+                    Point3="91.8154788261192,164.905663303834" />
+                  <mssgle:LineSegment
+                    End="91.8154788261192,202.93332697173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 5]"
+          TopLeft="272.458330691482,247.350003808439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.0297644534816,161.89999450624"
+              Start="0,0"
+              End="26.0297644534816,154.39999450624">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.9700128716271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.9700128716271"
+                    Point2="0,86.9700128716271"
+                    Point3="4,86.9700128716271" />
+                  <mssgle:LineSegment
+                    End="22.0297644534816,86.9700128716271" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.0297644534816,86.9700128716271"
+                    Point2="26.0297644534816,86.9700128716271"
+                    Point3="26.0297644534816,90.9700128716271" />
+                  <mssgle:LineSegment
+                    End="26.0297644534816,154.39999450624" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 6]"
+          TopLeft="295.008330461756,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.216666486611,34.6999986284967"
+              Start="0,0"
+              End="-19.216666486611,27.1999986284967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5269921399251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5269921399251"
+                    Point2="0,15.5269921399251"
+                    Point3="-4,15.5269921399251" />
+                  <mssgle:LineSegment
+                    End="-15.216666486611,15.5269921399251" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.216666486611,15.5269921399251"
+                    Point2="-19.216666486611,15.5269921399251"
+                    Point3="-19.216666486611,19.5269921399251" />
+                  <mssgle:LineSegment
+                    End="-19.216666486611,27.1999986284967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 7]"
+          TopLeft="325.941663795089,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.6499998571973,83.2333310939867"
+              Start="0,0"
+              End="-47.6499998571973,75.7333310939867">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0081797553033" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0081797553033"
+                    Point2="0,25.0081797553033"
+                    Point3="-4,25.0081797553033" />
+                  <mssgle:LineSegment
+                    End="-43.6499998571973,25.0081797553033" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.6499998571973,25.0081797553033"
+                    Point2="-47.6499998571973,25.0081797553033"
+                    Point3="-47.6499998571973,29.0081797553033" />
+                  <mssgle:LineSegment
+                    End="-47.6499998571973,75.7333310939867" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 8]"
+          TopLeft="233.141663795089,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.3166668963927,131.766663559477"
+              Start="0,0"
+              End="39.3166668963927,124.266663559477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5904424914941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5904424914941"
+                    Point2="0,39.5904424914941"
+                    Point3="4,39.5904424914941" />
+                  <mssgle:LineSegment
+                    End="35.3166668963927,39.5904424914941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.3166668963927,39.5904424914941"
+                    Point2="39.3166668963927,39.5904424914941"
+                    Point3="39.3166668963927,43.5904424914941" />
+                  <mssgle:LineSegment
+                    End="39.3166668963927,124.266663559477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 9]"
+          TopLeft="264.074997128422,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.59166689328839,181.59999600172"
+              Start="0,0"
+              End="8.59166689328839,174.09999600172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.2594185007698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.2594185007698"
+                    Point2="0,81.2594185007698"
+                    Point3="4,81.2594185007698" />
+                  <mssgle:LineSegment
+                    End="4.59166689328839,81.2594185007698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.59166689328839,81.2594185007698"
+                    Point2="8.59166689328839,81.2594185007698"
+                    Point3="8.59166689328839,85.2594185007698" />
+                  <mssgle:LineSegment
+                    End="8.59166689328839,174.09999600172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="962,612.666666666667"
-          Size="962,655.333333333334"
+          PanelSize="962,612"
+          Size="962,655"
           Id="Package\Foreach row"
-          TopLeft="26.8333334699273,208.750001220405" />
+          TopLeft="29.8333334699273,347.750001220405" />
         <NodeLayout
-          Size="269.333333333334,42"
+          Size="269,42"
           Id="Package\Select row from Stage_FactFlightActivity"
-          TopLeft="305.499998472631,148" />
+          TopLeft="357.499998472631,260" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="446.999998472631,42">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13,31"
+              EndConnector="-11,24"
               Start="0,0"
-              End="-13,23.5">
+              End="-11,16.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.5" />
+                    End="0,8" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
+                    Point1="0,8"
+                    Point2="0,12"
+                    Point3="-4,12" />
                   <mssgle:LineSegment
-                    End="-9,15.5" />
+                    End="-7,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9,15.5"
-                    Point2="-13,15.5"
-                    Point3="-13,19.5" />
+                    Point1="-7,12"
+                    Point2="-11,12"
+                    Point3="-11,16" />
                   <mssgle:LineSegment
-                    End="-13,23.5" />
+                    End="-11,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3816,24 +3820,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="305.499998472631,169">
+          TopLeft="491.999998472631,302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="202.333334997296,39.7500012204051"
+              EndConnector="18.8333349972963,45.750001220405"
               Start="0,0"
-              End="202.333334997296,32.2500012204051">
+              End="18.8333349972963,38.250001220405">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="198.333334997296,0" />
+                    End="0,18.8750006102025" />
                   <mssgle:CubicBezierSegment
-                    Point1="198.333334997296,0"
-                    Point2="202.333334997296,0"
-                    Point3="202.333334997296,4" />
+                    Point1="0,18.8750006102025"
+                    Point2="0,22.8750006102025"
+                    Point3="4,22.8750006102025" />
                   <mssgle:LineSegment
-                    End="202.333334997296,32.2500012204051" />
+                    End="14.8333349972963,22.8750006102025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8333349972963,22.8750006102025"
+                    Point2="18.8333349972963,22.8750006102025"
+                    Point3="18.8333349972963,26.8750006102025" />
+                  <mssgle:LineSegment
+                    End="18.8333349972963,38.250001220405" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3844,18 +3854,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="436.999998472631,115">
+          TopLeft="435.999998472631,108">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33"
+              EndConnector="56,152"
               Start="0,0"
-              End="0,25.5">
+              End="56,144.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="0,72" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72"
+                    Point2="0,76"
+                    Point3="4,76" />
+                  <mssgle:LineSegment
+                    End="52,76" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52,76"
+                    Point2="56,76"
+                    Point3="56,80" />
+                  <mssgle:LineSegment
+                    End="56,144.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

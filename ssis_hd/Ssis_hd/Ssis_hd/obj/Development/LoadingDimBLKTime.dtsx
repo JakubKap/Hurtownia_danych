@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimBLKTime"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{0E7F2A2C-55D4-47EE-BF03-556796E0D270}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{8798C5C3-0AF2-4069-9AC6-9DC29C6FA7A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

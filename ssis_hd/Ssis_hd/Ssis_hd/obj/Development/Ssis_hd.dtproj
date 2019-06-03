@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BO7AJ5R</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAr+JksyTqK0CO81pls3PijAAAAAACAAAAAAAQZgAAAAEAACAAAAABRbOhoFcesTliOBXkItLiNzI8jx1UoAClgfdMqhbrQAAAAAAOgAAAAAIAACAAAAAsw54OJeMDmDXHtEP331Ldc7eis3j2wURHnKE+bPgMB5AAAABIPvCYmLV8BMpyQquAzh+JipxaVLEjFEwEf22tmKjcCJ0Ak6jlOJYkwzvxSGp/0hQgjr3n6DvCZFovDORVVZbAqULgRZsd6n/f+ADft3YY2Z9cM/MOKKaveGiSarLNirZ2WTVPWp2qRomqvLVJl+goNNi4g/IPmxrkFWhezvCKtjXvN5qBRoT6L/tSwaRtqLBAAAAAtPTGILq/oqZzlclQP7yQD+ZUPQB2bf1x/dxPIHHLZXyN3cn2TCxyITyFyiEoxC/mfNBEuO/VnEHb1P9tB6ZJKA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAn1GJMgqxW0aknVpu95lcNwAAAAACAAAAAAAQZgAAAAEAACAAAADhoxbC7lQwkrs8h08+g0Y2v8PglOoRe3IdyTOwFaxztAAAAAAOgAAAAAIAACAAAADmnGUp1SiINXdXPi3R+TEYUNBpk3nbXevd0ngQS/sy/pAAAAByaHNl+PKXGJQ2VVK15f9LfAvIljga+YwEtnsSf5rVrthPiWLq5CeirFDUG9cxbvdgWcDKbBF92H+qVyAnU7q/ubbxKkz3+aT3nJrSmxuA1/Qu9oOCauM8RfjaPnhNjBL18mWlGVAwyvniH+amJrCV2RYri755W+qQ1g3O5+U/H02zaZpATV1f7to4WVzP8ABAAAAAp+xhq29Y1qwQdmIdMvMaiVeCPB9PbuPDb2nF7yLJ8s09tX+5j0lTjLZtAucleYelNHm/mA3UYhm+qLbidZmhFQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -247,10 +247,10 @@
                 <SSIS:Property SSIS:Name="Name">LoadingDataToFactFlightActivity</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">73</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">84</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C900FFFB-C8F1-4213-B4D2-307FAAB1BB99}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{12D4B723-445F-4012-A0ED-19C27637A684}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -268,7 +268,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -327,7 +327,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">DESKTOP-ES0NV97</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">(LocalDb)\AirStatsDW</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -356,7 +356,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=DESKTOP-ES0NV97;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -415,7 +415,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">DESKTOP-ES0NV97</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">(LocalDb)\AirStatsDW</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -635,10 +635,10 @@
                 <SSIS:Property SSIS:Name="Name">LoadingDimBLKTime</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">19</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0E7F2A2C-55D4-47EE-BF03-556796E0D270}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8798C5C3-0AF2-4069-9AC6-9DC29C6FA7A6}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
