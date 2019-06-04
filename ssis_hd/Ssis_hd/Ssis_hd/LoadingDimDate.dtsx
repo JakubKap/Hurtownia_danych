@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimDate"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{F1FEA494-DEEF-40E0-9263-55CB5507FF75}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{4231324B-8945-4C9F-A0C3-C3AEC4DE8C54}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Dwh_DayOfWeek"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -85,7 +85,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Dwh_DimMonth"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -102,7 +102,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Dwh_DimQuarter"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -119,7 +119,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Months"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -136,7 +136,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Quarters"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -153,12 +153,63 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Deleting quotation marks from Stage_Weekdays"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{76D3F214-6A03-4243-ABF9-11874E8E4C5B}"
           SQLTask:SqlStatementSource="UPDATE Weekdays&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '')&#xA;"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert Unknown Bad row into DimDate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0557d67b-4d19-4e03-a58d-46fa35afdc40}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert Unknown Bad row into DimDate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F03737E7-AB97-43DA-8FF8-47CF549DBB9D}"
+          SQLTask:SqlStatementSource="INSERT INTO DimDate (CalendarKey,Year, Month, Day, DayOfWeekInDate,CalendarsQuarter)&#xA;VALUES(-1,-1,-1,-1,-1,NULL)"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert Unknown Bad row into DimDayOfWeek"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ceddf504-68d6-46ee-857f-b4095c26737a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert Unknown Bad row into DimDayOfWeek"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F03737E7-AB97-43DA-8FF8-47CF549DBB9D}"
+          SQLTask:SqlStatementSource="INSERT INTO DimDayOfWeek (DayOfWeekNumber,DayOfWeekName)&#xA;VALUES (-1,'Unknown/Bad')"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert Unknown Bad row into DimMonth"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fb49c12d-e48e-440f-a94c-6160dbab7035}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert Unknown Bad row into DimMonth"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F03737E7-AB97-43DA-8FF8-47CF549DBB9D}"
+          SQLTask:SqlStatementSource="INSERT INTO DimMonth (MonthNumber,MonthName)&#xA;VALUES (-1,'Unknown/Bad')"
           SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1623,6 +1674,22 @@
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Transfer Stage_Months to Dwh_DimMonth" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{3596FD67-1BCE-4907-8CA1-EA2CEA84D45C}"
+      DTS:From="Package\Populate DimDate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Insert Unknown Bad row into DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{D14AAA79-5C00-4E69-BB9E-75F6F9C02172}"
+      DTS:From="Package\Insert Unknown Bad row into DimDayOfWeek"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Populate DimDate" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{A64C93DA-8326-480A-847E-21274E36EC88}"
@@ -1641,19 +1708,19 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{D09B23A9-47B7-468D-AD57-34E8EA899833}"
+      DTS:DTSID="{1946564D-9305-42A3-94DA-F2E25B70B2DA}"
       DTS:From="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Populate DimDate" />
+      DTS:To="Package\Insert Unknown Bad row into DimDayOfWeek" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{21FE77EE-819F-4649-9C6F-C44F95727F68}"
+      DTS:DTSID="{4EA2DC83-0D2F-4D8D-AD26-78FED65B4CB9}"
       DTS:From="Package\Transfer Stage_Months to Dwh_DimMonth"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Populate DimDate" />
+      DTS:To="Package\Insert Unknown Bad row into DimMonth" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
@@ -1678,6 +1745,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Transfer Stage_Months to Dwh_DimMonth" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{37BCF885-C339-47F2-8212-F4BA016B1F96}"
+      DTS:From="Package\Insert Unknown Bad row into DimMonth"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Populate DimDate" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1692,43 +1767,43 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,43"
+          Size="164,42.6666666666667"
           Id="Package\Clear Dwh_DayOfWeek"
-          TopLeft="56.9444435959062,179.111107908355" />
+          TopLeft="181.944441733261,163.944441512889" />
         <NodeLayout
-          Size="181,43"
+          Size="181.333333333334,42.6666666666667"
           Id="Package\Clear Dwh_DimMonth"
           TopLeft="931.94443055739,158.999998992682" />
         <NodeLayout
-          Size="188,43"
+          Size="188,42.6666666666667"
           Id="Package\Clear Dwh_DimQuarter"
           TopLeft="790.277766001721,105.555555503898" />
         <NodeLayout
-          Size="293,43"
+          Size="293.333333333334,42.6666666666667"
           Id="Package\Deleting quotation marks from Stage_Months"
           TopLeft="998.551573738279,97.3095257411401" />
         <NodeLayout
-          Size="300,43"
+          Size="300,42.6666666666667"
           Id="Package\Deleting quotation marks from Stage_Quarters"
           TopLeft="560.813484700131,41.5873026794858" />
         <NodeLayout
-          Size="307,43"
+          Size="306.666666666667,42.6666666666667"
           Id="Package\Deleting quotation marks from Stage_Weekdays"
           TopLeft="257.738091397498,93.0119030987225" />
         <NodeLayout
-          Size="164,43"
+          Size="164,42.6666666666667"
           Id="Package\Populate DimDate"
-          TopLeft="604.722213674751,518.55554628306" />
+          TopLeft="603.680547023606,447.05554756158" />
         <NodeLayout
-          Size="280,43"
+          Size="280,42.6666666666667"
           Id="Package\Transfer Stage_Months to Dwh_DimMonth"
           TopLeft="988.888874650002,254.222217676375" />
         <NodeLayout
-          Size="293,43"
+          Size="293.333333333334,42.6666666666667"
           Id="Package\Transfer Stage_Quarters to Dwh_DimQuarter"
           TopLeft="559.821420229439,184.111119918691" />
         <NodeLayout
-          Size="300,43"
+          Size="300,42.6666666666667"
           Id="Package\Transfer Stage_Weekdays to Dwh_DayOfWeek"
           TopLeft="211.210314313038,255.86509743962" />
         <EdgeLayout
@@ -1811,98 +1886,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="706.488086896106,226.777786585357">
+          TopLeft="706.488086896106,226.777786585358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-19.765873221355,291.777759697703"
+              EndConnector="-20.8075398724992,220.277760976222"
               Start="0,0"
-              End="-19.765873221355,284.277759697703">
+              End="-20.8075398724992,212.777760976222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,141.888879848851" />
+                    End="0,106.138880488111" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,141.888879848851"
-                    Point2="0,145.888879848851"
-                    Point3="-4,145.888879848851" />
+                    Point1="0,106.138880488111"
+                    Point2="0,110.138880488111"
+                    Point3="-4,110.138880488111" />
                   <mssgle:LineSegment
-                    End="-15.765873221355,145.888879848851" />
+                    End="-16.8075398724992,110.138880488111" />
                   <mssgle:CubicBezierSegment
-                    Point1="-15.765873221355,145.888879848851"
-                    Point2="-19.765873221355,145.888879848851"
-                    Point3="-19.765873221355,149.888879848851" />
+                    Point1="-16.8075398724992,110.138880488111"
+                    Point2="-20.8075398724992,110.138880488111"
+                    Point3="-20.8075398724992,114.138880488111" />
                   <mssgle:LineSegment
-                    End="-19.765873221355,284.277759697703" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="361.210314313038,298.531764106286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="286.511899361712,220.023782176774"
-              Start="0,0"
-              End="286.511899361712,212.523782176774">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,140.335601107963" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,140.335601107963"
-                    Point2="0,144.335601107963"
-                    Point3="4,144.335601107963" />
-                  <mssgle:LineSegment
-                    End="282.511899361712,144.335601107963" />
-                  <mssgle:CubicBezierSegment
-                    Point1="282.511899361712,144.335601107963"
-                    Point2="286.511899361712,144.335601107963"
-                    Point3="286.511899361712,148.335601107963" />
-                  <mssgle:LineSegment
-                    End="286.511899361712,212.523782176774" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1128.88887465,296.888884343041">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-403.166660975251,221.666661940019"
-              Start="0,0"
-              End="-403.166660975251,214.166661940019">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,141.413330232652" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,141.413330232652"
-                    Point2="0,145.413330232652"
-                    Point3="-4,145.413330232652" />
-                  <mssgle:LineSegment
-                    End="-399.166660975251,145.413330232652" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-399.166660975251,145.413330232652"
-                    Point2="-403.166660975251,145.413330232652"
-                    Point3="-403.166660975251,149.413330232652" />
-                  <mssgle:LineSegment
-                    End="-403.166660975251,214.166661940019" />
+                    End="-20.8075398724992,212.777760976222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1913,30 +1920,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="138.944443595906,221.777774575022">
+          TopLeft="263.944441733261,206.611108179556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="173.599204050466,34.087322864598"
+              EndConnector="48.5992059131103,49.2539892600638"
               Start="0,0"
-              End="173.599204050466,26.587322864598">
+              End="48.5992059131103,41.7539892600638">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.3438929563251" />
+                    End="0,25.3956169323988" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.3438929563251"
-                    Point2="0,20.3438929563251"
-                    Point3="4,20.3438929563251" />
+                    Point1="0,25.3956169323988"
+                    Point2="0,29.3956169323988"
+                    Point3="4,29.3956169323988" />
                   <mssgle:LineSegment
-                    End="169.599204050466,20.3438929563251" />
+                    End="44.5992059131103,29.3956169323988" />
                   <mssgle:CubicBezierSegment
-                    Point1="169.599204050466,20.3438929563251"
-                    Point2="173.599204050466,20.3438929563251"
-                    Point3="173.599204050466,24.3438929563251" />
+                    Point1="44.5992059131103,29.3956169323988"
+                    Point2="48.5992059131103,29.3956169323988"
+                    Point3="48.5992059131103,33.3956169323988" />
                   <mssgle:LineSegment
-                    End="173.599204050466,26.587322864598" />
+                    End="48.5992059131103,41.7539892600638" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2005,6 +2012,188 @@
                     Point3="60.9444440926113,35.3541645556124" />
                   <mssgle:LineSegment
                     End="60.9444440926113,45.0555520170265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Insert Unknown Bad row into DimMonth"
+          TopLeft="937.152763813113,359.055550970965" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1128.88887465,296.888884343042">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-101.069444170222,62.1666666279236"
+              Start="0,0"
+              End="-101.069444170222,54.6666666279236">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0833333139618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0833333139618"
+                    Point2="0,31.0833333139618"
+                    Point3="-4,31.0833333139618" />
+                  <mssgle:LineSegment
+                    End="-97.0694441702219,31.0833333139618" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-97.0694441702219,31.0833333139618"
+                    Point2="-101.069444170222,31.0833333139618"
+                    Point3="-101.069444170222,35.0833333139618" />
+                  <mssgle:LineSegment
+                    End="-101.069444170222,54.6666666279236" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="1027.81943047978,401.722217637632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-303.138883456174,45.3333299239476"
+              Start="0,0"
+              End="-303.138883456174,37.8333299239476">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7386644301096" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7386644301096"
+                    Point2="0,29.7386644301096"
+                    Point3="-4,29.7386644301096" />
+                  <mssgle:LineSegment
+                    End="-299.138883456174,29.7386644301096" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-299.138883456174,29.7386644301096"
+                    Point2="-303.138883456174,29.7386644301096"
+                    Point3="-303.138883456174,33.7386644301096" />
+                  <mssgle:LineSegment
+                    End="-303.138883456174,37.8333299239476" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="261.333333333334,42.6666666666667"
+          Id="Package\Insert Unknown Bad row into DimDate"
+          TopLeft="536.111103122433,558.388880739941" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="685.680547023606,489.722214228246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.9027772345067,68.6666665116945"
+              Start="0,0"
+              End="-18.9027772345067,61.1666665116945">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3333332558473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.3333332558473"
+                    Point2="0,34.3333332558473"
+                    Point3="-4,34.3333332558473" />
+                  <mssgle:LineSegment
+                    End="-14.9027772345067,34.3333332558473" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.9027772345067,34.3333332558473"
+                    Point2="-18.9027772345067,34.3333332558473"
+                    Point3="-18.9027772345067,38.3333332558473" />
+                  <mssgle:LineSegment
+                    End="-18.9027772345067,61.1666665116945" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="220,54.6666666666667"
+          Id="Package\Insert Unknown Bad row into DimDayOfWeek"
+          TopLeft="288.194440150013,323.055553450518" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="361.210314313038,298.531764106287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.9841258369747,24.5237893442316"
+              Start="0,0"
+              End="36.9841258369747,17.0237893442316">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.2618946721158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.2618946721158"
+                    Point2="0,12.2618946721158"
+                    Point3="4,12.2618946721158" />
+                  <mssgle:LineSegment
+                    End="32.9841258369747,12.2618946721158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.9841258369747,12.2618946721158"
+                    Point2="36.9841258369747,12.2618946721158"
+                    Point3="36.9841258369747,16.2618946721158" />
+                  <mssgle:LineSegment
+                    End="36.9841258369747,17.0237893442316" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="398.194440150013,377.722220117185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="248.486106873594,69.3333274443946"
+              Start="0,0"
+              End="248.486106873594,61.8333274443946">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.4826628035229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.4826628035229"
+                    Point2="0,45.4826628035229"
+                    Point3="4,45.4826628035229" />
+                  <mssgle:LineSegment
+                    End="244.486106873594,45.4826628035229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="244.486106873594,45.4826628035229"
+                    Point2="248.486106873594,45.4826628035229"
+                    Point3="248.486106873594,49.4826628035229" />
+                  <mssgle:LineSegment
+                    End="248.486106873594,61.8333274443946" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
