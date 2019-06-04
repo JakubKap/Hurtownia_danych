@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="93"
-  DTS:VersionGUID="{C54D050F-0883-47E7-96FE-026C16474D31}">
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{DB55396F-A248-45BF-AC83-7E945040818D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,16 +45,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ActualElapsedTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -63,16 +54,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="AirTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -81,16 +63,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrDel15">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -99,16 +72,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -117,16 +81,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrDelayGroup">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -135,16 +90,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrDelayNew">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -153,16 +99,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -171,16 +109,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="ArrTimeBlk">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -189,16 +119,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="CancellationCode">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -207,16 +129,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Cancelled">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -225,16 +138,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="CarrierDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -243,16 +147,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="CrsArrTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -261,16 +157,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="CrsDepTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -279,16 +167,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="CrsElapsedTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -297,16 +176,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DayOfMonth">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -315,16 +186,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DayOfWeek">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -333,16 +196,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepDel15">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -351,16 +205,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -369,16 +214,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepDelayGroup">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -387,16 +223,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepDelayNew">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -405,16 +232,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -423,16 +242,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DepTimeBlk">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -441,16 +252,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="Dest">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -459,16 +262,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestAirportId">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -477,16 +272,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestAirportSeqId">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -495,16 +282,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestCityName">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -513,16 +292,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestStateAbr">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -531,16 +302,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestStateFips">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -549,16 +312,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestStateNm">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -567,16 +322,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DestWac">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -585,16 +332,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Distance">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -603,16 +341,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="DistanceGroup">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -621,16 +351,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Diverted">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -639,16 +360,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhActualElapsedTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -657,16 +369,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhAirTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -675,16 +378,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhArrAirport">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -693,16 +387,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhArrDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -711,16 +396,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhArrDelayMinutes">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -729,16 +405,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhArrTimeBLK">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -747,16 +414,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhCancellationCode">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -765,16 +423,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhCarrierDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -783,16 +432,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDelayGroup">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -801,16 +441,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDepAirport">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -819,16 +450,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDepDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -837,16 +459,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDepDelayMinutes">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -855,16 +468,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDepTimeBLK">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -873,16 +477,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDifficultiesKey">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -891,16 +486,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhDistance">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -909,16 +495,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhFlightDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -927,16 +504,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhFlightNumber">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -945,16 +513,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhFlights">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -963,16 +522,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLateAircraftDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -981,16 +531,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalActualArrivalDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -999,16 +540,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalActualArrivalTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1017,16 +549,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalActualDepartureDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1035,16 +558,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalActualDepartureTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1053,16 +567,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalScheduledArrivalDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1071,16 +576,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalScheduledArrivalTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1089,16 +585,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalScheduledDepartureDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1107,16 +594,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhLocalScheduledDepartureTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1125,16 +603,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhNASDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1143,16 +612,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhOperatingAirline">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1161,16 +621,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhSchedElapsedTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1179,16 +630,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhSecurityDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1197,16 +639,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhTailNumber">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1215,16 +648,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhTaxiIn">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1233,16 +657,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhTaxiOut">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1251,16 +666,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalActualArrivalDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1269,16 +675,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalActualArrivalTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1287,16 +684,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalActualDepartureDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1305,16 +693,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalActualDepartureTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1323,16 +702,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalScheduledArrivalDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1341,16 +711,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalScheduledArrivalTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1359,16 +720,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalScheduledDepartureDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1377,16 +729,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhUniversalScheduledDepartureTime">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1395,16 +738,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DwhWeatherDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1413,16 +747,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="FlDate">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1431,16 +757,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Flights">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1449,16 +766,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="LateAircraftDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1467,16 +775,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="Month">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1485,16 +785,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="NasDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1503,16 +794,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OpCarrier">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1521,16 +804,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OpCarrierAirlineId">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1539,16 +814,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OpCarrierFlNum">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1557,16 +824,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OpUniqueCarrier">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1575,16 +834,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="Origin">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1593,16 +844,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginAirportId">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1611,16 +854,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginAirportSeqId">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1629,16 +864,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginCityName">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1647,16 +874,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginStateAbr">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1665,16 +884,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginStateFips">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1683,16 +894,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginStateNm">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1701,16 +904,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="OriginWac">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1719,16 +914,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="Quarter">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1755,16 +942,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SecurityDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1773,16 +951,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="TailNum">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1791,16 +961,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="TaxiIn">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1809,52 +970,25 @@
       DTS:Namespace="User"
       DTS:ObjectName="TaxiOut">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{51FE34CC-3633-4C2C-B059-347196156362}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TimezoneShiftDest">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="5">0.</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{9D42C1F3-D7ED-4787-9195-D3B03F63D73E}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TimezoneShiftOrigin">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="5">0.</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1863,16 +997,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="WeatherDelay">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1881,16 +1006,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="WheelsOff">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1899,16 +1016,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="WheelsOn">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1917,16 +1026,8 @@
       DTS:Namespace="User"
       DTS:ObjectName="Year">
       <DTS:VariableValue
-        DTS:DataSubType="ManagedSerializable"
-        DTS:DataType="13">
-        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-          <SOAP-ENV:Body>
-            <xsd:anyType
-              id="ref-1"></xsd:anyType>
-          </SOAP-ENV:Body>
-        </SOAP-ENV:Envelope>
-      </DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -1934,7 +1035,6 @@
       DTS:refId="Package\Clean Stage_Facts_LateAircraftDelay"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{375DEA13-07C3-41FB-AC2E-E82CD39DF2F8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1951,7 +1051,6 @@
       DTS:refId="Package\Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{975c5b59-ab98-4ea8-8fc3-926616ec31de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1993,7 +1092,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getAirlineId"
-          DTS:ThreadHint="15">
+          DTS:ThreadHint="13">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2020,7 +1119,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrAirportId"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2047,7 +1146,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrTimeBLK"
-          DTS:ThreadHint="16">
+          DTS:ThreadHint="15">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2074,7 +1173,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getCancellationId"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="14">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2101,7 +1200,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepAirportId"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="8">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2155,7 +1254,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDifficultiesKey"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2200,7 +1299,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualArrivalDate"
-          DTS:ThreadHint="13">
+          DTS:ThreadHint="11">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2314,7 +1413,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledArrivalDate"
-          DTS:ThreadHint="17">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2377,7 +1476,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledDepartureDate"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2416,7 +1515,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftDest"
-          DTS:ThreadHint="13">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2443,7 +1542,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftOrigin"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2470,7 +1569,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalDate"
-          DTS:ThreadHint="14">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2527,7 +1626,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalTime"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2560,7 +1659,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureDate"
-          DTS:ThreadHint="12">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2617,7 +1716,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureTime"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="17">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2650,7 +1749,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalDate"
-          DTS:ThreadHint="11">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2707,7 +1806,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalTime"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="12">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2740,7 +1839,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureDate"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2791,7 +1890,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureTime"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="16">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3244,6 +2343,46 @@
           DTS:ObjectName="Constraint 24"
           DTS:To="Package\Foreach row\getLocalScheduledArrivalDate" />
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 25]"
+          DTS:CreationName=""
+          DTS:DTSID="{2AA95DBA-8CEE-4015-A575-42B2AADFE6DC}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 25"
+          DTS:To="Package\Foreach row\getLocalScheduledDepartureDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 26]"
+          DTS:CreationName=""
+          DTS:DTSID="{DD32C427-490B-49B1-828A-C3A154505EAD}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 26"
+          DTS:To="Package\Foreach row\getLocalScheduledArrivalDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 27]"
+          DTS:CreationName=""
+          DTS:DTSID="{D8A4B068-F6E1-457C-B60D-8856EE65586B}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 27"
+          DTS:To="Package\Foreach row\getLocalActualDepartureDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 28]"
+          DTS:CreationName=""
+          DTS:DTSID="{BD8196AC-7921-4BD4-9562-9E4CFA2F17AC}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 28"
+          DTS:To="Package\Foreach row\getLocalActualArrivalDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 29]"
+          DTS:CreationName=""
+          DTS:DTSID="{04685C0D-1D9D-4292-9308-75B78004CF8D}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 29"
+          DTS:To="Package\Foreach row\getUniversalScheduledDepartureDate" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
           DTS:DTSID="{21269FF0-10B4-46B1-811A-B8CBD1D2B4F2}"
@@ -3251,6 +2390,30 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
           DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 30]"
+          DTS:CreationName=""
+          DTS:DTSID="{A5BB899D-0CAE-4F49-84E0-0E1DDE470808}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 30"
+          DTS:To="Package\Foreach row\getUniversalScheduledArrivalDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 31]"
+          DTS:CreationName=""
+          DTS:DTSID="{38786AD4-05FF-437A-ACED-6ADCCFDB6119}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 31"
+          DTS:To="Package\Foreach row\getUniversalActualDepartureDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 32]"
+          DTS:CreationName=""
+          DTS:DTSID="{C447DA67-A57A-4936-BA68-EF3FE484BF39}"
+          DTS:From="Package\Foreach row\getTimezoneShiftOrigin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 32"
+          DTS:To="Package\Foreach row\getUniversalActualArrivalDate" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
           DTS:CreationName=""
@@ -3682,7 +2845,6 @@
       DTS:refId="Package\Updating Stage_Facts"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{D7BD2DF3-AA2B-463C-8496-8C465F072B9F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -3692,7 +2854,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Year = NULL&#xA;&#x9;WHERE Year = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Quarter = NULL&#xA;&#x9;WHERE Quarter = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Month = NULL&#xA;&#x9;WHERE Month = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfMonth = NULL&#xA;&#x9;WHERE DayOfMonth = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfWeek = NULL&#xA;&#x9;WHERE DayOfWeek = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET FlDate = NULL&#xA;&#x9;WHERE FlDate = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpUniqueCarrier = NULL&#xA;&#x9;WHERE OpUniqueCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierAirlineId = NULL&#xA;&#x9;WHERE OpCarrierAirlineId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrier = NULL&#xA;&#x9;WHERE OpCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TailNum = NULL&#xA;&#x9;WHERE TailNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierFlNum = NULL&#xA;&#x9;WHERE OpCarrierFlNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportId = NULL&#xA;&#x9;WHERE OriginAirportId = '';&#xA;&#xA;&#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportSeqId = NULL&#xA;&#x9;WHERE OriginAirportSeqId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Origin = NULL&#xA;&#x9;WHERE Origin = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginCityName = NULL&#xA;&#x9;WHERE OriginCityName = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateAbr = NULL&#xA;&#x9;WHERE OriginStateAbr = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateFips = NULL&#xA;&#x9;WHERE OriginStateFips = '';&#xA;&#x9;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateNm = NULL&#xA;&#x9;WHERE OriginStateNm = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginWac = NULL&#xA;&#x9;WHERE OriginWac = '';&#xA;     &#xA;&#x9; &#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportId = NULL&#xA;&#x9;WHERE DestAirportId = '';&#xA;    &#xA;&#x9;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportSeqId = NULL&#xA;&#x9;WHERE DestAirportSeqId = '';&#xA; &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET Dest = NULL&#xA;&#x9;WHERE Dest = '';&#xA;&#x9;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestCityName = NULL&#xA;&#x9;WHERE DestCityName = '';&#xA;&#x9;&#xA;&#x9;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateAbr = NULL&#xA;&#x9;WHERE DestStateAbr = '';&#xA;      &#xA;  &#xA;  &#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateFips = NULL&#xA;&#x9;WHERE DestStateFips = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestStateNm = NULL&#xA;&#x9;WHERE DestStateNm = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestWac = NULL&#xA;&#x9;WHERE DestWac = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsDepTime = NULL&#xA;&#x9;WHERE CrsDepTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTime = NULL&#xA;&#x9;WHERE DepTime = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelay = NULL&#xA;&#x9;WHERE DepDelay = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayNew = NULL&#xA;&#x9;WHERE DepDelayNew = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDel15 = NULL&#xA;&#x9;WHERE DepDel15 = '';&#xA;&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayGroup = NULL&#xA;&#x9;WHERE DepDelayGroup = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTimeBlk = NULL&#xA;&#x9;WHERE DepTimeBlk = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiOut = NULL&#xA;&#x9;WHERE TaxiOut = '';&#xA;   &#xA;   &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOff = NULL&#xA;&#x9;WHERE WheelsOff = '';&#xA;&#x9;&#xA;&#x9; &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOn = NULL&#xA;&#x9;WHERE WheelsOn = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiIn = NULL&#xA;&#x9;WHERE TaxiIn = '';&#xA;      &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET CrsArrTime = NULL&#xA;&#x9;WHERE CrsArrTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTime = NULL&#xA;&#x9;WHERE ArrTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelay = NULL&#xA;&#x9;WHERE ArrDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayNew = NULL&#xA;&#x9;WHERE ArrDelayNew = '';&#xA;&#x9;&#xA;    &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDel15 = NULL&#xA;&#x9;WHERE ArrDel15 = '';&#xA;      &#xA;&#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayGroup = NULL&#xA;&#x9;WHERE ArrDelayGroup = '';&#xA;   &#xA;   &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTimeBlk = NULL&#xA;&#x9;WHERE ArrTimeBlk = '';&#xA;     &#xA;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Cancelled = NULL&#xA;&#x9;WHERE Cancelled = '';&#xA;     &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CancellationCode = NULL&#xA;&#x9;WHERE CancellationCode = '';&#xA;   &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Diverted = NULL&#xA;&#x9;WHERE Diverted = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsElapsedTime = NULL&#xA;&#x9;WHERE CrsElapsedTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ActualElapsedTime = NULL&#xA;&#x9;WHERE ActualElapsedTime = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET AirTime = NULL&#xA;&#x9;WHERE AirTime = '';&#xA;     &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Flights = NULL&#xA;&#x9;WHERE Flights = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Distance = NULL&#xA;&#x9;WHERE Distance = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DistanceGroup = NULL&#xA;&#x9;WHERE DistanceGroup = '';&#xA;&#xA;      UPDATE FactFlightActivity&#xA;&#x9;SET CarrierDelay = NULL&#xA;&#x9;WHERE CarrierDelay = '';&#xA;&#x9;&#xA;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET WeatherDelay = NULL&#xA;&#x9;WHERE WeatherDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET NasDelay = NULL&#xA;&#x9;WHERE NasDelay = '';&#xA;&#xA;    UPDATE FactFlightActivity&#xA;&#x9;SET SecurityDelay = NULL&#xA;&#x9;WHERE SecurityDelay = '';&#xA;   &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET LateAircraftDelay = NULL&#xA;&#x9;WHERE LateAircraftDelay = '';&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Year = '-9999'&#xA;&#x9;WHERE Year = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Quarter = '-9999'&#xA;&#x9;WHERE Quarter = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Month = '-9999'&#xA;&#x9;WHERE Month = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfMonth = '-9999'&#xA;&#x9;WHERE DayOfMonth = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfWeek = '-9999'&#xA;&#x9;WHERE DayOfWeek = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET FlDate = '-9999'&#xA;&#x9;WHERE FlDate = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpUniqueCarrier = '-9999'&#xA;&#x9;WHERE OpUniqueCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierAirlineId = '-9999'&#xA;&#x9;WHERE OpCarrierAirlineId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrier = '-9999'&#xA;&#x9;WHERE OpCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TailNum = '-9999'&#xA;&#x9;WHERE TailNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierFlNum = '-9999'&#xA;&#x9;WHERE OpCarrierFlNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportId = '-9999'&#xA;&#x9;WHERE OriginAirportId = '';&#xA;&#xA;&#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportSeqId = '-9999'&#xA;&#x9;WHERE OriginAirportSeqId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Origin = '-9999'&#xA;&#x9;WHERE Origin = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginCityName = '-9999'&#xA;&#x9;WHERE OriginCityName = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateAbr = '-9999'&#xA;&#x9;WHERE OriginStateAbr = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateFips = '-9999'&#xA;&#x9;WHERE OriginStateFips = '';&#xA;&#x9;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateNm = '-9999'&#xA;&#x9;WHERE OriginStateNm = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginWac = '-9999'&#xA;&#x9;WHERE OriginWac = '';&#xA;     &#xA;&#x9; &#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportId = '-9999'&#xA;&#x9;WHERE DestAirportId = '';&#xA;    &#xA;&#x9;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportSeqId = '-9999'&#xA;&#x9;WHERE DestAirportSeqId = '';&#xA; &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET Dest = '-9999'&#xA;&#x9;WHERE Dest = '';&#xA;&#x9;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestCityName = '-9999'&#xA;&#x9;WHERE DestCityName = '';&#xA;&#x9;&#xA;&#x9;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateAbr = '-9999'&#xA;&#x9;WHERE DestStateAbr = '';&#xA;      &#xA;  &#xA;  &#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateFips = '-9999'&#xA;&#x9;WHERE DestStateFips = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestStateNm = '-9999'&#xA;&#x9;WHERE DestStateNm = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestWac = '-9999'&#xA;&#x9;WHERE DestWac = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsDepTime = '-9999'&#xA;&#x9;WHERE CrsDepTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTime = '-9999'&#xA;&#x9;WHERE DepTime = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelay = '-9999'&#xA;&#x9;WHERE DepDelay = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayNew = '-9999'&#xA;&#x9;WHERE DepDelayNew = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDel15 = '-9999'&#xA;&#x9;WHERE DepDel15 = '';&#xA;&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayGroup = '-9999'&#xA;&#x9;WHERE DepDelayGroup = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTimeBlk = '-9999'&#xA;&#x9;WHERE DepTimeBlk = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiOut = '-9999'&#xA;&#x9;WHERE TaxiOut = '';&#xA;   &#xA;   &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOff = '-9999'&#xA;&#x9;WHERE WheelsOff = '';&#xA;&#x9;&#xA;&#x9; &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOn = '-9999'&#xA;&#x9;WHERE WheelsOn = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiIn = '-9999'&#xA;&#x9;WHERE TaxiIn = '';&#xA;      &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET CrsArrTime = '-9999'&#xA;&#x9;WHERE CrsArrTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTime = '-9999'&#xA;&#x9;WHERE ArrTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelay = '-9999'&#xA;&#x9;WHERE ArrDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayNew = '-9999'&#xA;&#x9;WHERE ArrDelayNew = '';&#xA;&#x9;&#xA;    &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDel15 = '-9999'&#xA;&#x9;WHERE ArrDel15 = '';&#xA;      &#xA;&#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayGroup = '-9999'&#xA;&#x9;WHERE ArrDelayGroup = '';&#xA;   &#xA;   &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTimeBlk = '-9999'&#xA;&#x9;WHERE ArrTimeBlk = '';&#xA;     &#xA;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Cancelled = '-9999'&#xA;&#x9;WHERE Cancelled = '';&#xA;     &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CancellationCode = '-9999'&#xA;&#x9;WHERE CancellationCode = '';&#xA;   &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Diverted = '-9999'&#xA;&#x9;WHERE Diverted = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsElapsedTime = '-9999'&#xA;&#x9;WHERE CrsElapsedTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ActualElapsedTime = '-9999'&#xA;&#x9;WHERE ActualElapsedTime = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET AirTime = '-9999'&#xA;&#x9;WHERE AirTime = '';&#xA;     &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Flights = '-9999'&#xA;&#x9;WHERE Flights = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Distance = '-9999'&#xA;&#x9;WHERE Distance = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DistanceGroup = '-9999'&#xA;&#x9;WHERE DistanceGroup = '';&#xA;&#xA;      UPDATE FactFlightActivity&#xA;&#x9;SET CarrierDelay = '-9999'&#xA;&#x9;WHERE CarrierDelay = '';&#xA;&#x9;&#xA;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET WeatherDelay = '-9999'&#xA;&#x9;WHERE WeatherDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET NasDelay = '-9999'&#xA;&#x9;WHERE NasDelay = '';&#xA;&#xA;    UPDATE FactFlightActivity&#xA;&#x9;SET SecurityDelay = '-9999'&#xA;&#x9;WHERE SecurityDelay = '';&#xA;   &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET LateAircraftDelay = '-9999'&#xA;&#x9;WHERE LateAircraftDelay = '';&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -3811,7 +2973,7 @@
           Id="Package\Foreach row\getUniversalActualArrivalTime"
           TopLeft="182.999997355044,253.85000291735" />
         <NodeLayout
-          Size="179,43"
+          Size="235,42"
           Id="Package\Foreach row\getUniversalActualDepartureDate"
           TopLeft="552.374991850928,202.500003835559" />
         <NodeLayout
@@ -4146,30 +3308,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 17]"
-          TopLeft="642.041658517595,245.833337168892">
+          TopLeft="669.874991850928,244.500003835559">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-289.839277658346,163.416661145787"
+              EndConnector="-329.677623523007,164.74999447912"
               Start="0,0"
-              End="-289.839277658346,155.916661145787">
+              End="-329.677623523007,157.24999447912">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,108.993801342148" />
+                    End="0,102.914772890907" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,108.993801342148"
-                    Point2="0,112.993801342148"
-                    Point3="-4,112.993801342148" />
+                    Point1="0,102.914772890907"
+                    Point2="0,106.914772890907"
+                    Point3="-4,106.914772890907" />
                   <mssgle:LineSegment
-                    End="-285.839277658346,112.993801342148" />
+                    End="-325.677623523007,106.914772890907" />
                   <mssgle:CubicBezierSegment
-                    Point1="-285.839277658346,112.993801342148"
-                    Point2="-289.839277658346,112.993801342148"
-                    Point3="-289.839277658346,116.993801342148" />
+                    Point1="-325.677623523007,106.914772890907"
+                    Point2="-329.677623523007,106.914772890907"
+                    Point3="-329.677623523007,110.914772890907" />
                   <mssgle:LineSegment
-                    End="-289.839277658346,155.916661145787" />
+                    End="-329.677623523007,157.24999447912" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4451,6 +3613,176 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 25]"
+          TopLeft="331.374997128423,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.416664102424,32.9666653261577"
+              Start="0,0"
+              End="128.416664102424,25.4666653261577">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,4.8338818763207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,4.8338818763207"
+                    Point2="0,8.8338818763207"
+                    Point3="4,8.8338818763207" />
+                  <mssgle:LineSegment
+                    End="124.416664102424,8.8338818763207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.416664102424,8.8338818763207"
+                    Point2="128.416664102424,8.8338818763207"
+                    Point3="128.416664102424,12.8338818763207" />
+                  <mssgle:LineSegment
+                    End="128.416664102424,25.4666653261577" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 26]"
+          TopLeft="312.922616176042,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.813489507528,82.9444422102637"
+              Start="0,0"
+              End="117.813489507528,75.4444422102637">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5717826845297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5717826845297"
+                    Point2="0,38.5717826845297"
+                    Point3="4,38.5717826845297" />
+                  <mssgle:LineSegment
+                    End="113.813489507528,38.5717826845297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.813489507528,38.5717826845297"
+                    Point2="117.813489507528,38.5717826845297"
+                    Point3="117.813489507528,42.5717826845297" />
+                  <mssgle:LineSegment
+                    End="117.813489507528,75.4444422102637" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 27]"
+          TopLeft="299.083330461756,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.986108617236,129.166663605968"
+              Start="0,0"
+              End="155.986108617236,121.666663605968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.8710459635909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.8710459635909"
+                    Point2="0,55.8710459635909"
+                    Point3="4,55.8710459635909" />
+                  <mssgle:LineSegment
+                    End="151.986108617236,55.8710459635909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.986108617236,55.8710459635909"
+                    Point2="155.986108617236,55.8710459635909"
+                    Point3="155.986108617236,59.8710459635909" />
+                  <mssgle:LineSegment
+                    End="155.986108617236,121.666663605968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 28]"
+          TopLeft="318.458330461756,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.277775221814,178.277773838904"
+              Start="0,0"
+              End="112.277775221814,170.777773838904">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5337716064706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.5337716064706"
+                    Point2="0,77.5337716064706"
+                    Point3="4,77.5337716064706" />
+                  <mssgle:LineSegment
+                    End="108.277775221814,77.5337716064706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.277775221814,77.5337716064706"
+                    Point2="112.277775221814,77.5337716064706"
+                    Point3="112.277775221814,81.5337716064706" />
+                  <mssgle:LineSegment
+                    End="112.277775221814,170.777773838904" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 29]"
+          TopLeft="339.986108239534,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="302.097217487998,34.9166652912887"
+              Start="0,0"
+              End="302.097217487998,27.4166652912887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,3.21371884330573" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,3.21371884330573"
+                    Point2="0,7.21371884330573"
+                    Point3="4,7.21371884330573" />
+                  <mssgle:LineSegment
+                    End="298.097217487998,7.21371884330573" />
+                  <mssgle:CubicBezierSegment
+                    Point1="298.097217487998,7.21371884330573"
+                    Point2="302.097217487998,7.21371884330573"
+                    Point3="302.097217487998,11.2137188433057" />
+                  <mssgle:LineSegment
+                    End="302.097217487998,27.4166652912887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 3]"
           TopLeft="275.791663975145,150.283338877459">
           <EdgeLayout.Curve>
@@ -4476,6 +3808,108 @@
                     Point3="58.5059549793424,167.418551819584" />
                   <mssgle:LineSegment
                     End="58.5059549793424,251.46665943722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 30]"
+          TopLeft="341.708330461756,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="302.249994691461,81.4999977916477"
+              Start="0,0"
+              End="302.249994691461,73.9999977916477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.7351480884864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.7351480884864"
+                    Point2="0,15.7351480884864"
+                    Point3="4,15.7351480884864" />
+                  <mssgle:LineSegment
+                    End="298.249994691461,15.7351480884864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="298.249994691461,15.7351480884864"
+                    Point2="302.249994691461,15.7351480884864"
+                    Point3="302.249994691461,19.7351480884864" />
+                  <mssgle:LineSegment
+                    End="302.249994691461,73.9999977916477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 31]"
+          TopLeft="343.117421370847,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="326.757570480081,130.24999691993"
+              Start="0,0"
+              End="326.757570480081,122.74999691993">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6602002620411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.6602002620411"
+                    Point2="0,23.6602002620411"
+                    Point3="4,23.6602002620411" />
+                  <mssgle:LineSegment
+                    End="322.757570480081,23.6602002620411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="322.757570480081,23.6602002620411"
+                    Point2="326.757570480081,23.6602002620411"
+                    Point3="326.757570480081,27.6602002620411" />
+                  <mssgle:LineSegment
+                    End="326.757570480081,122.74999691993" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 32]"
+          TopLeft="305.541663795089,72.2500069156293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="333.208328102405,176.833329420288"
+              Start="0,0"
+              End="333.208328102405,169.333329420288">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.7646804694728" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,67.7646804694728"
+                    Point2="0,71.7646804694728"
+                    Point3="4,71.7646804694728" />
+                  <mssgle:LineSegment
+                    End="329.208328102405,71.7646804694728" />
+                  <mssgle:CubicBezierSegment
+                    Point1="329.208328102405,71.7646804694728"
+                    Point2="333.208328102405,71.7646804694728"
+                    Point3="333.208328102405,75.7646804694728" />
+                  <mssgle:LineSegment
+                    End="333.208328102405,169.333329420288" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

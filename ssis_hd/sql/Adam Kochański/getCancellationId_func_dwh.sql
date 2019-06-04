@@ -1,6 +1,6 @@
 USE [AirStatsDWH]
 GO
-/****** Object:  UserDefinedFunction [dbo].[getCancellationId]    Script Date: 04.06.2019 13:15:55 ******/
+/****** Object:  UserDefinedFunction [dbo].[getCancellationId]    Script Date: 04.06.2019 13:50:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -17,7 +17,7 @@ DECLARE @maxKey int= (SELECT MAX(CancellationID) FROM DimCancellationReason)
 IF @CancellationKey is NULL RETURN @maxKey
 IF (SELECT CASE WHEN COUNT(1)!=1 THEN 0 ELSE 1 END 
 FROM DimCancellationReason 
-WHERE CancellationReasonKey=@CancellationKey)=1  RETURN @maxKey
+WHERE CancellationReasonKey=@CancellationKey)=0  RETURN @maxKey
 
 return (SELECT CancellationID FROM DimCancellationReason WHERE CancellationReasonKey=@CancellationKey)
 
