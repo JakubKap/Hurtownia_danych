@@ -10,7 +10,7 @@ or @DepTime is null or @DepTime=-9999 return -1
 
 DECLARE @currID int=NULL
 
-DECLARE @DepHour int=@DepTime-@DepTime%100
+DECLARE @DepHour int=(@DepTime-@DepTime%100)/100
 DECLARE @DepMin int =@DepTime%100
 DECLARE @Shift float=@TimezoneShiftOrigin*60
 DECLARE @MinuteShift int=CAST(@Shift as INT)
@@ -23,3 +23,4 @@ SET @currID =100*@DepHour+@DepMin
 
 RETURN @currID
 END
+
