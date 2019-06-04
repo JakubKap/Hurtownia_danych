@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Ssis_hd</Name>
-    <LastWriteTime>2019-06-03T18:31:17.7304835Z</LastWriteTime>
+    <LastWriteTime>2019-06-04T09:57:44.2765044Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDataToFactFlightActivity.dtsx</Name>
-      <LastWriteTime>2019-06-03T18:55:37.1361937Z</LastWriteTime>
+      <LastWriteTime>2019-06-03T19:21:59.3310358Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimBLKTime.dtsx</Name>
-      <LastWriteTime>2019-06-03T18:31:17.6085229Z</LastWriteTime>
+      <LastWriteTime>2019-06-03T19:21:59.3310358Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,7 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>LoadingDimDate.dtsx</Name>
-      <LastWriteTime>2019-06-03T13:52:04.5378426Z</LastWriteTime>
+      <LastWriteTime>2019-06-04T09:57:44.1899066Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
