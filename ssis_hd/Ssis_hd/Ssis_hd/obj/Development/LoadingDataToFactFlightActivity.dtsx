@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{DB55396F-A248-45BF-AC83-7E945040818D}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{B2E1E9BF-4925-4AD8-8443-25F6EF237632}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1082,7 +1082,26 @@
             VarName="User::Row" />
         </DTS:ObjectData>
       </DTS:ForEachEnumerator>
-      <DTS:Variables />
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{34848AB9-5119-4783-8A1A-A1DA3E641843}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="DwhArrDelayGroup">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{737137DF-F052-4BE2-A1AF-FDD9AFC6F75C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="DwhDepDelayGroup">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Foreach row\getAirlineId"
@@ -1092,7 +1111,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getAirlineId"
-          DTS:ThreadHint="13">
+          DTS:ThreadHint="11">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1119,7 +1138,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrAirportId"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="12">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1139,6 +1158,33 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Foreach row\getArrDelayGroup"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{21059c8f-8e50-400d-b37d-b4119b70e656}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getArrDelayGroup"
+          DTS:ThreadHint="18">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getDelayGroup(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhArrDelayGroup" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ArrDelayGroup"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach row\getArrTimeBLK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -1146,7 +1192,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrTimeBLK"
-          DTS:ThreadHint="15">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1173,7 +1219,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getCancellationId"
-          DTS:ThreadHint="14">
+          DTS:ThreadHint="20">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1200,7 +1246,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepAirportId"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="14">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1220,6 +1266,33 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Foreach row\getDepDelayGroup"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e884d95f-f069-4b3b-aabb-1cff66796f15}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="getDepDelayGroup"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
+              SQLTask:SqlStatementSource="  SELECT dbo.getDelayGroup(?)"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DwhDepDelayGroup" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::DepDelayGroup"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="100" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Foreach row\getDepTimeBlk"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -1227,7 +1300,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepTimeBlk"
-          DTS:ThreadHint="18">
+          DTS:ThreadHint="17">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1254,7 +1327,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDifficultiesKey"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1299,7 +1372,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualArrivalDate"
-          DTS:ThreadHint="11">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1362,7 +1435,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualDepartureDate"
-          DTS:ThreadHint="10">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1413,7 +1486,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledArrivalDate"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1476,7 +1549,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledDepartureDate"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1515,7 +1588,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftDest"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1542,7 +1615,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftOrigin"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1569,7 +1642,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalDate"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="16">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1626,7 +1699,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalTime"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="13">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1659,7 +1732,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureDate"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="15">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1716,7 +1789,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureTime"
-          DTS:ThreadHint="17">
+          DTS:ThreadHint="19">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1749,7 +1822,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalDate"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1806,7 +1879,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalTime"
-          DTS:ThreadHint="12">
+          DTS:ThreadHint="8">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1839,7 +1912,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureDate"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1890,7 +1963,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureTime"
-          DTS:ThreadHint="16">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2063,7 +2136,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::DepDelayGroup"
+                SQLTask:DtsVariableName="User::DwhDepDelayGroup"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2189,7 +2262,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="43"
-                SQLTask:DtsVariableName="User::ArrDelayGroup"
+                SQLTask:DtsVariableName="User::DwhArrDelayGroup"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2414,6 +2487,22 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 32"
           DTS:To="Package\Foreach row\getUniversalActualArrivalDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 33]"
+          DTS:CreationName=""
+          DTS:DTSID="{A104EBD8-367A-42FC-A8A7-828A493E4986}"
+          DTS:From="Package\Foreach row\getArrDelayGroup"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 33"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 34]"
+          DTS:CreationName=""
+          DTS:DTSID="{70AEEEBC-BBAA-4D62-AD40-E372593FE5CA}"
+          DTS:From="Package\Foreach row\getDepDelayGroup"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 34"
+          DTS:To="Package\Foreach row\Insert row into Dwh_FactFlightActivity" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
           DTS:CreationName=""
@@ -2854,7 +2943,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{61E38196-2E48-4209-8CC1-4ED6E50B6208}"
-          SQLTask:SqlStatementSource="&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Year = '-9999'&#xA;&#x9;WHERE Year = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Quarter = '-9999'&#xA;&#x9;WHERE Quarter = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Month = '-9999'&#xA;&#x9;WHERE Month = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfMonth = '-9999'&#xA;&#x9;WHERE DayOfMonth = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfWeek = '-9999'&#xA;&#x9;WHERE DayOfWeek = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET FlDate = '-9999'&#xA;&#x9;WHERE FlDate = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpUniqueCarrier = '-9999'&#xA;&#x9;WHERE OpUniqueCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierAirlineId = '-9999'&#xA;&#x9;WHERE OpCarrierAirlineId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrier = '-9999'&#xA;&#x9;WHERE OpCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TailNum = '-9999'&#xA;&#x9;WHERE TailNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierFlNum = '-9999'&#xA;&#x9;WHERE OpCarrierFlNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportId = '-9999'&#xA;&#x9;WHERE OriginAirportId = '';&#xA;&#xA;&#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportSeqId = '-9999'&#xA;&#x9;WHERE OriginAirportSeqId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Origin = '-9999'&#xA;&#x9;WHERE Origin = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginCityName = '-9999'&#xA;&#x9;WHERE OriginCityName = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateAbr = '-9999'&#xA;&#x9;WHERE OriginStateAbr = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateFips = '-9999'&#xA;&#x9;WHERE OriginStateFips = '';&#xA;&#x9;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateNm = '-9999'&#xA;&#x9;WHERE OriginStateNm = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginWac = '-9999'&#xA;&#x9;WHERE OriginWac = '';&#xA;     &#xA;&#x9; &#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportId = '-9999'&#xA;&#x9;WHERE DestAirportId = '';&#xA;    &#xA;&#x9;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportSeqId = '-9999'&#xA;&#x9;WHERE DestAirportSeqId = '';&#xA; &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET Dest = '-9999'&#xA;&#x9;WHERE Dest = '';&#xA;&#x9;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestCityName = '-9999'&#xA;&#x9;WHERE DestCityName = '';&#xA;&#x9;&#xA;&#x9;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateAbr = '-9999'&#xA;&#x9;WHERE DestStateAbr = '';&#xA;      &#xA;  &#xA;  &#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateFips = '-9999'&#xA;&#x9;WHERE DestStateFips = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestStateNm = '-9999'&#xA;&#x9;WHERE DestStateNm = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestWac = '-9999'&#xA;&#x9;WHERE DestWac = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsDepTime = '-9999'&#xA;&#x9;WHERE CrsDepTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTime = '-9999'&#xA;&#x9;WHERE DepTime = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelay = '-9999'&#xA;&#x9;WHERE DepDelay = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayNew = '-9999'&#xA;&#x9;WHERE DepDelayNew = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDel15 = '-9999'&#xA;&#x9;WHERE DepDel15 = '';&#xA;&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayGroup = '-9999'&#xA;&#x9;WHERE DepDelayGroup = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTimeBlk = '-9999'&#xA;&#x9;WHERE DepTimeBlk = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiOut = '-9999'&#xA;&#x9;WHERE TaxiOut = '';&#xA;   &#xA;   &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOff = '-9999'&#xA;&#x9;WHERE WheelsOff = '';&#xA;&#x9;&#xA;&#x9; &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOn = '-9999'&#xA;&#x9;WHERE WheelsOn = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiIn = '-9999'&#xA;&#x9;WHERE TaxiIn = '';&#xA;      &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET CrsArrTime = '-9999'&#xA;&#x9;WHERE CrsArrTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTime = '-9999'&#xA;&#x9;WHERE ArrTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelay = '-9999'&#xA;&#x9;WHERE ArrDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayNew = '-9999'&#xA;&#x9;WHERE ArrDelayNew = '';&#xA;&#x9;&#xA;    &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDel15 = '-9999'&#xA;&#x9;WHERE ArrDel15 = '';&#xA;      &#xA;&#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayGroup = '-9999'&#xA;&#x9;WHERE ArrDelayGroup = '';&#xA;   &#xA;   &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTimeBlk = '-9999'&#xA;&#x9;WHERE ArrTimeBlk = '';&#xA;     &#xA;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Cancelled = '-9999'&#xA;&#x9;WHERE Cancelled = '';&#xA;     &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CancellationCode = '-9999'&#xA;&#x9;WHERE CancellationCode = '';&#xA;   &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Diverted = '-9999'&#xA;&#x9;WHERE Diverted = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsElapsedTime = '-9999'&#xA;&#x9;WHERE CrsElapsedTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ActualElapsedTime = '-9999'&#xA;&#x9;WHERE ActualElapsedTime = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET AirTime = '-9999'&#xA;&#x9;WHERE AirTime = '';&#xA;     &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Flights = '-9999'&#xA;&#x9;WHERE Flights = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Distance = '-9999'&#xA;&#x9;WHERE Distance = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DistanceGroup = '-9999'&#xA;&#x9;WHERE DistanceGroup = '';&#xA;&#xA;      UPDATE FactFlightActivity&#xA;&#x9;SET CarrierDelay = '-9999'&#xA;&#x9;WHERE CarrierDelay = '';&#xA;&#x9;&#xA;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET WeatherDelay = '-9999'&#xA;&#x9;WHERE WeatherDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET NasDelay = '-9999'&#xA;&#x9;WHERE NasDelay = '';&#xA;&#xA;    UPDATE FactFlightActivity&#xA;&#x9;SET SecurityDelay = '-9999'&#xA;&#x9;WHERE SecurityDelay = '';&#xA;   &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET LateAircraftDelay = '-9999'&#xA;&#x9;WHERE LateAircraftDelay = '';&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Year = '-9999'&#xA;&#x9;WHERE Year = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Quarter = '-9999'&#xA;&#x9;WHERE Quarter = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Month = '-9999'&#xA;&#x9;WHERE Month = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfMonth = '-9999'&#xA;&#x9;WHERE DayOfMonth = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DayOfWeek = '-9999'&#xA;&#x9;WHERE DayOfWeek = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET FlDate = '-9999'&#xA;&#x9;WHERE FlDate = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpUniqueCarrier = '-9999'&#xA;&#x9;WHERE OpUniqueCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierAirlineId = '-9999'&#xA;&#x9;WHERE OpCarrierAirlineId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrier = '-9999'&#xA;&#x9;WHERE OpCarrier = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TailNum = '-9999'&#xA;&#x9;WHERE TailNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OpCarrierFlNum = '-9999'&#xA;&#x9;WHERE OpCarrierFlNum = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportId = '-9999'&#xA;&#x9;WHERE OriginAirportId = '';&#xA;&#xA;&#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginAirportSeqId = '-9999'&#xA;&#x9;WHERE OriginAirportSeqId = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Origin = '-9999'&#xA;&#x9;WHERE Origin = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginCityName = '-9999'&#xA;&#x9;WHERE OriginCityName = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateAbr = '-9999'&#xA;&#x9;WHERE OriginStateAbr = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateFips = '-9999'&#xA;&#x9;WHERE OriginStateFips = '';&#xA;&#x9;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginStateNm = '-9999'&#xA;&#x9;WHERE OriginStateNm = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET OriginWac = '-9999'&#xA;&#x9;WHERE OriginWac = '';&#xA;     &#xA;&#x9; &#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportId = '-9999'&#xA;&#x9;WHERE DestAirportId = '';&#xA;    &#xA;&#x9;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET DestAirportSeqId = '-9999'&#xA;&#x9;WHERE DestAirportSeqId = '';&#xA; &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET Dest = '-9999'&#xA;&#x9;WHERE Dest = '';&#xA;&#x9;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestCityName = '-9999'&#xA;&#x9;WHERE DestCityName = '';&#xA;&#x9;&#xA;&#x9;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateAbr = '-9999'&#xA;&#x9;WHERE DestStateAbr = '';&#xA;      &#xA;  &#xA;  &#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DestStateFips = '-9999'&#xA;&#x9;WHERE DestStateFips = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestStateNm = '-9999'&#xA;&#x9;WHERE DestStateNm = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DestWac = '-9999'&#xA;&#x9;WHERE DestWac = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsDepTime = '-9999'&#xA;&#x9;WHERE CrsDepTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTime = '-9999'&#xA;&#x9;WHERE DepTime = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelay = '-9999'&#xA;&#x9;WHERE DepDelay = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayNew = '-9999'&#xA;&#x9;WHERE DepDelayNew = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDel15 = '-9999'&#xA;&#x9;WHERE DepDel15 = '';&#xA;&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepDelayGroup = '-9999'&#xA;&#x9;WHERE DepDelayGroup = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET DepTimeBlk = '-9999'&#xA;&#x9;WHERE DepTimeBlk = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiOut = '-9999'&#xA;&#x9;WHERE TaxiOut = '';&#xA;   &#xA;   &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOff = '-9999'&#xA;&#x9;WHERE WheelsOff = '';&#xA;&#x9;&#xA;&#x9; &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET WheelsOn = '-9999'&#xA;&#x9;WHERE WheelsOn = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET TaxiIn = '-9999'&#xA;&#x9;WHERE TaxiIn = '';&#xA;      &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET CrsArrTime = '-9999'&#xA;&#x9;WHERE CrsArrTime = '';&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTime = '-9999'&#xA;&#x9;WHERE ArrTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelay = '-9999'&#xA;&#x9;WHERE ArrDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayNew = '-9999'&#xA;&#x9;WHERE ArrDelayNew = '';&#xA;&#x9;&#xA;    &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDel15 = '-9999'&#xA;&#x9;WHERE ArrDel15 = '';&#xA;      &#xA;&#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrDelayGroup = '-9999'&#xA;&#x9;WHERE ArrDelayGroup = '';&#xA;   &#xA;   &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ArrTimeBlk = '-9999'&#xA;&#x9;WHERE ArrTimeBlk = '';&#xA;     &#xA;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Cancelled = '-9999'&#xA;&#x9;WHERE Cancelled = '';&#xA;     &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CancellationCode = '9'&#xA;&#x9;WHERE CancellationCode = '';&#xA;   &#xA;&#x9;    &#x9;      &#x9;UPDATE FactFlightActivity&#xA;&#x9;SET Diverted = '-9999'&#xA;&#x9;WHERE Diverted = '';&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET CrsElapsedTime = '-9999'&#xA;&#x9;WHERE CrsElapsedTime = '';&#xA;&#xA;&#x9;UPDATE FactFlightActivity&#xA;&#x9;SET ActualElapsedTime = '-9999'&#xA;&#x9;WHERE ActualElapsedTime = '';&#xA;     &#xA;&#x9; UPDATE FactFlightActivity&#xA;&#x9;SET AirTime = '-9999'&#xA;&#x9;WHERE AirTime = '';&#xA;     &#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Flights = '-9999'&#xA;&#x9;WHERE Flights = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET Distance = '-9999'&#xA;&#x9;WHERE Distance = '';&#xA;&#xA;&#x9;  UPDATE FactFlightActivity&#xA;&#x9;SET DistanceGroup = '-9999'&#xA;&#x9;WHERE DistanceGroup = '';&#xA;&#xA;      UPDATE FactFlightActivity&#xA;&#x9;SET CarrierDelay = '-9999'&#xA;&#x9;WHERE CarrierDelay = '';&#xA;&#x9;&#xA;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET WeatherDelay = '-9999'&#xA;&#x9;WHERE WeatherDelay = '';&#xA;&#x9;&#xA;&#x9;&#x9;    UPDATE FactFlightActivity&#xA;&#x9;SET NasDelay = '-9999'&#xA;&#x9;WHERE NasDelay = '';&#xA;&#xA;    UPDATE FactFlightActivity&#xA;&#x9;SET SecurityDelay = '-9999'&#xA;&#x9;WHERE SecurityDelay = '';&#xA;   &#xA;       UPDATE FactFlightActivity&#xA;&#x9;SET LateAircraftDelay = '-9999'&#xA;&#x9;WHERE LateAircraftDelay = '';&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2903,7 +2992,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="251,42"
           Id="Package\Clean Stage_Facts_LateAircraftDelay"
@@ -2915,11 +3004,15 @@
         <NodeLayout
           Size="133,42"
           Id="Package\Foreach row\getAirlineId"
-          TopLeft="14.2499999068677,120.249998314679" />
+          TopLeft="19.2499998323619,106.383331895968" />
         <NodeLayout
           Size="150,42"
           Id="Package\Foreach row\getArrAirportId"
-          TopLeft="13.8333333954215,222.749999128282" />
+          TopLeft="11.3333334326744,207.149999407232" />
+        <NodeLayout
+          Size="149,43"
+          Id="Package\Foreach row\getArrDelayGroup"
+          TopLeft="8.76388884025315,255.961114002632" />
         <NodeLayout
           Size="149,43"
           Id="Package\Foreach row\getArrTimeBLK"
@@ -2931,7 +3024,11 @@
         <NodeLayout
           Size="154,42"
           Id="Package\Foreach row\getDepAirportId"
-          TopLeft="10.7083332557231,172.833332209786" />
+          TopLeft="8.20833329297601,159.833332442244" />
+        <NodeLayout
+          Size="168,43"
+          Id="Package\Foreach row\getDepDelayGroup"
+          TopLeft="12.3749998975545,306.516668654184" />
         <NodeLayout
           Size="151,43"
           Id="Package\Foreach row\getDepTimeBlk"
@@ -3002,30 +3099,30 @@
           TopLeft="151.249999906868,409.249998314679" />
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint]"
-          TopLeft="87.7083332557231,214.833332209786">
+          TopLeft="85.208333292976,201.833332442244">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="139.160714270193,194.416666104893"
+              EndConnector="83.2346490700323,207.416665872435"
               Start="0,0"
-              End="139.160714270193,186.916666104893">
+              End="83.2346490700323,199.916665872435">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,118.68486643608" />
+                    End="0,179.078982376867" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,118.68486643608"
-                    Point2="0,122.68486643608"
-                    Point3="4,122.68486643608" />
+                    Point1="0,179.078982376867"
+                    Point2="0,183.078982376867"
+                    Point3="4,183.078982376867" />
                   <mssgle:LineSegment
-                    End="135.160714270193,122.68486643608" />
+                    End="79.2346490700323,183.078982376867" />
                   <mssgle:CubicBezierSegment
-                    Point1="135.160714270193,122.68486643608"
-                    Point2="139.160714270193,122.68486643608"
-                    Point3="139.160714270193,126.68486643608" />
+                    Point1="79.2346490700323,183.078982376867"
+                    Point2="83.2346490700323,183.078982376867"
+                    Point3="83.2346490700323,187.078982376867" />
                   <mssgle:LineSegment
-                    End="139.160714270193,186.916666104893" />
+                    End="83.2346490700323,199.916665872435" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3036,30 +3133,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 1]"
-          TopLeft="88.8333333954215,264.749999128282">
+          TopLeft="86.3333334326744,249.149999407232">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="173.845237940018,144.499999186397"
+              EndConnector="108.495613842615,160.099998907447"
               Start="0,0"
-              End="173.845237940018,136.999999186397">
+              End="108.495613842615,152.599998907447">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.6230217148446" />
+                    End="0,115.750120936049" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,73.6230217148446"
-                    Point2="0,77.6230217148446"
-                    Point3="4,77.6230217148446" />
+                    Point1="0,115.750120936049"
+                    Point2="0,119.750120936049"
+                    Point3="4,119.750120936049" />
                   <mssgle:LineSegment
-                    End="169.845237940018,77.6230217148446" />
+                    End="104.495613842615,119.750120936049" />
                   <mssgle:CubicBezierSegment
-                    Point1="169.845237940018,77.6230217148446"
-                    Point2="173.845237940018,77.6230217148446"
-                    Point3="173.845237940018,81.6230217148446" />
+                    Point1="104.495613842615,119.750120936049"
+                    Point2="108.495613842615,119.750120936049"
+                    Point3="108.495613842615,123.750120936049" />
                   <mssgle:LineSegment
-                    End="173.845237940018,136.999999186397" />
+                    End="108.495613842615,152.599998907447" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3410,30 +3507,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 2]"
-          TopLeft="80.9166665735344,162.249998314679">
+          TopLeft="85.9166664990286,148.383331895968">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110.142857142857,247"
+              EndConnector="82.5263158639798,260.866666418711"
               Start="0,0"
-              End="110.142857142857,239.5">
+              End="82.5263158639798,253.366666418711">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,184.865990990991" />
+                    End="0,226.257311403106" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,184.865990990991"
-                    Point2="0,188.865990990991"
-                    Point3="4,188.865990990991" />
+                    Point1="0,226.257311403106"
+                    Point2="0,230.257311403106"
+                    Point3="4,230.257311403106" />
                   <mssgle:LineSegment
-                    End="106.142857142857,188.865990990991" />
+                    End="78.5263158639798,230.257311403106" />
                   <mssgle:CubicBezierSegment
-                    Point1="106.142857142857,188.865990990991"
-                    Point2="110.142857142857,188.865990990991"
-                    Point3="110.142857142857,192.865990990991" />
+                    Point1="78.5263158639798,230.257311403106"
+                    Point2="82.5263158639798,230.257311403106"
+                    Point3="82.5263158639798,234.257311403106" />
                   <mssgle:LineSegment
-                    End="110.142857142857,239.5" />
+                    End="82.5263158639798,253.366666418711" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3919,6 +4016,74 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 33]"
+          TopLeft="83.4305555069198,298.627780669299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.3527777332815,110.62221764538"
+              Start="0,0"
+              End="84.3527777332815,103.12221764538">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.0836847495601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,94.0836847495601"
+                    Point2="0,98.0836847495601"
+                    Point3="4,98.0836847495601" />
+                  <mssgle:LineSegment
+                    End="80.3527777332815,98.0836847495601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.3527777332815,98.0836847495601"
+                    Point2="84.3527777332815,98.0836847495601"
+                    Point3="84.3527777332815,102.08368474956" />
+                  <mssgle:LineSegment
+                    End="84.3527777332815,103.12221764538" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 34]"
+          TopLeft="96.3749998975545,349.183335320851">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.557539691853,60.0666629938283"
+              Start="0,0"
+              End="118.557539691853,52.5666629938283">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2486159600093" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2486159600093"
+                    Point2="0,40.2486159600093"
+                    Point3="4,40.2486159600093" />
+                  <mssgle:LineSegment
+                    End="114.557539691853,40.2486159600093" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.557539691853,40.2486159600093"
+                    Point2="118.557539691853,40.2486159600093"
+                    Point3="118.557539691853,44.2486159600093" />
+                  <mssgle:LineSegment
+                    End="118.557539691853,52.5666629938283" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 4]"
           TopLeft="278.291663937892,198.816671342949">
           <EdgeLayout.Curve>
@@ -4173,13 +4338,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="491.999998472631,302">
+          TopLeft="492.166665139298,302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.8333349972963,45.750001220405"
+              EndConnector="18.6666683306297,45.750001220405"
               Start="0,0"
-              End="18.8333349972963,38.250001220405">
+              End="18.6666683306297,38.250001220405">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4190,13 +4355,13 @@
                     Point2="0,22.8750006102025"
                     Point3="4,22.8750006102025" />
                   <mssgle:LineSegment
-                    End="14.8333349972963,22.8750006102025" />
+                    End="14.6666683306297,22.8750006102025" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.8333349972963,22.8750006102025"
-                    Point2="18.8333349972963,22.8750006102025"
-                    Point3="18.8333349972963,26.8750006102025" />
+                    Point1="14.6666683306297,22.8750006102025"
+                    Point2="18.6666683306297,22.8750006102025"
+                    Point3="18.6666683306297,26.8750006102025" />
                   <mssgle:LineSegment
-                    End="18.8333349972963,38.250001220405" />
+                    End="18.6666683306297,38.250001220405" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
