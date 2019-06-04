@@ -7,7 +7,7 @@ BEGIN
 DECLARE @maxKey int= (SELECT MAX(DelayGroupKey) FROM DimDelayGroup)-1
 DECLARE @minKey int= (SELECT MIN(DelayGroupKey) FROM DimDelayGroup)
 
-IF @DelayGroupKey<@minKey or @DelayGroupKey>@maxKey return @maxKey+1
+IF @DelayGroupKey is null or @DelayGroupKey=-9999 or @DelayGroupKey<@minKey or @DelayGroupKey>@maxKey return @maxKey+1
 
 RETURN @DelayGroupKey
 

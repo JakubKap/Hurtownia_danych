@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.getLocalActualDepartureDate(
+ALTER FUNCTION dbo.getLocalActualDepartureDate(
 @Year int,
 @Month int,
 @DayOfMonth int, 
@@ -7,6 +7,12 @@ CREATE FUNCTION dbo.getLocalActualDepartureDate(
 RETURNS int
 AS
 BEGIN
+
+if @Year<0 or @Year is null or @Year=-9999 or
+@Month<0 or @Month is null or @Month=-9999 or @Month>12 or
+@DayOfMonth=-1 or @DayOfMonth is null or @DayOfMonth=-9999 or @DayOfMonth>31 or
+@CRSDepTime=-9999 or @CRSDepTime is null or
+@DepDelay is null or @DepDelay=-9999 return -1
 
 DECLARE @currID int=NULL
 

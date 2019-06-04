@@ -14,7 +14,7 @@ BEGIN
 
 DECLARE @maxKey int= (SELECT MAX(CancellationID) FROM DimCancellationReason)
 
-IF @CancellationKey is NULL RETURN @maxKey
+IF @CancellationKey is NULL or @CancellationKey='9' RETURN @maxKey
 IF (SELECT CASE WHEN COUNT(1)!=1 THEN 0 ELSE 1 END 
 FROM DimCancellationReason 
 WHERE CancellationReasonKey=@CancellationKey)=1  RETURN @maxKey

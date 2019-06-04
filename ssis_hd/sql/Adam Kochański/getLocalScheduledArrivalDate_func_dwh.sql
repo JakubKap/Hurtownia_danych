@@ -10,7 +10,14 @@ RETURNS int
 AS
 BEGIN
 
-if @TimezoneShiftDest is null or @TimezoneShiftOrigin is null return -1
+
+if @TimezoneShiftOrigin is null or @TimezoneShiftOrigin<-9998 or
+@TimezoneShiftDest is null or @TimezoneShiftDest<-9998 or
+@Year<0 or @Year is null or @Year=-9999 or
+@Month<0 or @Month is null or @Month=-9999 or @Month>12 or
+@DayOfMonth=-1 or @DayOfMonth is null or @DayOfMonth=-9999 or @DayOfMonth>31 or
+@CRSDepTime=-9999 or @CRSDepTime is null or
+@CRSElapsedTime is null or @CRSElapsedTime=-9999 return -1
 
 DECLARE @currID int=NULL
 
