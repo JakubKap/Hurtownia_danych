@@ -21,3 +21,4 @@ SET @DepMin=(((@MinuteShift+@DepMin)%60)+60)%60
 SET @currID =100*@DepHour+@DepMin
 
 RETURN @currID
+END
