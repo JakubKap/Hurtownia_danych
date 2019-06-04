@@ -5,7 +5,8 @@ RETURNS int
 AS
 BEGIN
 
-if @TimezoneShiftOrigin is null return -1
+if @TimezoneShiftOrigin is null or @TimezoneShiftOrigin=-9999
+or @DepTime is null or @DepTime=-9999 return -1
 
 DECLARE @currID int=NULL
 
