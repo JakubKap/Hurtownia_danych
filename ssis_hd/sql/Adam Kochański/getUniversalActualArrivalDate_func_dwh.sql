@@ -9,7 +9,7 @@ RETURNS int
 AS
 BEGIN
 
-if @TimezoneShiftOrigin is null return null
+if @TimezoneShiftOrigin is null return -1
 
 DECLARE @currID int=NULL
 

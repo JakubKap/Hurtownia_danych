@@ -9,7 +9,7 @@ ALTER FUNCTION dbo.getLocalActualArrivalDate(
 RETURNS int
 AS
 BEGIN
-if @TimezoneShiftDest is null or @TimezoneShiftOrigin is null return null
+if @TimezoneShiftDest is null or @TimezoneShiftOrigin is null return -1
 
 DECLARE @currID int=NULL
 
