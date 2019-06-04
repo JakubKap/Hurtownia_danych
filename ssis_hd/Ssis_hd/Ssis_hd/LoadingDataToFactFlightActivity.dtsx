@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToFactFlightActivity"
   DTS:PackageType="5"
-  DTS:VersionBuild="120"
-  DTS:VersionGUID="{D246C9F3-1F0A-4E28-9062-4FF4D6F17FE9}">
+  DTS:VersionBuild="125"
+  DTS:VersionGUID="{24582E29-EB33-470F-A92A-F864505B81C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1035,6 +1035,7 @@
       DTS:refId="Package\Clean Stage_Facts_LateAircraftDelay"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{375DEA13-07C3-41FB-AC2E-E82CD39DF2F8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1051,6 +1052,7 @@
       DTS:refId="Package\Deleting quotation marks from Stage_FacktFlightActivity"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{975c5b59-ab98-4ea8-8fc3-926616ec31de}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1147,7 +1149,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getAirlineId"
-          DTS:ThreadHint="19">
+          DTS:ThreadHint="7">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1174,7 +1176,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrAirportId"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="8">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1201,7 +1203,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrDelayGroup"
-          DTS:ThreadHint="16">
+          DTS:ThreadHint="9">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1215,7 +1217,7 @@
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ArrDelayGroup"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
+                SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -1228,7 +1230,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getArrTimeBLK"
-          DTS:ThreadHint="11">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1255,7 +1257,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getCancellationId"
-          DTS:ThreadHint="17">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1282,7 +1284,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepAirportId"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1309,7 +1311,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepDelayGroup"
-          DTS:ThreadHint="7">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1323,7 +1325,7 @@
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::DepDelayGroup"
                 SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
+                SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
@@ -1336,7 +1338,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDepTimeBlk"
-          DTS:ThreadHint="15">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1363,7 +1365,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getDifficultiesKey"
-          DTS:ThreadHint="20">
+          DTS:ThreadHint="6">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1408,7 +1410,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualArrivalDate"
-          DTS:ThreadHint="14">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1471,7 +1473,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualArrivalTime"
-          DTS:ThreadHint="21">
+          DTS:ThreadHint="11">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1480,7 +1482,7 @@
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
-                SQLTask:DtsVariableName="User::DwhLocalActualArrivalTime1" />
+                SQLTask:DtsVariableName="User::DwhLocalActualArrivalTime" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ArrTime"
@@ -1498,7 +1500,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualDepartureDate"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="12">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1549,7 +1551,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalActualDepartureTime"
-          DTS:ThreadHint="24">
+          DTS:ThreadHint="13">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1558,7 +1560,7 @@
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
-                SQLTask:DtsVariableName="User::DwhLocalActualDepartureTime1" />
+                SQLTask:DtsVariableName="User::DwhLocalActualDepartureTime" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::DepTime"
@@ -1576,7 +1578,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledArrivalDate"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="14">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1639,7 +1641,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledArrivalTime"
-          DTS:ThreadHint="23">
+          DTS:ThreadHint="15">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1666,7 +1668,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledDepartureDate"
-          DTS:ThreadHint="6">
+          DTS:ThreadHint="16">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1705,7 +1707,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getLocalScheduledDepartureTime"
-          DTS:ThreadHint="22">
+          DTS:ThreadHint="17">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1714,7 +1716,7 @@
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
-                SQLTask:DtsVariableName="User::DwhLocalScheduledDepartureTime1" />
+                SQLTask:DtsVariableName="User::DwhLocalScheduledDepartureTime" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::CrsDepTime"
@@ -1732,7 +1734,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftDest"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="10">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1759,7 +1761,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getTimezoneShiftOrigin"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1786,7 +1788,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalDate"
-          DTS:ThreadHint="12">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1843,7 +1845,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualArrivalTime"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="18">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1876,7 +1878,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureDate"
-          DTS:ThreadHint="18">
+          DTS:ThreadHint="20">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1933,7 +1935,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalActualDepartureTime"
-          DTS:ThreadHint="9">
+          DTS:ThreadHint="19">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1966,7 +1968,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalDate"
-          DTS:ThreadHint="10">
+          DTS:ThreadHint="22">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2023,7 +2025,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledArrivalTime"
-          DTS:ThreadHint="13">
+          DTS:ThreadHint="21">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2056,7 +2058,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureDate"
-          DTS:ThreadHint="8">
+          DTS:ThreadHint="23">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2107,7 +2109,7 @@
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="getUniversalScheduledDepartureTime"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="24">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2145,7 +2147,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{623D0002-4051-48C4-A630-91B5AE70A043}"
-              SQLTask:SqlStatementSource="INSERT INTO [dbo].[TempFactFlightActivity] ([LocalScheduledDepartureTime] ,[DepDelayGroup] ,[DifficultiesKey] ,[UniversalScheduledArrivalTime] ,[OperatingAirline] ,[UniversalActualArrivalTime] ,[UniversalActualArrivalDate] ,[LocalActualDepartureTime] ,[LocalScheduledDepartureDate] ,[UniversalScheduledDepartureTime] ,[LocalScheduledArrivalTime] ,[CancellationCode] ,[UniversalScheduledArrivalDate] ,[ArrAirport] ,[UniversalActualDepartureDate] ,[FlightDate] ,[UniversalActualDepartureTime] ,[DepAirport] ,[LocalActualDepartureDate] ,[LocalScheduledArrivalDate] ,[UniversalScheduledDepartureDate] ,[ArrTimeBLK] ,[DepTimeBLK] ,[LocalActualArrivalTime] ,[LocalActualArrivalDate] ,[TailNumber] ,[FlightNumber] ,[DepDelay] ,[DepDelayMinutes] ,[TaxiOut] ,[TaxiIn] ,[ArrDelay] ,[ArrDelayMinutes] ,[SchedElapsedTime] ,[ActualElapsedTime] ,[AirTime] ,[Flights] ,[Distance] ,[CarrierDelay] ,[WeatherDelay] ,[NASDelay] ,[SecurityDelay] ,[LateAircraftDelay], [ArrDelayGroup]) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[FactFlightActivity] ([LocalScheduledDepartureTime] ,[DepDelayGroup] ,[DifficultiesKey] ,[UniversalScheduledArrivalTime] ,[OperatingAirline] ,[UniversalActualArrivalTime] ,[UniversalActualArrivalDate] ,[LocalActualDepartureTime] ,[LocalScheduledDepartureDate] ,[UniversalScheduledDepartureTime] ,[LocalScheduledArrivalTime] ,[CancellationCode] ,[UniversalScheduledArrivalDate] ,[ArrAirport] ,[UniversalActualDepartureDate] ,[FlightDate] ,[UniversalActualDepartureTime] ,[DepAirport] ,[LocalActualDepartureDate] ,[LocalScheduledArrivalDate] ,[UniversalScheduledDepartureDate] ,[ArrTimeBLK] ,[DepTimeBLK] ,[LocalActualArrivalTime] ,[LocalActualArrivalDate] ,[TailNumber] ,[FlightNumber] ,[DepDelay] ,[DepDelayMinutes] ,[TaxiOut] ,[TaxiIn] ,[ArrDelay] ,[ArrDelayMinutes] ,[SchedElapsedTime] ,[ActualElapsedTime] ,[AirTime] ,[Flights] ,[Distance] ,[CarrierDelay] ,[WeatherDelay] ,[NASDelay] ,[SecurityDelay] ,[LateAircraftDelay], [ArrDelayGroup]) VALUES (? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,? ,?, ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="25"
                 SQLTask:DtsVariableName="User::TailNum"
@@ -2340,7 +2342,7 @@
                 SQLTask:ParameterSize="100" />
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="12"
-                SQLTask:DtsVariableName="User::DwhUniversalScheduledArrivalTime"
+                SQLTask:DtsVariableName="User::DwhUniversalScheduledArrivalDate"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="20"
                 SQLTask:ParameterSize="100" />
@@ -2731,356 +2733,356 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2D4D9C0F-0C1E-4DFC-8C66-33E2D96F5F6E}"
-          DTS:ObjectName="{2D4D9C0F-0C1E-4DFC-8C66-33E2D96F5F6E}"
+          DTS:DTSID="{C75B09CD-C9AD-4B51-9FDD-4AB6D939A2CC}"
+          DTS:ObjectName="{C75B09CD-C9AD-4B51-9FDD-4AB6D939A2CC}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::Year" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{52376A82-3CF7-4D6F-B83B-B602CA90350F}"
-          DTS:ObjectName="{52376A82-3CF7-4D6F-B83B-B602CA90350F}"
+          DTS:DTSID="{02E5612E-DCD1-4B9A-B248-99A9C9BADF0A}"
+          DTS:ObjectName="{02E5612E-DCD1-4B9A-B248-99A9C9BADF0A}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::Quarter" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6E11DFB6-A34B-4968-A38F-8CBE53976E64}"
-          DTS:ObjectName="{6E11DFB6-A34B-4968-A38F-8CBE53976E64}"
+          DTS:DTSID="{552C4048-7CBE-401C-A231-0E685231FECA}"
+          DTS:ObjectName="{552C4048-7CBE-401C-A231-0E685231FECA}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::Month" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{DFB2EB10-22D1-4DFA-86D4-533369D4B58D}"
-          DTS:ObjectName="{DFB2EB10-22D1-4DFA-86D4-533369D4B58D}"
+          DTS:DTSID="{84B46268-932D-4B49-B118-F3EE2F2A6CA4}"
+          DTS:ObjectName="{84B46268-932D-4B49-B118-F3EE2F2A6CA4}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::DayOfMonth" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{20AF75A4-5262-4692-BB5D-0FFC354AD383}"
-          DTS:ObjectName="{20AF75A4-5262-4692-BB5D-0FFC354AD383}"
+          DTS:DTSID="{18F5F015-9569-4AE8-A882-93C36C2B0F03}"
+          DTS:ObjectName="{18F5F015-9569-4AE8-A882-93C36C2B0F03}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::DayOfWeek" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{22D67C0D-CADD-4297-A5D4-B2DA8A8B8309}"
-          DTS:ObjectName="{22D67C0D-CADD-4297-A5D4-B2DA8A8B8309}"
+          DTS:DTSID="{4262312F-F712-489D-8AE7-3077936A6742}"
+          DTS:ObjectName="{4262312F-F712-489D-8AE7-3077936A6742}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::FlDate" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E8772F82-44DF-4AB4-A419-FEA011324EFF}"
-          DTS:ObjectName="{E8772F82-44DF-4AB4-A419-FEA011324EFF}"
+          DTS:DTSID="{5EF4EE55-54F8-483A-9049-F121C83D115E}"
+          DTS:ObjectName="{5EF4EE55-54F8-483A-9049-F121C83D115E}"
           DTS:ValueIndex="6"
           DTS:VariableName="User::OpUniqueCarrier" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{114D02F2-939C-4099-A3DA-9178D11598C5}"
-          DTS:ObjectName="{114D02F2-939C-4099-A3DA-9178D11598C5}"
+          DTS:DTSID="{84DFE2A6-1CA8-4FA9-AB51-459A92D3C715}"
+          DTS:ObjectName="{84DFE2A6-1CA8-4FA9-AB51-459A92D3C715}"
           DTS:ValueIndex="7"
           DTS:VariableName="User::OpCarrierAirlineId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C46BE81E-7DEF-41FC-9588-56AF89E42866}"
-          DTS:ObjectName="{C46BE81E-7DEF-41FC-9588-56AF89E42866}"
+          DTS:DTSID="{0DB5FA86-331D-440A-8AA9-EBE477642A0B}"
+          DTS:ObjectName="{0DB5FA86-331D-440A-8AA9-EBE477642A0B}"
           DTS:ValueIndex="8"
           DTS:VariableName="User::OpCarrier" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B2923D1B-18C2-47DF-81AB-66ADA3436D9C}"
-          DTS:ObjectName="{B2923D1B-18C2-47DF-81AB-66ADA3436D9C}"
+          DTS:DTSID="{477BC4D7-2E06-4AB9-BFF4-EE90C951B46E}"
+          DTS:ObjectName="{477BC4D7-2E06-4AB9-BFF4-EE90C951B46E}"
           DTS:ValueIndex="9"
           DTS:VariableName="User::TailNum" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C6057A96-8CEA-4335-8DF0-25F5E603AD5F}"
-          DTS:ObjectName="{C6057A96-8CEA-4335-8DF0-25F5E603AD5F}"
+          DTS:DTSID="{8C57D8D4-0B89-4670-BA5E-74EA3C1E0E14}"
+          DTS:ObjectName="{8C57D8D4-0B89-4670-BA5E-74EA3C1E0E14}"
           DTS:ValueIndex="10"
           DTS:VariableName="User::OpCarrierFlNum" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C1C9E189-BB3C-4C10-958D-7D01AACD9C83}"
-          DTS:ObjectName="{C1C9E189-BB3C-4C10-958D-7D01AACD9C83}"
+          DTS:DTSID="{EA53ED33-75CF-479C-9E11-AB78B498D02A}"
+          DTS:ObjectName="{EA53ED33-75CF-479C-9E11-AB78B498D02A}"
           DTS:ValueIndex="11"
           DTS:VariableName="User::OriginAirportId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B1A4BB7A-5E73-4502-BE54-7B747B3A985C}"
-          DTS:ObjectName="{B1A4BB7A-5E73-4502-BE54-7B747B3A985C}"
+          DTS:DTSID="{9F6A0864-2EFD-4206-B632-D83A61BD13FB}"
+          DTS:ObjectName="{9F6A0864-2EFD-4206-B632-D83A61BD13FB}"
           DTS:ValueIndex="12"
           DTS:VariableName="User::OriginAirportSeqId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{77D5134A-5E44-4050-9F2B-12510AF93908}"
-          DTS:ObjectName="{77D5134A-5E44-4050-9F2B-12510AF93908}"
+          DTS:DTSID="{254D7156-2547-4BB4-9306-56872293A63C}"
+          DTS:ObjectName="{254D7156-2547-4BB4-9306-56872293A63C}"
           DTS:ValueIndex="13"
           DTS:VariableName="User::Origin" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3D468CE3-E80C-4D21-BF06-8192E42BB1CE}"
-          DTS:ObjectName="{3D468CE3-E80C-4D21-BF06-8192E42BB1CE}"
+          DTS:DTSID="{FB07A865-5958-4E45-8EE0-5E51C57B329F}"
+          DTS:ObjectName="{FB07A865-5958-4E45-8EE0-5E51C57B329F}"
           DTS:ValueIndex="14"
           DTS:VariableName="User::OriginCityName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{9E672A6C-F4ED-4B9F-A36F-F546D6264072}"
-          DTS:ObjectName="{9E672A6C-F4ED-4B9F-A36F-F546D6264072}"
+          DTS:DTSID="{10DC32E7-AF42-4893-9F5B-13D45607D1CF}"
+          DTS:ObjectName="{10DC32E7-AF42-4893-9F5B-13D45607D1CF}"
           DTS:ValueIndex="15"
           DTS:VariableName="User::OriginStateAbr" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{ED422973-12F5-4DAD-85C5-40F7F629B3DC}"
-          DTS:ObjectName="{ED422973-12F5-4DAD-85C5-40F7F629B3DC}"
+          DTS:DTSID="{2A64D987-EDDD-4E6C-A99E-8698BD5B670B}"
+          DTS:ObjectName="{2A64D987-EDDD-4E6C-A99E-8698BD5B670B}"
           DTS:ValueIndex="16"
           DTS:VariableName="User::OriginStateFips" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5135F512-223B-4976-98CE-56EB682804A3}"
-          DTS:ObjectName="{5135F512-223B-4976-98CE-56EB682804A3}"
+          DTS:DTSID="{DA5B8121-5D91-49D3-AF89-21772AAB0F97}"
+          DTS:ObjectName="{DA5B8121-5D91-49D3-AF89-21772AAB0F97}"
           DTS:ValueIndex="17"
           DTS:VariableName="User::OriginStateNm" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{32BA2EE8-6BAC-4E17-9894-D883F1119D1C}"
-          DTS:ObjectName="{32BA2EE8-6BAC-4E17-9894-D883F1119D1C}"
+          DTS:DTSID="{60D0EB76-C456-40FA-8DD6-5838EE06D874}"
+          DTS:ObjectName="{60D0EB76-C456-40FA-8DD6-5838EE06D874}"
           DTS:ValueIndex="18"
           DTS:VariableName="User::OriginWac" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3545C170-46E4-4AEE-9E2C-5A7967639ED7}"
-          DTS:ObjectName="{3545C170-46E4-4AEE-9E2C-5A7967639ED7}"
+          DTS:DTSID="{7FC9A8BF-EAF5-49AB-BFE8-290FED7FE9BE}"
+          DTS:ObjectName="{7FC9A8BF-EAF5-49AB-BFE8-290FED7FE9BE}"
           DTS:ValueIndex="19"
           DTS:VariableName="User::DestAirportId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{AAB6C64A-996C-418E-B16E-C45D30DC7005}"
-          DTS:ObjectName="{AAB6C64A-996C-418E-B16E-C45D30DC7005}"
+          DTS:DTSID="{5FC924E9-089D-40C1-AB09-267945107A2A}"
+          DTS:ObjectName="{5FC924E9-089D-40C1-AB09-267945107A2A}"
           DTS:ValueIndex="20"
           DTS:VariableName="User::DestAirportSeqId" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{951F30A0-C6F9-4634-9C52-451043A7F333}"
-          DTS:ObjectName="{951F30A0-C6F9-4634-9C52-451043A7F333}"
+          DTS:DTSID="{78C1B11A-1A0A-4222-9D01-3E3E31709392}"
+          DTS:ObjectName="{78C1B11A-1A0A-4222-9D01-3E3E31709392}"
           DTS:ValueIndex="21"
           DTS:VariableName="User::Dest" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3A2CF67D-D2BA-4089-8744-327174334CC9}"
-          DTS:ObjectName="{3A2CF67D-D2BA-4089-8744-327174334CC9}"
+          DTS:DTSID="{EA734F45-A7E9-4AF3-9799-B1988C15CF1A}"
+          DTS:ObjectName="{EA734F45-A7E9-4AF3-9799-B1988C15CF1A}"
           DTS:ValueIndex="22"
           DTS:VariableName="User::DestCityName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6370C2C6-3B34-4C86-9A19-EC15FA29D9F6}"
-          DTS:ObjectName="{6370C2C6-3B34-4C86-9A19-EC15FA29D9F6}"
+          DTS:DTSID="{0A611C2A-2938-470A-9EEA-8C7833465FB1}"
+          DTS:ObjectName="{0A611C2A-2938-470A-9EEA-8C7833465FB1}"
           DTS:ValueIndex="23"
           DTS:VariableName="User::DestStateAbr" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{CD229190-EE9B-4D85-96A4-39EA137A6A19}"
-          DTS:ObjectName="{CD229190-EE9B-4D85-96A4-39EA137A6A19}"
+          DTS:DTSID="{E6B0C7F0-7108-4925-8B7D-CA21A8D2C353}"
+          DTS:ObjectName="{E6B0C7F0-7108-4925-8B7D-CA21A8D2C353}"
           DTS:ValueIndex="24"
           DTS:VariableName="User::DestStateFips" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{80D01B91-1B23-45D8-AECD-6CD361958F04}"
-          DTS:ObjectName="{80D01B91-1B23-45D8-AECD-6CD361958F04}"
+          DTS:DTSID="{8EDEF6FE-8C03-411D-9822-182FCC9C938D}"
+          DTS:ObjectName="{8EDEF6FE-8C03-411D-9822-182FCC9C938D}"
           DTS:ValueIndex="25"
           DTS:VariableName="User::DestStateNm" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3FF1C0E4-79B4-43DF-9665-E1A6C5B84FA9}"
-          DTS:ObjectName="{3FF1C0E4-79B4-43DF-9665-E1A6C5B84FA9}"
+          DTS:DTSID="{88A1B598-732A-4F2B-8522-9B5D863ECCB0}"
+          DTS:ObjectName="{88A1B598-732A-4F2B-8522-9B5D863ECCB0}"
           DTS:ValueIndex="26"
           DTS:VariableName="User::DestWac" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A8D2DB53-1568-4008-B767-9803AD1A4B23}"
-          DTS:ObjectName="{A8D2DB53-1568-4008-B767-9803AD1A4B23}"
+          DTS:DTSID="{BD14B70A-7A50-453D-9F03-0BEBF640B6E2}"
+          DTS:ObjectName="{BD14B70A-7A50-453D-9F03-0BEBF640B6E2}"
           DTS:ValueIndex="27"
           DTS:VariableName="User::CrsDepTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8D3E1FC4-0EFF-4C45-A67F-9F9FAA982E95}"
-          DTS:ObjectName="{8D3E1FC4-0EFF-4C45-A67F-9F9FAA982E95}"
+          DTS:DTSID="{B988D9E3-1989-4908-B6CD-8083F2D0544B}"
+          DTS:ObjectName="{B988D9E3-1989-4908-B6CD-8083F2D0544B}"
           DTS:ValueIndex="28"
           DTS:VariableName="User::DepTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D647E607-2BF6-4FD7-A3AA-DF0967C23350}"
-          DTS:ObjectName="{D647E607-2BF6-4FD7-A3AA-DF0967C23350}"
+          DTS:DTSID="{DBD5BDE0-5A54-4E62-8D65-7A2C7642FCFE}"
+          DTS:ObjectName="{DBD5BDE0-5A54-4E62-8D65-7A2C7642FCFE}"
           DTS:ValueIndex="29"
           DTS:VariableName="User::DepDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8DC106F0-9FC0-4ABE-9DE7-A308A1A0FF64}"
-          DTS:ObjectName="{8DC106F0-9FC0-4ABE-9DE7-A308A1A0FF64}"
+          DTS:DTSID="{0A231E03-C8E0-4EC3-B864-81E303C11D77}"
+          DTS:ObjectName="{0A231E03-C8E0-4EC3-B864-81E303C11D77}"
           DTS:ValueIndex="30"
           DTS:VariableName="User::DepDelayNew" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{9388F921-19F4-4893-949D-1B1F9A14ED9B}"
-          DTS:ObjectName="{9388F921-19F4-4893-949D-1B1F9A14ED9B}"
+          DTS:DTSID="{0F68A093-9DBD-414F-BAAA-898B1041483D}"
+          DTS:ObjectName="{0F68A093-9DBD-414F-BAAA-898B1041483D}"
           DTS:ValueIndex="31"
           DTS:VariableName="User::DepDel15" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{02D88928-9B42-46EE-AB60-610B3661D354}"
-          DTS:ObjectName="{02D88928-9B42-46EE-AB60-610B3661D354}"
+          DTS:DTSID="{04FBBCC3-D1BC-4DAA-88F0-1F78F2A6743D}"
+          DTS:ObjectName="{04FBBCC3-D1BC-4DAA-88F0-1F78F2A6743D}"
           DTS:ValueIndex="32"
           DTS:VariableName="User::DepDelayGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A72CCBDB-9CA1-4E5A-8397-FC10BB6B37F8}"
-          DTS:ObjectName="{A72CCBDB-9CA1-4E5A-8397-FC10BB6B37F8}"
+          DTS:DTSID="{1055C1B5-0FE3-4DA4-B86F-C4DEEEE95620}"
+          DTS:ObjectName="{1055C1B5-0FE3-4DA4-B86F-C4DEEEE95620}"
           DTS:ValueIndex="33"
           DTS:VariableName="User::DepTimeBlk" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{7AF26AE9-D941-4572-AC7F-9E5A858107FF}"
-          DTS:ObjectName="{7AF26AE9-D941-4572-AC7F-9E5A858107FF}"
+          DTS:DTSID="{67AD9DA4-647C-40A1-8BDC-7C0B1C492FA3}"
+          DTS:ObjectName="{67AD9DA4-647C-40A1-8BDC-7C0B1C492FA3}"
           DTS:ValueIndex="34"
           DTS:VariableName="User::TaxiOut" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0A005B01-3571-482C-9584-1D1C7BFA63C9}"
-          DTS:ObjectName="{0A005B01-3571-482C-9584-1D1C7BFA63C9}"
+          DTS:DTSID="{64CD0122-7A0C-4F41-8777-45790D67337A}"
+          DTS:ObjectName="{64CD0122-7A0C-4F41-8777-45790D67337A}"
           DTS:ValueIndex="35"
           DTS:VariableName="User::WheelsOff" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FA70F878-7A94-4B97-A05C-9C8B8F5A6506}"
-          DTS:ObjectName="{FA70F878-7A94-4B97-A05C-9C8B8F5A6506}"
+          DTS:DTSID="{321B60D6-9552-41EB-9594-0DA2F1B9D217}"
+          DTS:ObjectName="{321B60D6-9552-41EB-9594-0DA2F1B9D217}"
           DTS:ValueIndex="36"
           DTS:VariableName="User::WheelsOn" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6BA23950-2CB6-4548-A92C-FCDD0C5488A9}"
-          DTS:ObjectName="{6BA23950-2CB6-4548-A92C-FCDD0C5488A9}"
+          DTS:DTSID="{D57FB4E2-717F-4CDC-B0AE-0DD60BD9A83B}"
+          DTS:ObjectName="{D57FB4E2-717F-4CDC-B0AE-0DD60BD9A83B}"
           DTS:ValueIndex="37"
           DTS:VariableName="User::TaxiIn" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{85F537A0-6179-4EE4-975A-B1485FDBAA43}"
-          DTS:ObjectName="{85F537A0-6179-4EE4-975A-B1485FDBAA43}"
+          DTS:DTSID="{C77FC664-5D70-4007-A9B5-70F929E827D8}"
+          DTS:ObjectName="{C77FC664-5D70-4007-A9B5-70F929E827D8}"
           DTS:ValueIndex="38"
           DTS:VariableName="User::CrsArrTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D1D67B80-6734-4713-95FB-0BF7DA6A9FAF}"
-          DTS:ObjectName="{D1D67B80-6734-4713-95FB-0BF7DA6A9FAF}"
+          DTS:DTSID="{E8745839-4CB9-4B02-A966-E78F1EE7FA7A}"
+          DTS:ObjectName="{E8745839-4CB9-4B02-A966-E78F1EE7FA7A}"
           DTS:ValueIndex="39"
           DTS:VariableName="User::ArrTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C645B4CF-32E1-42FF-B177-4307DF5B2978}"
-          DTS:ObjectName="{C645B4CF-32E1-42FF-B177-4307DF5B2978}"
+          DTS:DTSID="{C0B6C6BD-65D5-49AF-851A-B95C8D3400DB}"
+          DTS:ObjectName="{C0B6C6BD-65D5-49AF-851A-B95C8D3400DB}"
           DTS:ValueIndex="40"
           DTS:VariableName="User::ArrDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{009747C7-58BD-4301-B71B-1E0CC8C8232A}"
-          DTS:ObjectName="{009747C7-58BD-4301-B71B-1E0CC8C8232A}"
+          DTS:DTSID="{92FBEFED-FF0C-444C-8859-CD6424D2DC77}"
+          DTS:ObjectName="{92FBEFED-FF0C-444C-8859-CD6424D2DC77}"
           DTS:ValueIndex="41"
           DTS:VariableName="User::ArrDelayNew" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{390B6995-857C-420E-9621-B0C25EC9C9A9}"
-          DTS:ObjectName="{390B6995-857C-420E-9621-B0C25EC9C9A9}"
+          DTS:DTSID="{4ED1A601-607F-41E1-B13B-59FBAE72EDE6}"
+          DTS:ObjectName="{4ED1A601-607F-41E1-B13B-59FBAE72EDE6}"
           DTS:ValueIndex="42"
           DTS:VariableName="User::ArrDel15" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{DB9C516A-1F31-4550-A4B1-ED76DFFD3474}"
-          DTS:ObjectName="{DB9C516A-1F31-4550-A4B1-ED76DFFD3474}"
+          DTS:DTSID="{978F6FD7-BD52-4D35-8B02-830BFFEC4D08}"
+          DTS:ObjectName="{978F6FD7-BD52-4D35-8B02-830BFFEC4D08}"
           DTS:ValueIndex="43"
           DTS:VariableName="User::ArrDelayGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{54614850-6814-4D87-92BD-239FE4BF9F77}"
-          DTS:ObjectName="{54614850-6814-4D87-92BD-239FE4BF9F77}"
+          DTS:DTSID="{DE547948-40C8-41BF-86B7-FB65E448A26D}"
+          DTS:ObjectName="{DE547948-40C8-41BF-86B7-FB65E448A26D}"
           DTS:ValueIndex="44"
           DTS:VariableName="User::ArrTimeBlk" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{33ED4310-3F2C-48B4-818F-EF9AD3B54087}"
-          DTS:ObjectName="{33ED4310-3F2C-48B4-818F-EF9AD3B54087}"
+          DTS:DTSID="{4C0A5448-3C07-433D-954F-A80365451FDF}"
+          DTS:ObjectName="{4C0A5448-3C07-433D-954F-A80365451FDF}"
           DTS:ValueIndex="45"
           DTS:VariableName="User::Cancelled" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D6646CD4-6FE2-4B96-9769-42073B949B90}"
-          DTS:ObjectName="{D6646CD4-6FE2-4B96-9769-42073B949B90}"
+          DTS:DTSID="{6B2B3973-0F3A-43A9-9AA4-5C61AB08AF2E}"
+          DTS:ObjectName="{6B2B3973-0F3A-43A9-9AA4-5C61AB08AF2E}"
           DTS:ValueIndex="46"
           DTS:VariableName="User::CancellationCode" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FA75F92C-A4E0-4562-B154-9B48FA6AEDB3}"
-          DTS:ObjectName="{FA75F92C-A4E0-4562-B154-9B48FA6AEDB3}"
+          DTS:DTSID="{D1F6BD4C-373D-4AB0-8201-0C160EB66239}"
+          DTS:ObjectName="{D1F6BD4C-373D-4AB0-8201-0C160EB66239}"
           DTS:ValueIndex="47"
           DTS:VariableName="User::Diverted" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{190A1E77-BA10-4FB4-A681-3ACD7FFE3408}"
-          DTS:ObjectName="{190A1E77-BA10-4FB4-A681-3ACD7FFE3408}"
+          DTS:DTSID="{D0F5B0DB-2E70-4475-9891-510973EBF669}"
+          DTS:ObjectName="{D0F5B0DB-2E70-4475-9891-510973EBF669}"
           DTS:ValueIndex="48"
           DTS:VariableName="User::CrsElapsedTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{14DE2403-3CDC-45E0-B175-52DBC6C39C95}"
-          DTS:ObjectName="{14DE2403-3CDC-45E0-B175-52DBC6C39C95}"
+          DTS:DTSID="{34850058-DEBF-477C-928E-EE4C77899C1F}"
+          DTS:ObjectName="{34850058-DEBF-477C-928E-EE4C77899C1F}"
           DTS:ValueIndex="49"
           DTS:VariableName="User::ActualElapsedTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{527CB349-3C9D-44DC-8D95-93D271C451C1}"
-          DTS:ObjectName="{527CB349-3C9D-44DC-8D95-93D271C451C1}"
+          DTS:DTSID="{E0EB1F34-77BE-4C44-9BBF-39A5C49A7330}"
+          DTS:ObjectName="{E0EB1F34-77BE-4C44-9BBF-39A5C49A7330}"
           DTS:ValueIndex="50"
           DTS:VariableName="User::AirTime" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{9022FC74-324E-462D-9B44-F9EA5983041C}"
-          DTS:ObjectName="{9022FC74-324E-462D-9B44-F9EA5983041C}"
+          DTS:DTSID="{C3E41314-26A1-425F-8EED-8E43E68DC7E0}"
+          DTS:ObjectName="{C3E41314-26A1-425F-8EED-8E43E68DC7E0}"
           DTS:ValueIndex="51"
           DTS:VariableName="User::Flights" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0CC8FA60-49F8-463D-9225-37A0AC340700}"
-          DTS:ObjectName="{0CC8FA60-49F8-463D-9225-37A0AC340700}"
+          DTS:DTSID="{A5B74F67-4533-43A1-B5D4-AF3E7DC33588}"
+          DTS:ObjectName="{A5B74F67-4533-43A1-B5D4-AF3E7DC33588}"
           DTS:ValueIndex="52"
           DTS:VariableName="User::Distance" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{BE1F7F6A-3F0F-4903-AD96-7CE88CC8E78A}"
-          DTS:ObjectName="{BE1F7F6A-3F0F-4903-AD96-7CE88CC8E78A}"
+          DTS:DTSID="{8FE3A47F-D5FC-4B5D-8B75-40F990F731C8}"
+          DTS:ObjectName="{8FE3A47F-D5FC-4B5D-8B75-40F990F731C8}"
           DTS:ValueIndex="53"
           DTS:VariableName="User::DistanceGroup" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{ECDFA551-6151-42FB-9178-6DDF4B6E8A56}"
-          DTS:ObjectName="{ECDFA551-6151-42FB-9178-6DDF4B6E8A56}"
+          DTS:DTSID="{841F972D-7DAC-4941-9714-6C90461465A4}"
+          DTS:ObjectName="{841F972D-7DAC-4941-9714-6C90461465A4}"
           DTS:ValueIndex="54"
           DTS:VariableName="User::CarrierDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E490FC02-6235-4B65-A59E-948DE125C4F6}"
-          DTS:ObjectName="{E490FC02-6235-4B65-A59E-948DE125C4F6}"
+          DTS:DTSID="{0465F329-CFA3-415C-8E41-28CFBC61609C}"
+          DTS:ObjectName="{0465F329-CFA3-415C-8E41-28CFBC61609C}"
           DTS:ValueIndex="55"
           DTS:VariableName="User::WeatherDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6F92C138-3757-4D94-8000-0BA3325BFBC5}"
-          DTS:ObjectName="{6F92C138-3757-4D94-8000-0BA3325BFBC5}"
+          DTS:DTSID="{CE0D0B2E-CEA9-4557-801A-716BA06CF478}"
+          DTS:ObjectName="{CE0D0B2E-CEA9-4557-801A-716BA06CF478}"
           DTS:ValueIndex="56"
           DTS:VariableName="User::NasDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{31D107AD-13CC-4766-AF36-2C91478B7FEE}"
-          DTS:ObjectName="{31D107AD-13CC-4766-AF36-2C91478B7FEE}"
+          DTS:DTSID="{1BC99F8B-88AD-4DA0-AFA6-474E74433C7F}"
+          DTS:ObjectName="{1BC99F8B-88AD-4DA0-AFA6-474E74433C7F}"
           DTS:ValueIndex="57"
           DTS:VariableName="User::SecurityDelay" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3D7D570C-A834-4C4C-94AE-781B21E3B05A}"
-          DTS:ObjectName="{3D7D570C-A834-4C4C-94AE-781B21E3B05A}"
+          DTS:DTSID="{32255F35-E86E-4B5A-9542-6F53AC90143E}"
+          DTS:ObjectName="{32255F35-E86E-4B5A-9542-6F53AC90143E}"
           DTS:ValueIndex="58"
           DTS:VariableName="User::LateAircraftDelay" />
       </DTS:ForEachVariableMappings>
@@ -3110,6 +3112,7 @@
       DTS:refId="Package\Updating Stage_Facts"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{D7BD2DF3-AA2B-463C-8496-8C465F072B9F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -3170,15 +3173,15 @@
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="250.666666666667,42"
+          Size="251,42"
           Id="Package\Clean Stage_Facts_LateAircraftDelay"
           TopLeft="310.499998472631,66" />
         <NodeLayout
-          Size="342.666666666667,42"
+          Size="343,42"
           Id="Package\Deleting quotation marks from Stage_FacktFlightActivity"
           TopLeft="275.499998472631,0" />
         <NodeLayout
-          Size="133.333333333334,42"
+          Size="133,42"
           Id="Package\Foreach row\getAirlineId"
           TopLeft="19.2499998323619,106.383331895968" />
         <NodeLayout
@@ -3186,15 +3189,15 @@
           Id="Package\Foreach row\getArrAirportId"
           TopLeft="11.3333334326744,207.149999407232" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
+          Size="149,43"
           Id="Package\Foreach row\getArrDelayGroup"
-          TopLeft="8.76388884025315,255.961114002632" />
+          TopLeft="10.7638888402531,261.961114002632" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
+          Size="149,43"
           Id="Package\Foreach row\getArrTimeBLK"
           TopLeft="866.749987166376,158.100004641414" />
         <NodeLayout
-          Size="161.333333333334,42"
+          Size="161,42"
           Id="Package\Foreach row\getCancellationId"
           TopLeft="853.208320701495,251.266669642131" />
         <NodeLayout
@@ -3202,75 +3205,91 @@
           Id="Package\Foreach row\getDepAirportId"
           TopLeft="8.20833329297601,159.833332442244" />
         <NodeLayout
-          Size="168,42.6666666666667"
+          Size="168,43"
           Id="Package\Foreach row\getDepDelayGroup"
-          TopLeft="12.3749998975545,306.516668654184" />
+          TopLeft="10.3749998975545,318.516668654184" />
         <NodeLayout
-          Size="150.666666666667,42.6666666666667"
+          Size="151,43"
           Id="Package\Foreach row\getDepTimeBlk"
           TopLeft="864.666653864086,201.433337199887" />
         <NodeLayout
-          Size="160,42.6666666666667"
+          Size="160,43"
           Id="Package\Foreach row\getDifficultiesKey"
           TopLeft="864.791653382903,111.433330691059" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getLocalActualArrivalDate"
           TopLeft="495.569437141841,253.127780708041" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="201,43"
+          Id="Package\Foreach row\getLocalActualArrivalTime"
+          TopLeft="308.208328822628,254.516669584016" />
+        <NodeLayout
+          Size="179,43"
           Id="Package\Foreach row\getLocalActualDepartureDate"
           TopLeft="491.402770537263,204.016670475105" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="219,43"
+          Id="Package\Foreach row\getLocalActualDepartureTime"
+          TopLeft="302.374995576218,206.850003769696" />
+        <NodeLayout
+          Size="179,43"
           Id="Package\Foreach row\getLocalScheduledArrivalDate"
           TopLeft="495.569437141841,157.794449079401" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="220,43"
+          Id="Package\Foreach row\getLocalScheduledArrivalTime"
+          TopLeft="319.874995315448,160.916671257715" />
+        <NodeLayout
+          Size="179,43"
           Id="Package\Foreach row\getLocalScheduledDepartureDate"
           TopLeft="496.124992689118,107.816672195295" />
         <NodeLayout
-          Size="162.666666666667,42"
+          Size="237,43"
+          Id="Package\Foreach row\getLocalScheduledDepartureTime"
+          TopLeft="329.874995166436,115.850005396903" />
+        <NodeLayout
+          Size="163,42"
           Id="Package\Foreach row\getTimezoneShiftDest"
           TopLeft="400.291660783812,21.1666737566393" />
         <NodeLayout
-          Size="162.666666666667,42"
+          Size="163,42"
           Id="Package\Foreach row\getTimezoneShiftOrigin"
           TopLeft="198.208330461756,30.2500069156293" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualArrivalDate"
           TopLeft="675.083323355765,251.683336289425" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualArrivalTime"
           TopLeft="161.333331011236,255.583336219689" />
         <NodeLayout
-          Size="234.666666666667,42"
+          Size="235,42"
           Id="Package\Foreach row\getUniversalActualDepartureDate"
           TopLeft="678.208323309199,205.100003789067" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalActualDepartureTime"
           TopLeft="161.124997681007,205.750003777445" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledArrivalDate"
           TopLeft="680.291656611488,156.350004660785" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledArrivalTime"
           TopLeft="166.958330927417,157.216671311955" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledDepartureDate"
           TopLeft="678.416657185803,109.766672160426" />
         <NodeLayout
-          Size="178.666666666667,42.6666666666667"
+          Size="179,43"
           Id="Package\Foreach row\getUniversalScheduledDepartureTime"
           TopLeft="164.45833096467,108.683338846465" />
         <NodeLayout
-          Size="258.666666666667,42.6666666666667"
+          Size="259,43"
           Id="Package\Foreach row\Insert row into Dwh_FactFlightActivity"
           TopLeft="151.249999906868,409.249998314679" />
         <EdgeLayout
@@ -4181,30 +4200,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 33]"
-          TopLeft="83.4305555069198,298.627780669299">
+          TopLeft="85.2638888402531,304.961114002632">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="84.3527777332815,110.62221764538"
+              EndConnector="90.0661110666148,104.288884312047"
               Start="0,0"
-              End="84.3527777332815,103.12221764538">
+              End="90.0661110666148,96.7888843120469">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,94.0836847495601" />
+                    End="0,83.9372998984899" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,94.0836847495601"
-                    Point2="0,98.0836847495601"
-                    Point3="4,98.0836847495601" />
+                    Point1="0,83.9372998984899"
+                    Point2="0,87.9372998984899"
+                    Point3="4,87.9372998984899" />
                   <mssgle:LineSegment
-                    End="80.3527777332815,98.0836847495601" />
+                    End="86.0661110666148,87.9372998984899" />
                   <mssgle:CubicBezierSegment
-                    Point1="80.3527777332815,98.0836847495601"
-                    Point2="84.3527777332815,98.0836847495601"
-                    Point3="84.3527777332815,102.08368474956" />
+                    Point1="86.0661110666148,87.9372998984899"
+                    Point2="90.0661110666148,87.9372998984899"
+                    Point3="90.0661110666148,91.9372998984899" />
                   <mssgle:LineSegment
-                    End="84.3527777332815,103.12221764538" />
+                    End="90.0661110666148,96.7888843120469" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4215,30 +4234,166 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach row.PrecedenceConstraints[Constraint 34]"
-          TopLeft="96.3749998975545,349.183335320851">
+          TopLeft="94.3749998975545,361.516668654184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="118.557539691853,60.0666629938283"
+              EndConnector="111.075000009313,47.7333296604949"
               Start="0,0"
-              End="118.557539691853,52.5666629938283">
+              End="111.075000009313,40.2333296604949">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.2486159600093" />
+                    End="0,29.6497887372569" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.2486159600093"
-                    Point2="0,40.2486159600093"
-                    Point3="4,40.2486159600093" />
+                    Point1="0,29.6497887372569"
+                    Point2="0,33.6497887372569"
+                    Point3="4,33.6497887372569" />
                   <mssgle:LineSegment
-                    End="114.557539691853,40.2486159600093" />
+                    End="107.075000009313,33.6497887372569" />
                   <mssgle:CubicBezierSegment
-                    Point1="114.557539691853,40.2486159600093"
-                    Point2="118.557539691853,40.2486159600093"
-                    Point3="118.557539691853,44.2486159600093" />
+                    Point1="107.075000009313,33.6497887372569"
+                    Point2="111.075000009313,33.6497887372569"
+                    Point3="111.075000009313,37.6497887372569" />
                   <mssgle:LineSegment
-                    End="118.557539691853,52.5666629938283" />
+                    End="111.075000009313,40.2333296604949" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 35]"
+          TopLeft="408.541662155961,297.183336250683">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-139.352268309699,112.066662063996"
+              Start="0,0"
+              End="-139.352268309699,104.566662063996">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.6152590305312" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.6152590305312"
+                    Point2="0,58.6152590305312"
+                    Point3="-4,58.6152590305312" />
+                  <mssgle:LineSegment
+                    End="-135.352268309699,58.6152590305312" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-135.352268309699,58.6152590305312"
+                    Point2="-139.352268309699,58.6152590305312"
+                    Point3="-139.352268309699,62.6152590305312" />
+                  <mssgle:LineSegment
+                    End="-139.352268309699,104.566662063996" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 36]"
+          TopLeft="411.708328909551,249.516670436363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-136.574271031669,159.733327878316"
+              Start="0,0"
+              End="-136.574271031669,152.233327878316">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5854062492042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.5854062492042"
+                    Point2="0,81.5854062492042"
+                    Point3="-4,81.5854062492042" />
+                  <mssgle:LineSegment
+                    End="-132.574271031669,81.5854062492042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-132.574271031669,81.5854062492042"
+                    Point2="-136.574271031669,81.5854062492042"
+                    Point3="-136.574271031669,85.5854062492042" />
+                  <mssgle:LineSegment
+                    End="-136.574271031669,152.233327878316" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 37]"
+          TopLeft="429.874995315448,203.583337924381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-149.291662075246,205.666660390298"
+              Start="0,0"
+              End="-149.291662075246,198.166660390298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.8333301951488" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,98.8333301951488"
+                    Point2="0,102.833330195149"
+                    Point3="-4,102.833330195149" />
+                  <mssgle:LineSegment
+                    End="-145.291662075246,102.833330195149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-145.291662075246,102.833330195149"
+                    Point2="-149.291662075246,102.833330195149"
+                    Point3="-149.291662075246,106.833330195149" />
+                  <mssgle:LineSegment
+                    End="-149.291662075246,198.166660390298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach row.PrecedenceConstraints[Constraint 38]"
+          TopLeft="448.541661833103,158.51667206357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.944995259568,250.733326251109"
+              Start="0,0"
+              End="-162.944995259568,243.233326251109">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.844473540568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,123.844473540568"
+                    Point2="0,127.844473540568"
+                    Point3="-4,127.844473540568" />
+                  <mssgle:LineSegment
+                    End="-158.944995259568,127.844473540568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.944995259568,127.844473540568"
+                    Point2="-162.944995259568,127.844473540568"
+                    Point3="-162.944995259568,131.844473540568" />
+                  <mssgle:LineSegment
+                    End="-162.944995259568,243.233326251109" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4427,171 +4582,19 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="237.333333333334,42.6666666666667"
-          Id="Package\Foreach row\getLocalScheduledDepartureTime"
-          TopLeft="329.874995166436,115.850005396903" />
-        <NodeLayout
-          Size="220,42.6666666666667"
-          Id="Package\Foreach row\getLocalScheduledArrivalTime"
-          TopLeft="319.874995315448,160.916671257715" />
-        <NodeLayout
-          Size="218.666666666667,42.6666666666667"
-          Id="Package\Foreach row\getLocalActualDepartureTime"
-          TopLeft="302.374995576218,206.850003769696" />
-        <NodeLayout
-          Size="200.666666666667,42.6666666666667"
-          Id="Package\Foreach row\getLocalActualArrivalTime"
-          TopLeft="308.208328822628,254.516669584016" />
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 35]"
-          TopLeft="408.541662155961,297.183336250683">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-139.352268309699,112.066662063996"
-              Start="0,0"
-              End="-139.352268309699,104.566662063996">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.6152590305312" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.6152590305312"
-                    Point2="0,58.6152590305312"
-                    Point3="-4,58.6152590305312" />
-                  <mssgle:LineSegment
-                    End="-135.352268309699,58.6152590305312" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-135.352268309699,58.6152590305312"
-                    Point2="-139.352268309699,58.6152590305312"
-                    Point3="-139.352268309699,62.6152590305312" />
-                  <mssgle:LineSegment
-                    End="-139.352268309699,104.566662063996" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 36]"
-          TopLeft="411.708328909551,249.516670436363">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-136.574271031669,159.733327878316"
-              Start="0,0"
-              End="-136.574271031669,152.233327878316">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.5854062492042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,77.5854062492042"
-                    Point2="0,81.5854062492042"
-                    Point3="-4,81.5854062492042" />
-                  <mssgle:LineSegment
-                    End="-132.574271031669,81.5854062492042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-132.574271031669,81.5854062492042"
-                    Point2="-136.574271031669,81.5854062492042"
-                    Point3="-136.574271031669,85.5854062492042" />
-                  <mssgle:LineSegment
-                    End="-136.574271031669,152.233327878316" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 37]"
-          TopLeft="429.874995315448,203.583337924381">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-149.291662075246,205.666660390298"
-              Start="0,0"
-              End="-149.291662075246,198.166660390298">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,98.8333301951488" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,98.8333301951488"
-                    Point2="0,102.833330195149"
-                    Point3="-4,102.833330195149" />
-                  <mssgle:LineSegment
-                    End="-145.291662075246,102.833330195149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-145.291662075246,102.833330195149"
-                    Point2="-149.291662075246,102.833330195149"
-                    Point3="-149.291662075246,106.833330195149" />
-                  <mssgle:LineSegment
-                    End="-149.291662075246,198.166660390298" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach row.PrecedenceConstraints[Constraint 38]"
-          TopLeft="448.541661833103,158.51667206357">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-162.944995259568,250.733326251109"
-              Start="0,0"
-              End="-162.944995259568,243.233326251109">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,123.844473540568" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,123.844473540568"
-                    Point2="0,127.844473540568"
-                    Point3="-4,127.844473540568" />
-                  <mssgle:LineSegment
-                    End="-158.944995259568,127.844473540568" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-158.944995259568,127.844473540568"
-                    Point2="-162.944995259568,127.844473540568"
-                    Point3="-162.944995259568,131.844473540568" />
-                  <mssgle:LineSegment
-                    End="-162.944995259568,243.233326251109" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1032.66666666667,612"
-          Size="1032.66666666667,654.666666666667"
+          PanelSize="1033,624"
+          Size="1033,667"
           Id="Package\Foreach row"
           TopLeft="29.8333334699273,347.750001220405" />
         <NodeLayout
-          Size="269.333333333334,42"
+          Size="269,42"
           Id="Package\Select row from Stage_FactFlightActivity"
           TopLeft="357.499998472631,260" />
         <NodeLayout
-          Size="181.333333333334,42"
+          Size="181,42"
           Id="Package\Updating Stage_Facts"
           TopLeft="349,171" />
         <EdgeLayout
@@ -4630,13 +4633,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="492.166665139298,302">
+          TopLeft="491.999998472631,302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.0000016639631,45.750001220405"
+              EndConnector="54.3333349972963,45.750001220405"
               Start="0,0"
-              End="54.0000016639631,38.250001220405">
+              End="54.3333349972963,38.250001220405">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4647,13 +4650,13 @@
                     Point2="0,22.8750006102025"
                     Point3="4,22.8750006102025" />
                   <mssgle:LineSegment
-                    End="50.0000016639631,22.8750006102025" />
+                    End="50.3333349972963,22.8750006102025" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.0000016639631,22.8750006102025"
-                    Point2="54.0000016639631,22.8750006102025"
-                    Point3="54.0000016639631,26.8750006102025" />
+                    Point1="50.3333349972963,22.8750006102025"
+                    Point2="54.3333349972963,22.8750006102025"
+                    Point3="54.3333349972963,26.8750006102025" />
                   <mssgle:LineSegment
-                    End="54.0000016639631,38.250001220405" />
+                    End="54.3333349972963,38.250001220405" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
