@@ -33,7 +33,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>fHjil0hup78/1cuWbEWSSVSVFRU=05.06.2019 20:46:0105.06.2019 18:29:27</TimeStamp>
+        <TimeStamp>DgugGvZ+VePnVZJ5O7CUeidM6gc=05.06.2019 22:18:4105.06.2019 18:29:27</TimeStamp>
         <ID>
           <String>Dim Time</String>
         </ID>
@@ -89,7 +89,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>trk2LDlXz2g14pWyHMX8b8Tmxwo=05.06.2019 20:56:4805.06.2019 18:29:27KFtvxhCP1McCvzUka2tJsohERBM=05.06.2019 18:29:2705.06.2019 18:29:27</TimeStamp>
+        <TimeStamp>rkd06ADB+e3ePp10Df5Eh+GcPA0=05.06.2019 22:16:3205.06.2019 18:29:27KFtvxhCP1McCvzUka2tJsohERBM=05.06.2019 22:11:3505.06.2019 18:29:27</TimeStamp>
         <ID>
           <String>Air Stats DWH</String>
         </ID>
@@ -106,5 +106,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2019-06-05T18:57:02.723333Z</LastDeployed>
+  <LastDeployed>2019-06-05T20:18:55.423333Z</LastDeployed>
 </DeploymentSnapshot>
