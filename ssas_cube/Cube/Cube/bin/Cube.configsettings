@@ -3,7 +3,7 @@
     <DataSources>
       <DataSource>
         <ID>Air Stats DWH</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=(LocalDb)\AirStatsDW;Integrated Security=SSPI;Initial Catalog=AirStatsDWH</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11.1;Data Source=DESKTOP-ES0NV97;Integrated Security=SSPI;Initial Catalog=AirStatsDWH</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
           <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>

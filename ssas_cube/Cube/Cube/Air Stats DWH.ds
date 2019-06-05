@@ -3,7 +3,7 @@
   <Name>AirStatsDWH</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
-  <ConnectionString>Provider=SQLNCLI11.1;Data Source=(LocalDb)\AirStatsDW;Integrated Security=SSPI;Initial Catalog=AirStatsDWH</ConnectionString>
+  <ConnectionString>Provider=SQLNCLI11.1;Data Source=DESKTOP-ES0NV97;Integrated Security=SSPI;Initial Catalog=AirStatsDWH</ConnectionString>
   <ConnectionStringSecurity>Unchanged</ConnectionStringSecurity>
   <ImpersonationInfo>
     <ImpersonationMode>Default</ImpersonationMode>
