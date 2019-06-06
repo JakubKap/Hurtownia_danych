@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1353" scrolltop="4004" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="55" x="18027" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1353" scrolltop="10249" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="55" x="14446" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01ee0000900180380100065461686f6d61" />
             </font>
@@ -903,7 +903,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>4004</Value>
+      <Value>10249</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -2061,6 +2061,80 @@
             </Source>
           </Source>
         </Measure>
+        <Measure dwd:design-time-name="213ea9bb-3ea9-4b28-af8f-ab4e122c52f5">
+          <ID>Arr Delay Count</ID>
+          <Name>Arr Delay Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="7c8868f2-623e-44c6-9c18-f4ed506dd9e9">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="4a72cd07-d906-4e33-ac2d-ebb4d747022a">
+              <TableID>dbo_FactFlightActivity</TableID>
+              <ColumnID>ArrDelay</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5e90bbc0-4bdc-4c36-83a7-ea5cdd311f48">
+          <ID>Fact Flight Activity Count 2</ID>
+          <Name>FlightsCount</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="90873437-1a4e-4f67-bf06-63d405dc74fa">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="db05f2b8-781d-4b82-9074-8ef4489c5085">
+              <TableID>dbo_FactFlightActivity</TableID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="67fea9d2-967c-4232-b3bc-83ec7dc6cf88">
+          <ID>Maximum Dep Delay</ID>
+          <Name>Maximum Dep Delay</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <Source dwd:design-time-name="4a2a64de-0512-431a-8adb-f72ee191c0fc">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ba527004-6246-42e4-b3f6-0cf0f751e684">
+              <TableID>dbo_FactFlightActivity</TableID>
+              <ColumnID>DepDelay</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d750d4c1-2412-42e7-beb2-6366d4b0f125">
+          <ID>Maximum Arr Delay</ID>
+          <Name>Maximum Arr Delay</Name>
+          <AggregateFunction>Max</AggregateFunction>
+          <Source dwd:design-time-name="6c64bc07-461d-4ee0-be93-c90eac9f54ca">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="83804ca0-5a03-4b7f-beb2-941736280dac">
+              <TableID>dbo_FactFlightActivity</TableID>
+              <ColumnID>ArrDelay</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c00885a2-376a-4d21-b970-00da4aac04fe">
+          <ID>IS DELAYED Count</ID>
+          <Name>IS DELAYED Count</Name>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="9e1c0452-cba0-4141-bae6-e27f9e637513">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="b32a0d07-85ea-4953-b369-8eab620f73be">
+              <TableID>dbo_FactFlightActivity</TableID>
+              <ColumnID>IS_DELAYED</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="fbba9618-af77-473f-a4af-0a455460b66a">
+          <ID>Dep Delay Group Count</ID>
+          <Name>Dep Delay Group Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <DataType>Integer</DataType>
+          <Source dwd:design-time-name="f0965e1f-2121-462b-bf9c-a37e8cd54a9c">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="e8b001c0-82c5-4c3c-aefd-6faf473ec7f7">
+              <TableID>dbo_FactFlightActivity</TableID>
+              <ColumnID>DepDelayGroup</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
@@ -2567,13 +2641,22 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;  
+CALCULATE;     
 CREATE MEMBER CURRENTCUBE.[Measures].[AvarageDepDelay]
  AS [Measures].[Dep Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ;  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';     
 CREATE MEMBER CURRENTCUBE.[Measures].[Avarage]
  AS [DepDelayAvg], 
-VISIBLE = 1; </Text>
+VISIBLE = 1;   
+CREATE MEMBER CURRENTCUBE.[Measures].[SumOfDelays]
+ AS [Measures].[Arr Delay]+[Measures].[Dep Delay], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';   
+CREATE MEMBER CURRENTCUBE.[Measures].[PartOfSumOfDelays]
+ AS ([Measures].[Dep Delay]+[Measures].[Arr Delay])/([Measures].[Maximum Dep Delay] + [Measures].[Maximum Arr Delay]), 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';  
+CREATE MEMBER CURRENTCUBE.[Measures].[Punctuality]
+ AS [Measures].[IS DELAYED Count]/[Measures].[Dep Delay Group Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ; </Text>
         </Command>
       </Commands>
     </MdxScript>

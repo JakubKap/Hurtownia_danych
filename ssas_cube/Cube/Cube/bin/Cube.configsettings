@@ -35,6 +35,9 @@
       <Dimension>
         <ID>Dim Delay Group</ID>
       </Dimension>
+      <Dimension>
+        <ID>Fact Flight Activity</ID>
+      </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>

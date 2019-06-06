@@ -51,6 +51,10 @@
       <Name>Dim Delay Group.dim</Name>
       <FullPath>Dim Delay Group.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Fact Flight Activity.dim</Name>
+      <FullPath>Fact Flight Activity.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>

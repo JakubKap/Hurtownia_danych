@@ -26,7 +26,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>rj9SeZUDQ4C0WuuN/jeXzW79V5M=05.06.2019 18:29:2705.06.2019 18:29:27</TimeStamp>
+        <TimeStamp>2TxHO88YBWVAoyqYme3ZKLzFm7g=06.06.2019 12:53:5805.06.2019 18:29:27</TimeStamp>
         <ID>
           <String>Air Stats DWH</String>
         </ID>
@@ -88,8 +88,15 @@
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>VGPF2R6qfzLws5MxXORxUuoIZuM=06.06.2019 13:04:1106.06.2019 13:01:42</TimeStamp>
+        <ID>
+          <String>Fact Flight Activity</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>rkd06ADB+e3ePp10Df5Eh+GcPA0=05.06.2019 22:16:3205.06.2019 18:29:27KFtvxhCP1McCvzUka2tJsohERBM=05.06.2019 22:11:3505.06.2019 18:29:27</TimeStamp>
+        <TimeStamp>n1pX55zAwDHyqjCW9Wl1m8p6ZQM=06.06.2019 13:12:5805.06.2019 18:29:27KFtvxhCP1McCvzUka2tJsohERBM=06.06.2019 13:10:3805.06.2019 18:29:27</TimeStamp>
         <ID>
           <String>Air Stats DWH</String>
         </ID>
@@ -106,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2019-06-05T20:18:55.423333Z</LastDeployed>
+  <LastDeployed>2019-06-06T11:13:04.093333Z</LastDeployed>
 </DeploymentSnapshot>
