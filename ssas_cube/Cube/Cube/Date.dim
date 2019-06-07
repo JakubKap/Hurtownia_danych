@@ -1,6 +1,6 @@
 ﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f34f1953-a189-465f-885f-e4bab2f7cf95" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Date</ID>
-  <Name>Dim Date</Name>
+  <Name>Date</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
@@ -339,7 +339,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="d42160dc-f9d8-4e42-8a88-812d56075e6f">
       <ID>Day</ID>
-      <Name>Day</Name>
+      <Name>Date Day</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="f18e5d53-6d77-4796-aff9-84717b9e2c4c">
           <DataType>Integer</DataType>
@@ -354,7 +354,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="c6052b4e-b39e-4b19-b4a6-08ae954b11be">
       <ID>Description</ID>
-      <Name>Description</Name>
+      <Name>Quarter Description</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="66c3b11a-19c8-438c-90f7-9f497727419f">
           <DataType>WChar</DataType>
@@ -370,7 +370,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="d92f757b-8b5b-4ee9-bf87-b22fc7399314">
       <ID>Start Day</ID>
-      <Name>Start Day</Name>
+      <Name>Quarter Start Day</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="f23f970f-7e4b-439b-866d-b1f6352fd1aa">
           <DataType>Integer</DataType>
@@ -385,7 +385,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="c6502e01-6352-4d16-a230-f504e7163271">
       <ID>Start Month</ID>
-      <Name>Start Month</Name>
+      <Name>Quarter Start Month</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="1488b157-8e5f-4408-ad0e-c31db3b8049d">
           <DataType>Integer</DataType>
@@ -400,7 +400,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="8b95c59f-f233-4cd2-8599-9c34995c25db">
       <ID>End Day</ID>
-      <Name>End Day</Name>
+      <Name>Quarter End Day</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="49d00cea-d97b-41e7-8789-afd556ade758">
           <DataType>Integer</DataType>
@@ -415,7 +415,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="2e3f462c-a5fc-4409-8c3c-f783c9b21baf">
       <ID>End Month</ID>
-      <Name>End Month</Name>
+      <Name>Quarter End Month</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="06856e6b-8bec-467a-aa39-1a7e770e2834">
           <DataType>Integer</DataType>

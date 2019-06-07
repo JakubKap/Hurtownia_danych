@@ -1,6 +1,6 @@
 ﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="1a28f5c7-fdc8-47f8-851f-17656f35d235" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Dim Airport</ID>
-  <Name>Dim Airport</Name>
+  <Name>Airport</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="20" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-334" scrolltop="-1220" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="12136" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="20" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1587" scrolltop="231" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="7056" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01ee0000900180380100065461686f6d61" />
             </font>
@@ -41,7 +41,7 @@
             </layoutobject>
             <shape groupshapeid="0" groupnode="0" />
           </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimAirport" left="5595" top="3935" logicalid="12" controlid="3" masterid="0" hint1="0" hint2="0" width="3969" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimAirport" left="5690" top="4547" logicalid="12" controlid="3" masterid="0" hint1="0" hint2="0" width="3969" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000e0000810f000088130000" />
             </control>
@@ -74,7 +74,7 @@
             </layoutobject>
             <shape groupshapeid="0" groupnode="0" />
           </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="2895" top="6035" logicalid="15" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="MSDDS.Polyline" left="2895" top="5647" logicalid="15" controlid="6" masterid="0" hint1="0" hint2="0" width="3095" height="1187" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobj>
                 <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -87,14 +87,14 @@
                 <property name="VisibleAP" value="0" vartype="3" />
               </ddsxmlobj>
             </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="13" destattachpoint="22" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="3" sourceattachpoint="13" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
               <point x="3195" y="6434" />
               <point x="4395" y="6434" />
-              <point x="4395" y="6435" />
-              <point x="5595" y="6435" />
+              <point x="4395" y="5947" />
+              <point x="5690" y="5947" />
             </connector>
           </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="9264" top="6035" logicalid="16" controlid="7" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="MSDDS.Polyline" left="9359" top="6035" logicalid="16" controlid="7" masterid="0" hint1="0" hint2="0" width="2905" height="1862" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobj>
                 <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -107,14 +107,14 @@
                 <property name="VisibleAP" value="0" vartype="3" />
               </ddsxmlobj>
             </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="12" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="12" destattachpoint="25" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
               <point x="11964" y="6434" />
               <point x="10764" y="6434" />
-              <point x="10764" y="6435" />
-              <point x="9564" y="6435" />
+              <point x="10764" y="7597" />
+              <point x="9659" y="7597" />
             </connector>
           </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="7180" top="1036" logicalid="17" controlid="8" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="MSDDS.Polyline" left="6080" top="1036" logicalid="17" controlid="8" masterid="0" hint1="0" hint2="0" width="799" height="3811" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobj>
                 <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -127,12 +127,14 @@
                 <property name="VisibleAP" value="0" vartype="3" />
               </ddsxmlobj>
             </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="3" sourceattachpoint="5" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="7579" y="1535" />
-              <point x="7579" y="3935" />
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="3" sourceattachpoint="1" destattachpoint="2" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6479" y="1535" />
+              <point x="6479" y="3335" />
+              <point x="6574" y="3335" />
+              <point x="6574" y="4547" />
             </connector>
           </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="7180" top="8635" logicalid="18" controlid="9" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="MSDDS.Polyline" left="6080" top="9247" logicalid="18" controlid="9" masterid="0" hint1="0" hint2="0" width="799" height="2588" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobj>
                 <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -145,9 +147,11 @@
                 <property name="VisibleAP" value="0" vartype="3" />
               </ddsxmlobj>
             </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="3" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="7579" y="11335" />
-              <point x="7579" y="8935" />
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="3" sourceattachpoint="0" destattachpoint="3" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6479" y="11335" />
+              <point x="6479" y="10735" />
+              <point x="6574" y="10735" />
+              <point x="6574" y="9547" />
             </connector>
           </ddscontrol>
         </dds>
@@ -167,11 +171,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-334</Value>
+      <Value>1587</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-1220</Value>
+      <Value>231</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -213,18 +217,6 @@
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="df2aa5d5-b980-46b3-9e4e-deb47d0d87eb">
-          <AttributeID>Word Area Code</AttributeID>
-          <Name>Word Area Code</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2c4218bc-be78-40bb-8c74-f9caf4ff507d">
-          <AttributeID>State Code Id</AttributeID>
-          <Name>State Code Id</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="d974dfa6-18a0-47b4-a137-23a6c50cb9d2">
-          <AttributeID>Dst Id</AttributeID>
-          <Name>Dst Id</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="21b9595d-9828-469f-9f13-5c4717ba75ea">
           <AttributeID>State Fips Code Id</AttributeID>
           <Name>State Fips Code Id</Name>
@@ -232,10 +224,6 @@
         <AttributeRelationship dwd:design-time-name="b65cac99-e649-4f0b-822d-d4da187ef3a6">
           <AttributeID>State Code</AttributeID>
           <Name>State Code</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="e3f32f7c-f97f-4649-bb42-80b3c814ff80">
-          <AttributeID>State Fips</AttributeID>
-          <Name>State Fips</Name>
         </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="6ac854c1-50ae-47a0-a951-dc05c2fbaede">
           <AttributeID>Dst</AttributeID>
@@ -285,10 +273,6 @@
           <AttributeID>State Fips Code</AttributeID>
           <Name>State Fips Code</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="9987a36d-bd61-4bda-8f18-09765507c00c">
-          <AttributeID>State Name</AttributeID>
-          <Name>State Name</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="d99b4384-cf62-4d2a-a2be-b60959eebcb5">
           <AttributeID>Dst Type</AttributeID>
           <Name>Dst Type</Name>
@@ -297,69 +281,22 @@
           <AttributeID>State Code 1</AttributeID>
           <Name>State Code 1</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8aa9df9c-f97e-487e-9314-34ecae79b1a5">
-          <AttributeID>State Name 1</AttributeID>
-          <Name>State Name 1</Name>
+        <AttributeRelationship dwd:design-time-name="4b59959e-b53f-4057-8206-221537dc6807">
+          <AttributeID>State Name 2</AttributeID>
+          <Name>Airport State Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f48b5c17-7d15-4c26-a478-333546d7554f">
+          <AttributeID>State Name 2 1</AttributeID>
+          <Name>Airport State Fips Name</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="f7a8b6fd-f2d2-4659-8a1b-a750444d945e">
-      <ID>Word Area Code</ID>
-      <Name>Word Area Code</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="943d09a2-bf40-41ab-bf56-7c87df01ddd9">
-          <DataType>Integer</DataType>
-          <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="169ed018-aa0a-404b-8df0-de989c35270d">
-            <TableID>dbo_DimAirportWorldAreaCode</TableID>
-            <ColumnID>WordAreaCode</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="8ec12dd5-e50c-4633-9401-d3658ee140c0">
-      <ID>State Code Id</ID>
-      <Name>State Code Id</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="58589e0f-d47e-45a7-a34d-59bec19b3c99">
-          <DataType>Integer</DataType>
-          <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3a441ac4-dc2d-4909-a62d-2d886b5eb63f">
-            <TableID>dbo_DimState</TableID>
-            <ColumnID>StateCodeId</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="92294711-40cf-43c8-89ac-e8ac73472a17">
-      <ID>Dst Id</ID>
-      <Name>Dst Id</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="31fae8de-070b-4fe6-9492-4dd30c60e23f">
-          <DataType>Integer</DataType>
-          <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="d384b242-04c5-4aab-af09-68c166a41072">
-            <TableID>dbo_DimDst</TableID>
-            <ColumnID>DstId</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
     <Attribute dwd:design-time-name="df290146-8f8c-4771-8ee0-33fc127ef6de">
       <ID>State Fips Code Id</ID>
-      <Name>State Fips Code Id</Name>
+      <Name>Airport State Fips Code Id</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="e1fcec8d-af31-4779-b8cd-d71b2ea412e7">
           <DataType>Integer</DataType>
@@ -376,7 +313,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="f7c8d125-0b58-4e39-91bd-8146c02eac07">
       <ID>State Code</ID>
-      <Name>State Code</Name>
+      <Name>Airport State Code Id</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="75a92d66-21ee-498f-91ae-f558c5989e24">
           <DataType>Integer</DataType>
@@ -389,24 +326,9 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="bbb89685-ee51-42cd-b51c-cfb029b4c72e">
-      <ID>State Fips</ID>
-      <Name>State Fips</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="3829a0dc-9cd2-4913-9c0e-7193814759ad">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1495106a-0d15-4a05-a504-eed4105136ff">
-            <TableID>dbo_DimAirport</TableID>
-            <ColumnID>StateFips</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
     <Attribute dwd:design-time-name="5d7ddbf5-4bf8-4b59-9f82-f582fec38cdb">
       <ID>Dst</ID>
-      <Name>Dst</Name>
+      <Name>Airport Daylight Saving Time Region Id</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="eaa5915e-083e-44ce-8cfd-d18bd2374465">
           <DataType>Integer</DataType>
@@ -421,7 +343,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="0fd10870-0b23-4b81-8506-9ae9058348fa">
       <ID>Airport World Area Code</ID>
-      <Name>Airport World Area Code</Name>
+      <Name>Airport World Area Code Id</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="fed4cff0-6e7e-4e35-85cd-dd1dee1939ad">
           <DataType>Integer</DataType>
@@ -514,7 +436,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="84cc0303-3752-4d1d-853e-2c9ed34927f4">
       <ID>City Name</ID>
-      <Name>City Name</Name>
+      <Name>Airport City Name</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="3519f654-50ff-4fb2-825d-37850cc550c3">
           <DataType>WChar</DataType>
@@ -530,7 +452,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="6c818b2c-bdce-4cdd-a267-1692195bc207">
       <ID>Latitude</ID>
-      <Name>Latitude</Name>
+      <Name>Airport Latitude</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="5deb9629-551b-46df-9b5b-3c0404c03d49">
           <DataType>Double</DataType>
@@ -545,7 +467,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="fe1a94ed-160e-4758-a68b-0b70ade4626f">
       <ID>Tz Database</ID>
-      <Name>Tz Database</Name>
+      <Name>Airport Timezone Shift</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="0a28f67d-387a-4e53-9fe3-6359b2468fcf">
           <DataType>WChar</DataType>
@@ -561,7 +483,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="44109b04-7e21-40d2-99b9-236d60a2d93f">
       <ID>Region</ID>
-      <Name>Region</Name>
+      <Name>Airport World Area Code Region</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="f3d97320-a9ea-496e-ad4a-b7c8f3af5a96">
           <DataType>WChar</DataType>
@@ -577,7 +499,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="64245b8f-c4b4-41a4-b266-e7e8f3457750">
       <ID>State Fips Code</ID>
-      <Name>State Fips Code</Name>
+      <Name>Airport State Fips Code</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="4b7664f0-277e-4fe3-b591-60131823828e">
           <DataType>WChar</DataType>
@@ -591,25 +513,9 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="4e1ad72c-a9f0-4708-ab20-63d17e89b586">
-      <ID>State Name</ID>
-      <Name>State Name</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="9bf7bad4-1390-4b0a-8978-b323068d83e4">
-          <DataType>WChar</DataType>
-          <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="faa7a3f4-23eb-4132-ad34-cf57ab998c7c">
-            <TableID>dbo_DimStateFips</TableID>
-            <ColumnID>StateName</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
     <Attribute dwd:design-time-name="01e23f72-aed4-4ea1-80a0-8035161845ef">
       <ID>Dst Type</ID>
-      <Name>Dst Type</Name>
+      <Name>Airport Daylight Saving Time Region type</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="658abfb2-95e1-4750-868c-df8691a34af4">
           <DataType>WChar</DataType>
@@ -625,7 +531,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="bac82c8c-cb69-41fa-93e6-15eb5aa36dc5">
       <ID>State Code 1</ID>
-      <Name>State Code 1</Name>
+      <Name>Airport State Code</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="43033128-75c5-43e3-b042-481240d25db2">
           <DataType>WChar</DataType>
@@ -639,15 +545,31 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="9e1b7ed2-ab75-43a8-a89a-990775c33ad6">
-      <ID>State Name 1</ID>
-      <Name>State Name 1</Name>
+    <Attribute dwd:design-time-name="199ea75e-48bf-4ced-86b9-a3560b97197c">
+      <ID>State Name 2</ID>
+      <Name>Airport State Name</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d0429040-6b18-4d54-81be-b2173a468e8c">
+        <KeyColumn dwd:design-time-name="fecd8c21-df1d-432c-9f07-69a866302eca">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9b76efa4-753b-42da-99ce-a028736e8cd8">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0f874b58-5d30-4f51-8835-59cb63bd532e">
             <TableID>dbo_DimState</TableID>
+            <ColumnID>StateName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="312e9c9b-fef2-4490-aa82-3403e82308b0">
+      <ID>State Name 2 1</ID>
+      <Name>Airport State Fips Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a80ad531-ea39-49b4-bc2e-282966c3c860">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="320efaae-2dc3-447c-bf0b-fc4115865c0c">
+            <TableID>dbo_DimStateFips</TableID>
             <ColumnID>StateName</ColumnID>
           </Source>
         </KeyColumn>
@@ -661,11 +583,6 @@
       <ID>Hierarchy</ID>
       <Name>Hierarchy</Name>
       <Levels>
-        <Level dwd:design-time-name="148a1b18-e3a7-4ecc-b306-5adf00aa4703">
-          <ID>Word Area Code</ID>
-          <Name>Word Area Code</Name>
-          <SourceAttributeID>Word Area Code</SourceAttributeID>
-        </Level>
         <Level dwd:design-time-name="aa34e198-5d8f-4f40-b95e-fc0ae98f5969">
           <ID>Region</ID>
           <Name>Region</Name>

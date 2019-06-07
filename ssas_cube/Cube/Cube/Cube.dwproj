@@ -20,40 +20,40 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Dim Time.dim</Name>
-      <FullPath>Dim Time.dim</FullPath>
+      <Name>Time.dim</Name>
+      <FullPath>Time.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Date.dim</Name>
-      <FullPath>Dim Date.dim</FullPath>
+      <Name>Date.dim</Name>
+      <FullPath>Date.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Cancellation Reason.dim</Name>
-      <FullPath>Dim Cancellation Reason.dim</FullPath>
+      <Name>Cancellation Reason.dim</Name>
+      <FullPath>Cancellation Reason.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Airport.dim</Name>
-      <FullPath>Dim Airport.dim</FullPath>
+      <Name>Airport.dim</Name>
+      <FullPath>Airport.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim BLK Time.dim</Name>
-      <FullPath>Dim BLK Time.dim</FullPath>
+      <Name>Time Range.dim</Name>
+      <FullPath>Time Range.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Difficulties.dim</Name>
-      <FullPath>Dim Difficulties.dim</FullPath>
+      <Name>Difficulties.dim</Name>
+      <FullPath>Difficulties.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Airline.dim</Name>
-      <FullPath>Dim Airline.dim</FullPath>
+      <Name>Airline.dim</Name>
+      <FullPath>Airline.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Delay Group.dim</Name>
-      <FullPath>Dim Delay Group.dim</FullPath>
+      <Name>Delay Group.dim</Name>
+      <FullPath>Delay Group.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Fact Flight Activity.dim</Name>
-      <FullPath>Fact Flight Activity.dim</FullPath>
+      <Name>Flight.dim</Name>
+      <FullPath>Flight.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

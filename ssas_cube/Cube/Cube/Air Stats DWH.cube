@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1353" scrolltop="10249" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="55" x="14446" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1568" scrolltop="-1079" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="55" x="14446" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01ee0000900180380100065461686f6d61" />
             </font>
@@ -899,11 +899,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-1353</Value>
+      <Value>1568</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>10249</Value>
+      <Value>-1079</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -1190,29 +1190,17 @@
     </Dimension>
     <Dimension dwd:design-time-name="e3bf0f78-df87-46f9-abed-17ec654aba18">
       <ID>Arr Airport</ID>
-      <Name>Arr Airport</Name>
+      <Name>Arrival Airport</Name>
       <DimensionID>Dim Airport</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="cde0bd16-f375-43cb-a3d2-1ee92154365a">
           <AttributeID>Airport Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="f6bdd256-cde1-4d9b-a271-5ef2251e4f7e">
-          <AttributeID>Word Area Code</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="962989c7-1d09-4ac8-a63c-427affa34a7a">
-          <AttributeID>State Code Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="5cc8784b-086a-439e-93c7-e4cba15c8942">
-          <AttributeID>Dst Id</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="6bfc63e7-53a2-4d6c-a799-8fb74cb3f437">
           <AttributeID>State Fips Code Id</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="b17671b6-a17d-4838-ac13-4cf405b77f99">
           <AttributeID>State Code</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="3d810619-acc1-41a8-b52d-ce48108af108">
-          <AttributeID>State Fips</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="8fa6d60e-08b5-4e8d-8fad-a9a8f0534ed1">
           <AttributeID>Dst</AttributeID>
@@ -1250,17 +1238,17 @@
         <Attribute dwd:design-time-name="3ba71790-6412-4bbf-9e25-04c2213115ba">
           <AttributeID>State Fips Code</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="96e3c283-7161-4f57-8b50-5847a5f862d2">
-          <AttributeID>State Name</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="593ae2e3-2ca6-441f-a470-e873b929344e">
           <AttributeID>Dst Type</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="bc3f7570-ce30-46dd-8f0e-e564cc623f52">
           <AttributeID>State Code 1</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="1760c388-17ea-455e-ba9c-b8aa876b5e70">
-          <AttributeID>State Name 1</AttributeID>
+        <Attribute dwd:design-time-name="fdf9a0a1-e9dc-44c4-b72c-bd56f16b7b38">
+          <AttributeID>State Name 2</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bc80da39-6715-400d-a3f4-ba36ba46394f">
+          <AttributeID>State Name 2 1</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -1271,7 +1259,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="7ecfabd3-4eb1-48a5-81ac-4a1385b7cb56">
       <ID>Dep Time BLK</ID>
-      <Name>Dep Time BLK</Name>
+      <Name>Departure Time Range</Name>
       <DimensionID>Dim BLK Time</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="9c0aec6b-772f-4fe4-aa95-bc6100a2be45">
@@ -1410,7 +1398,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="e68aa820-8574-447e-91ab-6b02a4a26c8f">
       <ID>Dim Difficulties</ID>
-      <Name>Dim Difficulties</Name>
+      <Name>Difficulties</Name>
       <DimensionID>Dim Difficulties</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="e3db5b4b-dacc-41c8-9046-783678f83abd">
@@ -1561,23 +1549,11 @@
         <Attribute dwd:design-time-name="a38044ed-81fb-4ca4-8881-b1ac1f55b757">
           <AttributeID>Airport Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="c1be54bf-3776-4f41-848f-36a19d778523">
-          <AttributeID>Word Area Code</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="3482a029-e962-4c80-bb3c-467f70f03b39">
-          <AttributeID>State Code Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="d861f8b7-726c-49fd-9589-8d4bea68760d">
-          <AttributeID>Dst Id</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="1a8f4b7e-0296-46dd-b267-1d93db50bd17">
           <AttributeID>State Fips Code Id</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="5d35825c-d897-4b88-8abf-5e3362e01923">
           <AttributeID>State Code</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="9b83b9cc-edb2-4af4-b1ed-557ceca7e18b">
-          <AttributeID>State Fips</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="c60bd018-d723-448e-a327-d80739e804e6">
           <AttributeID>Dst</AttributeID>
@@ -1615,17 +1591,17 @@
         <Attribute dwd:design-time-name="f077073c-546f-469d-b4a9-c7316b12b605">
           <AttributeID>State Fips Code</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="f0b97279-180d-4f32-9f06-d4cc1ca6fe0c">
-          <AttributeID>State Name</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="52219aca-b585-4e39-ae5d-96d3964f1969">
           <AttributeID>Dst Type</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="a2d7a823-01e8-488f-867d-951e1141eec2">
           <AttributeID>State Code 1</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="8762058c-af5c-48d2-b0ad-5a7e72dabeff">
-          <AttributeID>State Name 1</AttributeID>
+        <Attribute dwd:design-time-name="6965782d-267c-4a57-b565-8658056e6439">
+          <AttributeID>State Name 2</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="157240d8-9ccd-427a-9f3b-bc9bc8d2027c">
+          <AttributeID>State Name 2 1</AttributeID>
         </Attribute>
       </Attributes>
       <Hierarchies>
@@ -1813,9 +1789,6 @@
       <Attributes>
         <Attribute dwd:design-time-name="021f3d08-3729-4b3c-b94e-711b8cdcc2b9">
           <AttributeID>Airline Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="a7aad4ce-6aa6-4a4f-a5e3-5be205a7736c">
-          <AttributeID>Word Area Code</AttributeID>
         </Attribute>
         <Attribute dwd:design-time-name="cb4612a9-0f4e-48e5-83bd-a10ea8e03269">
           <AttributeID>Airline World Area Code</AttributeID>
@@ -2641,22 +2614,22 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;     
+CALCULATE;      
 CREATE MEMBER CURRENTCUBE.[Measures].[AvarageDepDelay]
  AS [Measures].[Dep Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';     
-CREATE MEMBER CURRENTCUBE.[Measures].[Avarage]
- AS [DepDelayAvg], 
-VISIBLE = 1;   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';      
+CREATE MEMBER CURRENTCUBE.[Measures].[AvarageArrDelay]
+ AS [Measures].[Arr Delay]/[Measures].[Fact Flight Activity Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[SumOfDelays]
  AS [Measures].[Arr Delay]+[Measures].[Dep Delay], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';    
 CREATE MEMBER CURRENTCUBE.[Measures].[PartOfSumOfDelays]
  AS ([Measures].[Dep Delay]+[Measures].[Arr Delay])/([Measures].[Maximum Dep Delay] + [Measures].[Maximum Arr Delay]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';   
 CREATE MEMBER CURRENTCUBE.[Measures].[Punctuality]
  AS [Measures].[IS DELAYED Count]/[Measures].[Dep Delay Group Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ; </Text>
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'; </Text>
         </Command>
       </Commands>
     </MdxScript>
