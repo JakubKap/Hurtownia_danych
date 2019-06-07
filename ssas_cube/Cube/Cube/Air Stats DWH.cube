@@ -1543,7 +1543,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="eb3cd288-9ecf-429f-80e4-c389398cbcfa">
       <ID>Dep Airport</ID>
-      <Name>Dep Airport</Name>
+      <Name>Departure Airport</Name>
       <DimensionID>Dim Airport</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="a38044ed-81fb-4ca4-8881-b1ac1f55b757">
@@ -1654,7 +1654,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="6f38de15-1d25-492d-b046-d183d238321c">
       <ID>Dep Delay Group</ID>
-      <Name>Dep Delay Group</Name>
+      <Name>Departure Delay Group</Name>
       <DimensionID>Dim Delay Group</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="d55cec1d-7b9b-4ce2-ae63-1577a095c7d0">
@@ -1667,7 +1667,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="5c59ad17-bed7-4bb5-aef6-7b834b6ec07c">
       <ID>Arr Time BLK</ID>
-      <Name>Arr Time BLK</Name>
+      <Name>Arrival Time Range</Name>
       <DimensionID>Dim BLK Time</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="e7dc6c21-ea05-4a14-a7e6-027e7364359e">
@@ -1704,7 +1704,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="f25fca8a-40d8-459c-872a-a4a446603e05">
       <ID>Arr Delay Group</ID>
-      <Name>Arr Delay Group</Name>
+      <Name>Arrival Delay Group</Name>
       <DimensionID>Dim Delay Group</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="8d4db26a-2a6c-4c55-b752-ec6cd2a8ffee">
@@ -1768,7 +1768,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="8d9fcf69-eac7-4de5-b234-1d0e1f147a8f">
       <ID>Dim Cancellation Reason</ID>
-      <Name>Dim Cancellation Reason</Name>
+      <Name>Cancellation Reason</Name>
       <DimensionID>Dim Cancellation Reason</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="55e873c8-0a92-469c-8ea8-42ffdae89a43">
@@ -1784,7 +1784,7 @@
     </Dimension>
     <Dimension dwd:design-time-name="66f46216-b90c-472b-8cf4-93ccb1af9bd6">
       <ID>Dim Airline</ID>
-      <Name>Dim Airline</Name>
+      <Name>Airline</Name>
       <DimensionID>Dim Airline</DimensionID>
       <Attributes>
         <Attribute dwd:design-time-name="021f3d08-3729-4b3c-b94e-711b8cdcc2b9">
@@ -1828,7 +1828,7 @@
   <MeasureGroups>
     <MeasureGroup dwd:design-time-name="92af6923-8dd7-4f79-9a5b-b50f3a845d1c">
       <ID>Fact Flight Activity</ID>
-      <Name>Fact Flight Activity</Name>
+      <Name>Flight</Name>
       <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
       <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
@@ -1836,7 +1836,7 @@
       <Measures>
         <Measure dwd:design-time-name="6299a7e1-e6e9-4771-a660-3337ac6faddd">
           <ID>Dep Delay</ID>
-          <Name>Dep Delay</Name>
+          <Name>Departure Delay</Name>
           <Source dwd:design-time-name="eaefb393-f255-4d70-b219-c73c2c245228">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="9db4285b-da02-4ffa-9601-6ce74623901d">
@@ -1847,7 +1847,7 @@
         </Measure>
         <Measure dwd:design-time-name="a661e51f-d216-4715-8a95-b8f0cf8515db">
           <ID>Dep Delay Minutes</ID>
-          <Name>Dep Delay Minutes</Name>
+          <Name>Departure Delay Minutes</Name>
           <Source dwd:design-time-name="55a35377-c159-42d6-8df7-d2a30e87f68c">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="70289d57-4253-47ca-9d2b-049eb8faa747">
@@ -1880,7 +1880,7 @@
         </Measure>
         <Measure dwd:design-time-name="e52315e0-b9db-4892-9634-beaa88dd9651">
           <ID>Arr Delay</ID>
-          <Name>Arr Delay</Name>
+          <Name>Arrival Delay</Name>
           <Source dwd:design-time-name="5991cd5a-c5b0-49f3-86ec-5804cbe0df4a">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="dbe2377a-1926-40a5-b135-2b2b961e6b30">
@@ -1891,7 +1891,7 @@
         </Measure>
         <Measure dwd:design-time-name="ed6eadcc-94db-42b3-a88e-ea2420c3d6d0">
           <ID>Arr Delay Minutes</ID>
-          <Name>Arr Delay Minutes</Name>
+          <Name>Arrival Delay Minutes</Name>
           <Source dwd:design-time-name="7213a5ee-b69a-4ce8-b34d-1ce29aa2427c">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="e2be4292-71c6-475a-a64e-5d521033edd1">
@@ -1902,7 +1902,7 @@
         </Measure>
         <Measure dwd:design-time-name="bde5056b-1919-4286-a094-88737c711a15">
           <ID>Sched Elapsed Time</ID>
-          <Name>Sched Elapsed Time</Name>
+          <Name>Scheduled Elapsed Time</Name>
           <Source dwd:design-time-name="b0f89981-36f6-4221-bf9a-d1da77726203">
             <DataType>Integer</DataType>
             <Source xsi:type="ColumnBinding" dwd:design-time-name="3ca35c4c-edee-4348-b8f1-1fd526e11c8e">
@@ -2022,21 +2022,9 @@
             </Source>
           </Source>
         </Measure>
-        <Measure dwd:design-time-name="1aaa537e-4bc3-473c-a7a4-446eed89fa3d">
-          <ID>Fact Flight Activity Count 1</ID>
-          <Name>Fact Flight Activity Count 1</Name>
-          <AggregateFunction>Count</AggregateFunction>
-          <Source dwd:design-time-name="a32ce77d-ed45-4642-9d4a-03f32cd2ebf2">
-            <DataType>Integer</DataType>
-            <DataSize>4</DataSize>
-            <Source xsi:type="RowBinding" dwd:design-time-name="1d0fc073-3e61-4aaa-97dc-f3b0d4b01b09">
-              <TableID>dbo_FactFlightActivity</TableID>
-            </Source>
-          </Source>
-        </Measure>
         <Measure dwd:design-time-name="213ea9bb-3ea9-4b28-af8f-ab4e122c52f5">
           <ID>Arr Delay Count</ID>
-          <Name>Arr Delay Count</Name>
+          <Name>Arrival Delay Count</Name>
           <AggregateFunction>Count</AggregateFunction>
           <DataType>Integer</DataType>
           <Source dwd:design-time-name="7c8868f2-623e-44c6-9c18-f4ed506dd9e9">
@@ -2049,7 +2037,7 @@
         </Measure>
         <Measure dwd:design-time-name="5e90bbc0-4bdc-4c36-83a7-ea5cdd311f48">
           <ID>Fact Flight Activity Count 2</ID>
-          <Name>FlightsCount</Name>
+          <Name>Flights Count</Name>
           <AggregateFunction>Count</AggregateFunction>
           <Source dwd:design-time-name="90873437-1a4e-4f67-bf06-63d405dc74fa">
             <DataType>Integer</DataType>
@@ -2061,7 +2049,7 @@
         </Measure>
         <Measure dwd:design-time-name="67fea9d2-967c-4232-b3bc-83ec7dc6cf88">
           <ID>Maximum Dep Delay</ID>
-          <Name>Maximum Dep Delay</Name>
+          <Name>Maximum Departure Delay</Name>
           <AggregateFunction>Max</AggregateFunction>
           <Source dwd:design-time-name="4a2a64de-0512-431a-8adb-f72ee191c0fc">
             <DataType>Integer</DataType>
@@ -2073,7 +2061,7 @@
         </Measure>
         <Measure dwd:design-time-name="d750d4c1-2412-42e7-beb2-6366d4b0f125">
           <ID>Maximum Arr Delay</ID>
-          <Name>Maximum Arr Delay</Name>
+          <Name>Maximum Arrival Delay</Name>
           <AggregateFunction>Max</AggregateFunction>
           <Source dwd:design-time-name="6c64bc07-461d-4ee0-be93-c90eac9f54ca">
             <DataType>Integer</DataType>
@@ -2085,7 +2073,7 @@
         </Measure>
         <Measure dwd:design-time-name="c00885a2-376a-4d21-b970-00da4aac04fe">
           <ID>IS DELAYED Count</ID>
-          <Name>IS DELAYED Count</Name>
+          <Name>Is Delayed Count</Name>
           <DataType>Integer</DataType>
           <Source dwd:design-time-name="9e1c0452-cba0-4141-bae6-e27f9e637513">
             <DataType>Integer</DataType>
@@ -2097,7 +2085,7 @@
         </Measure>
         <Measure dwd:design-time-name="fbba9618-af77-473f-a4af-0a455460b66a">
           <ID>Dep Delay Group Count</ID>
-          <Name>Dep Delay Group Count</Name>
+          <Name>Departure Delay Group Count</Name>
           <AggregateFunction>Count</AggregateFunction>
           <DataType>Integer</DataType>
           <Source dwd:design-time-name="f0965e1f-2121-462b-bf9c-a37e8cd54a9c">
@@ -2614,22 +2602,19 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;      
-CREATE MEMBER CURRENTCUBE.[Measures].[AvarageDepDelay]
- AS [Measures].[Dep Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';      
-CREATE MEMBER CURRENTCUBE.[Measures].[AvarageArrDelay]
- AS [Measures].[Arr Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ;    
-CREATE MEMBER CURRENTCUBE.[Measures].[SumOfDelays]
- AS [Measures].[Arr Delay]+[Measures].[Dep Delay], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';    
-CREATE MEMBER CURRENTCUBE.[Measures].[PartOfSumOfDelays]
- AS ([Measures].[Dep Delay]+[Measures].[Arr Delay])/([Measures].[Maximum Dep Delay] + [Measures].[Maximum Arr Delay]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';   
+CALCULATE;        
+CREATE MEMBER CURRENTCUBE.[Measures].[Avarage Departure Delay]
+ AS [Measures].[Departure Delay]/[Measures].[Flights Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;        
+CREATE MEMBER CURRENTCUBE.[Measures].[Avarage Arrival Delay]
+ AS [Measures].[Arrival Delay]/[Measures].[Flights Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;      
+CREATE MEMBER CURRENTCUBE.[Measures].[Sum Of Delays]
+ AS [Measures].[Arrival Delay]+[Measures].[Departure Delay], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;     
 CREATE MEMBER CURRENTCUBE.[Measures].[Punctuality]
- AS [Measures].[IS DELAYED Count]/[Measures].[Dep Delay Group Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'; </Text>
+ AS [Measures].[Is Delayed Count]/[Measures].[Departure Delay Group Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'; </Text>
         </Command>
       </Commands>
     </MdxScript>

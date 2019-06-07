@@ -2237,7 +2237,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="9145" scrolltop="12932" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14676" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="104" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="9145" scrolltop="12932" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14623" y="11942" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01ee0000900180380100065461686f6d61" />
                 </font>
@@ -5911,7 +5911,7 @@
         </Dimension>
         <Dimension>
           <ID>Dep Airport</ID>
-          <Name>Dep Airport</Name>
+          <Name>Departure Airport</Name>
           <DimensionID>Dim Airport</DimensionID>
           <Attributes>
             <Attribute>
@@ -6022,7 +6022,7 @@
         </Dimension>
         <Dimension>
           <ID>Dep Delay Group</ID>
-          <Name>Dep Delay Group</Name>
+          <Name>Departure Delay Group</Name>
           <DimensionID>Dim Delay Group</DimensionID>
           <Attributes>
             <Attribute>
@@ -6035,7 +6035,7 @@
         </Dimension>
         <Dimension>
           <ID>Arr Time BLK</ID>
-          <Name>Arr Time BLK</Name>
+          <Name>Arrival Time Range</Name>
           <DimensionID>Dim BLK Time</DimensionID>
           <Attributes>
             <Attribute>
@@ -6072,7 +6072,7 @@
         </Dimension>
         <Dimension>
           <ID>Arr Delay Group</ID>
-          <Name>Arr Delay Group</Name>
+          <Name>Arrival Delay Group</Name>
           <DimensionID>Dim Delay Group</DimensionID>
           <Attributes>
             <Attribute>
@@ -6136,7 +6136,7 @@
         </Dimension>
         <Dimension>
           <ID>Dim Cancellation Reason</ID>
-          <Name>Dim Cancellation Reason</Name>
+          <Name>Cancellation Reason</Name>
           <DimensionID>Dim Cancellation Reason</DimensionID>
           <Attributes>
             <Attribute>
@@ -6152,7 +6152,7 @@
         </Dimension>
         <Dimension>
           <ID>Dim Airline</ID>
-          <Name>Dim Airline</Name>
+          <Name>Airline</Name>
           <DimensionID>Dim Airline</DimensionID>
           <Attributes>
             <Attribute>
@@ -6196,7 +6196,7 @@
       <MeasureGroups>
         <MeasureGroup>
           <ID>Fact Flight Activity</ID>
-          <Name>Fact Flight Activity</Name>
+          <Name>Flight</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
@@ -6204,7 +6204,7 @@
           <Measures>
             <Measure>
               <ID>Dep Delay</ID>
-              <Name>Dep Delay</Name>
+              <Name>Departure Delay</Name>
               <Source>
                 <DataType>Integer</DataType>
                 <Source xsi:type="ColumnBinding">
@@ -6215,7 +6215,7 @@
             </Measure>
             <Measure>
               <ID>Dep Delay Minutes</ID>
-              <Name>Dep Delay Minutes</Name>
+              <Name>Departure Delay Minutes</Name>
               <Source>
                 <DataType>Integer</DataType>
                 <Source xsi:type="ColumnBinding">
@@ -6248,7 +6248,7 @@
             </Measure>
             <Measure>
               <ID>Arr Delay</ID>
-              <Name>Arr Delay</Name>
+              <Name>Arrival Delay</Name>
               <Source>
                 <DataType>Integer</DataType>
                 <Source xsi:type="ColumnBinding">
@@ -6259,7 +6259,7 @@
             </Measure>
             <Measure>
               <ID>Arr Delay Minutes</ID>
-              <Name>Arr Delay Minutes</Name>
+              <Name>Arrival Delay Minutes</Name>
               <Source>
                 <DataType>Integer</DataType>
                 <Source xsi:type="ColumnBinding">
@@ -6270,7 +6270,7 @@
             </Measure>
             <Measure>
               <ID>Sched Elapsed Time</ID>
-              <Name>Sched Elapsed Time</Name>
+              <Name>Scheduled Elapsed Time</Name>
               <Source>
                 <DataType>Integer</DataType>
                 <Source xsi:type="ColumnBinding">
@@ -6391,20 +6391,8 @@
               </Source>
             </Measure>
             <Measure>
-              <ID>Fact Flight Activity Count 1</ID>
-              <Name>Fact Flight Activity Count 1</Name>
-              <AggregateFunction>Count</AggregateFunction>
-              <Source>
-                <DataType>Integer</DataType>
-                <DataSize>4</DataSize>
-                <Source xsi:type="RowBinding">
-                  <TableID>dbo_FactFlightActivity</TableID>
-                </Source>
-              </Source>
-            </Measure>
-            <Measure>
               <ID>Arr Delay Count</ID>
-              <Name>Arr Delay Count</Name>
+              <Name>Arrival Delay Count</Name>
               <AggregateFunction>Count</AggregateFunction>
               <DataType>Integer</DataType>
               <Source>
@@ -6417,7 +6405,7 @@
             </Measure>
             <Measure>
               <ID>Fact Flight Activity Count 2</ID>
-              <Name>FlightsCount</Name>
+              <Name>Flights Count</Name>
               <AggregateFunction>Count</AggregateFunction>
               <Source>
                 <DataType>Integer</DataType>
@@ -6429,7 +6417,7 @@
             </Measure>
             <Measure>
               <ID>Maximum Dep Delay</ID>
-              <Name>Maximum Dep Delay</Name>
+              <Name>Maximum Departure Delay</Name>
               <AggregateFunction>Max</AggregateFunction>
               <Source>
                 <DataType>Integer</DataType>
@@ -6441,7 +6429,7 @@
             </Measure>
             <Measure>
               <ID>Maximum Arr Delay</ID>
-              <Name>Maximum Arr Delay</Name>
+              <Name>Maximum Arrival Delay</Name>
               <AggregateFunction>Max</AggregateFunction>
               <Source>
                 <DataType>Integer</DataType>
@@ -6453,7 +6441,7 @@
             </Measure>
             <Measure>
               <ID>IS DELAYED Count</ID>
-              <Name>IS DELAYED Count</Name>
+              <Name>Is Delayed Count</Name>
               <DataType>Integer</DataType>
               <Source>
                 <DataType>Integer</DataType>
@@ -6465,7 +6453,7 @@
             </Measure>
             <Measure>
               <ID>Dep Delay Group Count</ID>
-              <Name>Dep Delay Group Count</Name>
+              <Name>Departure Delay Group Count</Name>
               <AggregateFunction>Count</AggregateFunction>
               <DataType>Integer</DataType>
               <Source>
@@ -6998,22 +6986,19 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;      
-CREATE MEMBER CURRENTCUBE.[Measures].[AvarageDepDelay]
- AS [Measures].[Dep Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';      
-CREATE MEMBER CURRENTCUBE.[Measures].[AvarageArrDelay]
- AS [Measures].[Arr Delay]/[Measures].[Fact Flight Activity Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'  ;    
-CREATE MEMBER CURRENTCUBE.[Measures].[SumOfDelays]
- AS [Measures].[Arr Delay]+[Measures].[Dep Delay], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';    
-CREATE MEMBER CURRENTCUBE.[Measures].[PartOfSumOfDelays]
- AS ([Measures].[Dep Delay]+[Measures].[Arr Delay])/([Measures].[Maximum Dep Delay] + [Measures].[Maximum Arr Delay]), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity';   
+CALCULATE;        
+CREATE MEMBER CURRENTCUBE.[Measures].[Avarage Departure Delay]
+ AS [Measures].[Departure Delay]/[Measures].[Flights Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;        
+CREATE MEMBER CURRENTCUBE.[Measures].[Avarage Arrival Delay]
+ AS [Measures].[Arrival Delay]/[Measures].[Flights Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;      
+CREATE MEMBER CURRENTCUBE.[Measures].[Sum Of Delays]
+ AS [Measures].[Arrival Delay]+[Measures].[Departure Delay], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'  ;     
 CREATE MEMBER CURRENTCUBE.[Measures].[Punctuality]
- AS [Measures].[IS DELAYED Count]/[Measures].[Dep Delay Group Count], 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'; </Text>
+ AS [Measures].[Is Delayed Count]/[Measures].[Departure Delay Group Count], 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Flight'; </Text>
             </Command>
           </Commands>
         </MdxScript>
@@ -7938,7 +7923,7 @@ VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'Fact Flight Activity'; </Text>
                       </connector>
                     </ddscontrol>
                   </dds>
-</DiagramLayout>
+                </DiagramLayout>
                 <ShowRelationshipNames>False</ShowRelationshipNames>
                 <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
                 <DiagramViewPortLeft>1442</DiagramViewPortLeft>
