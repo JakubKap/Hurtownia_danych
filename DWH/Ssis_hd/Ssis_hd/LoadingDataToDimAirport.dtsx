@@ -1,0 +1,3771 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/12/2019 12:38:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BO7AJ5R"
+  DTS:CreatorName="DESKTOP-BO7AJ5R\Kuba"
+  DTS:DTSID="{5EA825A0-AC01-4E56-BEF7-E1A08E900E93}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="LoadingDataToDimAirport"
+  DTS:PackageType="5"
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{26C1A78B-7AF8-4F66-B978-07416F36207E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+      DTS:ObjectName="(LocalDb)\AirStatsDW.AirStatsStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(LocalDb)\AirStatsDW;Initial Catalog=AirStatsStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{82A6F1F2-92CC-48AA-8170-6486493EF6EF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportAltitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60A41942-A62E-4C06-BD0C-6AC3D49A7C7A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportCity">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5875B09B-2BAF-464A-9D50-7CD3BCCEF0ED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportCodeList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83F86F3F-72C2-468B-905D-C67DA8A186C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportDestIata">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{006C79D0-FC61-4B67-9FE2-36B81B441ABD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportIata">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D14A5617-0522-4678-A33C-5102D735807F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportIcao">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1E601EAB-8D4C-4D46-AFAF-70B6DD6C30E4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FABF006A-E988-49B3-AF1F-5736317BC1D8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportLatitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D376000-43F7-4E68-9D4C-1199747A58AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportLongitude">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8246C6ED-6B7A-43DE-84C7-F3437799E2F5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CAA97724-06C0-4191-87E1-D3270A517084}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportsCodesList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DD310AFB-3F1C-4655-B967-71A9EAFD2C18}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportsList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{474DD4CA-35BD-4F56-984B-63DBC344159C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportTimezone">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E240092F-35E4-4298-AB95-D5E07F6833AC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportTz">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C2579392-E39E-42B5-9FA7-8282DC4ABBBD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportUsDotCode">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FFBE362-EB7F-4807-B769-5F5ACB5F4069}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportUsdotSeqId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7F2591B-D12C-4525-BBB2-E5551B2BB013}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AirportWac">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DF9723F2-1A1F-4061-BC3D-7D6271CA4B9A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountryList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0AD655AA-966B-4F0E-AC0C-79A7B4055C25}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountryName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{88A43EAD-0579-4AB6-B90B-447F067A4E2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DstList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E34BBC9-7CED-4517-AD83-36903E49600A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DstType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2BAECE34-FE02-46D0-880B-7AEA1E38B6E8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateAbr">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86CB8111-912D-4564-8B53-E196575225E3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateCode">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{52FCE5D0-B64F-492E-B996-C5857111D099}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateCodeList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{659CDE1D-6A36-459F-89D7-87BAC24DE848}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateDescription">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{519351DF-55A0-49A3-B1B5-5B1BABD189C3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StateFips">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F79F6FB4-BBDB-4878-9577-1647DD8A987D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="WacList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Add absent Airports to Dwh_DimAirport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{657F0B06-933D-4146-9D2A-24B429355702}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Add absent Airports to Dwh_DimAirport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Add absent Airports to Dwh_DimAirport\Delete Quoting marks from Stage_Airport"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AC9B45B0-FB17-4B92-862C-18DD9767CADE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Quoting marks from Stage_Airport"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="UPDATE Airport&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '');"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{308F016D-7FEF-4137-B505-D6F18E529F4C}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Code, Description">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{D4DF2974-2563-4C57-8AE3-6D14B95BF96D}"
+            DTS:ObjectName="{D4DF2974-2563-4C57-8AE3-6D14B95BF96D}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description\Insert not present Airports"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{C4F155FA-799C-4D4C-9421-83A524A0BCAA}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert not present Airports"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertNotPresentAirports ?, ?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::AirportName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D86724A8-46B1-41CA-86F6-3968F91449F9}"
+              DTS:ObjectName="{D86724A8-46B1-41CA-86F6-3968F91449F9}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{CB1DB5B3-B2DE-4FAB-86B9-9CCEAD959EF2}"
+              DTS:ObjectName="{CB1DB5B3-B2DE-4FAB-86B9-9CCEAD959EF2}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::AirportName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Add absent Airports to Dwh_DimAirport\SELECT Code, Description FROM Stage_Airport"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ABA4EC5D-B324-48B3-B075-B63DE55D90DC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Code, Description FROM Stage_Airport"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Code, Description&#xA;FROM Airport;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportCodeList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Add absent Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{173B2413-0E88-449A-83EF-8D33B6695A4E}"
+          DTS:From="Package\Add absent Airports to Dwh_DimAirport\Delete Quoting marks from Stage_Airport"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Add absent Airports to Dwh_DimAirport\SELECT Code, Description FROM Stage_Airport" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Add absent Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A63191FC-AD07-4F9A-B4F5-88F44812BD1B}"
+          DTS:From="Package\Add absent Airports to Dwh_DimAirport\SELECT Code, Description FROM Stage_Airport"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Creating Dst Dictionary"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4552D08E-158E-435F-8518-74A3E52C5C52}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creating Dst Dictionary">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dst Dictionary\Foreach Unique Dst"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{CAF1F691-B3BE-41FC-B4E9-0CD291A028EB}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Unique Dst">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{C7D50B63-2A49-44C2-BEB3-8F0FC438B520}"
+            DTS:ObjectName="{C7D50B63-2A49-44C2-BEB3-8F0FC438B520}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::DstList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Creating Dst Dictionary\Foreach Unique Dst\Create a new row in Dwh_DimDst"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{91B19E15-C834-43B9-8331-20B628F2456F}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Create a new row in Dwh_DimDst"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertNewDstType ?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::DstType"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{B405B960-B1E4-4D6B-AA21-AADDF3C75A2B}"
+              DTS:ObjectName="{B405B960-B1E4-4D6B-AA21-AADDF3C75A2B}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::DstType" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CBD939AA-1689-4C86-94C7-5FC45B7E2927}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select Dst FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Dst FROM Airports;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DstList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Creating Dst Dictionary.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1B2DA5A9-99BB-4F5D-A8AF-358E777D0D0E}"
+          DTS:From="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Creating Dst Dictionary\Foreach Unique Dst" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{34AF91F4-93E0-4F4E-AADA-64CEF4FE1A4B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creating Dwh_AirportWorldAreaCode Dictionary">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{9F05A306-0D02-4F39-B652-DF1D153449E1}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Country Name">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{53FD00AA-596B-437A-A02A-D78F66F398E2}"
+            DTS:ObjectName="{53FD00AA-596B-437A-A02A-D78F66F398E2}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::CountryList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name\If Country not exists in WorldAreaCode, then insert"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{CAF4E752-E53C-4DD4-8F9E-A157655FE3CD}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="If Country not exists in WorldAreaCode, then insert"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+                  SQLTask:SqlStatementSource="EXEC insertNotPresentArea ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::CountryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5E79EC17-5B4F-45F3-AF2D-D665FB8968EB}"
+              DTS:ObjectName="{5E79EC17-5B4F-45F3-AF2D-D665FB8968EB}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::CountryName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E9C2F640-71A8-4012-9777-1EBCBCECFB7F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select Country FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Country FROM Airports"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::CountryList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{69D09B23-022C-4CA2-9695-9ED615E4C897}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Code"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]" />
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input].Columns[Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1024"
+                          cachedName="Description"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                          dataType="ui4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]"
+                          name="Copy of Code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]"
+                          name="Copy of Description"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Dwh_AirportWorldAreaCode"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimAirportWorldAreaCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Code]"
+                          cachedDataType="ui4"
+                          cachedName="Copy of Code"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Code]" />
+                        <inputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].Columns[Copy of Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of Description"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Description]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[WordAreaCode]"
+                          dataType="i4"
+                          name="WordAreaCode" />
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Region" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage_WorldAreaCode"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[WorldAreaCode]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      connectionManagerRefId="Package.ConnectionManagers[(LocalDb)\AirStatsDW.AirStatsStage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Code]"
+                          name="Code"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          name="Description" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Code]"
+                          name="Code" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1024"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[Data Conversion Output]"
+                  endId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[OLE DB Source Output]"
+                  endId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8CCF5845-EEDC-4B38-AD2B-2AED62E56B7D}"
+          DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7B8B8723-50E7-4475-8293-3C954993A28B}"
+          DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Deleting quoting marks from Stage_Airports"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0C67150C-9ADE-405E-B8C4-51AEBA1D6F22}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Deleting quoting marks from Stage_Airports"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+          SQLTask:SqlStatementSource="UPDATE Airports&#xA;SET Name = REPLACE(Name, '&quot;', ''),&#xA;City = REPLACE(City, '&quot;', ''),&#xA;Country = REPLACE(Country, '&quot;', ''),&#xA;Iata = REPLACE(Iata, '&quot;', ''),&#xA;Icao = REPLACE(Icao, '&quot;', ''),&#xA;Dst = REPLACE(Dst, '&quot;', ''),&#xA;Tz = REPLACE(Tz, '&quot;', ''),&#xA;Type = REPLACE(Type, '&quot;', ''),&#xA;Source = REPLACE(Source, '&quot;', '');"
+          SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match Airports Wac From Stage_Facts"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2DA7A51C-93EA-4F36-9F5C-8E23601E0C13}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match Airports Wac From Stage_Facts">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{BBC3B93B-840D-4EA2-B843-CB048D660CE5}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach set of codes">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{85CB7875-E6E7-4251-A4C6-4FD095E8DF87}"
+            DTS:ObjectName="{85CB7875-E6E7-4251-A4C6-4FD095E8DF87}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportsCodesList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{E9808E6C-D07D-4F78-AEB6-A09C0893A949}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Dwh_DimAirport_Wac"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.matchFactWacToAirport ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{D81A398A-AC5F-454D-BFA6-F032C9071FF0}"
+              DTS:ObjectName="{D81A398A-AC5F-454D-BFA6-F032C9071FF0}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportIata" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3144BDB4-5AE3-4193-8946-1A9F46AFA8C8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select ArrAirport and DestAirport WAC"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Origin FROM FactFlightActivity&#xA;UNION&#xA;SELECT DISTINCT Dest FROM FactFlightActivity"
+              SQLTask:ResultType="ResultSetType_Rowset"
+              SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportsCodesList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6E3506A-23A8-452D-B3C7-3B79860F07D6}"
+          DTS:From="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match Airports Wac From Stage_Facts\Foreach set of codes" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match appropriate Dst to Airport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{40fe373c-1fac-4415-b329-f7ccf0fc5bfc}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match appropriate Dst to Airport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{063A5AF0-06E8-4905-9538-5D27A43CD452}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete duplicate From DimDst"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+              SQLTask:SqlStatementSource=" WITH TempDimAirlineWorldAreaCode (DstType,duplicateRecCount)&#xA;AS&#xA;(&#xA;SELECT DstType,ROW_NUMBER() OVER(PARTITION by DstType ORDER BY DstType) &#xA;AS duplicateRecCount&#xA;FROM DimDst&#xA;)&#xA;DELETE FROM TempDimAirlineWorldAreaCode&#xA;WHERE duplicateRecCount &gt; 1 ;"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{fd4f1559-d9bb-42bd-acc4-4ef212546963}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Country Name and AirlportId">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{4da2149e-b894-4471-9029-0402c0c8231d}"
+            DTS:ObjectName="{7EC68F89-3FFD-41E3-8D11-02DCEBF50B10}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::DstList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId\Match appropriate Dst to DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{AF49E8C5-EC5A-4278-BA44-1DE1F7B0FFFA}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match appropriate Dst to DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC [dbo].[getAirportDstType] ?, ?"
+                  SQLTask:CodePage="1252"
+                  SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::DstType"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{32540F00-AF37-45F9-B4A5-670BADAA50DC}"
+              DTS:ObjectName="{32540F00-AF37-45F9-B4A5-670BADAA50DC}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{22F296F0-DEB0-47E1-837A-7B5F21C815E3}"
+              DTS:ObjectName="{22F296F0-DEB0-47E1-837A-7B5F21C815E3}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::DstType" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e3dc2d5c-19ed-4301-af94-75b027aaa984}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select AirlportId, Dst FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT AirportId, Dst FROM Airports"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::DstList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2A49706-BDDE-4DF7-87F3-ED2AB715684B}"
+          DTS:From="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{bc28eb81-8da5-4dff-9ed4-ca394c23fd27}"
+          DTS:From="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match appropriate WorldAreaCode to the Airport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AC7C4C3C-C8FC-40A4-AC4B-AEC3989A0D23}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match appropriate WorldAreaCode to the Airport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate WorldAreaCode to the Airport\Delete duplicates from DimAirportWorldAreaCode"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9FDD06B0-A9FA-449F-881E-FF08557E206C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete duplicates from DimAirportWorldAreaCode"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+              SQLTask:SqlStatementSource="WITH TempDimAirlineWorldAreaCode (Region,duplicateRecCount)&#xA;AS&#xA;(&#xA;SELECT Region,ROW_NUMBER() OVER(PARTITION by Region ORDER BY Region) &#xA;AS duplicateRecCount&#xA;FROM DimAirportWorldAreaCode&#xA;)&#xA;DELETE FROM TempDimAirlineWorldAreaCode&#xA;WHERE duplicateRecCount &gt; 1 ;&#xA;"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{D253A4FC-70EF-4796-AC71-B758DE00E48F}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach AirportId and Country">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{152AEB98-FBB0-43B1-8888-3C7F42100640}"
+            DTS:ObjectName="{152AEB98-FBB0-43B1-8888-3C7F42100640}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::WacList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country\Match appropriate WAC to Dwh_DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{5D9FE133-D944-4DCF-BB39-774270A9DBFA}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match appropriate WAC to Dwh_DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC [dbo].[matchAppAirportWacCode] ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::CountryName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3F7221E7-7D91-4A04-AA0D-458294A222D0}"
+              DTS:ObjectName="{3F7221E7-7D91-4A04-AA0D-458294A222D0}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{6B9E55C9-47D8-4CAF-A9D1-6441A2DA1CF7}"
+              DTS:ObjectName="{6B9E55C9-47D8-4CAF-A9D1-6441A2DA1CF7}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::CountryName" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match appropriate WorldAreaCode to the Airport\SELECT AirportId, Country FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{21F5601D-F661-449B-89AC-4B88DC960051}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT AirportId, Country FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT AirportId, Country FROM Airports;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::WacList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate WorldAreaCode to the Airport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0F087123-1A08-441B-A9AF-3592F19E6678}"
+          DTS:From="Package\Match appropriate WorldAreaCode to the Airport\Delete duplicates from DimAirportWorldAreaCode"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match appropriate WorldAreaCode to the Airport\SELECT AirportId, Country FROM Stage_Airports" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match appropriate WorldAreaCode to the Airport.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6AEBBF7A-8AEF-40E7-B1FF-716C91F3C083}"
+          DTS:From="Package\Match appropriate WorldAreaCode to the Airport\SELECT AirportId, Country FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match DimState, DimStateFips to DimAirport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EFA5D8B2-2A46-4ADB-94E5-9CF7FE26FC9B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match DimState, DimStateFips to DimAirport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{99034384-5E6D-4326-BF7D-F125F4692356}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach set of values">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{55F79DAE-DA91-4D83-A90C-77478DB602DD}"
+            DTS:ObjectName="{55F79DAE-DA91-4D83-A90C-77478DB602DD}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::StateCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values\Match State codes to Airport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{8E257288-85E6-4213-97A3-F0662EB2AF66}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:ISOLevel="-1"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Match State codes to Airport"
+              DTS:ThreadHint="0"
+              DTS:TransactionOption="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.matchStateCodeToAirport ?,?,?"
+                  SQLTask:CodePage="1252"
+                  SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="1024" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::StateAbr"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="1024" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::StateFips"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="1024" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{EE8D5CBA-D7DD-4581-9DFE-0EE62C32E9C3}"
+              DTS:ObjectName="{EE8D5CBA-D7DD-4581-9DFE-0EE62C32E9C3}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{649E162E-F665-49CF-9F56-311178419146}"
+              DTS:ObjectName="{649E162E-F665-49CF-9F56-311178419146}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::StateAbr" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8AC061C6-21BD-4B48-86DC-A1A3CC5BF376}"
+              DTS:ObjectName="{8AC061C6-21BD-4B48-86DC-A1A3CC5BF376}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::StateFips" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match DimState, DimStateFips to DimAirport\SELECT map of Origin and Dest Iata, StateCode, StateFips"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{59EBF18A-3F42-43C5-A487-877D7D4F4D46}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT map of Origin and Dest Iata, StateCode, StateFips"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT Origin, LTRIM(OriginStateAbr), OriginStateFips&#xA;&#xA;FROM FactFlightActivity&#xA;&#xA;&#xA;UNION&#xA;&#xA;&#xA;SELECT DISTINCT Dest, LTRIM(DestStateAbr),DestStateFips&#xA;FROM FactFlightActivity"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::StateCodeList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match DimState, DimStateFips to DimAirport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{55FB0984-950A-4539-8015-9246C53F574E}"
+          DTS:From="Package\Match DimState, DimStateFips to DimAirport\SELECT map of Origin and Dest Iata, StateCode, StateFips"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F084F602-46EE-4678-B661-7A9EAC0AB20B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match UsDotCode, UsSeqIdCode and City Name to Airports">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{7A41C8FC-2F8B-4DC1-BC89-E264A5B29A8D}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Code">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{042592AE-D579-48E0-A7B1-C89974A672EC}"
+            DTS:ObjectName="{042592AE-D579-48E0-A7B1-C89974A672EC}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportsCodesList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code\Update Dwh_DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A9AB0E26-29AB-4526-B5C2-18B9F386E6D6}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Update Dwh_DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.updateAirportCodesAndCities ?,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportUsDotCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::AirportUsdotSeqId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="User::AirportCity"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{304DF936-BBC2-4A43-BB21-E6DB9D3CFB7E}"
+              DTS:ObjectName="{304DF936-BBC2-4A43-BB21-E6DB9D3CFB7E}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportUsDotCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{53178FE8-1249-4781-BB6B-CC591D1C9C1D}"
+              DTS:ObjectName="{53178FE8-1249-4781-BB6B-CC591D1C9C1D}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::AirportUsdotSeqId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{A62A068E-D717-4709-A2D2-51B5FD0AEE83}"
+              DTS:ObjectName="{A62A068E-D717-4709-A2D2-51B5FD0AEE83}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{EAB67BC3-D204-4949-8E6B-C11048A3BE9F}"
+              DTS:ObjectName="{EAB67BC3-D204-4949-8E6B-C11048A3BE9F}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::AirportCity" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5E2B00D2-C218-463B-B672-D0B770469769}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select map of Codes and City Names"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT OriginAirportId, OriginAirportSeqId, Origin, OriginCityName&#xA;FROM [dbo].[FactFlightActivity]&#xA;&#xA;UNION&#xA;&#xA;SELECT DISTINCT DestAirportId, DestAirportSeqId, Dest, DestCityName&#xA;FROM [dbo].[FactFlightActivity]"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportsCodesList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DAF840B2-A820-48AD-99C1-590707D358E7}"
+          DTS:From="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Replacing NULL in AirlineDst to foreign key of unknown Dst"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FC4E8F82-7CBA-4C2C-802A-3734B9D2A601}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Replacing NULL in AirlineDst to foreign key of unknown Dst"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource=" ----DimDst------&#xA;&#xA; UPDATE DimAirport&#xA; SET Dst = 3&#xA; WHERE Dst IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Replacing NULL in AirlineStateFips and AirlineStateCode to foreign key of unknown StateCode"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7DC9EAA0-07CA-4194-BC59-9EF497AE2F90}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Replacing NULL in AirlineStateFips and AirlineStateCode to foreign key of unknown StateCode"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource=" ----DimState----&#xA;&#xA;IF NOT EXISTS (SELECT * FROM DimState WHERE StateName = 'Unknown')&#xA;BEGIN&#xA; &#x9;INSERT INTO DimState (StateCodeId, &#x9;StateCode, StateName)&#xA;&#x9; VALUES &#xA;&#x9; (-1, 'UN', 'Unknown');&#xA;END&#xA;&#xA; UPDATE DimAirport&#xA; SET StateCode = (SELECT StateCodeId FROM DimState WHERE StateName = 'Unknown')&#xA; WHERE StateCode IS NULL;&#xA;&#xA;  ----DimStateFips----&#xA;&#xA;IF NOT EXISTS (SELECT * FROM DimStateFips WHERE StateName = 'Unknown')&#xA;BEGIN&#xA;   &#x9;INSERT INTO DimStateFips(StateFipsCodeId, &#x9;StateFipsCode, StateName)&#xA;  &#x9; VALUES (-1, 'UN',  'Unknown');&#xA;END&#xA;&#xA; UPDATE DimAirport&#xA; SET StateFips = (SELECT StateFipsCodeId FROM DimStateFips WHERE StateName = 'Unknown')&#xA; WHERE StateFips IS NULL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Replacing NULL in AirlportWorldAreaCode to foreign key of unknown WorldAreaCode"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AF15D31B-5AF7-4B49-8073-9065791E4EAA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Replacing NULL in AirlportWorldAreaCode to foreign key of unknown WorldAreaCode"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource=" ----DimAirportWorldAreaCode------&#xA;&#xA;  UPDATE DimAirport&#xA; SET AirportWorldAreaCode = (SELECT WordAreaCode&#xA;  FROM DimAirportWorldAreaCode WHERE Region = 'Unknown')&#xA; WHERE AirportWorldAreaCode IS NULL;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{02193FE6-ED3E-45D4-81A9-3D33D5D37285}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+          SQLTask:SqlStatementSource=" UPDATE DimAirport&#xA;  SET AirportIata = NULL&#xA;  WHERE AirportIata IN('', ' ', '\N');&#xA;&#xA;      UPDATE DimAirport&#xA;  SET AirportIcao = NULL&#xA;  WHERE AirportIcao IN('', ' ', '\N');&#xA;&#xA;      UPDATE DimAirport&#xA;  SET AirportName = NULL&#xA;  WHERE AirportName IN('', ' ', '\N');&#xA;&#xA;        UPDATE DimAirport&#xA;  SET CityName = NULL&#xA;  WHERE CityName IN('', ' ', '\N');&#xA;&#xA;  UPDATE DimAirport&#xA;  SET TzDatabase = NULL&#xA;  WHERE TzDatabase IN('', ' ', '\N');&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{DD197F43-A2A6-47D5-931D-E8BA462FFDED}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_StateFips to Dwh_DimStateFips">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{08d817c5-b4a0-40a9-abe3-5421c0b39dd7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting quoting marks from Stage_StateFips"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="&#xA;UPDATE StateFips&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '');"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{C1C0E851-B803-46ED-A63D-ADB44CA23345}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach StateFips">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{D968ADE9-0C74-4FB1-BA87-014A3052E7E4}"
+            DTS:ObjectName="{D968ADE9-0C74-4FB1-BA87-014A3052E7E4}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::StateCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{A0E9941B-5789-457C-869D-13182647C774}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new row in DimStateFips"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC insertNewStateFips ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::StateCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::StateDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{055A9317-3CC9-4315-A680-511FD0365574}"
+              DTS:ObjectName="{055A9317-3CC9-4315-A680-511FD0365574}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::StateCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{133CD0EA-D323-4703-96B5-A071020B6FAD}"
+              DTS:ObjectName="{133CD0EA-D323-4703-96B5-A071020B6FAD}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::StateDescription" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1D17170C-D17C-4E4A-B492-8034E9249762}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Code, Description FROM StateFips;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Code, Description FROM StateFips;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::StateCodeList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BE80C7DA-BC6E-4080-AFDC-9752A7C35CB0}"
+          DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C5135A23-0251-4968-9F97-A9C528609EC6}"
+          DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{42246F7B-4B0A-45CA-8B63-B46E07E6697D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer Stage_State_Abrv to Dwh_DimState">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{50AEE168-B08C-43BD-9D7D-D0576B2144AE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Deleting quoting marks from Stage_StateAbrAviation"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="&#xA;UPDATE StateAbrAviation&#xA;SET Code = REPLACE(Code, '&quot;', ''),&#xA;Description = REPLACE(Description, '&quot;', '');"
+              SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{7DF35CBE-A6FD-4B6B-8034-3A45DD779816}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach State">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{F5823F0A-3ED0-475E-A31F-3119889D8897}"
+            DTS:ObjectName="{F5823F0A-3ED0-475E-A31F-3119889D8897}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::StateCodeList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State\Insert new row in DimState"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{456FBB89-515D-421B-B9EF-CA8571F9DFD0}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new row in DimState"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertNewState ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::StateCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::StateDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{CED66D04-4934-4995-8254-AD1A12B96033}"
+              DTS:ObjectName="{CED66D04-4934-4995-8254-AD1A12B96033}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::StateCode" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{798C810D-E701-4C45-8BFD-66A0FBC23F33}"
+              DTS:ObjectName="{798C810D-E701-4C45-8BFD-66A0FBC23F33}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::StateDescription" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DD234762-CAC0-44C7-94C7-8B5C64D7A5DC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT Code, Description FROM StateAbrAviation;"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT Code, Description FROM StateAbrAviation;"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::StateCodeList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{683BCB7F-B94A-4CC9-9069-602DF485A002}"
+          DTS:From="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{AD3F98C7-758D-481F-A732-B535F0AEF2BA}"
+          DTS:From="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D549D69E-6785-4711-BC7C-2F598F744507}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfering Rows From Stage_Airports to Dwh_DimAirport">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{2FAE60B0-4605-4A07-A31B-9EC2E063334A}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Foreach Airports rows">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{EAB84C61-6780-4DC3-83CD-4B27C1B27127}"
+            DTS:ObjectName="{EAB84C61-6780-4DC3-83CD-4B27C1B27127}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::AirportsList" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{C3C4D1AD-F1DC-4357-88F7-6C1F108C7382}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insert new Airport row to Dwh_DimAirport"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{3D8B8637-764D-4928-BC08-AF6E98936502}"
+                  SQLTask:SqlStatementSource="EXEC dbo.insertAirportsRows ?,?,?,?,?,?,?,?,?,?"
+                  SQLTask:CodePage="1252" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::AirportId"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::AirportName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="User::AirportCity"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="User::AirportIata"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="4"
+                    SQLTask:DtsVariableName="User::AirportIcao"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="5"
+                    SQLTask:DtsVariableName="User::AirportLatitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="6"
+                    SQLTask:DtsVariableName="User::AirportLongitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="7"
+                    SQLTask:DtsVariableName="User::AirportAltitude"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="8"
+                    SQLTask:DtsVariableName="User::AirportTimezone"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="9"
+                    SQLTask:DtsVariableName="User::AirportTz"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="100" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3DF9ED0C-17A2-4A18-A249-C97568EDBEB3}"
+              DTS:ObjectName="{3DF9ED0C-17A2-4A18-A249-C97568EDBEB3}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::AirportId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8818974C-491F-40B1-8F4A-8E0B7C55F517}"
+              DTS:ObjectName="{8818974C-491F-40B1-8F4A-8E0B7C55F517}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::AirportName" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{2C58585B-10C5-438F-9B89-E611E80DB6EA}"
+              DTS:ObjectName="{2C58585B-10C5-438F-9B89-E611E80DB6EA}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::AirportCity" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{8595E5E9-ABC0-4ED2-92F7-737F3BB1CD48}"
+              DTS:ObjectName="{8595E5E9-ABC0-4ED2-92F7-737F3BB1CD48}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::AirportIata" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{0D1E9EC6-8841-4371-9215-39183C60489D}"
+              DTS:ObjectName="{0D1E9EC6-8841-4371-9215-39183C60489D}"
+              DTS:ValueIndex="4"
+              DTS:VariableName="User::AirportIcao" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5D05616E-46C2-48AD-8253-7F66B615CF92}"
+              DTS:ObjectName="{5D05616E-46C2-48AD-8253-7F66B615CF92}"
+              DTS:ValueIndex="5"
+              DTS:VariableName="User::AirportLatitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{57F0207B-A7F6-4863-A205-C2F22BE6A5B1}"
+              DTS:ObjectName="{57F0207B-A7F6-4863-A205-C2F22BE6A5B1}"
+              DTS:ValueIndex="6"
+              DTS:VariableName="User::AirportLongitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{C94A987B-C816-4E4C-B7BA-6E819B6F948E}"
+              DTS:ObjectName="{C94A987B-C816-4E4C-B7BA-6E819B6F948E}"
+              DTS:ValueIndex="7"
+              DTS:VariableName="User::AirportAltitude" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{9EC0080D-D39A-4D9B-B810-E06359EC3CCC}"
+              DTS:ObjectName="{9EC0080D-D39A-4D9B-B810-E06359EC3CCC}"
+              DTS:ValueIndex="8"
+              DTS:VariableName="User::AirportTimezone" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{E4DCFDEB-7CA3-4B0C-9497-26D376DBFC9A}"
+              DTS:ObjectName="{E4DCFDEB-7CA3-4B0C-9497-26D376DBFC9A}"
+              DTS:ValueIndex="9"
+              DTS:VariableName="User::AirportTz" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CA58AA1B-A03E-461C-BCCE-62D82E63D3F9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SELECT values FROM Stage_Airports"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{27C0BFC5-3C7C-44E6-BB5D-99C915F2E5AD}"
+              SQLTask:SqlStatementSource="SELECT AirportId , Name , City , Iata , Icao ,Latitude , Longitude , Altitude ,  &#xA;TimeZone , Tz FROM Airports;"
+              SQLTask:CodePage="1252"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::AirportsList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{76647FF6-CE7C-40BA-9743-DD1DCDCACEF2}"
+          DTS:From="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF7AF8E2-8E34-4A41-B0F8-9B5C60B3DB4C}"
+      DTS:From="Package\Deleting quoting marks from Stage_Airports"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Creating Dst Dictionary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{62D7297D-0FAB-421D-8CE6-76A246B0C4FB}"
+      DTS:From="Package\Creating Dst Dictionary"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Creating Dwh_AirportWorldAreaCode Dictionary" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA4472EE-24CC-4009-8A93-FC91CF5A640E}"
+      DTS:From="Package\Match DimState, DimStateFips to DimAirport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{2BA78090-503A-4A73-8E59-28B63EC9ED8B}"
+      DTS:From="Package\Match Airports Wac From Stage_Facts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{C058C7C6-82C0-491E-B876-2F2D24B58AA1}"
+      DTS:From="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Replacing NULL in AirlineStateFips and AirlineStateCode to foreign key of unknown StateCode" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{C64DBACD-31AA-4127-B3FD-E28A08BC6003}"
+      DTS:From="Package\Replacing NULL in AirlineStateFips and AirlineStateCode to foreign key of unknown StateCode"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Replacing NULL in AirlineDst to foreign key of unknown Dst" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{251BE92C-17FF-42B5-8773-6BF75BD73E26}"
+      DTS:From="Package\Replacing NULL in AirlineDst to foreign key of unknown Dst"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\Replacing NULL in AirlportWorldAreaCode to foreign key of unknown WorldAreaCode" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{CCFEC86F-4FA8-4E62-9C95-F3806014904D}"
+      DTS:From="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Match Airports Wac From Stage_Facts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2752A5D-D33C-4F5F-B88A-813B1AB13404}"
+      DTS:From="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Match appropriate Dst to Airport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{ED597797-2FC5-4C6D-97D9-950E6FEA9CA5}"
+      DTS:From="Package\Match appropriate Dst to Airport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Match appropriate WorldAreaCode to the Airport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1E28C4CE-F9E4-4736-AA97-2067BE2DE754}"
+      DTS:From="Package\Match appropriate WorldAreaCode to the Airport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Add absent Airports to Dwh_DimAirport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{212959D7-354D-427F-8C24-B35ECAA8A7C9}"
+      DTS:From="Package\Add absent Airports to Dwh_DimAirport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{9CAD2162-2642-47AB-AF2E-6A9F9CC72F4E}"
+      DTS:From="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Transfer Stage_State_Abrv to Dwh_DimState" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{E96301EA-29FA-449C-981E-313C85CFE129}"
+      DTS:From="Package\Transfer Stage_State_Abrv to Dwh_DimState"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Transfer Stage_StateFips to Dwh_DimStateFips" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{1288844A-4031-4D8B-86CC-69FE6F6CDBDD}"
+      DTS:From="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Match DimState, DimStateFips to DimAirport" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="274,42"
+          Id="Package\Add absent Airports to Dwh_DimAirport\Delete Quoting marks from Stage_Airport"
+          TopLeft="29,26" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description\Insert not present Airports"
+          TopLeft="24,47" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,145"
+          Size="240,188"
+          Id="Package\Add absent Airports to Dwh_DimAirport\Foreach Code, Description"
+          TopLeft="68,233" />
+        <NodeLayout
+          Size="300,42"
+          Id="Package\Add absent Airports to Dwh_DimAirport\SELECT Code, Description FROM Stage_Airport"
+          TopLeft="25,120" />
+        <EdgeLayout
+          Id="Package\Add absent Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          TopLeft="166,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,52"
+              Start="0,0"
+              End="9,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,26"
+                    Point2="9,26"
+                    Point3="9,30" />
+                  <mssgle:LineSegment
+                    End="9,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Add absent Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint 1]"
+          TopLeft="175,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,71"
+              Start="0,0"
+              End="13,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="9,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,35.5"
+                    Point2="13,35.5"
+                    Point3="13,39.5" />
+                  <mssgle:LineSegment
+                    End="13,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="374,476"
+          Size="374,519"
+          Id="Package\Add absent Airports to Dwh_DimAirport"
+          TopLeft="470,3291" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Creating Dst Dictionary\Foreach Unique Dst\Create a new row in Dwh_DimDst"
+          TopLeft="5.5,35" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="248,132"
+          Size="248,175"
+          Id="Package\Creating Dst Dictionary\Foreach Unique Dst"
+          TopLeft="63,149" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Creating Dst Dictionary\Select Dst FROM Stage_Airports"
+          TopLeft="77,39" />
+        <EdgeLayout
+          Id="Package\Creating Dst Dictionary.PrecedenceConstraints[Constraint]"
+          TopLeft="189.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="465,379"
+          Size="465,422"
+          Id="Package\Creating Dst Dictionary"
+          TopLeft="275.142857142857,143.857142857143" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name\If Country not exists in WorldAreaCode, then insert"
+          TopLeft="44,46" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="369,143"
+          Size="369,186"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Foreach Country Name"
+          TopLeft="62,129" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Select Country FROM Stage_Airports"
+          TopLeft="121,52" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode"
+          TopLeft="63,354" />
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint]"
+          TopLeft="246.5,94">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary.PrecedenceConstraints[Constraint 1]"
+          TopLeft="248.25,315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="494,482"
+          Size="494,525"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary"
+          TopLeft="258,601" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Deleting quoting marks from Stage_Airports"
+          TopLeft="356.428571428572,34.1428571428571" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes\Update Dwh_DimAirport_Wac"
+          TopLeft="58.3636363636363,40.2727272727273" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="297,135"
+          Size="297,178"
+          Id="Package\Match Airports Wac From Stage_Facts\Foreach set of codes"
+          TopLeft="56.1818181818181,132.636363636364" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Match Airports Wac From Stage_Facts\Select ArrAirport and DestAirport WAC"
+          TopLeft="51.2954545454545,24.4545454545455" />
+        <EdgeLayout
+          Id="Package\Match Airports Wac From Stage_Facts.PrecedenceConstraints[Constraint]"
+          TopLeft="180.795454545455,66.4545454545455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.8863636363636,66.1818181818182"
+              Start="0,0"
+              End="23.8863636363636,58.6818181818182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0909090909091"
+                    Point2="0,33.0909090909091"
+                    Point3="4,33.0909090909091" />
+                  <mssgle:LineSegment
+                    End="19.8863636363636,33.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.8863636363636,33.0909090909091"
+                    Point2="23.8863636363636,33.0909090909091"
+                    Point3="23.8863636363636,37.0909090909091" />
+                  <mssgle:LineSegment
+                    End="23.8863636363636,58.6818181818182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="358,366"
+          Size="358,409"
+          Id="Package\Match Airports Wac From Stage_Facts"
+          TopLeft="431.5,1258.25" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Match appropriate Dst to Airport\Delete duplicate From DimDst"
+          TopLeft="78,9" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId\Match appropriate Dst to DimAirport"
+          TopLeft="38,54" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="348,146"
+          Size="348,189"
+          Id="Package\Match appropriate Dst to Airport\Foreach Country Name and AirlportId"
+          TopLeft="18.5,167" />
+        <NodeLayout
+          Size="280,42"
+          Id="Package\Match appropriate Dst to Airport\Select AirlportId, Dst FROM Stage_Airports"
+          TopLeft="43.5,81" />
+        <EdgeLayout
+          Id="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint]"
+          TopLeft="185.75,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Match appropriate Dst to Airport.PrecedenceConstraints[Constraint 6]"
+          TopLeft="183.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,44"
+              Start="0,0"
+              End="9,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,22"
+                    Point2="9,22"
+                    Point3="9,26" />
+                  <mssgle:LineSegment
+                    End="9,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="438,362"
+          Size="438,405"
+          Id="Package\Match appropriate Dst to Airport"
+          TopLeft="375,2294.5" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\Match appropriate WorldAreaCode to the Airport\Delete duplicates from DimAirportWorldAreaCode"
+          TopLeft="20,14" />
+        <NodeLayout
+          Size="284,42"
+          Id="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country\Match appropriate WAC to Dwh_DimAirport"
+          TopLeft="24,30" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="324,127"
+          Size="324,170"
+          Id="Package\Match appropriate WorldAreaCode to the Airport\Foreach AirportId and Country"
+          TopLeft="69,172" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\Match appropriate WorldAreaCode to the Airport\SELECT AirportId, Country FROM Stage_Airports"
+          TopLeft="24,91" />
+        <EdgeLayout
+          Id="Package\Match appropriate WorldAreaCode to the Airport.PrecedenceConstraints[Constraint]"
+          TopLeft="176.5,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Match appropriate WorldAreaCode to the Airport.PrecedenceConstraints[Constraint 1]"
+          TopLeft="177.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.5,39"
+              Start="0,0"
+              End="53.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="49.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.5,19.5"
+                    Point2="53.5,19.5"
+                    Point3="53.5,23.5" />
+                  <mssgle:LineSegment
+                    End="53.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="398,397"
+          Size="398,440"
+          Id="Package\Match appropriate WorldAreaCode to the Airport"
+          TopLeft="410,2757" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values\Match State codes to Airport"
+          TopLeft="16,27" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="229,124"
+          Size="229,167"
+          Id="Package\Match DimState, DimStateFips to DimAirport\Foreach set of values"
+          TopLeft="123,88" />
+        <NodeLayout
+          Size="354,42"
+          Id="Package\Match DimState, DimStateFips to DimAirport\SELECT map of Origin and Dest Iata, StateCode, StateFips"
+          TopLeft="5.5,7" />
+        <EdgeLayout
+          Id="Package\Match DimState, DimStateFips to DimAirport.PrecedenceConstraints[Constraint]"
+          TopLeft="182.5,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55,39"
+              Start="0,0"
+              End="55,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="51,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51,19.5"
+                    Point2="55,19.5"
+                    Point3="55,23.5" />
+                  <mssgle:LineSegment
+                    End="55,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="535,310"
+          Size="535,353"
+          Id="Package\Match DimState, DimStateFips to DimAirport"
+          TopLeft="532,5368" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code\Update Dwh_DimAirport"
+          TopLeft="57,35" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="274,132"
+          Size="274,175"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Foreach Code"
+          TopLeft="163,101" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports\Select map of Codes and City Names"
+          TopLeft="106.136363636364,10.772727272727" />
+        <EdgeLayout
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports.PrecedenceConstraints[Constraint]"
+          TopLeft="232.136363636364,52.772727272727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.8636363636364,48.227272727273"
+              Start="0,0"
+              End="67.8636363636364,40.727272727273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1136363636365" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1136363636365"
+                    Point2="0,24.1136363636365"
+                    Point3="4,24.1136363636365" />
+                  <mssgle:LineSegment
+                    End="63.8636363636364,24.1136363636365" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.8636363636364,24.1136363636365"
+                    Point2="67.8636363636364,24.1136363636365"
+                    Point3="67.8636363636364,28.1136363636365" />
+                  <mssgle:LineSegment
+                    End="67.8636363636364,40.727272727273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,331"
+          Size="530,374"
+          Id="Package\Match UsDotCode, UsSeqIdCode and City Name to Airports"
+          TopLeft="421,4012" />
+        <NodeLayout
+          Size="436,42"
+          Id="Package\Setting NULL to rows in Dwh_DimAirport, which doesn't contain information"
+          TopLeft="568,5829" />
+        <NodeLayout
+          Size="327,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Deleting quoting marks from Stage_StateAbrAviation"
+          TopLeft="50,19" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State\Insert new row in DimState"
+          TopLeft="12,29" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="230,126"
+          Size="230,169"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\Foreach State"
+          TopLeft="118,157" />
+        <NodeLayout
+          Size="317,42"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState\SELECT Code, Description FROM StateAbrAviation;"
+          TopLeft="71,92" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint]"
+          TopLeft="213.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,31"
+              Start="0,0"
+              End="16,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="12,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,15.5"
+                    Point2="16,15.5"
+                    Point3="16,19.5" />
+                  <mssgle:LineSegment
+                    End="16,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState.PrecedenceConstraints[Constraint 1]"
+          TopLeft="231.25,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="542,381"
+          Size="542,424"
+          Id="Package\Transfer Stage_State_Abrv to Dwh_DimState"
+          TopLeft="445,4436" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Deleting quoting marks from Stage_StateFips"
+          TopLeft="54,16" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips\Insert new row in DimStateFips"
+          TopLeft="22,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="254,122"
+          Size="254,165"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\Foreach StateFips"
+          TopLeft="102,160" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips\SELECT Code, Description FROM StateFips;"
+          TopLeft="63,84" />
+        <EdgeLayout
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint]"
+          TopLeft="204,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,34"
+              Start="0,0"
+              End="8,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="4,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,17"
+                    Point2="8,17"
+                    Point3="8,21" />
+                  <mssgle:LineSegment
+                    End="8,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips.PrecedenceConstraints[Constraint 1]"
+          TopLeft="202,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="485,380"
+          Size="485,423"
+          Id="Package\Transfer Stage_StateFips to Dwh_DimStateFips"
+          TopLeft="526,4914" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows\Insert new Airport row to Dwh_DimAirport"
+          TopLeft="43,40" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="339,138"
+          Size="339,181"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\Foreach Airports rows"
+          TopLeft="131,150" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport\SELECT values FROM Stage_Airports"
+          TopLeft="90,38" />
+        <EdgeLayout
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport.PrecedenceConstraints[Constraint]"
+          TopLeft="215.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85,70"
+              Start="0,0"
+              End="85,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="81,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,35"
+                    Point2="85,35"
+                    Point3="85,39" />
+                  <mssgle:LineSegment
+                    End="85,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="535,386"
+          Size="535,429"
+          Id="Package\Transfering Rows From Stage_Airports to Dwh_DimAirport"
+          TopLeft="325,1770" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="499.428571428572,76.1428571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.21428571428555,67.7142857142857"
+              Start="0,0"
+              End="8.21428571428555,60.2142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8571428571428"
+                    Point2="0,33.8571428571428"
+                    Point3="4,33.8571428571428" />
+                  <mssgle:LineSegment
+                    End="4.21428571428555,33.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.21428571428555,33.8571428571428"
+                    Point2="8.21428571428555,33.8571428571428"
+                    Point3="8.21428571428555,37.8571428571428" />
+                  <mssgle:LineSegment
+                    End="8.21428571428555,60.2142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="506.321428571429,565.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.142857142857"
+              Start="0,0"
+              End="0,27.642857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.642857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="610.5,1667.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,102.75"
+              Start="0,0"
+              End="-18,95.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.375"
+                    Point2="0,51.375"
+                    Point3="-4,51.375" />
+                  <mssgle:LineSegment
+                    End="-14,51.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,51.375"
+                    Point2="-18,51.375"
+                    Point3="-18,55.375" />
+                  <mssgle:LineSegment
+                    End="-18,95.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="505,1126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.5,132.25"
+              Start="0,0"
+              End="105.5,124.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.125"
+                    Point2="0,66.125"
+                    Point3="4,66.125" />
+                  <mssgle:LineSegment
+                    End="101.5,66.125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.5,66.125"
+                    Point2="105.5,66.125"
+                    Point3="105.5,70.125" />
+                  <mssgle:LineSegment
+                    End="105.5,124.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="593.25,2199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95.5"
+              Start="0,0"
+              End="0,88">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="594,2699.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,57.5"
+              Start="0,0"
+              End="15,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.75"
+                    Point2="0,28.75"
+                    Point3="4,28.75" />
+                  <mssgle:LineSegment
+                    End="11,28.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,28.75"
+                    Point2="15,28.75"
+                    Point3="15,32.75" />
+                  <mssgle:LineSegment
+                    End="15,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="609,3197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,94"
+              Start="0,0"
+              End="48,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
+                  <mssgle:LineSegment
+                    End="44,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44,47"
+                    Point2="48,47"
+                    Point3="48,51" />
+                  <mssgle:LineSegment
+                    End="48,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="657,3810">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29,202"
+              Start="0,0"
+              End="29,194.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,97" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,97"
+                    Point2="0,101"
+                    Point3="4,101" />
+                  <mssgle:LineSegment
+                    End="25,101" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25,101"
+                    Point2="29,101"
+                    Point3="29,105" />
+                  <mssgle:LineSegment
+                    End="29,194.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="686,4386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,50"
+              Start="0,0"
+              End="30,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="26,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,25"
+                    Point2="30,25"
+                    Point3="30,29" />
+                  <mssgle:LineSegment
+                    End="30,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="716,4860">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.5,54"
+              Start="0,0"
+              End="52.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="48.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.5,27"
+                    Point2="52.5,27"
+                    Point3="52.5,31" />
+                  <mssgle:LineSegment
+                    End="52.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="768.5,5337">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31,31"
+              Start="0,0"
+              End="31,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="27,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,15.5"
+                    Point2="31,15.5"
+                    Point3="31,19.5" />
+                  <mssgle:LineSegment
+                    End="31,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="799.5,5721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,108"
+              Start="0,0"
+              End="-13.5,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="-4,54" />
+                  <mssgle:LineSegment
+                    End="-9.5,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,54"
+                    Point2="-13.5,54"
+                    Point3="-13.5,58" />
+                  <mssgle:LineSegment
+                    End="-13.5,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="519,42"
+          Id="Package\Replacing NULL in AirlineStateFips and AirlineStateCode to foreign key of unknown StateCode"
+          TopLeft="515,5920" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="786,5871">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.5,49"
+              Start="0,0"
+              End="-11.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-7.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,24.5"
+                    Point2="-11.5,24.5"
+                    Point3="-11.5,28.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="358,42"
+          Id="Package\Replacing NULL in AirlineDst to foreign key of unknown Dst"
+          TopLeft="601,6027" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="777.25,5962">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="478,42"
+          Id="Package\Replacing NULL in AirlportWorldAreaCode to foreign key of unknown WorldAreaCode"
+          TopLeft="558,6116" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="780,6069">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,47"
+              Start="0,0"
+              End="17,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="13,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,23.5"
+                    Point2="17,23.5"
+                    Point3="17,27.5" />
+                  <mssgle:LineSegment
+                    End="17,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode"
+          TopLeft="295,233" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode"
+          TopLeft="307,56" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Data Conversion"
+          TopLeft="321.5,147.5" />
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[OLE DB Source Output]"
+          TopLeft="399.25,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.5"
+              Start="0,0"
+              End="0,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode.Paths[Data Conversion Output]"
+          TopLeft="399.75,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Dwh_AirportWorldAreaCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creating Dwh_AirportWorldAreaCode Dictionary\Transfer Stage_WorldAreaCode to Dwh_AirportWorldAreaCode\Stage_WorldAreaCode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
