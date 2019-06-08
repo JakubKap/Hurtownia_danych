@@ -41,7 +41,7 @@ CREATE PROCEDURE dbo.insertFacts
 		DECLARE @LocalActualArrivalTime int =cast(@ArrTime as int)
 		DECLARE @UniversalActualArrivalTime int =dbo.getUniversalTime(cast(@ARRTime as int),@TimezoneShiftOriginH)
 
-
+ 
 INSERT INTO [dbo].[FactFlightActivity]
            ([LocalScheduledDepartureTime]
            ,[DelayGroup]
@@ -137,3 +137,8 @@ INSERT INTO [dbo].[FactFlightActivity]
 		   )
 GO
 
+Alter table FactFlightActivity
+	add constraint 'FK_ArrDelayGroupinFacts'
+	FOREIGN KEY('ArrDelayGroup') REFERENCES 'DelayGroup' ('DelayGroupKey')
+
+exec sp_rename ''
