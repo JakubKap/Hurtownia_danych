@@ -15,9 +15,6 @@
         <ID>Dim Time</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Date</ID>
-      </Dimension>
-      <Dimension>
         <ID>Dim Cancellation Reason</ID>
       </Dimension>
       <Dimension>
@@ -37,6 +34,9 @@
       </Dimension>
       <Dimension>
         <ID>Fact Flight Activity</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Date</ID>
       </Dimension>
     </Dimensions>
     <Cubes>

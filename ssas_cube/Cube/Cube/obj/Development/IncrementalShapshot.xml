@@ -40,13 +40,6 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>a8FtScNkkfSPZH1jJr9dEtRsfL8=07.06.2019 14:14:2707.06.2019 14:14:27</TimeStamp>
-        <ID>
-          <String>Dim Date</String>
-        </ID>
-      </ObjectSnapshot>
-      <ObjectSnapshot>
-        <Type>Microsoft.AnalysisServices.Dimension</Type>
         <TimeStamp>eTn6mjP/wm/ZUkgaFKG35+Yl/Qs=07.06.2019 14:14:2707.06.2019 14:14:27</TimeStamp>
         <ID>
           <String>Dim Cancellation Reason</String>
@@ -95,6 +88,13 @@
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+1Tymy0v/XAjPRnc0KVai5/jtKk=07.06.2019 16:05:2207.06.2019 14:14:27</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
         <TimeStamp>EM5kNKcjD4l6JHqP28yomecpyGo=07.06.2019 14:34:5805.06.2019 18:29:27KFtvxhCP1McCvzUka2tJsohERBM=06.06.2019 13:10:3805.06.2019 18:29:27</TimeStamp>
         <ID>
@@ -113,5 +113,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2019-06-07T12:35:07.106667Z</LastDeployed>
+  <LastDeployed>2019-06-07T14:05:42.516667Z</LastDeployed>
 </DeploymentSnapshot>

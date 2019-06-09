@@ -166,26 +166,50 @@
             <Shape Id="Calendar Key" Expanded="true">
               <Attributes>
                 <Attribute Id="Calendar Key" />
+                <Attribute Id="Month Name" />
+                <Attribute Id="Description" />
+                <Attribute Id="End Day" />
+                <Attribute Id="End Month" />
+                <Attribute Id="Start Day" />
+                <Attribute Id="Start Month" />
               </Attributes>
               <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Day Of Week Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Day Of Week Name" />
+              </Attributes>
+              <Position x="223" y="20" />
+            </Shape>
+            <Shape Id="Day Of Week Number" Expanded="true">
+              <Attributes>
+                <Attribute Id="Day Of Week Number" />
+              </Attributes>
+              <Position x="427" y="20" />
+            </Shape>
+            <Shape Id="Day" Expanded="false">
+              <Attributes>
+                <Attribute Id="Day" />
+              </Attributes>
+              <Position x="223" y="71" />
+            </Shape>
+            <Shape Id="Year" Expanded="false">
+              <Attributes>
+                <Attribute Id="Year" />
+              </Attributes>
+              <Position x="223" y="122" />
             </Shape>
             <Shape Id="Quarter Number" Expanded="false">
               <Attributes>
                 <Attribute Id="Quarter Number" />
               </Attributes>
-              <Position x="223" y="20" />
-            </Shape>
-            <Shape Id="Day Of Week Number" Expanded="false">
-              <Attributes>
-                <Attribute Id="Day Of Week Number" />
-              </Attributes>
-              <Position x="223" y="68" />
+              <Position x="223" y="173" />
             </Shape>
             <Shape Id="Month Number" Expanded="false">
               <Attributes>
                 <Attribute Id="Month Number" />
               </Attributes>
-              <Position x="223" y="116" />
+              <Position x="223" y="224" />
             </Shape>
           </Shapes>
         </DiagramLayout>
@@ -224,10 +248,6 @@
           <AttributeID>Month Number</AttributeID>
           <Name>Month Number</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2712e26d-7235-4304-9a68-f14942e229fb">
-          <AttributeID>Day Of Week Number</AttributeID>
-          <Name>Day Of Week Number</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="1d718374-4a17-4175-b94a-e1b6c6bd5a1b">
           <AttributeID>Quarter Number</AttributeID>
           <Name>Quarter Number</Name>
@@ -264,7 +284,7 @@
           <AttributeID>Month Name</AttributeID>
           <Name>Month Name</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="77045093-6ed8-4745-b568-163557b6bc24">
+        <AttributeRelationship dwd:design-time-name="5377a187-11f1-4b26-a31b-7e73a486cf6c">
           <AttributeID>Day Of Week Name</AttributeID>
           <Name>Day Of Week Name</Name>
         </AttributeRelationship>
@@ -457,6 +477,15 @@
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="dbe134b0-3218-4db6-9005-563f516a93c7">
+          <AttributeID>Day Of Week Number</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>Day Of Week Number</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>AttributeKey</OrderBy>
+      <OrderByAttributeID>Day Of Week Number</OrderByAttributeID>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
