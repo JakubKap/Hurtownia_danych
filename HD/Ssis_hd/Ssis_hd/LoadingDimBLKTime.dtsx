@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDimBLKTime"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{8798C5C3-0AF2-4069-9AC6-9DC29C6FA7A6}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{E169A4DF-B8C6-4509-838C-C44656718B54}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -516,7 +516,7 @@
         <NodeLayout
           Size="195,43"
           Id="Package\Add 'Unknown Bad' Row"
-          TopLeft="112.499999217689,276.166666472952" />
+          TopLeft="112.499999217689,277.166666472952" />
         <NodeLayout
           Size="301,43"
           Id="Package\Delete quotation marks from Stage_DepArrBLK"
@@ -549,18 +549,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="211.916666275511,205.333333333334">
+          TopLeft="211.999999608844,205.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.8333331396182"
+              EndConnector="0,71.499999806285"
               Start="0,0"
-              End="0,63.3333331396182">
+              End="0,63.999999806285">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.3333331396182" />
+                    End="0,63.999999806285" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

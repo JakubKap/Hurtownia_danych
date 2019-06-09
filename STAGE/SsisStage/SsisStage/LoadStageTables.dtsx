@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadStageTables"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{BD36FED2-283C-495E-9034-A42A9E619CFF}">
+  DTS:VersionBuild="85"
+  DTS:VersionGUID="{D5B99AAD-6947-45CF-BE0A-D6D91989D975}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4747,6 +4747,22 @@
               startId="Package\CityMarketId\CityMarketId_Csv.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete all data from Stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DACCF9FC-D567-49D8-8DEC-40D0C3A8BA75}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete all data from Stage"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AFED8F56-3C9A-4380-877F-2A689A95C709}"
+          SQLTask:SqlStatementSource="EXEC dbo.deleteAllData;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -10574,6 +10590,14 @@
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Airport" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 20]"
+      DTS:CreationName=""
+      DTS:DTSID="{AEB3871A-B55D-4EAB-8A9A-5B7F49CAA1AE}"
+      DTS:From="Package\Delete all data from Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 20"
+      DTS:To="Package\Airlines" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
       DTS:DTSID="{E3C9C94D-AE4D-4A15-9AF8-2A3B00244EEE}"
@@ -10645,90 +10669,90 @@
         <NodeLayout
           Size="118,42"
           Id="Package\AirlineId"
-          TopLeft="141.5,227.5" />
+          TopLeft="141.5,258.5" />
         <NodeLayout
           Size="113,42"
           Id="Package\Airlines"
-          TopLeft="155,48" />
+          TopLeft="155,79" />
         <NodeLayout
           Size="111,42"
           Id="Package\Airport"
-          TopLeft="143.5,299.5" />
+          TopLeft="143.5,330.5" />
         <NodeLayout
           Size="121,42"
           Id="Package\AirportId"
-          TopLeft="142,386" />
+          TopLeft="142,417" />
         <NodeLayout
           Size="116,42"
           Id="Package\Airports"
-          TopLeft="148,147" />
+          TopLeft="148,178" />
         <NodeLayout
           Size="138,42"
           Id="Package\AirportSeqId"
-          TopLeft="138,470" />
+          TopLeft="138,501" />
         <NodeLayout
           Size="136,42"
           Id="Package\Cancellation"
-          TopLeft="129.5,550.5" />
+          TopLeft="129.5,581.5" />
         <NodeLayout
           Size="144,42"
           Id="Package\CarrierHistory"
-          TopLeft="118.5,632.5" />
+          TopLeft="118.5,663.5" />
         <NodeLayout
           Size="139,42"
           Id="Package\CityMarketId"
-          TopLeft="118,708" />
+          TopLeft="118,739" />
         <NodeLayout
           Size="126,42"
           Id="Package\DepArrBlk"
-          TopLeft="124.5,784.5" />
+          TopLeft="124.5,815.5" />
         <NodeLayout
           Size="165,43"
           Id="Package\DistanceGroup250"
-          TopLeft="118,1773.86665309111" />
+          TopLeft="118,1804.86665309111" />
         <NodeLayout
           Size="105,43"
           Id="Package\Facts"
-          TopLeft="138.194442757716,1867.33332542976" />
+          TopLeft="138.194442757716,1898.33332542976" />
         <NodeLayout
           Size="113,43"
           Id="Package\Months"
-          TopLeft="146.666664481163,1050.8666531686" />
+          TopLeft="146.666664481163,1081.8666531686" />
         <NodeLayout
           Size="173,43"
           Id="Package\OntimeDelayGroups"
-          TopLeft="118,1671.19998642445" />
+          TopLeft="118,1702.19998642445" />
         <NodeLayout
           Size="120,43"
           Id="Package\Quarters"
-          TopLeft="143.833332948387,1135.33332016071" />
+          TopLeft="143.833332948387,1166.33332016071" />
         <NodeLayout
           Size="157,43"
           Id="Package\StateAbrAviation"
-          TopLeft="118,1568.53331975778" />
+          TopLeft="118,1599.53331975778" />
         <NodeLayout
           Size="123,43"
           Id="Package\StateFips"
-          TopLeft="118,1465.86665309111" />
+          TopLeft="118,1496.86665309111" />
         <NodeLayout
           Size="148,42"
           Id="Package\UniqueCarriers"
-          TopLeft="127,863.5" />
+          TopLeft="127,894.5" />
         <NodeLayout
           Size="128,43"
           Id="Package\Weekdays"
-          TopLeft="118,1237.99998682737" />
+          TopLeft="118,1268.99998682737" />
         <NodeLayout
           Size="152,42"
           Id="Package\WorldAreaCode"
-          TopLeft="134,947" />
+          TopLeft="134,978" />
         <NodeLayout
           Size="132,43"
           Id="Package\YesNoResp"
-          TopLeft="111.666665077209,1358.19998642445" />
+          TopLeft="111.666665077209,1389.19998642445" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="208.75,90">
+          TopLeft="208.75,121">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10750,7 +10774,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="203.25,189">
+          TopLeft="203.25,220">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10772,7 +10796,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="201,905.5">
+          TopLeft="201,936.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10806,7 +10830,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="206.666665573915,989">
+          TopLeft="206.666665573915,1020">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10828,7 +10852,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="203.583332048108,1093.53331983527">
+          TopLeft="203.583332048108,1124.53331983527">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10850,7 +10874,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="203.833332948387,1177.99998682737">
+          TopLeft="203.833332948387,1208.99998682737">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10884,7 +10908,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="179.833332538605,1280.99998682737">
+          TopLeft="179.833332538605,1311.99998682737">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10906,7 +10930,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 15]"
-          TopLeft="178.583332538605,1401.19998642445">
+          TopLeft="178.583332538605,1432.19998642445">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10928,7 +10952,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
-          TopLeft="179.333333333333,1508.53331975778">
+          TopLeft="179.333333333333,1539.53331975778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10962,7 +10986,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 17]"
-          TopLeft="196.666666666667,1611.19998642445">
+          TopLeft="196.666666666667,1642.19998642445">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10996,7 +11020,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 18]"
-          TopLeft="202.666666666667,1713.86665309112">
+          TopLeft="202.666666666667,1744.86665309112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11018,7 +11042,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 19]"
-          TopLeft="200.5,1816.86665309111">
+          TopLeft="200.5,1847.86665309111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11052,7 +11076,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="199.75,269.5">
+          TopLeft="199.75,300.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11074,7 +11098,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="200.75,341.5">
+          TopLeft="200.75,372.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11096,7 +11120,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="204.75,428">
+          TopLeft="204.75,459">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11118,7 +11142,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="207,512">
+          TopLeft="207,543">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11152,7 +11176,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="194,592.5">
+          TopLeft="194,623.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11174,7 +11198,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="189,674.5">
+          TopLeft="189,705.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11196,7 +11220,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="187.5,750">
+          TopLeft="187.5,781">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11218,7 +11242,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="187.5,826.5">
+          TopLeft="187.5,857.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -11242,6 +11266,32 @@
                     Point3="13.5,22.5" />
                   <mssgle:LineSegment
                     End="13.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Delete all data from Stage"
+          TopLeft="108,1" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 20]"
+          TopLeft="210.25,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

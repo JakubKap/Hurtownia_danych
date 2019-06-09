@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="LoadingDataToDimAirline"
   DTS:PackageType="5"
-  DTS:VersionBuild="122"
-  DTS:VersionGUID="{0FD811DF-B36A-4529-860C-4F97190143F3}">
+  DTS:VersionBuild="135"
+  DTS:VersionGUID="{99606898-6233-4854-81DB-11316F78E435}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -209,13 +209,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - after insert"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{93bace2d-5f7c-472d-9890-c90f9546fd9a}"
+          DTS:DTSID="{8B9F89B5-DFCE-494E-9274-3B59AF435557}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode - after insert"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -225,13 +225,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before insert"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{8B9F89B5-DFCE-494E-9274-3B59AF435557}"
+          DTS:DTSID="{93bace2d-5f7c-472d-9890-c90f9546fd9a}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          DTS:ObjectName="Deleting quotation marks from Stage_WorldAreaCode - before insert"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -261,13 +261,13 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+              DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists then insert)"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{ACE841B1-430D-4E4A-97B8-53316C3F0CE2}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+              DTS:ObjectName="Check if exists in WorldAreaCode (if not exists then insert)"
               DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
@@ -295,13 +295,13 @@
           </DTS:ForEachVariableMappings>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Stage_Airlines"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{F669D356-95D8-4A0B-8FC6-7AE65999D560}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Get all Country names from Airlines_dat"
+          DTS:ObjectName="Get all Country names from Stage_Airlines"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -322,7 +322,7 @@
           DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{6DC5F2BB-951B-44FA-A26F-AA39E84461E3}"
-          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Stage_Airlines"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name" />
@@ -338,10 +338,10 @@
           DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{F842ED16-9931-4447-9ED3-0CEB38E55D5B}"
-          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before insert"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat" />
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Stage_Airlines" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
@@ -349,7 +349,7 @@
           DTS:From="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after" />
+          DTS:To="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - after insert" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -589,13 +589,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_AirlineId"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{09373F95-A094-4CEE-82F9-612F4F994DA0}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quoting marks from Stage_AirlineId"
+          DTS:ObjectName="Deleting quotation marks from Stage_AirlineId"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -605,13 +605,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_CarrierHistory"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{32655DCC-1068-4F56-BF26-D0DEA7798550}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quoting marks from Stage_CarrierHistory"
+          DTS:ObjectName="Deleting quotation marks from Stage_CarrierHistory"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -621,13 +621,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
+          DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_UniqueCarriers"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{174D8A80-DA2B-4946-BB66-73DE0E3C787D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quoting marks from Stage_UniqueCarriers"
+          DTS:ObjectName="Deleting quotation marks from Stage_UniqueCarriers"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -730,23 +730,23 @@
           DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
           DTS:DTSID="{EBF70940-CD2C-4A54-A133-FDFFE953382D}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_UniqueCarriers"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_AirlineId" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{41D38209-EC80-4595-AB68-64967188C250}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_AirlineId"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory" />
+          DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_CarrierHistory" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{5BFB254B-5737-4D46-B474-B41704A3B1C9}"
-          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
+          DTS:From="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_CarrierHistory"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Select AirlineIata, AirlineName FROM Stage_CarrierHistory" />
@@ -824,13 +824,13 @@
           <DTS:Variables />
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Insert unpresent airline"
+              DTS:refId="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Match World Area Code to Airline"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{8a941a7b-ba27-4c7a-9868-67138cf355ff}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Insert unpresent airline"
+              DTS:ObjectName="Match World Area Code to Airline"
               DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:ObjectData>
@@ -1369,13 +1369,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quotation marks from Stage_Airlines"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:DTSID="{E1C93B06-A35E-4B58-A33E-7D19EC1FF5A2}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Deleting quation marks from Stage_Airlines"
+          DTS:ObjectName="Deleting quotation marks from Stage_Airlines"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -2156,7 +2156,7 @@
           DTS:refId="Package\Transfering data from Stage_Airlines to Dwh_DimAirline.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
           DTS:DTSID="{365D8664-45DB-4909-828B-CA0F9710B82B}"
-          DTS:From="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          DTS:From="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quotation marks from Stage_Airlines"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Transfer data from Stage_Airlines to Dwh_DimAirline" />
@@ -2254,37 +2254,37 @@
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting duplicates FROM WorldAreaCode"
           TopLeft="37,419" />
         <NodeLayout
-          Size="372,42"
-          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before"
+          Size="401,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - before insert"
           TopLeft="18,44" />
         <NodeLayout
-          Size="370,42"
-          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode2 - after"
+          Size="393,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Deleting quotation marks from Stage_WorldAreaCode - after insert"
           TopLeft="12,497.5" />
         <NodeLayout
-          Size="344,42"
-          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists -&gt; insert)"
+          Size="354,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name\Check if exists in WorldAreaCode (if not exists then insert)"
           TopLeft="5.5,54" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="354,137"
-          Size="354,180"
+          PanelSize="364,151"
+          Size="364,194"
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Foreach Country Name"
           TopLeft="3,214.5" />
         <NodeLayout
-          Size="267,42"
-          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Airlines_dat"
+          Size="278,42"
+          Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes\Get all Country names from Stage_Airlines"
           TopLeft="67,135.5" />
         <EdgeLayout
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint]"
-          TopLeft="200.5,177.5">
+          TopLeft="206,177.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.5,37"
+              EndConnector="-26,37"
               Start="0,0"
-              End="-20.5,29.5">
+              End="-26,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2295,13 +2295,13 @@
                     Point2="0,18.5"
                     Point3="-4,18.5" />
                   <mssgle:LineSegment
-                    End="-16.5,18.5" />
+                    End="-22,18.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-16.5,18.5"
-                    Point2="-20.5,18.5"
-                    Point3="-20.5,22.5" />
+                    Point1="-22,18.5"
+                    Point2="-26,18.5"
+                    Point3="-26,22.5" />
                   <mssgle:LineSegment
-                    End="-20.5,29.5" />
+                    End="-26,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2334,18 +2334,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes.PrecedenceConstraints[Constraint 2]"
-          TopLeft="202.25,86">
+          TopLeft="218.5,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.5"
+              EndConnector="-12.5,49.5"
               Start="0,0"
-              End="0,42">
+              End="-12.5,42">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42" />
+                    End="0,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.75"
+                    Point2="0,24.75"
+                    Point3="-4,24.75" />
+                  <mssgle:LineSegment
+                    End="-8.5,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,24.75"
+                    Point2="-12.5,24.75"
+                    Point3="-12.5,28.75" />
+                  <mssgle:LineSegment
+                    End="-12.5,42" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2360,9 +2372,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22,36.5"
+              EndConnector="33.5,36.5"
               Start="0,0"
-              End="22,29">
+              End="33.5,29">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2373,13 +2385,13 @@
                     Point2="0,18.25"
                     Point3="4,18.25" />
                   <mssgle:LineSegment
-                    End="18,18.25" />
+                    End="29.5,18.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="18,18.25"
-                    Point2="22,18.25"
-                    Point3="22,22.25" />
+                    Point1="29.5,18.25"
+                    Point2="33.5,18.25"
+                    Point3="33.5,22.25" />
                   <mssgle:LineSegment
-                    End="22,29" />
+                    End="33.5,29" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2391,8 +2403,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="395,545"
-          Size="395,588"
+          PanelSize="424,595"
+          Size="424,638"
           Id="Package\Adding rest of WorldAreaCode to Stage_WorldAreaCodes"
           TopLeft="74,347" />
         <NodeLayout
@@ -2535,16 +2547,16 @@
           Id="Package\Adding to DimAirline rest of Airlines from Stage_AirlineId"
           TopLeft="104,2263.5" />
         <NodeLayout
-          Size="288,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_AirlineId"
+          Size="298,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_AirlineId"
           TopLeft="48.7777777777778,103.5" />
         <NodeLayout
-          Size="314,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_CarrierHistory"
+          Size="323,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_CarrierHistory"
           TopLeft="39.6111111111111,178.777777777778" />
         <NodeLayout
-          Size="319,42"
-          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quoting marks from Stage_UniqueCarriers"
+          Size="328,42"
+          Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory\Deleting quotation marks from Stage_UniqueCarriers"
           TopLeft="27.6666666666667,22.1111111111113" />
         <NodeLayout
           Size="314,42"
@@ -2563,18 +2575,18 @@
           TopLeft="25.1666666666667,262.666666666666" />
         <EdgeLayout
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint]"
-          TopLeft="189.972222222222,64.1111111111113">
+          TopLeft="194.722222222222,64.1111111111113">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.3888888888889"
+              EndConnector="0,39.3888888888887"
               Start="0,0"
-              End="0,31.8888888888889">
+              End="0,31.8888888888887">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.8888888888889" />
+                    End="0,31.8888888888887" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2585,18 +2597,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 1]"
-          TopLeft="194.694444444444,145.5">
+          TopLeft="199.444444444444,145.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.2777777777774"
+              EndConnector="0,33.277777777778"
               Start="0,0"
-              End="0,25.7777777777774">
+              End="0,25.777777777778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7777777777774" />
+                    End="0,25.777777777778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2607,18 +2619,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory.PrecedenceConstraints[Constraint 2]"
-          TopLeft="199.138888888889,220.777777777778">
+          TopLeft="201.388888888889,220.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.8888888888887"
+              EndConnector="0,41.888888888888"
               Start="0,0"
-              End="0,34.3888888888887">
+              End="0,34.388888888888">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.3888888888887" />
+                    End="0,34.388888888888" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2653,7 +2665,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="414,591"
-          Size="414,633"
+          Size="414,634"
           Id="Package\Adding to DimAirline rest of Airlines from Stage_CarrierHistory"
           TopLeft="85.5555555555556,1583.55555555556" />
         <NodeLayout
@@ -2665,14 +2677,14 @@
           Id="Package\Match appropriate WorldAreaCode to Airline\Deleting duplicates from Dwh_DimAirlineWorldAreaCodes"
           TopLeft="32,10" />
         <NodeLayout
-          Size="189,42"
-          Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Insert unpresent airline"
+          Size="235,42"
+          Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId\Match World Area Code to Airline"
           TopLeft="76.3333333333334,29.0000000000002" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="348,96"
-          Size="348,139"
+          PanelSize="348,126"
+          Size="348,169"
           Id="Package\Match appropriate WorldAreaCode to Airline\Foreach Country Name and AirlineId"
           TopLeft="35.5,187" />
         <NodeLayout
@@ -2731,16 +2743,24 @@
           Id="Package\Match appropriate WorldAreaCode to Airline"
           TopLeft="36,1106.5" />
         <NodeLayout
+          Size="473,42"
+          Id="Package\Replacing NULL in AirlineWorldAreaCode to foreign key of unknown WorldAreaCode"
+          TopLeft="232,3177" />
+        <NodeLayout
           Size="434,42"
           Id="Package\Setting NULL to rows in Dwh_DimAirline, which doesn't contain information"
           TopLeft="210,3087.5" />
         <NodeLayout
+          Size="321,42"
+          Id="Package\Setting NULLs to AirlineIata, which are not properly"
+          TopLeft="298,3266" />
+        <NodeLayout
           Size="440,42"
           Id="Package\Transfer data from Stage_WorldAreaCode to Dwh_DimAirlineWorldAreaCode"
-          TopLeft="30,960.5" />
+          TopLeft="48,1016.5" />
         <NodeLayout
-          Size="283,42"
-          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quation marks from Stage_Airlines"
+          Size="292,42"
+          Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline\Deleting quotation marks from Stage_Airlines"
           TopLeft="26.5,5.5" />
         <NodeLayout
           Size="328,42"
@@ -2748,7 +2768,7 @@
           TopLeft="5.5,88.5" />
         <EdgeLayout
           Id="Package\Transfering data from Stage_Airlines to Dwh_DimAirline.PrecedenceConstraints[Constraint 2]"
-          TopLeft="168.75,47.5">
+          TopLeft="171,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2777,18 +2797,30 @@
           TopLeft="103,68" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="271.75,296">
+          TopLeft="272,296">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51"
+              EndConnector="14,51"
               Start="0,0"
-              End="0,43.5">
+              End="14,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="10,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,25.5"
+                    Point2="14,25.5"
+                    Point3="14,29.5" />
+                  <mssgle:LineSegment
+                    End="14,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2799,30 +2831,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="271.5,935">
+          TopLeft="286,985">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21.5,25.5"
+              EndConnector="-18,31.5"
               Start="0,0"
-              End="-21.5,18">
+              End="-18,24">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.75" />
+                    End="0,11.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.75"
-                    Point2="0,12.75"
-                    Point3="-4,12.75" />
+                    Point1="0,11.75"
+                    Point2="0,15.75"
+                    Point3="-4,15.75" />
                   <mssgle:LineSegment
-                    End="-17.5,12.75" />
+                    End="-14,15.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-17.5,12.75"
-                    Point2="-21.5,12.75"
-                    Point3="-21.5,16.75" />
+                    Point1="-14,15.75"
+                    Point2="-18,15.75"
+                    Point3="-18,19.75" />
                   <mssgle:LineSegment
-                    End="-21.5,18" />
+                    End="-18,24" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2854,19 +2886,99 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="252.5,1002.5">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="419,2986.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,104"
+              EndConnector="8,101"
               Start="0,0"
-              End="0,96.5">
+              End="8,93.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,96.5" />
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="4,50.5" />
+                  <mssgle:LineSegment
+                    End="4,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,50.5"
+                    Point2="8,50.5"
+                    Point3="8,54.5" />
+                  <mssgle:LineSegment
+                    End="8,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="427,3129.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,47.5"
+              Start="0,0"
+              End="41.5,40">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.75"
+                    Point2="0,23.75"
+                    Point3="4,23.75" />
+                  <mssgle:LineSegment
+                    End="37.5,23.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,23.75"
+                    Point2="41.5,23.75"
+                    Point3="41.5,27.75" />
+                  <mssgle:LineSegment
+                    End="41.5,40" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="268,1058.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,48"
+              Start="0,0"
+              End="-13,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-9,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,24"
+                    Point2="-13,24"
+                    Point3="-13,28" />
+                  <mssgle:LineSegment
+                    End="-13,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2943,82 +3055,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="419,2986.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8,101"
-              Start="0,0"
-              End="8,93.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.5"
-                    Point2="0,50.5"
-                    Point3="4,50.5" />
-                  <mssgle:LineSegment
-                    End="4,50.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4,50.5"
-                    Point2="8,50.5"
-                    Point3="8,54.5" />
-                  <mssgle:LineSegment
-                    End="8,93.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="473,42"
-          Id="Package\Replacing NULL in AirlineWorldAreaCode to foreign key of unknown WorldAreaCode"
-          TopLeft="232,3177" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="427,3129.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.5,47.5"
-              Start="0,0"
-              End="41.5,40">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.75"
-                    Point2="0,23.75"
-                    Point3="4,23.75" />
-                  <mssgle:LineSegment
-                    End="37.5,23.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="37.5,23.75"
-                    Point2="41.5,23.75"
-                    Point3="41.5,27.75" />
-                  <mssgle:LineSegment
-                    End="41.5,40" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="321,42"
-          Id="Package\Setting NULLs to AirlineIata, which are not properly"
-          TopLeft="298,3266" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="468.5,3219">
